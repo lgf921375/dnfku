@@ -28,7 +28,15 @@
 - [攻击动作控制器](prototype/combat-actions.mjs)：基于现有 V3 `CombatArena` 的独立动作层；前摇/有效帧/后摇、一格按键缓冲及可切换的攻击者/受击者**逻辑时间**同步顿帧。**没有**将其等同于真实 Unity 双边物理/动画冻结。
 - [动作测试](tests/combat-actions.test.mjs)：新增 15 项独立 Node 自动回归；连同此前 33 项，`node --test tests/*.test.mjs` 在 Node v22.16.0 实际执行 **48/48 PASS、退出码0**。
 - [V4 研究报告](docs/combat-actions-v4-20261011.md)：源码状态机、原创动作时序、真实执行结果及未覆盖项。
-- **交互演示边界**：隔离容器另生成一份 V4 原创独立 HTML，Chromium 模拟触控执行 **12/12 PASS**，本轮已作为对话下载产物提供；**该 V4 HTML 尚未推送到 GitHub**。GitHub 的 `prototype/standalone.html` 仍是 V3 页面，不能把它描述成 V4。真实 Android 人手触控仍未覆盖。
+- [V4 单文件 HTML](prototype/action-lab.html) 与 [V4 浏览器复测脚本](tests/action-lab-smoke.py) **已补齐 GitHub**，实际复跑 12/12 PASS；`prototype/standalone.html` 仍是 V3。真实 Android 人手触控仍未覆盖。
+
+## V5 原创取消/霸体/受击打断实验（2026-10-11）
+
+- [V5 动作中断模块](prototype/combat-interrupts.mjs)：新增后摇取消窗口、限定攻击取消规则、有效帧霸体（**仅防动作打断，不代表免伤**）、受击终止动作和排队输入清理，不改 V3 原有命中/保护判定。
+- [V5 自动化测试](tests/combat-interrupts.test.mjs)：总共新增17项，连同全部旧用例，`node --test tests/*.test.mjs` 在隔离 Node.js v22.16.0 **65/65 PASS**。
+- [V5 离线交互页面](prototype/action-lab-v5.html) / [V5 Chromium 测试脚本](tests/action-lab-v5-smoke.py)：390×844 合成触控、取消、普通打断与强制打断验证 **12/12 PASS**。原 V4 浏览器12项也复跑通过。**不是 Android 真机实测**。
+- [V5 机制与缺陷报告](docs/combat-actions-v5-20261011.md)：包含“取消功能已关闭但 `cancelReady` 仍误报”为真的**已复现失败及修复证据**。旧版失败历史不删除。
+- **持续限制**：这只是原创角色动作逻辑；实际 HP/格挡/霸体下受伤、真实多角色实体攻击、安卓 APK、人手操作与官方 DNF 行为一致性都**未覆盖**。
 
 ## 文档导航
 
