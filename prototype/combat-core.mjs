@@ -93,8 +93,8 @@ export class CombatArena {
     this.record("forced-stand",{reason,airHits:this.airHits,groundHits:this.groundHits,totalHits:this.totalHits});
     this.resetCombo();
   }
-  hit(name) {
-    const def=ATTACKS[name];
+  hit(name, {definition} = {}) {
+    const def=definition ?? ATTACKS[name];
     if(!def) throw new Error("Unknown attack: "+name);
     if(this.state==="invulnerable") return this.record("blocked",{attack:name,reason:"protected-invulnerability"});
     if(!def.allowed.includes(this.state)) return this.record("blocked",{attack:name,reason:"invalid-target-state"});

@@ -1,0 +1,47 @@
+[
+  {
+    "model": "CombatScroll",
+    "identicalBox": [
+      {
+        "from": 0,
+        "to": 1,
+        "x0": 0,
+        "x1": 1.5,
+        "y0": 0,
+        "y1": 1.65
+      }
+    ],
+    "targetState": "down",
+    "hp": 200,
+    "damageEvents": []
+  },
+  {
+    "model": "CombatContact",
+    "identicalBox": [
+      {
+        "from": 0,
+        "to": 1,
+        "x0": 0,
+        "x1": 1.5,
+        "y0": 0,
+        "y1": 1.65
+      }
+    ],
+    "targetState": "down",
+    "hp": 186,
+    "damageEvents": [
+      {
+        "time": 0.09167,
+        "type": "damage",
+        "attacker": "A",
+        "target": "B",
+        "skill": "highSlash",
+        "damage": 14,
+        "hp": 186,
+        "armored": false,
+        "interrupted": false,
+        "protectedStand": false
+      }
+    ]
+  }
+]

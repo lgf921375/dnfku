@@ -13,8 +13,8 @@ class DuelActionController extends CombatInterruptController {
 }
 
 export class CombatDuel {
-  constructor({ settings={}, skills={}, frames, interruptSettings, bilateralHitstop=true, hp=200 }={}) {
-    this.settings={...SETTINGS,...settings};
+  constructor({ settings={}, skills={}, frames, interruptSettings, bilateralHitstop=true, hp=200, geometricHits=false }={}) {
+    this.settings={...SETTINGS,...settings};this.geometricHits=geometricHits;
     if (!Number.isFinite(this.settings.fixedStep) || this.settings.fixedStep<=0 || this.settings.fixedStep>0.1)
       throw new RangeError('invalid fixedStep');
     if (!Number.isFinite(hp) || hp<=0) throw new RangeError('invalid HP');
@@ -36,6 +36,15 @@ export class CombatDuel {
     });
   }
   fighter(id) { const f=this.fighters.find(f=>f.id===id); if(!f)throw new RangeError('unknown fighter');return f; }
+  hitDefinition(name,state) {
+    const def=ATTACKS[name];
+    if(!this.geometricHits)return def;
+    let effect=def.effect;
+    // State selects the REACTION after contact, never permission to collide.
+    if(state==='down'&&effect!=='launch')effect='ground';
+    else if((effect==='ground'&&state!=='down')||(effect==='airtap'&&state!=='airborne'))effect='none';
+    return {...def,allowed:['idle','airborne','down'],effect};
+  }
   record(type,detail={}) {const e={time:Number(this.time.toFixed(5)),type,...detail};this.events.push(e);return e;}
   press(id,name) {
     const f=this.fighter(id);
@@ -81,7 +90,7 @@ export class CombatDuel {
       const a=f.controller.action;if(!a||a.phase!=='active'||f.dead)continue;
       const target=this.fighters.find(t=>t!==f);const b=target.body;
       if(target.dead||a.contacts.has(target.id)||b.state==='invulnerable'||
-        !ATTACKS[a.name].allowed.includes(b.state)||b.time-b.lastHitTime<this.settings.minHitIntervalSeconds-1e-9)continue;
+        !this.hitDefinition(a.name,b.state).allowed.includes(b.state)||b.time-b.lastHitTime<this.settings.minHitIntervalSeconds-1e-9)continue;
       const box=this.attackBoxes(f).find(box=>b.overlap(box,b.enemyBox()));
       if(box)intents.push({f,target,a,box,armored:target.controller.armored,
         guarded:target.guard&&b.state==='idle'&&(f.body.enemyX-b.enemyX)*target.facing>=0});
@@ -96,7 +105,7 @@ export class CombatDuel {
     }
     const before={state:b.state,y:b.y,vy:b.vy,downRemaining:b.downRemaining,bounceRemaining:b.bounceRemaining};
     const original=b.attackBox;b.attackBox=()=>box;
-    let result;try {result=b.hit(a.name);} finally {b.attackBox=original;}
+    let result;try {result=b.hit(a.name,{definition:this.hitDefinition(a.name,b.state)});} finally {b.attackBox=original;}
     if(result.type!=='hit') {this.record('rejected-contact',{reason:result.reason});return;}
     // Armor blocks reaction, not damage, combo accounting or threshold protection.
     const protectedStand=b.state==='invulnerable';
