@@ -9,7 +9,8 @@ export const SETTINGS = Object.freeze({
   "groundHitLimit": 3,
   "totalHitLimit": 7,
   "protectedInvulnerabilitySeconds": 0.6,
-  "fixedStep": 0.008333333333333333
+  "fixedStep": 0.008333333333333333,
+  "minHitIntervalSeconds": 0.09
 });
 export const ATTACKS = Object.freeze({
   "launcher": {
@@ -60,7 +61,7 @@ export class CombatArena {
     this.cfg = {...SETTINGS, ...overrides};
     this.time=0; this.accumulator=0; this.playerX=0; this.enemyX=0.8;
     this.state="idle"; this.y=0; this.vy=0; this.downRemaining=0; this.invulnerabilityRemaining=0;
-    this.airHits=0; this.groundHits=0; this.totalHits=0; this.comboExpires=-Infinity;
+    this.airHits=0; this.groundHits=0; this.totalHits=0; this.comboExpires=-Infinity; this.lastHitTime=-Infinity;
     this.events=[];
   }
   snapshot() {
@@ -93,8 +94,9 @@ export class CombatArena {
     if(this.state==="invulnerable") return this.record("blocked",{attack:name,reason:"protected-invulnerability"});
     if(!def.allowed.includes(this.state)) return this.record("blocked",{attack:name,reason:"invalid-target-state"});
     if(!this.overlap(this.attackBox(def),this.enemyBox())) return this.record("blocked",{attack:name,reason:"aabb-miss"});
+    if(this.time-this.lastHitTime < this.cfg.minHitIntervalSeconds-1e-9) return this.record("blocked",{attack:name,reason:"hit-cadence"});
     if(this.time > this.comboExpires) this.resetCombo();
-    this.totalHits++;this.comboExpires=this.time+this.cfg.comboWindowSeconds;
+    this.totalHits++;this.lastHitTime=this.time;this.comboExpires=this.time+this.cfg.comboWindowSeconds;
     if(def.effect==="launch") {
       this.airHits++;this.state="airborne";this.y=Math.max(this.y,0.01);this.vy=this.cfg.launchVelocity;
     }else if(def.effect==="airtap") {
