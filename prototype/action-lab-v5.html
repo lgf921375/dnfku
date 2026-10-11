@@ -341,7 +341,7 @@ class CombatInterruptController extends CombatActionController {
     this.attackerHitstopRemaining = 0;
     return this.record('action-interrupted', { name:old, force:!!force });
   }
-  snapshot() { return { ...super.snapshot(), armored:this.armored, cancelReady:this.action !== null && this.phase==='recovery' && this.action.elapsed >= this.policy.cancelRecoveryAfter }; }
+  snapshot() { return { ...super.snapshot(), armored:this.armored, cancelReady:this.policy.cancelEnabled && this.action !== null && this.phase==='recovery' && this.action.elapsed+1e-9 >= this.policy.cancelRecoveryAfter && (this.policy.cancelRules[this.actionName] ?? []).length > 0 }; }
 }
 
 (function(){
