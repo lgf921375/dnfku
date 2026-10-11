@@ -31,19 +31,19 @@ const cases=(function runSuite(Arena, cfg) {
   });
   test("06 protection forces immediate stand after three ground sweeps",()=>{
     const a=new Arena();a.hit("launcher");land(a);
-    a.hit("groundSweep");a.hit("groundSweep");a.hit("groundSweep");
+    a.hit("groundSweep");a.tick(0.11);a.hit("groundSweep");a.tick(0.11);a.hit("groundSweep");
     eq(a.state,"invulnerable");eq(a.y,0);eq(a.events.filter(e=>e.type==="forced-stand").length,1);
     eq(a.events.find(e=>e.type==="forced-stand").reason,"ground-limit");
   });
   test("07 attacks blocked during protection then accepted after expiration",()=>{
     const a=new Arena();a.hit("launcher");land(a);
-    for(let i=0;i<3;i++)a.hit("groundSweep");
+    for(let i=0;i<3;i++){a.tick(0.11);a.hit("groundSweep");}
     eq(a.hit("launcher").reason,"protected-invulnerability");
     a.tick(cfg.protectedInvulnerabilitySeconds+0.02);eq(a.state,"idle");eq(a.hit("launcher").type,"hit");
   });
   test("08 four airborne hits trigger air-protection forced stand",()=>{
     const a=new Arena();a.hit("launcher");
-    for(let i=0;i<3;i++){a.tick(0.05);eq(a.hit("airTap").type,"hit");}
+    for(let i=0;i<3;i++){a.tick(0.11);eq(a.hit("airTap").type,"hit");}
     eq(a.state,"invulnerable");eq(a.events.find(e=>e.type==="forced-stand").reason,"air-limit");
   });
   test("09 airTap explicitly replaces vertical speed",()=>{
@@ -74,9 +74,48 @@ const cases=(function runSuite(Arena, cfg) {
     const a=new Arena();for(const n of [-1,NaN,Infinity,6]){let failed=false;try{a.tick(n)}catch(e){failed=true}ok(failed,"accepted "+n);}
   });
   test("16 protection has a single transition event",()=>{
-    const a=new Arena();a.hit("launcher");land(a);for(let i=0;i<3;i++)a.hit("groundSweep");
+    const a=new Arena();a.hit("launcher");land(a);for(let i=0;i<3;i++){a.tick(0.11);a.hit("groundSweep");}
     a.tick(1);eq(a.events.filter(e=>e.type==="forced-stand").length,1);eq(a.events.filter(e=>e.type==="protection-ended").length,1);
   });
   return results;
 })(CombatArena, SETTINGS);
 for (const result of cases) nodeTest(result.name,()=>assert.equal(result.status,'PASS',result.error));
+
+nodeTest("17 immediate repeated hit is rejected and does not advance combo",()=>{
+ const a=new CombatArena();a.hit("launcher");while(a.state!=="down")a.tick(1/120);
+ assert.equal(a.hit("groundSweep").type,"hit");
+ assert.equal(a.hit("groundSweep").reason,"hit-cadence");
+ assert.equal(a.groundHits,1);assert.equal(a.state,"down");
+});
+nodeTest("18 accepted swept hits separated by cadence trigger protection",()=>{
+ const a=new CombatArena();a.hit("launcher");while(a.state!=="down")a.tick(1/120);
+ for(let i=0;i<3;i++){if(i)a.tick(0.11);assert.equal(a.hit("groundSweep").type,"hit");}
+ assert.equal(a.state,"invulnerable");assert.equal(a.events.find(x=>x.type==="forced-stand").reason,"ground-limit");
+});
+nodeTest("19 independent total-hit threshold triggers protection",()=>{
+ const a=new CombatArena({airHitLimit:20,groundHitLimit:20,totalHitLimit:4});
+ a.hit("launcher");a.tick(0.11);a.hit("airTap");a.tick(0.11);a.hit("airTap");
+ while(a.state!=="down")a.tick(1/120);
+ assert.equal(a.hit("groundSweep").type,"hit");
+ assert.equal(a.state,"invulnerable");assert.equal(a.events.find(x=>x.type==="forced-stand").reason,"total-limit");
+});
+nodeTest("20 combo window expiry resets counts on next eligible hit",()=>{
+ const a=new CombatArena({comboWindowSeconds:0.2});a.hit("launcher");while(a.state!=="down")a.tick(1/120);
+ assert.equal(a.hit("groundSweep").type,"hit");
+ assert.equal(a.totalHits,1);assert.equal(a.airHits,0);assert.equal(a.groundHits,1);
+});
+nodeTest("21 out-of-range ground sweep does not refresh timer",()=>{
+ const a=new CombatArena();a.hit("launcher");while(a.state!=="down")a.tick(1/120);
+ a.tick(0.2);const d=a.downRemaining;a.enemyX=4;
+ assert.equal(a.hit("groundSweep").reason,"aabb-miss");assert.equal(a.downRemaining,d);assert.equal(a.groundHits,0);
+});
+nodeTest("22 cadence block does not reset remaining prone time",()=>{
+ const a=new CombatArena();a.hit("launcher");while(a.state!=="down")a.tick(1/120);
+ a.hit("groundSweep");a.tick(0.02);const d=a.downRemaining;
+ assert.equal(a.hit("groundSweep").reason,"hit-cadence");assert.equal(a.downRemaining,d);
+});
+nodeTest("23 forced-stand invulnerability beats cadence on attack",()=>{
+ const a=new CombatArena();a.hit("launcher");while(a.state!=="down")a.tick(1/120);
+ for(let i=0;i<3;i++){if(i)a.tick(0.11);a.hit("groundSweep");}
+ assert.equal(a.hit("launcher").reason,"protected-invulnerability");
+});
