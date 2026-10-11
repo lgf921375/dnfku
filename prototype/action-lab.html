@@ -1,0 +1,405 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>dnfku V4 · 原创战斗动作试验场</title><style>
+:root{color-scheme:dark;font-family:system-ui,"Noto Sans SC",sans-serif}*{box-sizing:border-box}body{margin:0;background:#081120;color:#e8f1fd}main{max-width:980px;margin:auto;padding:12px}.top{display:flex;justify-content:space-between;gap:12px;align-items:center}.top h1{font-size:1.3rem;margin:5px 0}.sub{font-size:12px;color:#9eacc1;margin:3px 0 10px;line-height:1.5}.stamp{font-size:11px;background:#17364b;color:#9ae5cc;border:1px solid #336d69;padding:6px 10px;border-radius:30px;white-space:nowrap}section{background:#101e31;border:1px solid #243d59;border-radius:12px;overflow:hidden}canvas{display:block;width:100%;height:auto;aspect-ratio:900/430;background:#122a45}.meters{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#273e55}.meter{padding:11px 4px;text-align:center;background:#14243a}.meter strong{display:block;font-size:16px;font-variant-numeric:tabular-nums}.meter span{display:block;font-size:10px;color:#9eb1c9}.buttons{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}.attack{border:1px solid #3a729d;background:#183d60;border-radius:11px;color:#eaf6ff;font-weight:750;min-height:68px;cursor:pointer;font-size:14px;touch-action:manipulation}.attack small{display:block;color:#b8cfe6;font-size:10px;margin-top:5px}.attack.sweep{background:#4e381d;border-color:#9c794e}.attack:active,.attack:focus-visible{filter:brightness(1.4)}.row{display:flex;gap:8px;margin:8px 0;flex-wrap:wrap}.row button{border-radius:8px;padding:12px;background:#20354f;color:#e9f4ff;border:1px solid #405d7b;cursor:pointer;font-weight:650}.row #autoplay{background:#146a53;border-color:#2a9878;flex:1}.note{font-size:11px;color:#91abc8;line-height:1.6}.panel{padding:11px 13px}.panel details summary{font-size:13px;cursor:pointer;font-weight:700}.sliders{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;padding-top:14px}.sliders label{font-size:11px;color:#b9c9dd;display:flex;flex-direction:column;gap:5px}.sliders output{font-weight:750;color:#d5edff}.sliders input{accent-color:#58aad5;width:100%;cursor:pointer}.row-check{display:flex;align-items:center;gap:9px;margin:13px 0 0;color:#c2d9ee;font-size:12px}.row-check input{accent-color:#43d4ad;width:18px;height:18px}.logs{margin-top:12px;padding:13px;background:#0d1a2b;border:1px solid #263b53;border-radius:11px}#log{white-space:pre-wrap;font:12px/1.6 ui-monospace,monospace;min-height:78px;max-height:180px;overflow:auto;color:#d2e3fa}.status{font-size:12px;color:#a9d9ff;padding:10px 13px;border-top:1px solid #28415b}#headline{font-weight:750;color:#9bedd0}.links{margin-top:14px;font-size:11px;color:#96aec7}@media(max-width:540px){main{padding:8px}.top h1{font-size:1.07rem}.buttons{gap:5px}.attack{font-size:12px;min-height:70px}.meters strong{font-size:14px}.sliders{grid-template-columns:repeat(2,1fr)}.stamp{font-size:9px;padding:5px} .row button{font-size:12px}}
+</style></head><body><main><div class="top"><h1>DNF 风格战斗动作实验 · V4</h1><span class="stamp">原创实验模型</span></div><p class="sub">攻击分为前摇 → 有效帧 → 后摇。动作进行中再次按键可缓冲到下一招；命中后可对比双边顿帧效果。用原创几何角色，不含 DNF 原版素材。</p><section><canvas id="field" width="900" height="430" aria-label="上挑、浮空、落地扫地的动作状态画面"></canvas><div class="meters"><div class="meter"><strong id="phase">待命</strong><span>攻击动作阶段</span></div><div class="meter"><strong id="flight">0.00</strong><span>敌人高度</span></div><div class="meter"><strong id="hit-count">0 / 7</strong><span>连续命中</span></div><div class="meter"><strong id="freeze">0ms</strong><span>双方命中停顿</span></div></div><div class="status" id="headline">先点「自动演示」或按下「上挑」。</div></section>
+<div class="buttons"><button class="attack" data-attack="launcher">↗ 上挑<small>前摇 100ms</small></button><button class="attack" data-attack="airTap">✦ 空追<small>前摇 60ms</small></button><button class="attack sweep" data-attack="groundSweep">↘ 扫地<small>倒地命中</small></button><button class="attack" data-attack="highSlash">⚔ 高位斩<small>倒地免疫</small></button></div>
+<div class="row"><button id="autoplay">▶ 自动演示连招</button><button id="pause">Ⅱ 暂停</button><button id="reset">↻ 重置</button></div>
+<section class="panel"><details><summary>展开动作时序与保护设置</summary><div class="sliders"><label>上挑前摇 <output id="windup-val">100 ms</output><input type="range" min="0.04" max="0.28" step="0.01" value="0.10" data-key="startup"></label><label>上挑后摇 <output id="recovery-val">180 ms</output><input type="range" min="0.05" max="0.35" step="0.01" value="0.18" data-key="recovery"></label><label>按键缓冲 <output id="buffer-val">200 ms</output><input type="range" min="0" max="0.35" step="0.01" value="0.20" data-key="buffer"></label><label>命中顿帧 <output id="stop-val">40 ms</output><input type="range" min="0" max="0.12" step="0.01" value="0.04" data-key="hitstop"></label><label>重力 <output id="gravity-val">22</output><input type="range" min="10" max="36" step="1" value="22" data-key="gravity"></label><label>触地反弹速度 <output id="bounce-val">0</output><input type="range" min="0" max="4" step="0.5" value="0" data-key="bounce"></label></div><label class="row-check"><input type="checkbox" id="bilateral" checked>攻击者 + 受击者双边命中停顿</label><label class="row-check"><input type="checkbox" id="boxes">显示原型命中判定盒</label></details></section>
+<div class="logs"><div class="note">最新实际事件（游戏模拟时间）：</div><div id="log">等待操作…</div></div><p class="note">本页仅作为原创战斗逻辑研究与浏览器自动测试材料；Unity、Android 真机、人手操作的手感与 DNF 行为对标均未验收。原型数值不代表官方 DNF 参数。</p></main>
+<script>
+// Inline copies generated from the same GitHub-bound original source modules.
+/** Original isolated combat model. NOT upstream DNF. Values are test-only design choices. */
+const SETTINGS = Object.freeze({
+  "gravity": 22,
+  "launchVelocity": 10.5,
+  "airTapVelocity": 5.5,
+  "knockdownSeconds": 0.9,
+  "comboWindowSeconds": 1.6,
+  "airHitLimit": 4,
+  "groundHitLimit": 3,
+  "totalHitLimit": 7,
+  "protectedInvulnerabilitySeconds": 0.6,
+  "fixedStep": 0.008333333333333333,
+  "minHitIntervalSeconds": 0.09,
+  "hitstopSeconds": 0.04,
+  "groundBounceVelocity": 0,
+  "groundBounceCount": 1
+});
+const ATTACKS = Object.freeze({
+  "launcher": {
+    "x0": 0,
+    "x1": 1.5,
+    "y0": 0.05,
+    "y1": 1.85,
+    "allowed": [
+      "idle",
+      "airborne"
+    ],
+    "effect": "launch"
+  },
+  "airTap": {
+    "x0": 0,
+    "x1": 1.5,
+    "y0": 0.65,
+    "y1": 3.5,
+    "allowed": [
+      "airborne"
+    ],
+    "effect": "airtap"
+  },
+  "groundSweep": {
+    "x0": 0,
+    "x1": 1.5,
+    "y0": 0,
+    "y1": 0.4,
+    "allowed": [
+      "down"
+    ],
+    "effect": "ground"
+  },
+  "highSlash": {
+    "x0": 0,
+    "x1": 1.5,
+    "y0": 0.6,
+    "y1": 1.65,
+    "allowed": [
+      "idle",
+      "airborne"
+    ],
+    "effect": "none"
+  }
+});
+class CombatArena {
+  constructor(overrides = {}) {
+    this.cfg = {...SETTINGS, ...overrides};
+    this.time=0; this.accumulator=0; this.playerX=0; this.enemyX=0.8;
+    this.state="idle"; this.y=0; this.vy=0; this.downRemaining=0; this.invulnerabilityRemaining=0;
+    this.hitstopRemaining=0; this.bounceRemaining=0;
+    this.airHits=0; this.groundHits=0; this.totalHits=0; this.comboExpires=-Infinity; this.lastHitTime=-Infinity;
+    this.events=[];
+  }
+  snapshot() {
+    return {time:this.time,state:this.state,enemyX:this.enemyX,y:this.y,vy:this.vy,
+      downRemaining:this.downRemaining,invulnerabilityRemaining:this.invulnerabilityRemaining,
+      hitstopRemaining:this.hitstopRemaining,bounceRemaining:this.bounceRemaining,
+      airHits:this.airHits,groundHits:this.groundHits,totalHits:this.totalHits};
+  }
+  resetCombo() { this.airHits=0; this.groundHits=0; this.totalHits=0; this.comboExpires=-Infinity; }
+  record(type,detail) {
+    const event={time:Number(this.time.toFixed(5)),type,...detail};
+    this.events.push(event);return event;
+  }
+  overlap(a,b) {
+    return a.x0 < b.x1 && a.x1 > b.x0 && a.y0 < b.y1 && a.y1 > b.y0;
+  }
+  enemyBox() {
+    if (this.state==="down") return {x0:this.enemyX-0.54,x1:this.enemyX+0.54,y0:0,y1:0.32};
+    return {x0:this.enemyX-0.34,x1:this.enemyX+0.34,y0:this.y,y1:this.y+1.8};
+  }
+  attackBox(def) {return {x0:this.playerX+def.x0,x1:this.playerX+def.x1,y0:def.y0,y1:def.y1};}
+  forcedStand(reason) {
+    this.state="invulnerable";this.y=0;this.vy=0;this.downRemaining=0;
+    this.invulnerabilityRemaining=this.cfg.protectedInvulnerabilitySeconds; this.hitstopRemaining=0; this.bounceRemaining=0;
+    this.record("forced-stand",{reason,airHits:this.airHits,groundHits:this.groundHits,totalHits:this.totalHits});
+    this.resetCombo();
+  }
+  hit(name) {
+    const def=ATTACKS[name];
+    if(!def) throw new Error("Unknown attack: "+name);
+    if(this.state==="invulnerable") return this.record("blocked",{attack:name,reason:"protected-invulnerability"});
+    if(!def.allowed.includes(this.state)) return this.record("blocked",{attack:name,reason:"invalid-target-state"});
+    if(!this.overlap(this.attackBox(def),this.enemyBox())) return this.record("blocked",{attack:name,reason:"aabb-miss"});
+    if(this.time-this.lastHitTime < this.cfg.minHitIntervalSeconds-1e-9) return this.record("blocked",{attack:name,reason:"hit-cadence"});
+    if(this.time > this.comboExpires) this.resetCombo();
+    this.totalHits++;this.lastHitTime=this.time;this.comboExpires=this.time+this.cfg.comboWindowSeconds;
+    if(def.effect==="launch") {
+      this.airHits++;this.state="airborne";this.y=Math.max(this.y,0.01);this.vy=this.cfg.launchVelocity;
+      this.bounceRemaining=this.cfg.groundBounceCount;
+    }else if(def.effect==="airtap") {
+      this.airHits++;this.vy=this.cfg.airTapVelocity;
+    }else if(def.effect==="ground") {
+      this.groundHits++;this.downRemaining=this.cfg.knockdownSeconds;
+    }else if(this.state==="airborne") {
+      this.airHits++;
+    }
+    const event=this.record("hit",{attack:name,state:this.state});
+    this.hitstopRemaining=Math.max(0,this.cfg.hitstopSeconds);
+    if(this.airHits>=this.cfg.airHitLimit || this.groundHits>=this.cfg.groundHitLimit || this.totalHits>=this.cfg.totalHitLimit) {
+      this.forcedStand(this.airHits>=this.cfg.airHitLimit?"air-limit":this.groundHits>=this.cfg.groundHitLimit?"ground-limit":"total-limit");
+    }
+    return event;
+  }
+  fixedTick() {
+    const dt=this.cfg.fixedStep;
+    this.time+=dt;
+    // A confirmed hit pauses physical/timer progression without stopping monotonic event time.
+    if(this.hitstopRemaining>0) {
+      this.hitstopRemaining=Math.max(0,this.hitstopRemaining-dt);
+      return;
+    }
+    if(this.state==="airborne"){
+      this.vy-=this.cfg.gravity*dt;
+      this.y+=this.vy*dt;
+      if(this.y<=0){
+        this.y=0;
+        if(this.bounceRemaining>0 && this.cfg.groundBounceVelocity>0.01 && this.vy<0){
+          this.vy=this.cfg.groundBounceVelocity;
+          this.bounceRemaining--;
+          this.record("ground-bounce",{velocity:this.vy,bouncesLeft:this.bounceRemaining});
+        } else {
+          this.vy=0;this.state="down";this.downRemaining=this.cfg.knockdownSeconds;
+          this.record("landed",{downRemaining:this.downRemaining});
+        }
+      }
+    }else if(this.state==="down"){
+      this.downRemaining=Math.max(0,this.downRemaining-dt);
+      if(this.downRemaining<=0){this.state="idle";this.record("ordinary-stand",{});}
+    }else if(this.state==="invulnerable"){
+      this.invulnerabilityRemaining=Math.max(0,this.invulnerabilityRemaining-dt);
+      if(this.invulnerabilityRemaining<=0){this.state="idle";this.record("protection-ended",{});}
+    }
+    if(this.state==="idle"&&this.time>this.comboExpires) this.resetCombo();
+  }
+  tick(seconds) {
+    if(!Number.isFinite(seconds)||seconds<0||seconds>5) throw new RangeError("tick seconds must be 0..5");
+    this.accumulator+=seconds;
+    while(this.accumulator + 1e-10 >= this.cfg.fixedStep){
+      this.accumulator-=this.cfg.fixedStep;
+      if(this.accumulator < 0) this.accumulator=0;
+      this.fixedTick();
+    }
+    return this.snapshot();
+  }
+}
+
+/** Original V4 input-and-animation time-line laboratory. No upstream code or DNF assets.
+ * Attack windup/active/recovery times below are experimental, not official DNF values.
+ * The V3 CombatArena remains the authoritative victim physics and hit validator.
+ */
+
+
+const ACTION_FRAMES = Object.freeze({
+  launcher: Object.freeze({ startup:0.10, active:0.07, recovery:0.18 }),
+  airTap: Object.freeze({ startup:0.06, active:0.07, recovery:0.13 }),
+  groundSweep: Object.freeze({ startup:0.07, active:0.06, recovery:0.16 }),
+  highSlash: Object.freeze({ startup:0.09, active:0.06, recovery:0.18 })
+});
+const ACTION_SETTINGS = Object.freeze({ inputBufferSeconds:0.20, bilateralHitstop:true });
+
+class CombatActionController {
+  constructor({ arena, actionSettings, frames } = {}) {
+    this.arena = arena ?? new CombatArena();
+    this.cfg = { ...ACTION_SETTINGS, ...actionSettings };
+    this.frames = { ...ACTION_FRAMES, ...frames };
+    this.time = 0;
+    this.accumulator = 0;
+    this.actionTime = 0;
+    this.action = null;
+    this.buffer = null;
+    this.attackerHitstopRemaining = 0;
+    this.events = [];
+  }
+  get phase() { return this.action?.phase ?? 'idle'; }
+  get actionName() { return this.action?.name ?? null; }
+  snapshot() { return {
+    time:this.time, actionTime:this.actionTime, phase:this.phase, action:this.actionName,
+    buffered:this.buffer?.name ?? null, attackerHitstopRemaining:this.attackerHitstopRemaining,
+    target:this.arena.snapshot()
+  }; }
+  record(type, fields={}) { const e={type, time:Number(this.time.toFixed(5)), ...fields}; this.events.push(e); return e; }
+  /** Inputs begin their STARTUP animation immediately, never apply instant damage. */
+  press(name) {
+    if (!Object.hasOwn(ATTACKS,name) || !this.frames[name]) throw new RangeError(`unknown action ${name}`);
+    if (!this.action) { this.start(name); return this.record('input-started',{name}); }
+    if (this.cfg.inputBufferSeconds<=0) return this.record('input-rejected',{name,reason:'busy'});
+    // Replacement policy: the most recent input owns the one-slot buffer.
+    this.buffer={ name, expiresAt:this.actionTime+this.cfg.inputBufferSeconds };
+    return this.record('input-buffered',{name,phase:this.phase});
+  }
+  start(name) {
+    const f=this.frames[name];
+    for (const k of ['startup','active','recovery']) {
+      if (!Number.isFinite(f[k]) || f[k]<0) throw new RangeError(`bad ${k} duration`);
+    }
+    this.action={name,phase:'startup',elapsed:0,impactDone:false};
+    this.record('phase',{name,phase:'startup'});
+  }
+  applyImpact() {
+    if (!this.action || this.action.impactDone) return;
+    this.action.impactDone=true;
+    const result=this.arena.hit(this.action.name);
+    this.record('impact',{name:this.action.name,result:result.type,reason:result.reason??null});
+    if (result.type==='hit') {
+      const period=this.arena.hitstopRemaining;
+      if (this.cfg.bilateralHitstop) this.attackerHitstopRemaining=period;
+    }
+  }
+  nextPhase() {
+    if (!this.action) return;
+    const a=this.action;
+    if (a.phase==='startup') {
+      a.phase='active';a.elapsed=0;
+      this.record('phase',{name:a.name,phase:'active'});
+      this.applyImpact();
+    } else if (a.phase==='active') {
+      a.phase='recovery';a.elapsed=0;
+      this.record('phase',{name:a.name,phase:'recovery'});
+    } else {
+      this.record('action-end',{name:a.name});
+      this.action=null;
+      if (this.buffer) {
+        const pending=this.buffer;this.buffer=null;
+        if (this.actionTime <= pending.expiresAt+1e-9) {
+          this.start(pending.name);
+          this.record('input-consumed',{name:pending.name});
+        } else this.record('input-expired',{name:pending.name});
+      }
+    }
+  }
+  fixedTick() {
+    const dt=this.arena.cfg.fixedStep;
+    this.time+=dt;
+    // Both channels always share a monotonic simulation clock.
+    const frozen=this.cfg.bilateralHitstop && this.attackerHitstopRemaining>0;
+    this.arena.tick(dt);
+    if (frozen) {
+      this.attackerHitstopRemaining=Math.max(0,this.attackerHitstopRemaining-dt);
+      return;
+    }
+    this.attackerHitstopRemaining=0;
+    this.actionTime+=dt;
+    if (!this.action) return;
+    // Each fixed tick may cross a single phase boundary: no double-hit at phase edges.
+    const maxStep=this.frames[this.action.name][this.action.phase];
+    this.action.elapsed+=dt;
+    if (this.action.elapsed+1e-9>=maxStep) this.nextPhase();
+  }
+  tick(seconds) {
+    if (!Number.isFinite(seconds)||seconds<0||seconds>5) throw new RangeError('invalid tick duration');
+    this.accumulator+=seconds;
+    const dt=this.arena.cfg.fixedStep;
+    while(this.accumulator+1e-10>=dt) {
+      this.accumulator-=dt;
+      if (this.accumulator<0)this.accumulator=0;
+      this.fixedTick();
+    }
+    return this.snapshot();
+  }
+}
+
+(function(){
+  const $=id=>document.getElementById(id);
+  const canvas=$('field'),cx=canvas.getContext('2d');
+  let controller=new CombatActionController(),paused=false,last=0,auto=0;
+  let eCursor=0, targetCursor=0,localLog=[],flash=0;
+  const skill={launcher:'上挑',airTap:'空追',groundSweep:'扫地',highSlash:'高位斩'};
+  const stateLabels={idle:'站立',airborne:'浮空',down:'倒地',invulnerable:'保护起身'};
+  function newController(){
+    const lastController=controller;
+    controller=new CombatActionController({arena:new CombatArena({...lastController.arena.cfg}),actionSettings:{...lastController.cfg},frames:structuredClone(lastController.frames)});
+    eCursor=0;targetCursor=0;localLog=[];flash=0;auto=0;last=performance.now();
+    $('headline').textContent='场景已重置，可再次上挑';
+  }
+  function input(name){
+    const r=controller.press(name);
+    $('headline').textContent=r.type==='input-buffered'?'按键已缓冲：'+skill[name]+'（等待当前后摇结束）':r.type==='input-started'?skill[name]+'：动作前摇开始':'按键忙碌，未缓冲';
+    readEvents();
+  }
+  function readEvents(){
+    for(let i=eCursor;i<controller.events.length;i++){
+      const e=controller.events[i];
+      if(e.type==='phase') append(e.time,'动作 '+skill[e.name]+' · '+({startup:'前摇',active:'有效帧',recovery:'后摇'}[e.phase]));
+      else if(e.type==='impact'){append(e.time,'有效帧 '+skill[e.name]+' → '+(e.result==='hit'?'命中':'未命中：'+e.reason));if(e.result==='hit')flash=.13;}
+      else if(e.type==='input-consumed')append(e.time,'缓冲输入已出队：'+skill[e.name]);
+      else if(e.type==='input-expired')append(e.time,'缓冲输入过期：'+skill[e.name]);
+      else if(e.type==='input-buffered')append(e.time,'输入排队：'+skill[e.name]);
+    }
+    eCursor=controller.events.length;
+    const ev=controller.arena.events;
+    for(let i=targetCursor;i<ev.length;i++){
+      const e=ev[i];
+      if(e.type==='landed')append(e.time,'目标触地倒地 → 可扫地');
+      if(e.type==='ground-bounce')append(e.time,'目标触地反弹（此刻不可扫地）');
+      if(e.type==='forced-stand')append(e.time,'连击保护：立即起身 + 无敌 ('+e.reason+')');
+      if(e.type==='protection-ended')append(e.time,'保护无敌结束');
+    }
+    targetCursor=ev.length;
+    $('log').textContent=localLog.slice(-9).reverse().join('\n')||'等待操作…';
+  }
+  function append(t,msg){localLog.push(t.toFixed(2)+'s　'+msg);}
+  function autoplay(){newController();paused=false;$('pause').textContent='Ⅱ 暂停';auto=1;input('launcher');$('headline').textContent='自动连招：上挑 → 缓冲空追 → 落地 → 扫地×3';}
+  function nextAuto(){
+    const c=controller;
+    if(auto===1 && c.actionName==='launcher' && c.phase==='recovery' && c.action.elapsed>.06){input('airTap');auto=2;}
+    else if(auto===2 && c.actionName==='airTap' && c.phase==='recovery'){auto=3;}
+    else if(auto===3 && !c.action && c.arena.state==='down'){input('groundSweep');auto=4;}
+    else if(auto===4 && !c.action){input('groundSweep');auto=5;}
+    else if(auto===5 && !c.action){input('groundSweep');auto=6;}
+    else if(auto===6 && c.arena.state==='invulnerable'){
+      auto=0;$('headline').textContent='自动连招完成：扫地保护起身！';
+    }else if(auto===6 && !c.action && c.arena.state!=='invulnerable'){
+      auto=0;$('headline').textContent='演示结束：未触发保护，见战斗事件';
+    }
+  }
+  function drawFigure(x,foot,isTarget){
+    const arena=controller.arena;
+    const down=isTarget&&arena.state==='down';
+    cx.save();cx.translate(x,foot);const good=isTarget?'#dca46b':'#75caed';
+    if(down){cx.fillStyle=good;cx.fillRect(-43,-20,86,20);cx.fillStyle='#f8d8af';cx.beginPath();cx.arc(38,-20,12,0,Math.PI*2);cx.fill();}
+    else{
+      const phase=controller.phase,raising=!isTarget&&phase!=='idle';
+      cx.strokeStyle=isTarget?'#9b694f':'#23759b';cx.lineWidth=12;cx.lineCap='round';
+      cx.beginPath();cx.moveTo(-12,-48);cx.lineTo(-16,-3);cx.moveTo(11,-48);cx.lineTo(15,-3);cx.stroke();
+      cx.fillStyle=good;cx.fillRect(-22,-108,44,62);
+      cx.strokeStyle=good;cx.lineWidth=10;cx.beginPath();cx.moveTo(-19,-95);cx.lineTo(-34,-67);cx.moveTo(19,-95);cx.lineTo(raising?46:31,raising?-132:-64);cx.stroke();
+      cx.fillStyle='#f7d7b5';cx.beginPath();cx.arc(0,-125,20,0,Math.PI*2);cx.fill();
+      cx.fillStyle=isTarget?'#704a3b':'#214567';cx.fillRect(-21,-144,42,18);
+      if(!isTarget){cx.strokeStyle='#cff2ff';cx.lineWidth=6;cx.beginPath();cx.moveTo(raising?46:31,raising?-132:-65);cx.lineTo(raising?80:44,raising?-184:-113);cx.stroke();}
+      if(isTarget&&arena.state==='invulnerable'){cx.strokeStyle='#92e9ef';cx.setLineDash([6,4]);cx.lineWidth=3;cx.strokeRect(-36,-159,72,166);cx.setLineDash([]);}
+    }
+    cx.restore();
+  }
+  function render(){
+    const W=900,H=430,G=348,hero=235,enemy=390,a=controller.arena;
+    cx.clearRect(0,0,W,H);
+    const grd=cx.createLinearGradient(0,0,0,H);grd.addColorStop(0,'#142c49');grd.addColorStop(1,'#244563');cx.fillStyle=grd;cx.fillRect(0,0,W,H);
+    cx.fillStyle='#23455c';for(let i=0;i<9;i++){cx.beginPath();cx.moveTo(i*128-110,280);cx.lineTo(i*128+20,180+(i%3)*21);cx.lineTo(i*128+139,280);cx.fill();}
+    cx.fillStyle='#2c3d49';cx.fillRect(0,G,W,H-G);cx.strokeStyle='#657c75';cx.lineWidth=3;cx.beginPath();cx.moveTo(0,G);cx.lineTo(W,G);cx.stroke();
+    cx.fillStyle='#092235';cx.beginPath();cx.ellipse(hero,G+2,45,10,0,0,Math.PI*2);cx.fill();cx.beginPath();cx.ellipse(enemy,G+2,52,10,0,0,Math.PI*2);cx.fill();
+    drawFigure(hero,G,false);drawFigure(enemy,G-a.y*68,true);
+    cx.font='bold 14px system-ui';cx.textAlign='center';cx.fillStyle='#b9edff';cx.fillText('测试玩家',hero,G+27);cx.fillStyle='#ffd8a6';cx.fillText('受击目标',enemy,G+27);
+    const status=stateLabels[a.state];cx.fillStyle='#d2eaff';cx.font='14px system-ui';cx.textAlign='left';cx.fillText('目标：'+status+' · 空中 '+a.airHits+'/'+a.cfg.airHitLimit+' · 扫地 '+a.groundHits+'/'+a.cfg.groundHitLimit,17,32);
+    if(controller.phase!=='idle'){
+      cx.fillStyle='#bce9fd';cx.fillText('当前技能：'+skill[controller.actionName]+' · '+({startup:'前摇',active:'有效帧',recovery:'后摇'}[controller.phase]),17,55);
+    }
+    if($('boxes').checked){const box=a.enemyBox(),mx=hero;cx.strokeStyle='#ff9bba';cx.lineWidth=2;cx.setLineDash([5,5]);cx.strokeRect(mx+box.x0*193,G-box.y1*68,(box.x1-box.x0)*193,(box.y1-box.y0)*68);cx.setLineDash([]);}
+    if(controller.phase==='active'){cx.strokeStyle='#acefff';cx.lineWidth=7;cx.beginPath();cx.arc(hero+52,G-107,89,-1.15,.65);cx.stroke();}
+    if(flash>0){cx.fillStyle='rgba(209,240,255,'+(flash*1.15)+')';cx.fillRect(0,0,W,H);}
+    $('phase').textContent=({idle:'待命',startup:'前摇',active:'有效帧',recovery:'后摇'})[controller.phase];
+    $('flight').textContent=a.y.toFixed(2);$('hit-count').textContent=a.totalHits+' / '+a.cfg.totalHitLimit;
+    $('freeze').textContent=Math.round(Math.max(a.hitstopRemaining,controller.attackerHitstopRemaining)*1000)+'ms';
+  }
+  function loop(now){
+    if(!last)last=now;const dt=Math.min(.05,Math.max(0,(now-last)/1000));last=now;
+    if(!paused){controller.tick(dt);readEvents();if(auto)nextAuto();readEvents();flash=Math.max(0,flash-dt);}
+    render();requestAnimationFrame(loop);
+  }
+  document.querySelectorAll('[data-attack]').forEach(b=>b.addEventListener('pointerdown',e=>{e.preventDefault();auto=0;input(b.dataset.attack)}));
+  $('autoplay').addEventListener('click',autoplay);$('reset').addEventListener('click',newController);
+  $('pause').addEventListener('click',()=>{paused=!paused;last=performance.now();$('pause').textContent=paused?'▶ 继续':'Ⅱ 暂停';});
+  document.querySelectorAll('[data-key]').forEach(e=>e.addEventListener('input',()=>{
+    const key=e.dataset.key,v=Number(e.value);
+    const vals={startup:'windup-val',recovery:'recovery-val',buffer:'buffer-val',hitstop:'stop-val',gravity:'gravity-val',bounce:'bounce-val'};
+    $(vals[key]).textContent=['startup','recovery','buffer','hitstop'].includes(key)?Math.round(v*1000)+' ms':e.value;
+    if(key==='startup'||key==='recovery')controller.frames.launcher={...controller.frames.launcher,[key]:v};
+    if(key==='buffer')controller.cfg.inputBufferSeconds=v;
+    if(key==='hitstop')controller.arena.cfg.hitstopSeconds=v;
+    if(key==='gravity')controller.arena.cfg.gravity=v;
+    if(key==='bounce')controller.arena.cfg.groundBounceVelocity=v;
+  }));
+  $('bilateral').addEventListener('change',e=>controller.cfg.bilateralHitstop=e.target.checked);
+  document.addEventListener('keydown',e=>{if(['INPUT','TEXTAREA'].includes(document.activeElement?.tagName))return;
+    const map={Space:'launcher',KeyJ:'airTap',KeyK:'groundSweep',KeyL:'highSlash'};
+    if(map[e.code]){e.preventDefault();auto=0;input(map[e.code]);}if(e.code==='KeyR')newController();});
+  requestAnimationFrame(loop);
+})();
+</script></body></html>
