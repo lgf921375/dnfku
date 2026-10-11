@@ -74,3 +74,50 @@
 - **下一步 3**：再做参数扫描与体验调优，先出方案与录像，不在证据不足时宣布达到官方 DNF 打击感。
 
 **隔离约束**：仅新增 `dnfku` 的独立原创实验与研究文档，不修改、部署、重启《皓石传奇三》，不触碰原手机 40C 数据、600ms 冷却或怪物规则。
+
+---
+
+## 2026-10-11 后续实测：Node CLI、Chromium 与扫地重复命中修复
+
+> **本节是原 16 项记录的追加验收，不回写或抹除历史证据。测试对象是本仓库原创隔离模型，不是 MiniDNF/Unity-DNF 正式运行，也不是 Android 设备实测。**
+
+### 一、提交前基线回归：通过（隔离 Node 运行测试）
+
+- 在独立容器内恢复本仓库固定 commit `4ebe93b7457a4f6d4121c5a19feb0d1d561758f1` 时的 `prototype/combat-core.mjs` 和 `tests/combat-core.test.mjs`。以 Git Blob SHA 分别核对得到 `7349f0fefa71232d24a082cdcbf51df2fa88ebed`、`e059895cf235b8b95e130f587ef92c8b7022adb5`，与 GitHub 返回值完全一致，排除了“重建测试代码与仓库不一致”的疑点。
+- 实际命令：`node --test tests/combat-core.test.mjs`，Node `v22.16.0`，进程退出码 `0`，原先 **16 PASS / 0 FAIL**。这项 Node CLI 原来在交接中是“未覆盖”，本轮终于取得运行证据。
+
+### 二、旧版实际发现的问题：失败（旧版模型）
+
+- 在 Chromium 无头浏览器（窄屏 410px）中执行了旧版单文件 HTML 的 DOM 和 `pointerdown` 事件。上挑约 `0.1s`、落地约 `1.05s`；同一模拟时刻连续分发三次 `groundSweep`，日志里约 `1.17–1.18s` 连续出现三次命中，立即触发 `ground-limit` 强制起身。这**不是**希望的有攻击节奏的真实扫地连击。
+- **原因（静态 + 浏览器实测交叉确认）**：旧版 `CombatArena.hit()` 允许同一个模拟时间点反复通过状态/AABB 判定并增长保护次数，没有最小有效命中间隔。旧版 16 项测试未覆盖同帧重复事件。
+- 限定语：将旧版重复攻击缺陷标为“失败（旧版原创模型）”，**不是**宣称 MiniDNF、Unity-DNF、官方 DNF 的扫地功能失败。
+
+### 三、修复与新测试：通过（独立模型实测）
+
+**修复内容**：
+
+1. 在 `SETTINGS` 新增 `minHitIntervalSeconds=0.09`；`CombatArena` 保存 `lastHitTime`。在状态合法、AABB 命中后，如果距离上一次有效伤害不足 0.09 秒，返回 `blocked / hit-cadence`，不增加连击计数、不刷新倒地时间。无敌检查仍先于节奏检查，因此保护期间不能靠重复请求伤害绕过无敌。
+2. 修改原来的重复扫地测试，在至少 `0.11s` 的间隔内触发；新增 7 项回归，包含同瞬间重复拒绝、按节奏扫地后保护、独立总数保护、连击窗口过期、扫地距离未命中、拒绝攻击不刷新躺地计时、保护与命中节奏的优先级。
+3. 交互 HTML 增加“自动演示：浮空 → 扫地 → 保护”按钮，及上挑初速、重力、倒地时间的可调输入；将新源码嵌入 HTML，与 `combat-core.mjs` 同步。
+
+**实际测试**：
+
+| 实际执行项 | 环境 | 结果 |
+|---|---|---|
+| `node --test tests/combat-core.test.mjs` | Node v22.16.0，隔离容器 | **23/23 PASS，退出码 0** |
+| `python tests/browser-smoke.py` | Python Playwright + 系统 Chromium，无头，390×844 模拟移动视口、`has_touch` 和人工合成的 `pointerdown` | **11/11 PASS，退出码 0** |
+| 自动演示日志顺序 | 同一 Chromium 实际运行 | `airTap` → `landed` → 三次间隔扫地 → `forced-stand (ground-limit)` → `protection-ended`；通过 |
+| 同瞬间扫地重复 | 同一 Chromium 实际运行 | 第二次即时请求得到 `hit-cadence`，计数保持 1/3；通过 |
+| JavaScript 运行异常 | 同一 Chromium 实际运行 | 浏览器 `pageerror=[]`；通过 |
+
+GitHub 上与实测候选代码一致的 Git Blob SHA（已逐个比对）：`combat-core.mjs` `8b70ef908a5687392bce104604d029f077531604`；`combat-core.test.mjs` `79ab19676eea992acd44e5e72862e0759d0b039b`；`standalone.html` `1b4dee8bf72b2c631deeed22965d33b55e28d10f`；`browser-smoke.py` `91483f222f2e1faa592e9f953f99c8697932021c`。
+
+**复现命令**：Node 环境执行 `node --test tests/combat-core.test.mjs`；如运行环境已安装 Playwright 和 Chromium，再执行 `python tests/browser-smoke.py`。浏览器脚本使用 `page.set_content` 执行仓库原始 HTML 文字，避免当前隔离环境对 `file://` 打开的管理员限制；该限制并非游戏逻辑故障。本轮未安装依赖，也未创建外部服务。
+
+### 四、状态边界与下一步
+
+- **通过（原创隔离运行测试）**：23 个 Node 核心逻辑断言、11 个 Chromium 模拟触控/页面断言，及 GitHub blob 对齐。
+- **失败（旧版，已在原创隔离模型中修复）**：几乎同一帧内多次扫地命中可刷满保护；现在用原创 90ms 节奏闸门阻止。
+- **未覆盖**：Android 实际手指触控与 30/60Hz 画面手感、真实 Unity 战斗工程、原版 DNF 保护规则与起身时机、正式角色动作和碰撞高度、双边 hitstop、边缘输入缓冲、多人网络同步及版权审核。Chromium 的 `has_touch` 只是模拟输入，**不能记为 Android 真机通过**。
+- **原创配置边界**：90ms 最小命中间隔、22 重力、10.5 上挑初速、0.9s 倒地、4 次空中 / 3 次扫地保护都是**测试假设**，不是 DNF 官方数值，也尚未经过人工手感调优。
+- **下一步**：用户可下载并在真实安卓浏览器中触控测试更新后的单文件 HTML，录屏反馈具体落地过快、受击盒错位等问题；研发侧要进一步增加针对不同按键速率、极端重力和保护状态的场景测试。正式 DNF 风格打击感与 Android 手游仍属于研究/开发目标。
