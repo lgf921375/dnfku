@@ -45,7 +45,13 @@
 - [V6报告](docs/combat-duel-v6-20261011.md) / [Android路线评估](docs/android-route-v6-20261011.md)：Node v24.19.0本轮 **104/104通过**（旧65+新39）；[批量检查](tests/run-v6-batch.mjs) 与 [原始证据](docs/evidence-v6/results.json)。
 - **环境失败/未覆盖**：本轮Chromium缺失且下载失败，V6浏览器脚本启动退出1，页面断言0项执行。页面视觉/交互、Android真机/APK、Unity、主观手感、联网均未覆盖；历史V4/V5浏览器通过不能代替V6。
 
-## 既有研究文档导航
+## V7 横版人物动作与连续操作（2026-10-11）
+
+- 用户反馈V6方块展示与手感不满足横版格斗目标。新增 [V7单文件](prototype/scroll-lab-v7.html)：原创持剑关节人物、前摇/挥砍/受击/浮空/倒地、连续摇杆与前后走位、刀光/火花/轻震屏、可选合成音效、可选陪练。旧规则与测试保持原样。
+- [V7报告](docs/side-scroll-v7-20261011.md)：Node **118/118 PASS**；同一Canvas绘制函数在Skia生成四状态图并人工查看。**不是浏览器/手机验收**。Chromium仍缺失，V7交互断言0项执行；真实打击感未覆盖。
+- [批量脚本](tests/run-v7-batch.mjs) / [原始结果](docs/evidence-v7/results.json)。手机建议横屏打开，左下摇杆，右下技能；攻击键在对手倒地时自动选扫地。当前仍为简化原创画风与原型，非正式手游。
+
+## 既有研究文档索引
 
 1. [AGENTS.md](AGENTS.md)：本仓库后续审查和更新规则。
 2. [docs/source-audit-20261011.md](docs/source-audit-20261011.md)：真实文件路径与源码结论。

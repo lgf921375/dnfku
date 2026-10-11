@@ -1,0 +1,1 @@
+PASS production Canvas renderer: idle / impact / airborne / sweep, 4 PNGs (Skia, not Chromium).

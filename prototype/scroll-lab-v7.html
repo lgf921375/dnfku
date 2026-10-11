@@ -1,0 +1,615 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>青石 · 横版战斗 V7</title>
+<style>*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#0e1723;color:#f0eadc;font:14px system-ui;touch-action:none;user-select:none}#game{position:fixed;inset:0}canvas{width:100%;height:100%;object-fit:contain}header{position:absolute;top:14px;left:18px;right:18px;display:flex;gap:24px;justify-content:space-between;pointer-events:none}.fighter{width:35%;max-width:330px;font-size:12px}.fighter b{font-size:16px;letter-spacing:2px}.bar{height:9px;background:#06101a;border:1px solid #a89b7355;margin-top:6px;transform:skewX(-14deg)}.bar span{display:block;height:100%;background:linear-gradient(90deg,#3eaca6,#a0f2d0)}.enemy .bar span{background:linear-gradient(90deg,#bb5549,#eeb883)}#hint{position:absolute;top:65px;left:20px;color:#d6c8ac99;font-size:11px;pointer-events:none}.tools{position:absolute;left:50%;top:12px;transform:translateX(-50%);display:flex;gap:6px}button{color:#ede2ca;border:1px solid #cab38666;background:#172334cc;min-height:38px;border-radius:7px;font-size:12px;padding:6px 10px;touch-action:none}button:active{background:#52667d}#stick{position:absolute;left:30px;bottom:25px;width:126px;height:126px;border-radius:50%;border:1px solid #b8c7d140;background:#172a3c66;box-shadow:inset 0 0 25px #b5d2d10c;touch-action:none}#stick:before{content:'移动';position:absolute;top:7px;width:100%;text-align:center;color:#dae4e466;font-size:10px}#knob{position:absolute;left:40px;top:40px;width:46px;height:46px;border:1px solid #c9d9cf70;border-radius:50%;background:#6f8b9380;pointer-events:none}.skills{position:absolute;right:26px;bottom:20px;display:grid;grid-template-columns:repeat(3,64px);gap:12px;align-items:end}.skills button{border-radius:50%;height:64px;width:64px;border:2px solid #bba575;box-shadow:0 3px 14px #0008;background:radial-gradient(circle at 40% 30%,#4b6272,#142432);font-size:14px}.skills .basic{width:82px;height:82px;grid-row:span 2;align-self:center;border-color:#ddc292;background:radial-gradient(circle at 40% 30%,#836845,#2d2828);font-size:19px}.skills .sub{font-size:11px;height:51px;width:51px}.label{position:absolute;bottom:4px;left:50%;transform:translateX(-50%);font-size:10px;color:#9cabba}#combo{position:absolute;right:30px;top:112px;font-size:27px;font-style:italic;color:#efce87;pointer-events:none}#result{position:absolute;inset:0;display:none;align-items:center;justify-content:center;pointer-events:none;font-size:32px;background:#09111a55;text-shadow:0 4px 14px #000}#result.show{display:flex}#portrait{display:none}@media(orientation:portrait){#portrait{display:block;position:absolute;top:95px;text-align:center;width:100%;color:#ddc293;font-size:12px}.tools{top:140px}.fighter{width:44%}header{gap:15px;top:20px}#hint{top:74px}#stick{left:18px;bottom:45px;width:114px;height:114px}#knob{left:34px;top:34px}.skills{right:16px;bottom:36px;gap:7px;grid-template-columns:repeat(3,53px)}.skills button{width:53px;height:53px;font-size:12px}.skills .basic{width:64px;height:72px;font-size:16px}.skills .sub{width:46px;height:46px}#combo{top:190px;font-size:21px}.label{bottom:12px;width:100%;text-align:center}}
+</style><div id="game"><canvas id="scene" width="960" height="540"></canvas><header><div class="fighter"><b>青石</b> <span id="hp-A"></span><div class="bar"><span id="bar-A"></span></div></div><div class="fighter enemy"><b>赤砂</b> <span id="hp-B"></span><div class="bar"><span id="bar-B"></span></div></div></header>
+<div id="hint">摇杆靠近 → 上挑 → 空追 → 落地后按攻击扫地</div><div id="portrait">横屏操作更方便 · 支持摇杆与技能同时触摸</div><div class="tools"><button id="reset">重来</button><button id="ai">陪练：关</button><button id="sound">音效：关</button><button id="fullscreen">全屏</button></div><div id="combo"></div><div id="result"></div>
+<div id="stick" role="button" aria-label="连续移动摇杆"><div id="knob"></div></div><div class="skills"><button data-skill="launcher">上挑</button><button data-skill="airTap">空追</button><button class="basic" id="basic">攻击</button><button class="sub" data-skill="groundSweep">扫地</button><button class="sub" id="guard">格挡</button></div><div class="label">V7 原创人物动作实验 · 打击感待真人验收</div></div>
+<script>
+/** Original isolated combat model. NOT upstream DNF. Values are test-only design choices. */
+const SETTINGS = Object.freeze({
+  "gravity": 22,
+  "launchVelocity": 10.5,
+  "airTapVelocity": 5.5,
+  "knockdownSeconds": 0.9,
+  "comboWindowSeconds": 1.6,
+  "airHitLimit": 4,
+  "groundHitLimit": 3,
+  "totalHitLimit": 7,
+  "protectedInvulnerabilitySeconds": 0.6,
+  "fixedStep": 0.008333333333333333,
+  "minHitIntervalSeconds": 0.09,
+  "hitstopSeconds": 0.04,
+  "groundBounceVelocity": 0,
+  "groundBounceCount": 1
+});
+const ATTACKS = Object.freeze({
+  "launcher": {
+    "x0": 0,
+    "x1": 1.5,
+    "y0": 0.05,
+    "y1": 1.85,
+    "allowed": [
+      "idle",
+      "airborne"
+    ],
+    "effect": "launch"
+  },
+  "airTap": {
+    "x0": 0,
+    "x1": 1.5,
+    "y0": 0.65,
+    "y1": 3.5,
+    "allowed": [
+      "airborne"
+    ],
+    "effect": "airtap"
+  },
+  "groundSweep": {
+    "x0": 0,
+    "x1": 1.5,
+    "y0": 0,
+    "y1": 0.4,
+    "allowed": [
+      "down"
+    ],
+    "effect": "ground"
+  },
+  "highSlash": {
+    "x0": 0,
+    "x1": 1.5,
+    "y0": 0.6,
+    "y1": 1.65,
+    "allowed": [
+      "idle",
+      "airborne"
+    ],
+    "effect": "none"
+  }
+});
+class CombatArena {
+  constructor(overrides = {}) {
+    this.cfg = {...SETTINGS, ...overrides};
+    this.time=0; this.accumulator=0; this.playerX=0; this.enemyX=0.8;
+    this.state="idle"; this.y=0; this.vy=0; this.downRemaining=0; this.invulnerabilityRemaining=0;
+    this.hitstopRemaining=0; this.bounceRemaining=0;
+    this.airHits=0; this.groundHits=0; this.totalHits=0; this.comboExpires=-Infinity; this.lastHitTime=-Infinity;
+    this.events=[];
+  }
+  snapshot() {
+    return {time:this.time,state:this.state,enemyX:this.enemyX,y:this.y,vy:this.vy,
+      downRemaining:this.downRemaining,invulnerabilityRemaining:this.invulnerabilityRemaining,
+      hitstopRemaining:this.hitstopRemaining,bounceRemaining:this.bounceRemaining,
+      airHits:this.airHits,groundHits:this.groundHits,totalHits:this.totalHits};
+  }
+  resetCombo() { this.airHits=0; this.groundHits=0; this.totalHits=0; this.comboExpires=-Infinity; }
+  record(type,detail) {
+    const event={time:Number(this.time.toFixed(5)),type,...detail};
+    this.events.push(event);return event;
+  }
+  overlap(a,b) {
+    return a.x0 < b.x1 && a.x1 > b.x0 && a.y0 < b.y1 && a.y1 > b.y0;
+  }
+  enemyBox() {
+    if (this.state==="down") return {x0:this.enemyX-0.54,x1:this.enemyX+0.54,y0:0,y1:0.32};
+    return {x0:this.enemyX-0.34,x1:this.enemyX+0.34,y0:this.y,y1:this.y+1.8};
+  }
+  attackBox(def) {return {x0:this.playerX+def.x0,x1:this.playerX+def.x1,y0:def.y0,y1:def.y1};}
+  forcedStand(reason) {
+    this.state="invulnerable";this.y=0;this.vy=0;this.downRemaining=0;
+    this.invulnerabilityRemaining=this.cfg.protectedInvulnerabilitySeconds; this.hitstopRemaining=0; this.bounceRemaining=0;
+    this.record("forced-stand",{reason,airHits:this.airHits,groundHits:this.groundHits,totalHits:this.totalHits});
+    this.resetCombo();
+  }
+  hit(name) {
+    const def=ATTACKS[name];
+    if(!def) throw new Error("Unknown attack: "+name);
+    if(this.state==="invulnerable") return this.record("blocked",{attack:name,reason:"protected-invulnerability"});
+    if(!def.allowed.includes(this.state)) return this.record("blocked",{attack:name,reason:"invalid-target-state"});
+    if(!this.overlap(this.attackBox(def),this.enemyBox())) return this.record("blocked",{attack:name,reason:"aabb-miss"});
+    if(this.time-this.lastHitTime < this.cfg.minHitIntervalSeconds-1e-9) return this.record("blocked",{attack:name,reason:"hit-cadence"});
+    if(this.time > this.comboExpires) this.resetCombo();
+    this.totalHits++;this.lastHitTime=this.time;this.comboExpires=this.time+this.cfg.comboWindowSeconds;
+    if(def.effect==="launch") {
+      this.airHits++;this.state="airborne";this.y=Math.max(this.y,0.01);this.vy=this.cfg.launchVelocity;
+      this.bounceRemaining=this.cfg.groundBounceCount;
+    }else if(def.effect==="airtap") {
+      this.airHits++;this.vy=this.cfg.airTapVelocity;
+    }else if(def.effect==="ground") {
+      this.groundHits++;this.downRemaining=this.cfg.knockdownSeconds;
+    }else if(this.state==="airborne") {
+      this.airHits++;
+    }
+    const event=this.record("hit",{attack:name,state:this.state});
+    this.hitstopRemaining=Math.max(0,this.cfg.hitstopSeconds);
+    if(this.airHits>=this.cfg.airHitLimit || this.groundHits>=this.cfg.groundHitLimit || this.totalHits>=this.cfg.totalHitLimit) {
+      this.forcedStand(this.airHits>=this.cfg.airHitLimit?"air-limit":this.groundHits>=this.cfg.groundHitLimit?"ground-limit":"total-limit");
+    }
+    return event;
+  }
+  fixedTick() {
+    const dt=this.cfg.fixedStep;
+    this.time+=dt;
+    // A confirmed hit pauses physical/timer progression without stopping monotonic event time.
+    if(this.hitstopRemaining>0) {
+      this.hitstopRemaining=Math.max(0,this.hitstopRemaining-dt);
+      return;
+    }
+    if(this.state==="airborne"){
+      this.vy-=this.cfg.gravity*dt;
+      this.y+=this.vy*dt;
+      if(this.y<=0){
+        this.y=0;
+        if(this.bounceRemaining>0 && this.cfg.groundBounceVelocity>0.01 && this.vy<0){
+          this.vy=this.cfg.groundBounceVelocity;
+          this.bounceRemaining--;
+          this.record("ground-bounce",{velocity:this.vy,bouncesLeft:this.bounceRemaining});
+        } else {
+          this.vy=0;this.state="down";this.downRemaining=this.cfg.knockdownSeconds;
+          this.record("landed",{downRemaining:this.downRemaining});
+        }
+      }
+    }else if(this.state==="down"){
+      this.downRemaining=Math.max(0,this.downRemaining-dt);
+      if(this.downRemaining<=0){this.state="idle";this.record("ordinary-stand",{});}
+    }else if(this.state==="invulnerable"){
+      this.invulnerabilityRemaining=Math.max(0,this.invulnerabilityRemaining-dt);
+      if(this.invulnerabilityRemaining<=0){this.state="idle";this.record("protection-ended",{});}
+    }
+    if(this.state==="idle"&&this.time>this.comboExpires) this.resetCombo();
+  }
+  tick(seconds) {
+    if(!Number.isFinite(seconds)||seconds<0||seconds>5) throw new RangeError("tick seconds must be 0..5");
+    this.accumulator+=seconds;
+    while(this.accumulator + 1e-10 >= this.cfg.fixedStep){
+      this.accumulator-=this.cfg.fixedStep;
+      if(this.accumulator < 0) this.accumulator=0;
+      this.fixedTick();
+    }
+    return this.snapshot();
+  }
+}
+
+/** Original V4 input-and-animation time-line laboratory. No upstream code or DNF assets.
+ * Attack windup/active/recovery times below are experimental, not official DNF values.
+ * The V3 CombatArena remains the authoritative victim physics and hit validator.
+ */
+
+const ACTION_FRAMES = Object.freeze({
+  launcher: Object.freeze({ startup:0.10, active:0.07, recovery:0.18 }),
+  airTap: Object.freeze({ startup:0.06, active:0.07, recovery:0.13 }),
+  groundSweep: Object.freeze({ startup:0.07, active:0.06, recovery:0.16 }),
+  highSlash: Object.freeze({ startup:0.09, active:0.06, recovery:0.18 })
+});
+const ACTION_SETTINGS = Object.freeze({ inputBufferSeconds:0.20, bilateralHitstop:true });
+
+class CombatActionController {
+  constructor({ arena, actionSettings, frames } = {}) {
+    this.arena = arena ?? new CombatArena();
+    this.cfg = { ...ACTION_SETTINGS, ...actionSettings };
+    this.frames = { ...ACTION_FRAMES, ...frames };
+    this.time = 0;
+    this.accumulator = 0;
+    this.actionTime = 0;
+    this.action = null;
+    this.buffer = null;
+    this.attackerHitstopRemaining = 0;
+    this.events = [];
+  }
+  get phase() { return this.action?.phase ?? 'idle'; }
+  get actionName() { return this.action?.name ?? null; }
+  snapshot() { return {
+    time:this.time, actionTime:this.actionTime, phase:this.phase, action:this.actionName,
+    buffered:this.buffer?.name ?? null, attackerHitstopRemaining:this.attackerHitstopRemaining,
+    target:this.arena.snapshot()
+  }; }
+  record(type, fields={}) { const e={type, time:Number(this.time.toFixed(5)), ...fields}; this.events.push(e); return e; }
+  /** Inputs begin their STARTUP animation immediately, never apply instant damage. */
+  press(name) {
+    if (!Object.hasOwn(ATTACKS,name) || !this.frames[name]) throw new RangeError(`unknown action ${name}`);
+    if (!this.action) { this.start(name); return this.record('input-started',{name}); }
+    if (this.cfg.inputBufferSeconds<=0) return this.record('input-rejected',{name,reason:'busy'});
+    // Replacement policy: the most recent input owns the one-slot buffer.
+    this.buffer={ name, expiresAt:this.actionTime+this.cfg.inputBufferSeconds };
+    return this.record('input-buffered',{name,phase:this.phase});
+  }
+  start(name) {
+    const f=this.frames[name];
+    for (const k of ['startup','active','recovery']) {
+      if (!Number.isFinite(f[k]) || f[k]<0) throw new RangeError(`bad ${k} duration`);
+    }
+    this.action={name,phase:'startup',elapsed:0,impactDone:false};
+    this.record('phase',{name,phase:'startup'});
+  }
+  applyImpact() {
+    if (!this.action || this.action.impactDone) return;
+    this.action.impactDone=true;
+    const result=this.arena.hit(this.action.name);
+    this.record('impact',{name:this.action.name,result:result.type,reason:result.reason??null});
+    if (result.type==='hit') {
+      const period=this.arena.hitstopRemaining;
+      if (this.cfg.bilateralHitstop) this.attackerHitstopRemaining=period;
+    }
+  }
+  nextPhase() {
+    if (!this.action) return;
+    const a=this.action;
+    if (a.phase==='startup') {
+      a.phase='active';a.elapsed=0;
+      this.record('phase',{name:a.name,phase:'active'});
+      this.applyImpact();
+    } else if (a.phase==='active') {
+      a.phase='recovery';a.elapsed=0;
+      this.record('phase',{name:a.name,phase:'recovery'});
+    } else {
+      this.record('action-end',{name:a.name});
+      this.action=null;
+      if (this.buffer) {
+        const pending=this.buffer;this.buffer=null;
+        if (this.actionTime <= pending.expiresAt+1e-9) {
+          this.start(pending.name);
+          this.record('input-consumed',{name:pending.name});
+        } else this.record('input-expired',{name:pending.name});
+      }
+    }
+  }
+  fixedTick() {
+    const dt=this.arena.cfg.fixedStep;
+    this.time+=dt;
+    // Both channels always share a monotonic simulation clock.
+    const frozen=this.cfg.bilateralHitstop && this.attackerHitstopRemaining>0;
+    this.arena.tick(dt);
+    if (frozen) {
+      this.attackerHitstopRemaining=Math.max(0,this.attackerHitstopRemaining-dt);
+      return;
+    }
+    this.attackerHitstopRemaining=0;
+    this.actionTime+=dt;
+    if (!this.action) return;
+    // Each fixed tick may cross a single phase boundary: no double-hit at phase edges.
+    const maxStep=this.frames[this.action.name][this.action.phase];
+    this.action.elapsed+=dt;
+    if (this.action.elapsed+1e-9>=maxStep) this.nextPhase();
+  }
+  tick(seconds) {
+    if (!Number.isFinite(seconds)||seconds<0||seconds>5) throw new RangeError('invalid tick duration');
+    this.accumulator+=seconds;
+    const dt=this.arena.cfg.fixedStep;
+    while(this.accumulator+1e-10>=dt) {
+      this.accumulator-=dt;
+      if (this.accumulator<0)this.accumulator=0;
+      this.fixedTick();
+    }
+    return this.snapshot();
+  }
+}
+
+/** Original V5 action-interruption policy. No DNF resources or damage formulas.
+ * Super armor prevents an ACTION interruption only; it is not damage immunity.
+ */
+
+const INTERRUPT_SETTINGS = Object.freeze({
+  cancelEnabled: true,
+  cancelRecoveryAfter: 0.10,
+  cancelRules: Object.freeze({
+    launcher: ['airTap'],
+    airTap: ['launcher'],
+    groundSweep: ['launcher'],
+    highSlash: []
+  }),
+  armoredActions: ['launcher']
+});
+
+class CombatInterruptController extends CombatActionController {
+  constructor({ interruptSettings, ...options } = {}) {
+    super(options);
+    this.policy = { ...INTERRUPT_SETTINGS, ...interruptSettings };
+    if (!Number.isFinite(this.policy.cancelRecoveryAfter) || this.policy.cancelRecoveryAfter < 0)
+      throw new RangeError('cancelRecoveryAfter must be a finite nonnegative duration');
+  }
+  get armored() {
+    return this.phase === 'active' && this.policy.armoredActions.includes(this.actionName);
+  }
+  canCancelInto(name) {
+    return !!this.action && this.policy.cancelEnabled && this.phase === 'recovery' &&
+      this.action.elapsed + 1e-9 >= this.policy.cancelRecoveryAfter &&
+      (this.policy.cancelRules[this.actionName] ?? []).includes(name);
+  }
+  press(name) {
+    if (!Object.hasOwn(ATTACKS, name) || !this.frames[name]) throw new RangeError(`unknown action ${name}`);
+    if (this.canCancelInto(name)) {
+      const from = this.actionName;
+      this.action = null;
+      this.buffer = null; // never replay an outdated input after a cancel.
+      this.record('action-canceled', { from, to: name });
+      this.start(name);
+      return this.record('cancel-input-started', { from, name });
+    }
+    return super.press(name);
+  }
+  /** Caller only reports a validated incoming hit; no HP/damage calculations here. */
+  receiveHit({force=false}={}) {
+    if (this.armored && !force) {
+      return this.record('armor-resisted', { name:this.actionName, phase:this.phase });
+    }
+    if (!this.action) return this.record('incoming-hit-idle', {});
+    const old = this.actionName;
+    this.action = null;
+    this.buffer = null;
+    this.attackerHitstopRemaining = 0;
+    return this.record('action-interrupted', { name:old, force:!!force });
+  }
+  snapshot() { return { ...super.snapshot(), armored:this.armored, cancelReady:this.policy.cancelEnabled && this.action !== null && this.phase==='recovery' && this.action.elapsed+1e-9 >= this.policy.cancelRecoveryAfter && (this.policy.cancelRules[this.actionName] ?? []).length > 0 }; }
+}
+
+/** Original V6 two-fighter laboratory. All damage/guard values are experimental. */
+
+const DUEL_SKILLS = Object.freeze(Object.fromEntries(Object.entries(ATTACKS).map(([name, def]) => [name,
+  Object.freeze({ damage: {launcher:18, airTap:10, groundSweep:8, highSlash:14}[name],
+    hitstun:0.18, force:false, boxes:[Object.freeze({from:0, to:1, ...def})] })])));
+
+class DuelActionController extends CombatInterruptController {
+  // V4's single impact is replaced with continuous active-window checks by the duel.
+  applyImpact() {}
+  start(name) { super.start(name); this.action.contacts = new Set(); }
+}
+
+class CombatDuel {
+  constructor({ settings={}, skills={}, frames, interruptSettings, bilateralHitstop=true, hp=200 }={}) {
+    this.settings={...SETTINGS,...settings};
+    if (!Number.isFinite(this.settings.fixedStep) || this.settings.fixedStep<=0 || this.settings.fixedStep>0.1)
+      throw new RangeError('invalid fixedStep');
+    if (!Number.isFinite(hp) || hp<=0) throw new RangeError('invalid HP');
+    this.skills={...DUEL_SKILLS,...skills};
+    for (const s of Object.values(this.skills)) {
+      if (!Number.isFinite(s.damage)||s.damage<0||!Number.isFinite(s.hitstun)||s.hitstun<0||!s.boxes?.length)
+        throw new RangeError('invalid skill');
+      for (const b of s.boxes) if (![b.from,b.to,b.x0,b.x1,b.y0,b.y1].every(Number.isFinite) ||
+        b.from<0||b.to>1||b.from>=b.to||b.x0>=b.x1||b.y0>=b.y1) throw new RangeError('invalid hitbox');
+    }
+    this.time=0; this.accumulator=0; this.events=[];
+    this.fighters=['A','B'].map((id,i)=>{
+      const body=new CombatArena(this.settings); body.enemyX=i*0.8;
+      // Each body retains V3 physics/protection; controller clocks advance centrally once.
+      const facade={cfg:this.settings,tick(){},snapshot:()=>body.snapshot()};
+      const controller=new DuelActionController({arena:facade,frames,interruptSettings,
+        actionSettings:{bilateralHitstop}});
+      return {id,body,controller,facing:i===0?1:-1,hp,maxHp:hp,guard:false,stun:0,dead:false};
+    });
+  }
+  fighter(id) { const f=this.fighters.find(f=>f.id===id); if(!f)throw new RangeError('unknown fighter');return f; }
+  record(type,detail={}) {const e={time:Number(this.time.toFixed(5)),type,...detail};this.events.push(e);return e;}
+  press(id,name) {
+    const f=this.fighter(id);
+    if(f.dead||f.stun>0||!['idle','invulnerable'].includes(f.body.state)||f.guard)
+      return this.record('input-rejected',{id,reason:'cannot-act'});
+    return f.controller.press(name);
+  }
+  setGuard(id,on) {
+    const f=this.fighter(id);
+    if(on&&(f.dead||f.stun>0||f.body.state!=='idle'||f.controller.action)) return false;
+    f.guard=!!on;return true;
+  }
+  move(id,dx) {
+    if(!Number.isFinite(dx))throw new RangeError('invalid movement');
+    const f=this.fighter(id);
+    if(f.dead||f.stun>0||f.body.hitstopRemaining>0||f.controller.attackerHitstopRemaining>0||f.controller.action||f.body.state!=='idle')return false;
+    f.body.enemyX+=dx;if(dx)f.facing=Math.sign(dx);return true;
+  }
+  attackBoxes(f) {
+    const a=f.controller.action;
+    if(!a||a.phase!=='active'||f.dead)return [];
+    const ratio=a.elapsed/f.controller.frames[a.name].active;
+    return this.skills[a.name].boxes.filter(b=>ratio+1e-9>=b.from&&ratio<b.to).map(b=>{
+      const x=f.body.enemyX,y=f.body.y;
+      return {x0:x+(f.facing>0?b.x0:-b.x1),x1:x+(f.facing>0?b.x1:-b.x0),y0:y+b.y0,y1:y+b.y1};
+    });
+  }
+  fixedTick() {
+    const dt=this.settings.fixedStep;this.time+=dt;
+    const frozen=new Set(this.fighters.filter(f=>f.body.hitstopRemaining>0||f.controller.attackerHitstopRemaining>0));
+    for(const f of this.fighters) {
+      f.body.fixedTick();
+      if(!frozen.has(f))f.stun=Math.max(0,f.stun-dt);
+      if(f.dead)continue;
+      // Freeze victim action as well as physics. The V5 controller handles attacker freeze.
+      if(frozen.has(f)&&f.controller.attackerHitstopRemaining<=0) {f.controller.time+=dt;continue;}
+      f.controller.fixedTick();
+    }
+    // Capture both intents before resolving: equal-tick contacts trade, independent of A/B order.
+    const intents=[];
+    for(const f of this.fighters) {
+      if(frozen.has(f))continue;
+      const a=f.controller.action;if(!a||a.phase!=='active'||f.dead)continue;
+      const target=this.fighters.find(t=>t!==f);const b=target.body;
+      if(target.dead||a.contacts.has(target.id)||b.state==='invulnerable'||
+        !ATTACKS[a.name].allowed.includes(b.state)||b.time-b.lastHitTime<this.settings.minHitIntervalSeconds-1e-9)continue;
+      const box=this.attackBoxes(f).find(box=>b.overlap(box,b.enemyBox()));
+      if(box)intents.push({f,target,a,box,armored:target.controller.armored,
+        guarded:target.guard&&b.state==='idle'&&(f.body.enemyX-b.enemyX)*target.facing>=0});
+    }
+    for(const intent of intents)this.resolve(intent);
+  }
+  resolve({f,target,a,box,armored,guarded}) {
+    const s=this.skills[a.name],b=target.body;a.contacts.add(target.id);
+    if(guarded) {
+      // Original guard policy: frontal grounded guard has no chip, combo or hitstop.
+      this.record('guard',{attacker:f.id,target:target.id,skill:a.name});return;
+    }
+    const before={state:b.state,y:b.y,vy:b.vy,downRemaining:b.downRemaining,bounceRemaining:b.bounceRemaining};
+    const original=b.attackBox;b.attackBox=()=>box;
+    let result;try {result=b.hit(a.name);} finally {b.attackBox=original;}
+    if(result.type!=='hit') {this.record('rejected-contact',{reason:result.reason});return;}
+    // Armor blocks reaction, not damage, combo accounting or threshold protection.
+    const protectedStand=b.state==='invulnerable';
+    if(armored&&!s.force&&!protectedStand)Object.assign(b,before);
+    target.hp=Math.max(0,target.hp-s.damage);
+    const reaction=target.controller.receiveHit({force:s.force||protectedStand});
+    if(!armored||s.force||protectedStand) {
+      target.guard=false;target.stun=protectedStand?0:s.hitstun;
+      target.controller.buffer=null;
+    }
+    const stop=b.hitstopRemaining;
+    if(f.controller.cfg.bilateralHitstop)f.controller.attackerHitstopRemaining=Math.max(f.controller.attackerHitstopRemaining,stop);
+    this.record('damage',{attacker:f.id,target:target.id,skill:a.name,damage:s.damage,hp:target.hp,
+      armored:armored&&!s.force&&!protectedStand,interrupted:reaction.type==='action-interrupted',protectedStand});
+    if(target.hp===0) {
+      target.dead=true;target.guard=false;target.stun=0;target.controller.receiveHit({force:true});
+      target.controller.buffer=null;b.state='dead';b.y=0;b.vy=0;b.hitstopRemaining=0;
+      this.record('defeated',{id:target.id});
+    }
+  }
+  tick(seconds) {
+    if(!Number.isFinite(seconds)||seconds<0||seconds>5)throw new RangeError('invalid tick');
+    this.accumulator+=seconds;
+    while(this.accumulator+1e-10>=this.settings.fixedStep){this.accumulator=Math.max(0,this.accumulator-this.settings.fixedStep);this.fixedTick();}
+    return this.snapshot();
+  }
+  snapshot() {return {time:this.time,fighters:this.fighters.map(f=>({id:f.id,hp:f.hp,maxHp:f.maxHp,facing:f.facing,
+    guard:f.guard,stun:f.stun,dead:f.dead,body:f.body.snapshot(),action:f.controller.snapshot(),boxes:this.attackBoxes(f)}))};}
+}
+
+/** Original V7 side-scrolling control adapter, preserving V6 combat rules. */
+class CombatScroll extends CombatDuel {
+  constructor(options={}) {
+    super(options);this.ai=options.ai??false;this.effects=[];this.aiNext=0;
+    for(const f of this.fighters){f.lane=0;f.input={x:0,z:0};f.knockback=0;f.walk=0;}
+    this.fighter('A').body.enemyX=0;this.fighter('B').body.enemyX=1.15;
+  }
+  setInput(id,x,z=0) {
+    if(!Number.isFinite(x)||!Number.isFinite(z))throw new RangeError('invalid input');
+    const length=Math.max(1,Math.hypot(x,z));this.fighter(id).input={x:x/length,z:z/length};
+  }
+  clearInputs(){for(const f of this.fighters)f.input={x:0,z:0};}
+  attackBoxes(f){const other=this.fighters.find(t=>t!==f);if(Math.abs((f.lane??0)-(other.lane??0))>0.55)return [];return super.attackBoxes(f);}
+  basic(id='A'){const t=this.fighters.find(f=>f.id!==id);return this.press(id,t.body.state==='down'?'groundSweep':'highSlash');}
+  fixedTick(){
+    const dt=this.settings.fixedStep;
+    if(this.ai){const b=this.fighter('B'),a=this.fighter('A');const dx=a.body.enemyX-b.body.enemyX,dz=a.lane-b.lane;
+      this.setInput('B',Math.abs(dx)>1?Math.sign(dx):0,Math.abs(dz)>0.25?Math.sign(dz):0);
+      if(Math.abs(dx)<1.25&&Math.abs(dz)<0.4&&this.time>=this.aiNext&&!b.dead){b.facing=Math.sign(dx)||-1;this.basic('B');this.aiNext=this.time+0.7;}
+    }
+    for(const f of this.fighters){
+      const frozen=f.body.hitstopRemaining>0||f.controller.attackerHitstopRemaining>0;
+      if(!f.dead&&!frozen&&Math.abs(f.knockback)>0.02){f.body.enemyX+=f.knockback*dt;f.knockback*=Math.exp(-14*dt);}
+      if(!f.dead&&!frozen&&!f.stun&&!f.controller.action&&f.body.state==='idle'){
+        const {x,z}=f.input;this.move(f.id,x*3.6*dt);f.lane=Math.max(-1.2,Math.min(1.2,f.lane+z*1.9*dt));
+        if(Math.hypot(x,z)>0.1)f.walk+=dt*10;
+      }
+      f.body.enemyX=Math.max(-3,Math.min(9,f.body.enemyX));
+    }
+    super.fixedTick();this.effects=this.effects.filter(e=>this.time-e.time<0.6);
+  }
+  resolve(intent){
+    const before=this.events.length;super.resolve(intent);
+    const e=this.events.slice(before).find(e=>e.type==='damage'||e.type==='guard');
+    if(e){const t=intent.target;this.effects.push({...e,x:t.body.enemyX,y:t.body.y,lane:t.lane});
+      if(e.type==='damage'&&!e.armored&&!e.protectedStand&&!t.dead)t.knockback=intent.f.facing*(intent.a.name==='launcher'?0.7:1.7);
+    }
+  }
+}
+
+/** Original articulated Canvas illustration/animation. No third-party game art. */
+function drawScroll(ctx,game,{width=960,height=540,debug=false}={}) {
+  ctx.save();ctx.scale(width/960,height/540);
+  const a=game.fighter('A'),camera=Math.max(0,Math.min(5,a.body.enemyX-1));
+  const recent=game.effects.filter(e=>e.type==='damage'&&game.time-e.time<0.09);
+  if(recent.length){const age=game.time-recent.at(-1).time;ctx.translate(Math.sin(age*230)*3,Math.cos(age*190)*2);}
+  const gradient=ctx.createLinearGradient(0,0,0,540);gradient.addColorStop(0,'#111c2b');gradient.addColorStop(.65,'#3e3940');gradient.addColorStop(1,'#171e2a');ctx.fillStyle=gradient;ctx.fillRect(0,0,960,540);
+  // Perspective hall, broken arches and distant mountain ridges.
+  const polygon=(points,fill,stroke)=>{ctx.beginPath();points.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.closePath();ctx.fillStyle=fill;ctx.fill();if(stroke){ctx.strokeStyle=stroke;ctx.stroke();}};
+  polygon([[0,230],[70,180],[130,208],[240,125],[340,212],[440,150],[530,240],[680,163],[780,220],[920,136],[960,198],[960,350],[0,350]],'#202d3c');
+  for(let i=-1;i<6;i++){const x=i*220-camera*18;ctx.fillStyle='#192431';ctx.fillRect(x,70,30,270);ctx.fillRect(x+166,70,30,270);ctx.strokeStyle='#293747';ctx.lineWidth=22;ctx.beginPath();ctx.arc(x+98,185,82,Math.PI,0);ctx.stroke();ctx.lineWidth=1;ctx.fillStyle='#34404d';ctx.fillRect(x,80,30,7);ctx.fillRect(x+166,80,30,7);}
+  ctx.fillStyle='#55505a';ctx.fillRect(0,333,960,5);
+  polygon([[0,338],[960,338],[960,540],[0,540]],'#2c3039');
+  ctx.strokeStyle='#44464d';ctx.lineWidth=1;
+  for(let y=346;y<540;y+=32){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(960,y);ctx.stroke();}
+  for(let i=-3;i<12;i++){ctx.beginPath();ctx.moveTo(i*140-camera*25,338);ctx.lineTo(i*210-180-camera*35,540);ctx.stroke();}
+  for(const x of [120,825]){const g=ctx.createRadialGradient(x,264,0,x,264,100);g.addColorStop(0,'#ffae4244');g.addColorStop(1,'#ffae4200');ctx.fillStyle=g;ctx.fillRect(x-100,164,200,200);ctx.fillStyle='#685448';ctx.fillRect(x-4,275,8,46);polygon([[x-10,276],[x-4,255],[x,263],[x+7,248],[x+11,277]],'#ffba65');}
+  const screen=(f)=>({x:300+(f.body.enemyX-camera)*100,y:408+f.lane*32-f.body.y*54});
+  for(const f of [...game.fighters].sort((a,b)=>a.lane-b.lane)){
+    const p=screen(f);ctx.save();ctx.translate(p.x,408+f.lane*32);ctx.scale(1,.3);ctx.beginPath();ctx.ellipse(0,0,29,15,0,0,Math.PI*2);ctx.fillStyle='#0007';ctx.fill();ctx.restore();
+    const action=f.controller.action;const phase=action?.phase;const ratio=action?Math.min(1,action.elapsed/f.controller.frames[action.name][phase]):0;
+    const moving=Math.hypot(f.input.x,f.input.z)>0.1&&!action&&!f.stun&&f.body.state==='idle';
+    const walk=moving?Math.sin(f.walk)*14:0;
+    let lean=moving?0.08:Math.sin(f.controller.actionTime*3)*0.025;
+    let arm=0.65,sword=0.45;
+    if(action){
+      if(phase==='startup'){arm=-2.2;sword=-2.7;lean=-.13*ratio;}
+      if(phase==='active'){arm=action.name==='launcher'?-1.8:(action.name==='groundSweep'?0.9:0.15);sword=arm+0.2;lean=.18;}
+      if(phase==='recovery'){arm=0.25-ratio*.6;sword=arm-.2;lean=.16*(1-ratio);}
+    }
+    if(f.guard){arm=-1.2;sword=-1.65;}
+    if(f.stun>0){lean=-.32;arm=-1.3;sword=-1.4;}
+    ctx.save();ctx.translate(p.x,p.y);ctx.scale(f.facing,1);
+    if(f.dead||f.body.state==='down'){ctx.translate(0,-16);ctx.rotate(-Math.PI/2);}
+    else if(f.body.state==='airborne'){ctx.rotate(-.28);lean=-.15;}
+    ctx.rotate(lean);const teal=f.id==='A';const base=teal?'#4b7e8c':'#965852',light=teal?'#8ac5c9':'#daa079',cloth=teal?'#253949':'#492d36';
+    const flash=game.effects.some(e=>e.type==='damage'&&e.target===f.id&&game.time-e.time<.065);
+    const poly=(pts,c)=>polygon(pts,flash?'#fff7d8':c,'#111b29');
+    ctx.lineWidth=2;
+    // Cloak, segmented boots and armor establish a full human silhouette.
+    poly([[-17,-113],[-31,-82],[-27,-33],[-10,-48],[5,-40],[8,-102]],cloth);
+    const leg=(x,k)=>{poly([[x-7,-49],[x+8,-49],[x+8+k*.4,-23],[x+3+k,-7],[x-8+k,-7],[x-8+k*.4,-23]],'#263342');poly([[x-8+k,-15],[x+4+k,-15],[x+12+k,-3],[x+13+k,1],[x-10+k,1]],'#182531');ctx.strokeStyle=light;ctx.beginPath();ctx.moveTo(x-6+k*.4,-28);ctx.lineTo(x+6+k*.4,-27);ctx.stroke();};
+    leg(-11,-walk);leg(10,walk);
+    poly([[-17,-105],[12,-105],[22,-77],[12,-49],[-13,-49],[-23,-77]],base);
+    poly([[-13,-98],[9,-98],[13,-76],[-1,-62],[-16,-79]],light);
+    poly([[-17,-56],[15,-56],[16,-47],[-16,-47]],'#bd9870');
+    poly([[-25,-106],[-10,-110],[-4,-95],[-24,-90],[-30,-98]],'#617484');
+    // Rear arm and glove.
+    poly([[-20,-93],[-25,-76],[-18,-64],[-10,-70],[-17,-80],[-11,-96]],'#33495b');
+    ctx.fillStyle='#d0aa8c';ctx.beginPath();ctx.arc(-13,-67,5,0,7);ctx.fill();
+    // Head, face and original swept hair.
+    poly([[-9,-123],[10,-122],[12,-110],[4,-103],[-8,-108]],'#d5ae90');
+    poly([[-14,-124],[-5,-137],[9,-134],[20,-124],[8,-120],[-1,-126],[-11,-114]],teal?'#d7d9c7':'#372c37');
+    ctx.strokeStyle='#171d2b';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(5,-116);ctx.lineTo(10,-116);ctx.stroke();
+    // Sword arm rotates around shoulder, with blade drawn in the same transform.
+    ctx.save();ctx.translate(14,-94);ctx.rotate(arm);
+    poly([[-6,-7],[10,-7],[25,0],[26,9],[10,10],[-6,4]],base);
+    poly([[21,-3],[37,-2],[40,8],[24,10]],'#9c806d');ctx.translate(37,4);ctx.rotate(sword-arm);
+    poly([[-5,-7],[8,-7],[8,7],[-5,7]],'#544333');poly([[3,-11],[10,-11],[10,12],[3,12]],'#c7a267');
+    poly([[11,-5],[64,-5],[80,0],[64,5],[11,5]],'#c3d4d9');poly([[13,-4],[64,-4],[77,0],[14,0]],'#f2f1dd');ctx.restore();
+    if(f.body.state==='invulnerable'){ctx.strokeStyle='#9bdbffa0';ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(0,-68,40,77,0,0,7);ctx.stroke();}
+    if(f.controller.armored){ctx.strokeStyle='#f9c777';ctx.beginPath();ctx.arc(0,-78,35,0,7);ctx.stroke();}
+    ctx.restore();
+    // Blade arcs exist only during the actual attack active phase.
+    if(phase==='active'){
+      ctx.save();ctx.translate(p.x,p.y-70);ctx.scale(f.facing,1);ctx.rotate(action.name==='launcher'?-.6:action.name==='groundSweep'?.5:0);
+      ctx.strokeStyle=teal?'#a1f5e6cc':'#ffd5accc';ctx.lineWidth=12;ctx.beginPath();ctx.ellipse(20,0,84,65,0,-1.25,1.2);ctx.stroke();ctx.strokeStyle='#f5fff5';ctx.lineWidth=3;ctx.beginPath();ctx.ellipse(20,0,90,69,0,-1.2,1.2);ctx.stroke();ctx.restore();
+    }
+    if(debug){ctx.strokeStyle='#69ff7a';for(const b of game.attackBoxes(f)){ctx.strokeRect(300+(b.x0-camera)*100,408+f.lane*32-b.y1*54,(b.x1-b.x0)*100,(b.y1-b.y0)*54);}}
+  }
+  for(const e of game.effects){const age=game.time-e.time,x=300+(e.x-camera)*100,y=408+e.lane*32-e.y*54-60;
+    if(age<.16){ctx.strokeStyle=e.type==='guard'?'#8dccff':'#ffe4a7';ctx.lineWidth=3;for(let i=0;i<9;i++){const r=i*2.4,dist=12+age*220;ctx.beginPath();ctx.moveTo(x+Math.cos(r)*dist*.3,y+Math.sin(r)*dist*.3);ctx.lineTo(x+Math.cos(r)*dist,y+Math.sin(r)*dist);ctx.stroke();}}
+    ctx.globalAlpha=Math.max(0,1-age/.6);ctx.fillStyle=e.type==='guard'?'#b6ddff':'#ffe5af';ctx.font='bold 26px sans-serif';ctx.fillText(e.type==='guard'?'格挡':String(e.damage),x-10,y-40-age*80);ctx.globalAlpha=1;
+  }
+  ctx.fillStyle='#e1cda3';ctx.font='12px sans-serif';ctx.fillText('原创横版战斗原型 · 非 DNF 官方资源',24,518);ctx.restore();
+}
+
+let game=new CombatScroll(),last=0,holdAttack=false,repeatAt=0,stickPointer=null,muted=true,audio=null,eventIndex=0,paused=false;
+const $=id=>document.getElementById(id),ctx=$('scene').getContext('2d');
+function sound(type){if(muted)return;try{audio??=new (window.AudioContext||window.webkitAudioContext)();audio.resume();const osc=audio.createOscillator(),gain=audio.createGain();osc.type=type==='damage'?'sawtooth':'triangle';osc.frequency.setValueAtTime(type==='damage'?140:430,audio.currentTime);osc.frequency.exponentialRampToValueAtTime(45,audio.currentTime+.075);gain.gain.setValueAtTime(.09,audio.currentTime);gain.gain.exponentialRampToValueAtTime(.001,audio.currentTime+.1);osc.connect(gain);gain.connect(audio.destination);osc.start();osc.stop(audio.currentTime+.11);}catch{}}
+function render(){drawScroll(ctx,game);for(const f of game.fighters){$('hp-'+f.id).textContent=`${f.hp}/${f.maxHp}`;$('bar-'+f.id).style.width=100*f.hp/f.maxHp+'%';}
+  const b=game.fighter('B');$('combo').textContent=b.body.totalHits>1?`${b.body.totalHits} 连击`:b.body.state==='invulnerable'?'保护起身':'';
+  const dead=game.fighters.find(f=>f.dead);$('result').classList.toggle('show',!!dead);$('result').textContent=dead?(dead.id==='B'?'击败赤砂 · 点重来再练':'青石败北 · 点重来再练'):'';
+  for(const e of game.events.slice(eventIndex))if(e.type==='damage'||e.type==='guard')sound(e.type);eventIndex=game.events.length;
+}
+function clear(){game.clearInputs();holdAttack=false;stickPointer=null;$('knob').style.transform='';game.setGuard('A',false);}
+function reset(){const ai=game.ai;clear();game=new CombatScroll({ai});eventIndex=0;render();}
+$('reset').onclick=reset;$('ai').onclick=()=>{game.ai=!game.ai;game.setInput('B',0,0);$('ai').textContent='陪练：'+(game.ai?'开':'关');};
+$('sound').onclick=()=>{muted=!muted;$('sound').textContent='音效：'+(muted?'关':'开');if(!muted)sound('guard');};
+$('fullscreen').onclick=async()=>{try{await document.documentElement.requestFullscreen();if(screen.orientation?.lock)await screen.orientation.lock('landscape');}catch{$('hint').textContent='可手动横屏；当前浏览器未允许全屏或方向锁定';}};
+function stick(e){const r=$('stick').getBoundingClientRect(),radius=r.width/2;let x=(e.clientX-r.left-radius)/(radius*.66),z=(e.clientY-r.top-radius)/(radius*.66);const d=Math.max(1,Math.hypot(x,z));x/=d;z/=d;game.setInput('A',x,z);$('knob').style.transform=`translate(${x*radius*.55}px,${z*radius*.55}px)`;}
+$('stick').onpointerdown=e=>{e.preventDefault();stickPointer=e.pointerId;$('stick').setPointerCapture(e.pointerId);stick(e);};
+$('stick').onpointermove=e=>{if(e.pointerId===stickPointer)stick(e);};
+const releaseStick=e=>{if(e.pointerId===stickPointer){stickPointer=null;game.setInput('A',0,0);$('knob').style.transform='';}};
+$('stick').onpointerup=releaseStick;$('stick').onpointercancel=releaseStick;$('stick').onlostpointercapture=releaseStick;
+document.querySelectorAll('[data-skill]').forEach(b=>b.onpointerdown=e=>{e.preventDefault();game.press('A',b.dataset.skill);render();});
+$('basic').onpointerdown=e=>{e.preventDefault();$('basic').setPointerCapture(e.pointerId);holdAttack=true;game.basic();repeatAt=game.time+.15;render();};
+for(const type of ['pointerup','pointercancel','lostpointercapture'])$('basic').addEventListener(type,()=>holdAttack=false);
+$('guard').onpointerdown=e=>{e.preventDefault();$('guard').setPointerCapture(e.pointerId);game.setGuard('A',true);};
+for(const type of ['pointerup','pointercancel','lostpointercapture'])$('guard').addEventListener(type,()=>game.setGuard('A',false));
+const keys=new Set();function keyboard(){game.setInput('A',(keys.has('ArrowRight')||keys.has('d')?1:0)-(keys.has('ArrowLeft')||keys.has('a')?1:0),(keys.has('ArrowDown')||keys.has('s')?1:0)-(keys.has('ArrowUp')||keys.has('w')?1:0));}
+window.addEventListener('keydown',e=>{keys.add(e.key);keyboard();if(e.key==='j')game.basic();if(e.key==='k')game.press('A','launcher');if(e.key==='l')game.press('A','airTap');if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown',' '].includes(e.key))e.preventDefault();});window.addEventListener('keyup',e=>{keys.delete(e.key);keyboard();});
+window.addEventListener('blur',()=>{keys.clear();clear();});document.addEventListener('visibilitychange',()=>{if(document.hidden){keys.clear();clear();last=0;}});
+function frame(t){const dt=last?Math.min((t-last)/1000,.05):0;last=t;if(!paused){if(holdAttack&&game.time>=repeatAt){game.basic();repeatAt=game.time+.15;}game.tick(dt);}render();requestAnimationFrame(frame);}render();requestAnimationFrame(frame);
+window.scrollLab={get game(){return game;},pause(){paused=true;clear();},reset,advance(t){game.tick(t);render();},render};
+</script></html>
