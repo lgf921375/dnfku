@@ -1,0 +1,192 @@
+✔ 34 action startup causes no instant damage (1.90398ms)
+✔ 35 exactly one impact at first active frame (0.977487ms)
+✔ 36 valid attack follows startup, active, recovery, idle (1.207178ms)
+✔ 37 queued input is consumed after recovery (0.532308ms)
+✔ 38 early buffered input expires before recovery ends (0.456356ms)
+✔ 39 latest queued command overwrites the earlier command (0.489535ms)
+✔ 40 hitstop pauses attacker phase progression in bilateral mode (1.147219ms)
+✔ 41 unilateral mode keeps attacker animation advancing while target freezes (0.336158ms)
+✔ 42 blocked hit never activates attacker hitstop (0.39827ms)
+✔ 43 disabled buffer rejects new input during active action (0.312583ms)
+✔ 44 global time advances during hitstop while animation time halts (0.406462ms)
+✔ 45 independent controller remains deterministic under 30/60/120Hz drivers (4.144298ms)
+✔ 46 sweep active window rejects standing target (0.287206ms)
+✔ 47 action controller input validation (0.712806ms)
+✔ 48 queued action impact happens once after delayed startup (0.387905ms)
+✔ V8 same basic action used for standing airborne and down (5.877905ms)
+✔ V8 airborne victim above basic box is missed (1.148341ms)
+✔ V8 descending target entering active box is hit (0.513881ms)
+✔ V8 prone target missed by box physically above floor (0.410898ms)
+✔ V8 low box hitting standing victim is no longer rejected by label (1.740367ms)
+✔ V8 same basic floor hit increments ground protection and refreshes down timer (0.389026ms)
+✔ V8 three same basic attacks on floor force stand and invulnerability (2.582625ms)
+✔ V8 basic airborne hit preserves vertical speed apart from gravity (0.389387ms)
+✔ V8 four low airborne basic hits still trigger air protection (2.29554ms)
+✔ V8 target state change never substitutes sweep or airTap action (0.688259ms)
+✔ V8 geometry still checks horizontal distance (0.373333ms)
+✔ V8 geometry still checks depth lane (0.433763ms)
+✔ V8 geometry cannot bypass front guard (0.328176ms)
+✔ V8 geometry cannot bypass protection (0.929237ms)
+✔ V8 unified page removes separate air chase and sweep controls (1.732226ms)
+✔ V8 page embeds exact current module sources (1.231535ms)
+✔ 01 launch from standing enters air with positive speed (1.308058ms)
+✔ 02 airborne arc reaches apex and lands (no floor penetration) (0.13484ms)
+✔ 03 standing target cannot be swept; no combo pollution (0.111675ms)
+✔ 04 high slash does not hit prone target (0.105807ms)
+✔ 05 low sweep connects after landing and refreshes down timer (0.204102ms)
+✔ 06 protection forces immediate stand after three ground sweeps (0.14898ms)
+✔ 07 attacks blocked during protection then accepted after expiration (0.139837ms)
+✔ 08 four airborne hits trigger air-protection forced stand (0.110774ms)
+✔ 09 airTap explicitly replaces vertical speed (0.350349ms)
+✔ 10 distance miss is not a hit nor a combo (0.422185ms)
+✔ 11 world-space translation invariance (0.147168ms)
+✔ 12 ordinary stand after knockdown time elapses (0.12863ms)
+✔ 13 30/60/120Hz driver step agrees at 0.5 seconds (0.111996ms)
+✔ 14 no false air-protection on isolated highSlash (0.110904ms)
+✔ 15 reject nonfinite and negative time input (0.106408ms)
+✔ 16 protection has a single transition event (0.060249ms)
+✔ 17 immediate repeated hit is rejected and does not advance combo (0.627509ms)
+✔ 18 accepted swept hits separated by cadence trigger protection (0.258002ms)
+✔ 19 independent total-hit threshold triggers protection (0.277822ms)
+✔ 20 combo window expiry resets counts on next eligible hit (0.27008ms)
+✔ 21 out-of-range ground sweep does not refresh timer (0.285653ms)
+✔ 22 cadence block does not reset remaining prone time (0.199506ms)
+✔ 23 forced-stand invulnerability beats cadence on attack (0.190001ms)
+✔ V6 startup has no damage or attack box (3.47061ms)
+✔ V6 active launcher deducts HP and launches opponent (1.421505ms)
+✔ V6 one active window damages each target once (0.628621ms)
+✔ V6 late entry during active window can hit (1.453963ms)
+✔ V6 entry after recovery cannot hit (0.381495ms)
+✔ V6 left-facing B attacks A (0.320555ms)
+✔ V6 attack facing away misses (0.341246ms)
+✔ V6 custom hitbox range limits damage (0.761087ms)
+✔ V6 per-frame box only exists in configured active fraction (1.027862ms)
+✔ V6 frontal guard blocks HP and combo (0.878992ms)
+✔ V6 guard fails against rear attack (0.447213ms)
+✔ V6 cannot enter guard while attacking or down (0.159006ms)
+✔ V6 holding guard consumes contact once even if released in active (0.374675ms)
+✔ V6 armor takes HP damage and keeps active action (0.496876ms)
+✔ V6 ordinary contact interrupts startup and clears buffer (0.998549ms)
+✔ V6 forced skill overrides armor and interrupts (0.337239ms)
+✔ V6 downed opponent is hit by sweep with HP damage (0.143593ms)
+✔ V6 high slash misses downed opponent (0.277401ms)
+✔ V6 sweep misses standing opponent (1.034653ms)
+✔ V6 three spaced sweeps force stand with damage on threshold hit (0.643403ms)
+✔ V6 protection prevents further damage and ends naturally (0.32354ms)
+✔ V6 airborne followup damage contributes to protection (0.590875ms)
+✔ V6 down and stunned players cannot initiate attacks (0.193546ms)
+✔ V6 lethal damage clamps HP and prevents input (0.841567ms)
+✔ V6 equal-tick attacks trade HP (0.846974ms)
+✔ V6 bilateral hitstop freezes attacker and victim action clocks (0.244572ms)
+✔ V6 unilateral hitstop advances attacker clock (0.309078ms)
+✔ V6 movement turns fighter and is blocked in attacks (0.124415ms)
+✔ V6 30/60/120Hz drive yields identical snapshots (2.575815ms)
+✔ V6 invalid inputs reject safely (0.525588ms)
+✔ V6 simultaneous lethal contacts defeat both fighters (0.322578ms)
+✔ V6 real timed opposing attacks preserve active armor without state injection (0.238623ms)
+✔ V6 protection overrides armor at threshold (0.28304ms)
+✔ V6 full launch landing sweep sequence deducts HP and forces stand (0.73663ms)
+✔ V6 threshold protection does not leave attacker in hitstop (0.292694ms)
+✔ V6 armor victim action freezes during incoming hitstop (0.203412ms)
+✔ V6 cadence rejection can retry later within active window (0.196791ms)
+✔ V6 paused victim clocks remain aligned with global simulation (0.190302ms)
+✔ 24 hitstop suspends physical motion while event clock keeps advancing (1.706908ms)
+✔ 25 hitstop zero restores immediate physical motion (0.215139ms)
+✔ 26 repeated blocked hits do not extend hitstop (0.242569ms)
+✔ 27 optional ground bounce triggers once before prone (0.599037ms)
+✔ 28 bounce callback preserves airborne state and blocks sweep (0.520441ms)
+✔ 29 no bounce on default settings (0.356738ms)
+✔ 30 ground sweep still connects after low bounce finishes (0.474433ms)
+✔ 31 hitstop pauses knockdown countdown after a valid sweep (2.173489ms)
+✔ 32 protection cancels both pending bounce and hitstop (0.989606ms)
+✔ 33 frame-driver equivalence with hitstop enabled (0.672075ms)
+✔ 49 recovery cancel starts configured followup immediately (3.223505ms)
+✔ 50 press before recovery cancel threshold is buffered (0.273705ms)
+✔ 51 forbidden cancel target is buffered rather than canceled (0.306855ms)
+✔ 52 recovery cancel disabled falls back to input queue (0.530005ms)
+✔ 53 launcher active frames provide action-only armor (0.26962ms)
+✔ 54 armor does not cover startup (0.394764ms)
+✔ 55 armor does not cover recovery (0.265934ms)
+✔ 56 nonarmored action can be interrupted during active (0.942676ms)
+✔ 57 force interrupt overrides active superarmor (0.244232ms)
+✔ 58 interrupt clears stale buffer and attacker-side hitstop (0.509905ms)
+✔ 59 cancel avoids duplicate impact from canceled action (0.605376ms)
+✔ 60 cancel duration rejects negative and nonfinite values (2.235686ms)
+✔ 61 idle incoming hit does not fabricate an action interrupt (0.121961ms)
+✔ 62 30/60/120Hz external drivers match cancel readiness (0.442084ms)
+✔ 63 cancelReady snapshot is false when cancel switch is disabled (0.804287ms)
+✔ 64 cancelReady is false when current action has no legal followup (0.358551ms)
+✔ 65 legal recovery cancel works with input buffer switched off (0.546179ms)
+✖ three cuts advance only when an action actually starts and expire naturally (6.899768ms)
+✔ each cut has distinct time, damage and feedback; demo completes from real inputs (16.124582ms)
+✔ same three-cut attack damages a down target without switching skill (0.439291ms)
+✔ high target and wrong lane miss; protected overlapping target cannot take damage (0.496235ms)
+✔ independent hitstop freezes pose clock and action progress for configured durations (0.337249ms)
+✖ air impact uses relative momentum and heavy cut accelerates downward (5.531683ms)
+✔ guard and armor keep original damage/interruption policy (1.556355ms)
+✔ V9 page embeds the tested production modules verbatim (1.132057ms)
+✔ V7 held input moves continuously and release stops (2.225746ms)
+✔ V7 diagonal input normalizes speed (0.203582ms)
+✔ V7 lane movement bounded (2.099871ms)
+✔ V7 different lane prevents hit (0.622472ms)
+✔ V7 same lane inherits launch and damage (1.000441ms)
+✔ V7 hitstop prevents knockback progression (0.591446ms)
+✔ V7 basic automatically selects sweep after landing (0.338992ms)
+✔ V7 attacks prevent movement (0.298001ms)
+✔ V7 training AI off causes no automatic attacks (0.497327ms)
+✔ V7 training AI on can approach and attack (1.740187ms)
+✔ V7 outside bound is clamped (0.77009ms)
+✔ V7 mobile rate drivers remain deterministic (3.818235ms)
+✔ V7 effects expire without changing damage history (0.25644ms)
+✔ V7 page exact source embedding and valid script (1.430058ms)
+✔ V6 offline page embeds exact tested module sources (1.94439ms)
+ℹ tests 142
+ℹ suites 0
+ℹ pass 140
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 213.099078
+
+✖ failing tests:
+
+test at tests/combat-rhythm.test.mjs:7:1
+✖ three cuts advance only when an action actually starts and expire naturally (6.899768ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 2
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/ad0ba23151c8/dnfku/tests/combat-rhythm.test.mjs:10:43)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/combat-rhythm.test.mjs:37:1
+✖ air impact uses relative momentum and heavy cut accelerates downward (5.531683ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(e)
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/ad0ba23151c8/dnfku/tests/combat-rhythm.test.mjs:40:65)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

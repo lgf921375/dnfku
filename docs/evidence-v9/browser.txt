@@ -1,0 +1,14 @@
+browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-linux64/chrome-headless-shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     npx playwright install                                 ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝
+    at /workspace/scratch/ad0ba23151c8/dnfku/tests/rhythm-lab-smoke.cjs:6:35
+    at Object.<anonymous> (/workspace/scratch/ad0ba23151c8/dnfku/tests/rhythm-lab-smoke.cjs:25:3) {
+  log: [],
+  name: 'Error'
+}

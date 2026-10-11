@@ -1,0 +1,151 @@
+{
+  "baseHead": "b027febcd3fca6d15616fcb043f271cdca550574",
+  "baseline": {
+    "pass": 134,
+    "fail": 0
+  },
+  "node": {
+    "pass": 142,
+    "fail": 0,
+    "exit": 0
+  },
+  "build": {
+    "exit": 0
+  },
+  "render": {
+    "engine": "Skia production renderer, NOT browser",
+    "frames": 240,
+    "fps": 30,
+    "durationSeconds": 8,
+    "demoEnd": "保护起身"
+  },
+  "browser": {
+    "exit": 1,
+    "assertionsExecuted": 0,
+    "reason": "Chromium absent; download returned invalid archive"
+  },
+  "uncovered": [
+    "Android physical touch",
+    "browser layout and events",
+    "audio playback",
+    "subjective combat feel",
+    "Unity runtime",
+    "APK",
+    "official DNF timing"
+  ],
+  "unchangedBaseFiles": 73,
+  "referenceVideo": {
+    "filename": "5578.mp4",
+    "sha256": "fbaf4796a65699ac8cb15d5a45dc9906ab532c9bcfd985e81e37be9b227121e3",
+    "durationSeconds": 35.898005,
+    "resolution": "1560x720",
+    "frameRate": 59.94,
+    "source": "user upload, Douyin watermark; public URL not verified"
+  },
+  "damageEvents": [
+    {
+      "time": 0.18333,
+      "type": "damage",
+      "attacker": "A",
+      "target": "B",
+      "skill": "highSlash",
+      "damage": 12,
+      "hp": 588,
+      "armored": false,
+      "interrupted": false,
+      "protectedStand": false,
+      "cut": 0
+    },
+    {
+      "time": 0.48333,
+      "type": "damage",
+      "attacker": "A",
+      "target": "B",
+      "skill": "highSlash",
+      "damage": 14,
+      "hp": 574,
+      "armored": false,
+      "interrupted": false,
+      "protectedStand": false,
+      "cut": 1
+    },
+    {
+      "time": 0.9,
+      "type": "damage",
+      "attacker": "A",
+      "target": "B",
+      "skill": "highSlash",
+      "damage": 22,
+      "hp": 552,
+      "armored": false,
+      "interrupted": false,
+      "protectedStand": false,
+      "cut": 2
+    },
+    {
+      "time": 3.325,
+      "type": "damage",
+      "attacker": "A",
+      "target": "B",
+      "skill": "launcher",
+      "damage": 18,
+      "hp": 534,
+      "armored": false,
+      "interrupted": false,
+      "protectedStand": false,
+      "cut": null
+    },
+    {
+      "time": 4.25,
+      "type": "damage",
+      "attacker": "A",
+      "target": "B",
+      "skill": "highSlash",
+      "damage": 12,
+      "hp": 522,
+      "armored": false,
+      "interrupted": false,
+      "protectedStand": false,
+      "cut": 0
+    },
+    {
+      "time": 4.625,
+      "type": "damage",
+      "attacker": "A",
+      "target": "B",
+      "skill": "highSlash",
+      "damage": 14,
+      "hp": 508,
+      "armored": false,
+      "interrupted": false,
+      "protectedStand": false,
+      "cut": 1
+    },
+    {
+      "time": 5.16667,
+      "type": "damage",
+      "attacker": "A",
+      "target": "B",
+      "skill": "highSlash",
+      "damage": 22,
+      "hp": 486,
+      "armored": false,
+      "interrupted": false,
+      "protectedStand": false,
+      "cut": 2
+    },
+    {
+      "time": 5.74167,
+      "type": "damage",
+      "attacker": "A",
+      "target": "B",
+      "skill": "highSlash",
+      "damage": 12,
+      "hp": 474,
+      "armored": false,
+      "interrupted": false,
+      "protectedStand": true,
+      "cut": 0
+    }
+  ]
+}
