@@ -52,3 +52,27 @@
 - **未覆盖**：Unity 真正触发 hitstop 的频率、双方是否同时停顿、帧率差异、受击方停顿时机、连击保护与真实 Android 运行。
 - **下一步**：独立逐帧对比普攻1/2的 `frameFreezeInfo` 配置、实际 `OnFreezeProcess` 状态、时间累计与碰撞触发，并和 MiniDNF 的落地/扫地轨迹分别验证；不直接拷贝第三方素材/代码。
 - **GitHub 研究报告提交**：`049eb5d116de9c67416bd5ace126530be4660163`（[查看提交](https://github.com/lgf921375/dnfku/commit/049eb5d116de9c67416bd5ace126530be4660163)）；本交接写入后的最新提交 SHA 以 `main` HEAD 为准。仅修改本仓库研究文档，未部署、重启或更改《皓石传奇三》。
+
+## 2026-10-11 第三批交接：原创隔离战斗逻辑已执行 V8 测试
+
+### 开始状态及范围
+- 本轮先读取 `AGENTS.md`、`README.md`、本交接与 `docs/combat-mechanics-20261011.md`；开始时 `dnfku/main` HEAD 为 `314b1b6b24436cc4c91cc4a0295efb6969c9fdd9`。
+- 研究继续参考既有固定上游审计 SHA：MiniDNF `543839751adbe09eecc896da949945080782b45e`、Unity-DNF `4436c7212a6e3ed2cb389b2c0c4fa5b6211f79e6`、86JP `4e2f25e04f604b7081cc42eb0f4d8c9a20a8ed05`；本轮没有运行或改写上游项目。
+- 新增纯原创 JS 战斗模型 [combat-core.mjs](../prototype/combat-core.mjs)、[combat-core.test.mjs](../tests/combat-core.test.mjs)、单文件交互页面 [standalone.html](../prototype/standalone.html)、[隔离实验报告](isolated-combat-test-20261011.md)，并更新 `README.md` 导航。
+
+### 实际测试结论（严格区分对象）
+- **通过（独立原创模型 V8 运行测试）**：在隔离 V8 环境直接运行与入库代码同源的 `runSuite(CombatArena, SETTINGS)`；总计 **16 PASS / 0 FAIL**。覆盖上挑浮空和触地、落地后低位扫地、倒地计时刷新、空中/地面命中次数保护、达到阈值立即起身及临时无敌、AABB 射程失败、坐标整体平移、外部 30/60/120Hz 驱动在 0.5s 的一致性，以及无效时间输入等。完整测试条目和设计阈值见隔离实验报告。
+- **新发现（仅限原创测试模型）**：独立“站立/浮空/倒地”命中规则及固定步长可重现扫地与强制起身路径；这些实验是为未来 Android 手感研究构建**验证工具**，不是 MiniDNF、Unity-DNF 或官方 DNF 的运行验收。
+- **失败**：上述 16 项 V8 测试没有失败；没有 Node CLI 或浏览器测试结果，不能标记它们“通过”或“失败”。
+- **未覆盖**：提交后的 `node --test tests/combat-core.test.mjs` 实际运行、`standalone.html` 在浏览器/Android 上的操作，原版 DNF 保护阈值、攻击动画/碰撞视觉对齐、触摸输入、官方游戏落地手感、上游 Unity 编译与真实场景、hitstop 双边效果、联机和商业许可。
+- **实验参数均为原创设计值**：重力22、上挑速度10.5、空追5.5、倒地0.9s、空中4次/扫地3次触发保护、保护无敌0.6s、1/120s内部模拟步长；不得说成官方 DNF 数值。浏览器 UI 尚未验收，不将其称为通过。
+
+### 提交与接下来任务
+- 实验核心提交 `7a3bc6e312a46632d211945e6a3fa4c714d6be67`。
+- 自动测试提交 `e37aed71b573ce45900d171f6838e99cb13f454b`。
+- 单文件演示页面提交 `4d41befcbde505f40ec63faea5c2166244f24419`。
+- 测试报告提交 `2609fe619a5a14d28aadcb4739e641f5ac4e983a`。
+- README 入口提交 `6eaf00d7b553c857c04ee99ded86df2d3859ed05`。
+- 本次交接提交后的 GitHub `main` HEAD 由 GitHub 实时读取确定，切勿硬猜最终 SHA。
+- **优先下一步**：在隔离 Node 环境实际跑 `node --test tests/combat-core.test.mjs`，保存原始运行日志及退出码；然后人工打开无版权素材的独立 HTML，实测 PC/Android 触控、轨迹、保护强制起身效果并录屏。增加“达到总阈值7”与“帧时间极值”等回归覆盖。真正的 Android APK/Unity 打击感只有运行验收后才能标为通过。
+- **隔离约束**：仅修改 `lgf921375/dnfku` 自有文件；**没有**改写、部署、重启《皓石传奇三》，其单套服务、手机40C账号、600ms冷却和原怪物规则均未触碰。无版权原版 DNF 素材。
