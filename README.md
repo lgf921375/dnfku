@@ -14,12 +14,13 @@
 
 本仓库已新增**不使用 DNF 原版代码/素材**的原创 JavaScript 逻辑模型，用于尝试验证浮空、落地扫地、连击保护和强制起身；它不是上游游戏的移植版本，更不是已经验收的 Android 手游。
 
-- [单文件交互试验页](prototype/standalone.html)：可自行下载 HTML 在浏览器打开，通过原创几何图形观察战斗状态；本轮尚未进行真实浏览器/手机触控验收。
+- [单文件交互试验页](prototype/standalone.html)：原创几何图形、自动演示连招和重力/浮空/倒地时间调节；Chromium 无头浏览器模拟移动触控已验证，**Android 真机手指触控仍未覆盖**。
 - [独立战斗核心](prototype/combat-core.mjs)：测试专用的固定步长状态机与 AABB 命中判定。
-- [自动测试](tests/combat-core.test.mjs)：16 项检测，可由具备 Node.js 的用户运行 `node --test tests/combat-core.test.mjs`；本轮仅实际在 V8 隔离运行环境执行全部 16 项，**Node CLI 尚未复跑**。
-- [隔离实验报告](docs/isolated-combat-test-20261011.md)：实验规则、V8 实际运行结果、失败/未覆盖项和下一步验收方案。
+- [自动测试](tests/combat-core.test.mjs)：最新版 23 项；已在 Node.js v22.16.0 **实际执行 23/23 通过**。运行：`node --test tests/combat-core.test.mjs`。
+- [隔离实验报告](docs/isolated-combat-test-20261011.md)：保留原始 16 项 V8 基线，追加最新版 Node/Chromium 实测、旧版缺陷与修复证据。
+- [浏览器自动测试](tests/browser-smoke.py)：需预装 Python Playwright 与 Chromium，在隔离浏览器中模拟触控并验证自动连招，**不等于 Android 实机**。
 
-**记录边界**：16/16 通过仅指原创纯逻辑模型的 V8 运行测试。Unity 游戏、Android APK、手机触控、连击保护真实手感和官方 DNF 行为对标均为**未覆盖**。实验参数是原创设计值而非官方 DNF 阈值。
+**最新实测边界（2026-10-11）**：23/23 Node 核心测试与 11/11 Chromium 自动按钮/模拟触控测试通过。旧版同一模拟时刻多次扫地即可刷满保护的问题已复现并以最小有效命中间隔 90ms（原创实验参数）修复。Unity/Android APK、Android 真机触控、真实战斗手感与官方 DNF 对标均**未覆盖**；详见[隔离实验报告](docs/isolated-combat-test-20261011.md)。
 
 ## 文档导航
 
