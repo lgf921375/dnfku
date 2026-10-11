@@ -1,0 +1,144 @@
+{
+  "date": "2026-10-11",
+  "type": "static-source-study",
+  "dnfku_base": "16413898f3780bebbdb0409d745a65edccfd25bd",
+  "upstream_runtime_executed": false,
+  "repositories": [
+    {
+      "repository": "DCurrent/openbor",
+      "commit": "787b6770409935137579715febf80cf7a529b748",
+      "tree_truncated": false,
+      "files": [
+        {
+          "path": "engine/openbor.c",
+          "blob_sha": "ba010e9c580978e0566a3c10b3f9cfeec0d81134",
+          "size": 1746596,
+          "retrieval": "github_fetch_blob after empty file response/raw size failure",
+          "url": "https://github.com/DCurrent/openbor/blob/787b6770409935137579715febf80cf7a529b748/engine/openbor.c"
+        },
+        {
+          "path": "LICENSE",
+          "blob_sha": "f3e2e638db017f1568c04d3fd30763fef35263b0",
+          "size": 1537,
+          "retrieval": "github_fetch_file",
+          "url": "https://github.com/DCurrent/openbor/blob/787b6770409935137579715febf80cf7a529b748/LICENSE"
+        }
+      ]
+    },
+    {
+      "repository": "ikemen-engine/Ikemen-GO",
+      "commit": "5eb7f3c746632c1d2652a521dab7bc541c1f2edb",
+      "tree_truncated": false,
+      "files": [
+        {
+          "path": "src/char.go",
+          "blob_sha": "451779f4ee670fa5c2d54855cbc61c18682ea0b8",
+          "size": 426254,
+          "retrieval": "github_fetch_file",
+          "url": "https://github.com/ikemen-engine/Ikemen-GO/blob/5eb7f3c746632c1d2652a521dab7bc541c1f2edb/src/char.go"
+        },
+        {
+          "path": "LICENCE.txt",
+          "blob_sha": "e00a5b19e48b534e08c5fec844cbc58d2f999359",
+          "size": 3743,
+          "retrieval": "github_fetch_file",
+          "url": "https://github.com/ikemen-engine/Ikemen-GO/blob/5eb7f3c746632c1d2652a521dab7bc541c1f2edb/LICENCE.txt"
+        }
+      ]
+    },
+    {
+      "repository": "v-star0719/U3D_MiniDNF",
+      "commit": "543839751adbe09eecc896da949945080782b45e",
+      "tree_truncated": false,
+      "files": [
+        {
+          "path": "Project/Assets/Scripts/ActorBase.cs",
+          "blob_sha": "6fd8451524edb5bc0d75890dcff60763c061f6dd",
+          "size": 31442,
+          "retrieval": "github_fetch_file",
+          "url": "https://github.com/v-star0719/U3D_MiniDNF/blob/543839751adbe09eecc896da949945080782b45e/Project/Assets/Scripts/ActorBase.cs"
+        },
+        {
+          "path": "Project/Assets/Scripts/SkillAttack.cs",
+          "blob_sha": "d2d7ed04aa0aa6417d499c4caa2316c3f4e0bade",
+          "size": 10955,
+          "retrieval": "github_fetch_file",
+          "url": "https://github.com/v-star0719/U3D_MiniDNF/blob/543839751adbe09eecc896da949945080782b45e/Project/Assets/Scripts/SkillAttack.cs"
+        }
+      ]
+    },
+    {
+      "repository": "Oceanisher/Unity-DNF",
+      "commit": "4436c7212a6e3ed2cb389b2c0c4fa5b6211f79e6",
+      "tree_truncated": false,
+      "files": [
+        {
+          "path": "Assets/Scripts/Obj/Unit/Control/ActionUnit.cs",
+          "blob_sha": "19e570acb266acbc9b2973da37800a2dc99509ed",
+          "size": 42566,
+          "retrieval": "github_fetch_file",
+          "url": "https://github.com/Oceanisher/Unity-DNF/blob/4436c7212a6e3ed2cb389b2c0c4fa5b6211f79e6/Assets/Scripts/Obj/Unit/Control/ActionUnit.cs"
+        },
+        {
+          "path": "Assets/Scripts/Obj/Unit/Control/FightUnit.cs",
+          "blob_sha": "6927a1fc9568fd61c976a10ea8cb85b468d0cb2b",
+          "size": 7391,
+          "retrieval": "github_fetch_file",
+          "url": "https://github.com/Oceanisher/Unity-DNF/blob/4436c7212a6e3ed2cb389b2c0c4fa5b6211f79e6/Assets/Scripts/Obj/Unit/Control/FightUnit.cs"
+        }
+      ]
+    },
+    {
+      "repository": "MusouCrow/DNFMobileEX",
+      "commit": "52d8b965df0734cbf748dbe9b8f84c4e3b49bb0d",
+      "tree_truncated": false,
+      "files": [
+        {
+          "path": "Assets/Launcher.cs",
+          "blob_sha": "843dc1065c1e1df0c61559a4672e26308518e9ac",
+          "size": 2569,
+          "retrieval": "github_fetch_file",
+          "url": "https://github.com/MusouCrow/DNFMobileEX/blob/52d8b965df0734cbf748dbe9b8f84c4e3b49bb0d/Assets/Launcher.cs"
+        },
+        {
+          "path": "LICENSE",
+          "blob_sha": "57c4c4e69b1f78d78caa5eca37d385ef77d61736",
+          "size": 1076,
+          "retrieval": "github_fetch_file",
+          "url": "https://github.com/MusouCrow/DNFMobileEX/blob/52d8b965df0734cbf748dbe9b8f84c4e3b49bb0d/LICENSE"
+        },
+        {
+          "path": "README.md",
+          "blob_sha": "e8e1d91cc654f53e248f30bbc102f46abcaa347c",
+          "size": 13,
+          "retrieval": "github_fetch_file",
+          "url": "https://github.com/MusouCrow/DNFMobileEX/blob/52d8b965df0734cbf748dbe9b8f84c4e3b49bb0d/README.md"
+        }
+      ]
+    }
+  ],
+  "own_source_blobs": [
+    {
+      "path": "prototype/combat-rhythm.mjs",
+      "sha": "7b10b445c9e3f6277d81d03fcf687902ac4d8554"
+    },
+    {
+      "path": "prototype/rhythm-renderer.mjs",
+      "sha": "c4b4476b37bcbc474c828dee7bc14f3ccbae49e4"
+    }
+  ],
+  "coverage": {
+    "passed": "repository/tree/commit/selected source and license static inspection",
+    "resolved_retrieval_failures": [
+      "OpenBOR empty fetch_file response and oversized raw response; resolved using exact blob",
+      "Ikemen incorrect License.txt path 404; resolved using actual LICENCE.txt"
+    ],
+    "not_covered": [
+      "upstream compile/runtime",
+      "Android feel",
+      "DNF official numeric parity",
+      "OpenBOR full player input/cancel chain",
+      "V9 new browser/runtime test"
+    ]
+  }
+}
