@@ -1,0 +1,19 @@
+{
+  "programs": [],
+  "streams": [
+    {
+      "codec_name": "vp8",
+      "width": 960,
+      "height": 540,
+      "nb_read_frames": "150"
+    }
+  ],
+  "format": {
+    "duration": "139.802515",
+    "size": "1198436"
+  },
+  "origin": "Cloud Chrome HTMLCanvasElement.captureStream(30) + MediaRecorder; direct UI click and download",
+  "decoded_frames": 150,
+  "average_effective_frames_per_second": 1.072942071178047,
+  "contains_audio": false
+}

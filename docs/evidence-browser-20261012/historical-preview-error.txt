@@ -1,0 +1,6 @@
+Historical command (not rerun in this round):
+sites-preview start /workspace/scratch/ad0ba23151c8/dnfku-preview
+Exit code: 1
+Complete output retained from previous tool call:
+Sites preview exited before becoming healthy:
+bwrap: Can't mount proc on /newroot/proc: Operation not permitted

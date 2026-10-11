@@ -1,0 +1,8 @@
+{
+  "command": [
+    "file",
+    "/usr/local/bin/sites-preview"
+  ],
+  "exit_code": 0,
+  "output": "/usr/local/bin/sites-preview: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), static-pie linked, BuildID[sha1]=bbb98cfea6cd0f5ad9c274a2cdc1ef4b3e43f4bb, not stripped\n"
+}

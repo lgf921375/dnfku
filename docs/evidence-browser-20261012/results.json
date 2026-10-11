@@ -1,0 +1,302 @@
+{
+  "date": "2026-10-12",
+  "base_commit": "7902c5808be99447f49506b165642f2897d03dfd",
+  "scope": "read-only diagnostics and browser UI acceptance; battle source unchanged",
+  "url": "https://lgf921375.github.io/dnfku/prototype/feedback-lab-v10.html",
+  "diagnosis": {
+    "bwrap": {
+      "origin": "sites-preview/sites-previewd local HTTP preview isolation",
+      "evidence": "ELF symbol sites_preview::build_bwrap_arguments + previous preview start output",
+      "direct_failure": "Can't mount proc on /newroot/proc: Operation not permitted",
+      "prior_exit_code": 1,
+      "underlying_host_policy": "not determined",
+      "preview_restarted": false
+    },
+    "local_playwright": {
+      "command": "DNFKU_PREVIEW_URL=https://lgf921375.github.io/dnfku/prototype/feedback-lab-v10.html node /workspace/scratch/ad0ba23151c8/dnfku/tests/feedback-lab-smoke.cjs",
+      "exit_code": 1,
+      "assertions": 0,
+      "failure_stage": "chromium.launch; before page.goto",
+      "failure": "Chromium headless shell revision1234 executable absent"
+    },
+    "file_url": {
+      "origin": "Cloud Browser URL protocol policy",
+      "prior_rejected": true,
+      "retried": false
+    }
+  },
+  "cloud_browser": {
+    "engine": "Chrome via cua_repl cdp",
+    "https_loaded": true,
+    "manual_basic_hp": [
+      600,
+      588
+    ],
+    "manual_launcher_hp": [
+      600,
+      582
+    ],
+    "demo_three_basic_hp": [
+      600,
+      552
+    ],
+    "demo_down_chase_hp": 508,
+    "demo_end": {
+      "phase": "保护起身",
+      "hp": 474
+    },
+    "record_download": true,
+    "video": {
+      "file": "full-browser-demo.webm",
+      "seconds": 139.802515,
+      "decoded_frames": 150,
+      "effective_fps": 1.072942071178047,
+      "width": 960,
+      "height": 540,
+      "audio": false,
+      "source": "canvas captureStream(30) + MediaRecorder; UI click and downloaded browser file"
+    },
+    "errors": {
+      "captured": 14,
+      "origins": [
+        "chrome-extension://kcdongibgcplmaagnmgpjhpjgmmaaaaa/content-script.bundle.js"
+      ],
+      "no_game_source_error_in_captured_logs": true
+    },
+    "diagnostic_limitations": [
+      "runtime window.rhythmLab not accessible in Cloud read-only evaluate scope",
+      "intermediate protection locator wait timed out then demo completed",
+      "durationMs attack call only single damage verified"
+    ]
+  },
+  "not_covered": [
+    "Android real device/multitouch",
+    "audio listening",
+    "full manual timed combo",
+    "independent protected-invulnerability reattack",
+    "smoothness/DNF subjective feel",
+    "RAF timestamp trace and low frame rate root cause"
+  ],
+  "unchanged_files": [
+    {
+      "path": "prototype/action-lab-v5.html",
+      "unchanged": true
+    },
+    {
+      "path": "prototype/action-lab.html",
+      "unchanged": true
+    },
+    {
+      "path": "prototype/build-contact-lab.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "prototype/build-duel-lab.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "prototype/build-feedback-lab.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "prototype/build-rhythm-lab.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "prototype/build-scroll-lab.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "prototype/combat-actions.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "prototype/combat-contact.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "prototype/combat-core.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "prototype/combat-duel.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "prototype/combat-feedback.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "prototype/combat-interrupts.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "prototype/combat-rhythm.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "prototype/combat-scroll.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "prototype/contact-lab-v8.html",
+      "unchanged": true
+    },
+    {
+      "path": "prototype/contact-lab.template.html",
+      "unchanged": true
+    },
+    {
+      "path": "prototype/duel-lab-v6.html",
+      "unchanged": true
+    },
+    {
+      "path": "prototype/duel-lab.template.html",
+      "unchanged": true
+    },
+    {
+      "path": "prototype/feedback-lab-v10.html",
+      "unchanged": true
+    },
+    {
+      "path": "prototype/feedback-lab.template.html",
+      "unchanged": true
+    },
+    {
+      "path": "prototype/feedback-renderer.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "prototype/rhythm-demo.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "prototype/rhythm-lab-v9.html",
+      "unchanged": true
+    },
+    {
+      "path": "prototype/rhythm-lab.template.html",
+      "unchanged": true
+    },
+    {
+      "path": "prototype/rhythm-renderer.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "prototype/scroll-lab-v7.html",
+      "unchanged": true
+    },
+    {
+      "path": "prototype/scroll-lab.template.html",
+      "unchanged": true
+    },
+    {
+      "path": "prototype/scroll-renderer.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "prototype/standalone.html",
+      "unchanged": true
+    },
+    {
+      "path": "tests/action-lab-smoke.py",
+      "unchanged": true
+    },
+    {
+      "path": "tests/action-lab-v5-smoke.py",
+      "unchanged": true
+    },
+    {
+      "path": "tests/browser-smoke.py",
+      "unchanged": true
+    },
+    {
+      "path": "tests/combat-actions.test.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "tests/combat-contact.test.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "tests/combat-core.test.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "tests/combat-duel.test.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "tests/combat-feedback.test.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "tests/combat-feel.test.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "tests/combat-interrupts.test.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "tests/combat-rhythm.test.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "tests/combat-scroll.test.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "tests/contact-lab-smoke.cjs",
+      "unchanged": true
+    },
+    {
+      "path": "tests/duel-lab-smoke.cjs",
+      "unchanged": true
+    },
+    {
+      "path": "tests/duel-page.test.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "tests/feedback-lab-smoke.cjs",
+      "unchanged": true
+    },
+    {
+      "path": "tests/render-feedback-preview.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "tests/render-rhythm-preview.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "tests/render-scroll-preview.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "tests/reproduce-contact-rule.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "tests/rhythm-lab-smoke.cjs",
+      "unchanged": true
+    },
+    {
+      "path": "tests/run-v6-batch.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "tests/run-v7-batch.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "tests/run-v8-batch.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "tests/scroll-lab-smoke.cjs",
+      "unchanged": true
+    }
+  ]
+}

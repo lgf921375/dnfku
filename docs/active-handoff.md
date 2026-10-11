@@ -1,5 +1,17 @@
 # dnfku 当前研究交接
 
+## 当前优先交接：HTTPS云Chrome验收已运行，启动错误分层诊断（2026-10-12）
+
+- 本轮按用户要求暂停V10功能开发；起始main=`7902c5808be99447f49506b165642f2897d03dfd`。先读GitHub AGENTS/README/交接及旧浏览器日志，未改游戏源码/规则或测试脚本。
+- **bwrap来源（静态证据+历史命令）**：/usr/local/bin/sites-preview ELF含sites_preview::build_bwrap_arguments；上轮本地HTTP预览隔离层挂proc失败、退出1。不能把它说成Cloud Chrome启动失败，也未查明具体宿主安全策略。
+- **本地脚本真实重试失败**：HTTPS作为DNFKU_PREVIEW_URL，feedback-lab-smoke.cjs在chromium.launch退出1，缺Chromium revision1234二进制，0断言。完整stderr/exit_code保留。
+- **通过（真实Cloud Chrome页面）**：现有 https://lgf921375.github.io/dnfku/prototype/feedback-lab-v10.html 正常加载；单次手动普攻600→588，手动上挑600→582且浮空；点击公开连招演示三段→上挑→空追→落地同键追击→保护站起，最终HP474。不是模型注入或Skia。
+- **取得真实录像**：[原始完整WebM](evidence-browser-20261012/full-browser-demo.webm)、[兼容MP4](evidence-browser-20261012/full-browser-demo.mp4)、[手动上挑](evidence-browser-20261012/manual-launcher.webm)，页面captureStream/MediaRecorder控件录制与下载。Canvas无HUD/音轨，HUD见真实截图。
+- **重要限制**：完整WebM约139.8秒、150帧，平均有效1.073fps，不是30fps流畅度通过；低帧率具体原因未定位。仅功能流程可标通过，Android手感/多指/音效、保护期间人工复攻、手动完整连招未独立验收。
+- Cloud捕获14条扩展metadata发送错误，均chrome-extension来源；不称控制台完全无错。一次等待保护标签超时后最终到达；window.rhythmLab读取被Cloud只读scope隔离，改用DOM/截图/录像核查。
+- [完整诊断与最小方案](browser-diagnosis-20261012.md)。下一步优先沿用HTTPS/已运行Chrome；原自动脚本要在匹配Chromium的QA环境运行；预览隔离挂载由平台维护者处理，不关隔离/不提权。
+- 本轮仅诊断文档/交接/真实证据保存，无功能开发、安装依赖、部署/重启或其他游戏访问。原V10历史限制下文保留，以本段新增覆盖为准；最终提交SHA以main回读为准。
+
 ## 当前优先交接：V10源码落实已改，浏览器验收未完成（2026-10-12）
 
 - 起始main=`6af364f3e06b0c701df077b53701ac29a994c55e`；先读GitHub最新AGENTS/本交接/四仓库报告/README及源码先行计划。

@@ -1,0 +1,8 @@
+{
+  "command": [
+    "node",
+    "/workspace/scratch/ad0ba23151c8/dnfku/tests/feedback-lab-smoke.cjs"
+  ],
+  "DNFKU_PREVIEW_URL": "https://lgf921375.github.io/dnfku/prototype/feedback-lab-v10.html",
+  "exit_code": 1
+}

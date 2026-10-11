@@ -1,0 +1,8 @@
+{
+  "command": [
+    "sites-preview",
+    "status"
+  ],
+  "exit_code": 0,
+  "output": "Sites preview stopped\n"
+}
