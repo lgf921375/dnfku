@@ -88,3 +88,10 @@
 
 - [四仓库源码对照报告](docs/attack-hit-feedback-source-study-20261011.md)：新增 OpenBOR/Ikemen-GO，复核 MiniDNF/Unity-DNF；固定提交与函数行链接、顿帧/硬直/受击速度/反馈联动、V9受击姿势缺口。
 - [取证清单](docs/evidence-source-study-20261011.json)。本轮仅通过静态检查，未运行上游游戏或新增V9功能测试；最新实现仍是V9，手机手感未验收。
+
+
+## V10 源码落实与受击动作（2026-10-12，验收未完成）
+
+- [V10试用页](prototype/feedback-lab-v10.html)：三段受击姿势、着地/起身过渡、实际刀刃胶囊接触；保留同键站/空/地命中与强制起身规则。
+- [上游函数→V9→实际修改报告](docs/source-driven-feedback-v10-20261012.md)、[8秒模型对比录像](docs/evidence-v10/comparison-model.mp4)、[画面对比](docs/evidence-v10/reaction-comparison.png)。四项目真实下载/源码深审；Node147/147。
+- **浏览器验收未完成**：file协议被拒、内部预览proc权限失败、Chromium缺失；浏览器0断言。上述录像是Skia模型，不是浏览器/Android录像；音效与手机主观手感均未验收，不能宣称打击感优化完成。

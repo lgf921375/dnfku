@@ -1,0 +1,167 @@
+{
+  "date": "2026-10-12",
+  "dnfku_base": "6af364f3e06b0c701df077b53701ac29a994c55e",
+  "search": [
+    {
+      "query": "dnf unity",
+      "repositories": [
+        "Oceanisher/Unity-DNF",
+        "MusouCrow/DNFMobileEX",
+        "hsinpa/HealthBar_HUD_Unity",
+        "ssbaring/DNFSurvivor",
+        "gengyulin/DNFMobileEX"
+      ]
+    },
+    {
+      "query": "beat em up",
+      "repositories": [
+        "quiver-dev/template-beat-em-up",
+        "dylanmpeck/PompaDroid",
+        "thomasgoldstein/zabuyaki",
+        "kenamick/game-off-2017",
+        "nicolasbize/fists-of-fury-course"
+      ]
+    },
+    {
+      "query": "Ikemen-GO",
+      "repositories": [
+        "ikemen-engine/Ikemen-GO",
+        "K4thos/Ikemen_GO",
+        "ikemen-engine/Ikemen-GO-Screenpack",
+        "CableDorado2/IkemenGO-GameModes-Tweaks",
+        "assemblaj/Ikemen-GO"
+      ]
+    },
+    {
+      "query": "OpenBOR",
+      "repositories": [
+        "DCurrent/openbor",
+        "digital-brilliance-hour/main-openbor",
+        "rofl0r/openbor",
+        "digital-brilliance-hour/openbor-tools",
+        "whitedragon0000/OpenBOR_PLUS"
+      ]
+    }
+  ],
+  "repositories": [
+    {
+      "repository": "DCurrent/openbor",
+      "commit": "787b6770409935137579715febf80cf7a529b748",
+      "files": [
+        {
+          "path": "engine/openbor.c",
+          "expected_blob": "ba010e9c580978e0566a3c10b3f9cfeec0d81134",
+          "size": 1746596,
+          "local_blob": "ba010e9c580978e0566a3c10b3f9cfeec0d81134",
+          "bytes": 1746596,
+          "matches": true
+        }
+      ]
+    },
+    {
+      "repository": "ikemen-engine/Ikemen-GO",
+      "commit": "b464672651c87c42aeca10bb5c33003f26d42071",
+      "files": [
+        {
+          "path": "src/char.go",
+          "expected_blob": "ffece5ebfedb1090b1671ae36b4b6ffd110cde38",
+          "size": 426494,
+          "local_blob": "ffece5ebfedb1090b1671ae36b4b6ffd110cde38",
+          "bytes": 426494,
+          "matches": true
+        }
+      ]
+    },
+    {
+      "repository": "v-star0719/U3D_MiniDNF",
+      "commit": "543839751adbe09eecc896da949945080782b45e",
+      "files": [
+        {
+          "path": "Project/Assets/Scripts/ActorBase.cs",
+          "expected_blob": "6fd8451524edb5bc0d75890dcff60763c061f6dd",
+          "size": 31442,
+          "local_blob": "6fd8451524edb5bc0d75890dcff60763c061f6dd",
+          "bytes": 31442,
+          "matches": true
+        },
+        {
+          "path": "Project/Assets/Scripts/SkillAttack.cs",
+          "expected_blob": "d2d7ed04aa0aa6417d499c4caa2316c3f4e0bade",
+          "size": 10955,
+          "local_blob": "d2d7ed04aa0aa6417d499c4caa2316c3f4e0bade",
+          "bytes": 10955,
+          "matches": true
+        }
+      ]
+    },
+    {
+      "repository": "isocialPractice/street-crime",
+      "commit": "777da9e0ebbd5418dd957e1511eac5e4f89fc641",
+      "files": [
+        {
+          "path": "js/entities/player.js",
+          "expected_blob": "ef5571d33f4cb373c300ad2ca0049febcad4abad",
+          "size": 38450,
+          "local_blob": "ef5571d33f4cb373c300ad2ca0049febcad4abad",
+          "bytes": 38450,
+          "matches": true
+        },
+        {
+          "path": "js/entities/enemy.js",
+          "expected_blob": "b9f35474356a6e572d160d85ef56a49e40ddcdb8",
+          "size": 42283,
+          "local_blob": "b9f35474356a6e572d160d85ef56a49e40ddcdb8",
+          "bytes": 42283,
+          "matches": true
+        },
+        {
+          "path": "js/entities/hitfx.js",
+          "expected_blob": "315924cf242be33dc78e342107fca02a61186bff",
+          "size": 1302,
+          "local_blob": "315924cf242be33dc78e342107fca02a61186bff",
+          "bytes": 1302,
+          "matches": true
+        },
+        {
+          "path": "LICENSE",
+          "expected_blob": "e84dec1f5e9affac5087db17e9ef6d18e3bbff66",
+          "size": 1072,
+          "local_blob": "e84dec1f5e9affac5087db17e9ef6d18e3bbff66",
+          "bytes": 1072,
+          "matches": true
+        }
+      ]
+    }
+  ],
+  "old_sources_unchanged": [
+    "prototype/build-contact-lab.mjs",
+    "prototype/build-duel-lab.mjs",
+    "prototype/build-rhythm-lab.mjs",
+    "prototype/build-scroll-lab.mjs",
+    "prototype/combat-actions.mjs",
+    "prototype/combat-contact.mjs",
+    "prototype/combat-core.mjs",
+    "prototype/combat-duel.mjs",
+    "prototype/combat-interrupts.mjs",
+    "prototype/combat-rhythm.mjs",
+    "prototype/combat-scroll.mjs",
+    "prototype/contact-lab.template.html",
+    "prototype/duel-lab.template.html",
+    "prototype/rhythm-demo.mjs",
+    "prototype/rhythm-lab.template.html",
+    "prototype/rhythm-renderer.mjs",
+    "prototype/scroll-lab.template.html",
+    "prototype/scroll-renderer.mjs",
+    "tests/combat-actions.test.mjs",
+    "tests/combat-contact.test.mjs",
+    "tests/combat-core.test.mjs",
+    "tests/combat-duel.test.mjs",
+    "tests/combat-feel.test.mjs",
+    "tests/combat-interrupts.test.mjs",
+    "tests/combat-rhythm.test.mjs",
+    "tests/combat-scroll.test.mjs",
+    "tests/duel-page.test.mjs",
+    "tests/rhythm-lab-smoke.cjs"
+  ],
+  "upstream_runtime": false
+}

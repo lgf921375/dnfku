@@ -1,0 +1,1 @@
+{"kind":"Skia model render only","phases":["保护起身","保护起身"],"done":[true,true],"frames":240,"saved":[["hit-0","hit-1","hit-2","airborne","down","hit-launcher","protection"],["hit-0","hit-1","hit-2","airborne","down","rise","hit-launcher","protection"]]}

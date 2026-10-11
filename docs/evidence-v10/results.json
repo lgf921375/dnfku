@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-12",
+  "status": "implementation-with-visual-change; browser-acceptance-incomplete",
+  "node": {
+    "passed": 147,
+    "failed": 0,
+    "old": 142,
+    "added": 5,
+    "log": "node.txt"
+  },
+  "model_render": {
+    "engine": "Skia",
+    "frames": 240,
+    "fps": 30,
+    "seconds": 8,
+    "resolution": "1920x600",
+    "both_demos_reached_protection": true,
+    "browser_recording": false,
+    "android_recording": false,
+    "log": "render.txt"
+  },
+  "browser": {
+    "passed": false,
+    "assertions_executed": 0,
+    "failures": [
+      {
+        "action": "Cloud Browser file URL navigation",
+        "reason": "URL protocol not allowed; no bypass attempted"
+      },
+      {
+        "action": "sites-preview start",
+        "exit_code": 1,
+        "reason": "bwrap: Can't mount proc on /newroot/proc: Operation not permitted"
+      },
+      {
+        "action": "Playwright browserType.launch",
+        "reason": "Chromium headless shell executable missing",
+        "log": "browser.txt"
+      }
+    ]
+  },
+  "not_covered": [
+    "browser UI/touch/audio/recording",
+    "Android hands-on feel/APK",
+    "upstream runtime",
+    "pose-aligned hurtboxes",
+    "official DNF fidelity"
+  ],
+  "initial_local_check": {
+    "exit_code": 1,
+    "full_stdout_retained": false,
+    "resolution": "restored exact remote UTF8 text including line endings; final hashes match and tests pass"
+  }
+}
