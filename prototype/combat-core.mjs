@@ -10,7 +10,10 @@ export const SETTINGS = Object.freeze({
   "totalHitLimit": 7,
   "protectedInvulnerabilitySeconds": 0.6,
   "fixedStep": 0.008333333333333333,
-  "minHitIntervalSeconds": 0.09
+  "minHitIntervalSeconds": 0.09,
+  "hitstopSeconds": 0.04,
+  "groundBounceVelocity": 0,
+  "groundBounceCount": 1
 });
 export const ATTACKS = Object.freeze({
   "launcher": {
@@ -61,12 +64,14 @@ export class CombatArena {
     this.cfg = {...SETTINGS, ...overrides};
     this.time=0; this.accumulator=0; this.playerX=0; this.enemyX=0.8;
     this.state="idle"; this.y=0; this.vy=0; this.downRemaining=0; this.invulnerabilityRemaining=0;
+    this.hitstopRemaining=0; this.bounceRemaining=0;
     this.airHits=0; this.groundHits=0; this.totalHits=0; this.comboExpires=-Infinity; this.lastHitTime=-Infinity;
     this.events=[];
   }
   snapshot() {
     return {time:this.time,state:this.state,enemyX:this.enemyX,y:this.y,vy:this.vy,
       downRemaining:this.downRemaining,invulnerabilityRemaining:this.invulnerabilityRemaining,
+      hitstopRemaining:this.hitstopRemaining,bounceRemaining:this.bounceRemaining,
       airHits:this.airHits,groundHits:this.groundHits,totalHits:this.totalHits};
   }
   resetCombo() { this.airHits=0; this.groundHits=0; this.totalHits=0; this.comboExpires=-Infinity; }
@@ -84,7 +89,7 @@ export class CombatArena {
   attackBox(def) {return {x0:this.playerX+def.x0,x1:this.playerX+def.x1,y0:def.y0,y1:def.y1};}
   forcedStand(reason) {
     this.state="invulnerable";this.y=0;this.vy=0;this.downRemaining=0;
-    this.invulnerabilityRemaining=this.cfg.protectedInvulnerabilitySeconds;
+    this.invulnerabilityRemaining=this.cfg.protectedInvulnerabilitySeconds; this.hitstopRemaining=0; this.bounceRemaining=0;
     this.record("forced-stand",{reason,airHits:this.airHits,groundHits:this.groundHits,totalHits:this.totalHits});
     this.resetCombo();
   }
@@ -99,6 +104,7 @@ export class CombatArena {
     this.totalHits++;this.lastHitTime=this.time;this.comboExpires=this.time+this.cfg.comboWindowSeconds;
     if(def.effect==="launch") {
       this.airHits++;this.state="airborne";this.y=Math.max(this.y,0.01);this.vy=this.cfg.launchVelocity;
+      this.bounceRemaining=this.cfg.groundBounceCount;
     }else if(def.effect==="airtap") {
       this.airHits++;this.vy=this.cfg.airTapVelocity;
     }else if(def.effect==="ground") {
@@ -107,6 +113,7 @@ export class CombatArena {
       this.airHits++;
     }
     const event=this.record("hit",{attack:name,state:this.state});
+    this.hitstopRemaining=Math.max(0,this.cfg.hitstopSeconds);
     if(this.airHits>=this.cfg.airHitLimit || this.groundHits>=this.cfg.groundHitLimit || this.totalHits>=this.cfg.totalHitLimit) {
       this.forcedStand(this.airHits>=this.cfg.airHitLimit?"air-limit":this.groundHits>=this.cfg.groundHitLimit?"ground-limit":"total-limit");
     }
@@ -115,12 +122,24 @@ export class CombatArena {
   fixedTick() {
     const dt=this.cfg.fixedStep;
     this.time+=dt;
+    // A confirmed hit pauses physical/timer progression without stopping monotonic event time.
+    if(this.hitstopRemaining>0) {
+      this.hitstopRemaining=Math.max(0,this.hitstopRemaining-dt);
+      return;
+    }
     if(this.state==="airborne"){
       this.vy-=this.cfg.gravity*dt;
       this.y+=this.vy*dt;
       if(this.y<=0){
-        this.y=0;this.vy=0;this.state="down";this.downRemaining=this.cfg.knockdownSeconds;
-        this.record("landed",{downRemaining:this.downRemaining});
+        this.y=0;
+        if(this.bounceRemaining>0 && this.cfg.groundBounceVelocity>0.01 && this.vy<0){
+          this.vy=this.cfg.groundBounceVelocity;
+          this.bounceRemaining--;
+          this.record("ground-bounce",{velocity:this.vy,bouncesLeft:this.bounceRemaining});
+        } else {
+          this.vy=0;this.state="down";this.downRemaining=this.cfg.knockdownSeconds;
+          this.record("landed",{downRemaining:this.downRemaining});
+        }
       }
     }else if(this.state==="down"){
       this.downRemaining=Math.max(0,this.downRemaining-dt);
