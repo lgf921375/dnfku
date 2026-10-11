@@ -169,3 +169,31 @@
 - **下一步**：优先把 V4 单文件页面及重现脚本完整持久化到 GitHub，再做逐帧攻击有效盒和攻击打断规则；人工 Android 录像与手感验收仍独立安排。保持原项目 `AGENTS.md` 约束，每一结论附测试类型和证据。
 - **隔离声明**：没有修改、部署、重启《皓石传奇三》，不触及其单套服务、原手机40C数据、600ms冷却和怪物规则。本轮只新增 `dnfku` 原创实验文件与文档。
 - 本段保存后的仓库 HEAD 由 GitHub `main` **最终回读核实**，不得提前猜 SHA。
+
+## 2026-10-11 第七批交接：补齐 V4 页面 + V5 取消/霸体/打断（有真实自动化执行证据）
+
+### 起始版本与本轮范围
+- 开始时 GitHub `main` SHA=`e1e0a6bcf5cf7c9e13d5bba7b8fb8b9cadb97d4a`。已先从 GitHub 读 `AGENTS.md`、`README.md`、本交接、`docs/combat-actions-v4-20261011.md` 及 V4 实际源码/测试；随后复核三个上游最新 HEAD（均与固定版本一致）：MiniDNF `543839751adbe09eecc896da949945080782b45e`、Unity-DNF `4436c7212a6e3ed2cb389b2c0c4fa5b6211f79e6`、86JP `4e2f25e04f604b7081cc42eb0f4d8c9a20a8ed05`。
+- 已将此前**只在对话中交付**的 V4 HTML [prototype/action-lab.html](../prototype/action-lab.html) 和 [tests/action-lab-smoke.py](../tests/action-lab-smoke.py) 原样提交 GitHub，Blob SHA `2e874dcc554fd8257d99e882ea26521b4381a972`、`e20e43336cd9e53f1d2bcd5c396cbe75b98192bc`，提交 SHA 分别为 `2a039a28fe173378559d268000206aa35a4db4bd` / `60b79b58c11c2d0b60af6ee426a5280cf2be9c36`。V4 浏览器脚本本轮复跑 **12/12 PASS**。
+- 本轮仅建立原创 JS 战斗控制器扩展，不修改、运行、拼接第三方客户端和服务端源码，未使用官方 DNF 资源。
+
+### 新研发与新发现：全部区分实际对象
+1. [prototype/combat-interrupts.mjs](../prototype/combat-interrupts.mjs) 新增 `CombatInterruptController`，**原创实验策略**：后摇完成0.10s后根据白名单规则取消当前动作并接技能；默认上挑→空追、空追→上挑、扫地→上挑。提前输入依旧走 V4 缓冲。
+2. “霸体”定义为**上挑有效段不允许普通动作打断，但强制打断有效**。此模块仅处理攻击者动作和事件记录，不处理真实玩家血量/减伤、格挡或敌人碰撞；不允许把“霸体逻辑测试通过”写成“DNF 怪物真实受击通过”。
+3. 受击输入 `receiveHit({force})` 是外部**已验证受击事件的注入接口**，普通非霸体受击清除当前动作、按键缓冲和攻击者剩余逻辑顿帧；不是实际角色之间的命中事件生成，也不是联网攻防。
+4. **失败（修复前可复现）**：取消开关设为 false 时，`canCancelInto` 已按规则拒绝，但 `snapshot().cancelReady` 在后摇时仍可能为 true。已记录隔离 Node 复现值：`phase=recovery`、`elapsed≈0.11667s`、`cancelEnabled=false`、`canCancelInto=false`、`snapshotCancelReady=true`。**修复**：快照增加取消开关、时间阈值和至少一个合法目标条件；测试63–65验证三种边界。
+5. [prototype/action-lab-v5.html](../prototype/action-lab-v5.html) 是已入库单文件原创交互场景，包括“模拟受击”“强制打断”、取消/霸体开关、原 V4 自动连招及原有状态显示。与实际测试文件 SHA 一致。它可用普通浏览器离线打开，但真人 Android 设备未验收。
+
+### 本轮实际回归
+- Node.js `v22.16.0`：`node --test tests/*.test.mjs` **65 PASS / 0 FAIL / exit 0**（旧版48项 + 新增 `tests/combat-interrupts.test.mjs` 17项）。
+- Playwright + Chromium 无头，390×844 合成触摸 `pointerdown`：`python tests/action-lab-smoke.py` V4 基线 **12/12 PASS**；`python tests/action-lab-v5-smoke.py` V5 **12/12 PASS**、0个浏览器 JavaScript 页面异常。
+- V5 浏览器脚本曾在受击事件后立即读取尚未刷新的 `#phase` 导致一次**测试脚本断言失败**，修复为等待下一次 UI 渲染后重新执行12/12 PASS。归因限定为脚本时序；仍保留历史失败，而非宣传初始就全部通过。
+- **V5 最终 Git Blob 与本地实际运行文件完全一致**：核心扩展 `249b67f78efab2ece46c5ce1d44a368298dfb48a`；17项 Node 测试 `d0540d7adb60debd36ffce317b972f82d2bcea02`；V5 单文件 HTML `a6070ce6107e44d0958e19cc7adb74d5b97bc610`；V5 Chromium 脚本 `3a781356876c089bf92ba47b812e6ad73cda17b4`。
+- 详细功能、实际执行结果与纠错见 [docs/combat-actions-v5-20261011.md](combat-actions-v5-20261011.md)（提交 `405ffad2fbd9d02f44e46afabc79b03ccda15db9`），README 导航更新提交 `9895b321b05b80fc6962326b6ee372ce91f86fe5`。本交接最终提交后的 main SHA 务必从 GitHub 核对，不从本交接推测。
+
+### 明确分类与后续
+- **通过（原创隔离真实 Node/Chromium 运行测试）**：65项 JS 自动测试及 V4/V5 两份各12项浏览器模拟按钮检查。范围严格限定为简化状态机和 DOM 事件。
+- **失败且已修复**：旧 V2 同一时刻反复扫地刷保护；V5 `cancelReady` 误报；V4/V5 浏览器测试脚本曾有错误的异步断言/参数格式。历史失败记录在各自报告内，不能删除。
+- **未覆盖**：二角色独立 hitbox / 攻击帧宽时间窗、真实扣血与格挡/霸体减伤、被击中的玩家真正进入受击状态、Android 手机手指操作录像与30/60Hz效果、Unity编译、联网服务端协议/账号/安全性、官方 DNF 保护机制与资产版权。
+- **下轮研发优先**：将两角色攻击事件与受击/霸体动作规则接通（仍为无版权独立测试）；再加入不同攻击帧判定范围及格挡和真实伤害的隔离单元测试。Android 真人触屏后才评估视觉打击感和打断手感。
+- **安全隔离**：本轮没有修改、部署、重启《皓石传奇三》，未碰其40C、单套服务、600ms冷却及怪物规则；没有触动其他游戏项目。
