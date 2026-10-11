@@ -1,0 +1,505 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><title>V6 原创双角色战斗实验</title>
+<style>*{box-sizing:border-box}body{margin:0;background:#101825;color:#eaf1fc;font:14px system-ui}main{max-width:900px;margin:auto;padding:14px}h1{font-size:20px;margin:0 0 8px}.note{color:#b4c5d9;font-size:12px}canvas{width:100%;height:300px;background:#182639;border:1px solid #435674;border-radius:12px;margin:12px 0}.panels{display:grid;grid-template-columns:1fr 1fr;gap:10px}.panel{background:#202e42;padding:10px;border-radius:10px}h2{font-size:16px;margin:0 0 8px}.hp{height:8px;background:#07101c;margin:6px 0}.hp span{display:block;height:100%;background:#61d7c5}button{background:#314763;color:white;border:1px solid #526c8e;border-radius:8px;padding:12px 8px;min-height:44px;touch-action:manipulation}button:active{background:#526a87}.keys{display:grid;grid-template-columns:1fr 1fr;gap:6px}.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}#log{white-space:pre-wrap;height:140px;overflow:auto;font-size:12px;background:#080f19;padding:10px}label{display:flex;align-items:center;gap:5px}.status{min-height:38px;font-size:12px}.guard[aria-pressed=true]{background:#957c32}@media(max-width:430px){main{padding:10px}canvas{height:250px}button{font-size:12px}.panel{padding:7px}}</style>
+<main><h1>V6 · 双角色战斗实验</h1><div class="note">原创几何角色与实验参数。可离线打开；Android 真机、APK 和主观手感尚未验收。绿色框为攻击有效盒。</div>
+<canvas id="arena" width="850" height="390" aria-label="双角色战斗场景"></canvas><div class="panels">
+<section class="panel"><h2>A · 青石</h2><div id="hp-A">HP 200 / 200</div><div class="hp"><span id="bar-A"></span></div><div id="status-A" class="status"></div><div class="keys"><button data-id="A" data-skill="launcher">上挑</button><button data-id="A" data-skill="airTap">空追</button><button data-id="A" data-skill="groundSweep">扫地</button><button data-id="A" data-skill="highSlash">高位斩</button><button data-move="-0.2" data-id="A">← 移动</button><button data-move="0.2" data-id="A">移动 →</button><button class="guard" data-guard="A" aria-pressed="false">格挡开关</button></div></section>
+<section class="panel"><h2>B · 赤砂</h2><div id="hp-B">HP 200 / 200</div><div class="hp"><span id="bar-B"></span></div><div id="status-B" class="status"></div><div class="keys"><button data-id="B" data-skill="launcher">上挑</button><button data-id="B" data-skill="airTap">空追</button><button data-id="B" data-skill="groundSweep">扫地</button><button data-id="B" data-skill="highSlash">高位斩</button><button data-move="-0.2" data-id="B">← 移动</button><button data-move="0.2" data-id="B">移动 →</button><button class="guard" data-guard="B" aria-pressed="false">格挡开关</button></div></section></div>
+<div class="toolbar"><button id="reset">重置</button><button id="pause">暂停</button><button id="step">单步 1/120秒</button><button id="demo">浮空 → 扫地演示</button><label><input type="checkbox" id="bilateral" checked>双边逻辑顿帧</label><label><input type="checkbox" id="boxes" checked>显示碰撞盒</label></div><div id="log" role="log"></div>
+<script>
+/** Original isolated combat model. NOT upstream DNF. Values are test-only design choices. */
+const SETTINGS = Object.freeze({
+  "gravity": 22,
+  "launchVelocity": 10.5,
+  "airTapVelocity": 5.5,
+  "knockdownSeconds": 0.9,
+  "comboWindowSeconds": 1.6,
+  "airHitLimit": 4,
+  "groundHitLimit": 3,
+  "totalHitLimit": 7,
+  "protectedInvulnerabilitySeconds": 0.6,
+  "fixedStep": 0.008333333333333333,
+  "minHitIntervalSeconds": 0.09,
+  "hitstopSeconds": 0.04,
+  "groundBounceVelocity": 0,
+  "groundBounceCount": 1
+});
+const ATTACKS = Object.freeze({
+  "launcher": {
+    "x0": 0,
+    "x1": 1.5,
+    "y0": 0.05,
+    "y1": 1.85,
+    "allowed": [
+      "idle",
+      "airborne"
+    ],
+    "effect": "launch"
+  },
+  "airTap": {
+    "x0": 0,
+    "x1": 1.5,
+    "y0": 0.65,
+    "y1": 3.5,
+    "allowed": [
+      "airborne"
+    ],
+    "effect": "airtap"
+  },
+  "groundSweep": {
+    "x0": 0,
+    "x1": 1.5,
+    "y0": 0,
+    "y1": 0.4,
+    "allowed": [
+      "down"
+    ],
+    "effect": "ground"
+  },
+  "highSlash": {
+    "x0": 0,
+    "x1": 1.5,
+    "y0": 0.6,
+    "y1": 1.65,
+    "allowed": [
+      "idle",
+      "airborne"
+    ],
+    "effect": "none"
+  }
+});
+class CombatArena {
+  constructor(overrides = {}) {
+    this.cfg = {...SETTINGS, ...overrides};
+    this.time=0; this.accumulator=0; this.playerX=0; this.enemyX=0.8;
+    this.state="idle"; this.y=0; this.vy=0; this.downRemaining=0; this.invulnerabilityRemaining=0;
+    this.hitstopRemaining=0; this.bounceRemaining=0;
+    this.airHits=0; this.groundHits=0; this.totalHits=0; this.comboExpires=-Infinity; this.lastHitTime=-Infinity;
+    this.events=[];
+  }
+  snapshot() {
+    return {time:this.time,state:this.state,enemyX:this.enemyX,y:this.y,vy:this.vy,
+      downRemaining:this.downRemaining,invulnerabilityRemaining:this.invulnerabilityRemaining,
+      hitstopRemaining:this.hitstopRemaining,bounceRemaining:this.bounceRemaining,
+      airHits:this.airHits,groundHits:this.groundHits,totalHits:this.totalHits};
+  }
+  resetCombo() { this.airHits=0; this.groundHits=0; this.totalHits=0; this.comboExpires=-Infinity; }
+  record(type,detail) {
+    const event={time:Number(this.time.toFixed(5)),type,...detail};
+    this.events.push(event);return event;
+  }
+  overlap(a,b) {
+    return a.x0 < b.x1 && a.x1 > b.x0 && a.y0 < b.y1 && a.y1 > b.y0;
+  }
+  enemyBox() {
+    if (this.state==="down") return {x0:this.enemyX-0.54,x1:this.enemyX+0.54,y0:0,y1:0.32};
+    return {x0:this.enemyX-0.34,x1:this.enemyX+0.34,y0:this.y,y1:this.y+1.8};
+  }
+  attackBox(def) {return {x0:this.playerX+def.x0,x1:this.playerX+def.x1,y0:def.y0,y1:def.y1};}
+  forcedStand(reason) {
+    this.state="invulnerable";this.y=0;this.vy=0;this.downRemaining=0;
+    this.invulnerabilityRemaining=this.cfg.protectedInvulnerabilitySeconds; this.hitstopRemaining=0; this.bounceRemaining=0;
+    this.record("forced-stand",{reason,airHits:this.airHits,groundHits:this.groundHits,totalHits:this.totalHits});
+    this.resetCombo();
+  }
+  hit(name) {
+    const def=ATTACKS[name];
+    if(!def) throw new Error("Unknown attack: "+name);
+    if(this.state==="invulnerable") return this.record("blocked",{attack:name,reason:"protected-invulnerability"});
+    if(!def.allowed.includes(this.state)) return this.record("blocked",{attack:name,reason:"invalid-target-state"});
+    if(!this.overlap(this.attackBox(def),this.enemyBox())) return this.record("blocked",{attack:name,reason:"aabb-miss"});
+    if(this.time-this.lastHitTime < this.cfg.minHitIntervalSeconds-1e-9) return this.record("blocked",{attack:name,reason:"hit-cadence"});
+    if(this.time > this.comboExpires) this.resetCombo();
+    this.totalHits++;this.lastHitTime=this.time;this.comboExpires=this.time+this.cfg.comboWindowSeconds;
+    if(def.effect==="launch") {
+      this.airHits++;this.state="airborne";this.y=Math.max(this.y,0.01);this.vy=this.cfg.launchVelocity;
+      this.bounceRemaining=this.cfg.groundBounceCount;
+    }else if(def.effect==="airtap") {
+      this.airHits++;this.vy=this.cfg.airTapVelocity;
+    }else if(def.effect==="ground") {
+      this.groundHits++;this.downRemaining=this.cfg.knockdownSeconds;
+    }else if(this.state==="airborne") {
+      this.airHits++;
+    }
+    const event=this.record("hit",{attack:name,state:this.state});
+    this.hitstopRemaining=Math.max(0,this.cfg.hitstopSeconds);
+    if(this.airHits>=this.cfg.airHitLimit || this.groundHits>=this.cfg.groundHitLimit || this.totalHits>=this.cfg.totalHitLimit) {
+      this.forcedStand(this.airHits>=this.cfg.airHitLimit?"air-limit":this.groundHits>=this.cfg.groundHitLimit?"ground-limit":"total-limit");
+    }
+    return event;
+  }
+  fixedTick() {
+    const dt=this.cfg.fixedStep;
+    this.time+=dt;
+    // A confirmed hit pauses physical/timer progression without stopping monotonic event time.
+    if(this.hitstopRemaining>0) {
+      this.hitstopRemaining=Math.max(0,this.hitstopRemaining-dt);
+      return;
+    }
+    if(this.state==="airborne"){
+      this.vy-=this.cfg.gravity*dt;
+      this.y+=this.vy*dt;
+      if(this.y<=0){
+        this.y=0;
+        if(this.bounceRemaining>0 && this.cfg.groundBounceVelocity>0.01 && this.vy<0){
+          this.vy=this.cfg.groundBounceVelocity;
+          this.bounceRemaining--;
+          this.record("ground-bounce",{velocity:this.vy,bouncesLeft:this.bounceRemaining});
+        } else {
+          this.vy=0;this.state="down";this.downRemaining=this.cfg.knockdownSeconds;
+          this.record("landed",{downRemaining:this.downRemaining});
+        }
+      }
+    }else if(this.state==="down"){
+      this.downRemaining=Math.max(0,this.downRemaining-dt);
+      if(this.downRemaining<=0){this.state="idle";this.record("ordinary-stand",{});}
+    }else if(this.state==="invulnerable"){
+      this.invulnerabilityRemaining=Math.max(0,this.invulnerabilityRemaining-dt);
+      if(this.invulnerabilityRemaining<=0){this.state="idle";this.record("protection-ended",{});}
+    }
+    if(this.state==="idle"&&this.time>this.comboExpires) this.resetCombo();
+  }
+  tick(seconds) {
+    if(!Number.isFinite(seconds)||seconds<0||seconds>5) throw new RangeError("tick seconds must be 0..5");
+    this.accumulator+=seconds;
+    while(this.accumulator + 1e-10 >= this.cfg.fixedStep){
+      this.accumulator-=this.cfg.fixedStep;
+      if(this.accumulator < 0) this.accumulator=0;
+      this.fixedTick();
+    }
+    return this.snapshot();
+  }
+}
+
+/** Original V4 input-and-animation time-line laboratory. No upstream code or DNF assets.
+ * Attack windup/active/recovery times below are experimental, not official DNF values.
+ * The V3 CombatArena remains the authoritative victim physics and hit validator.
+ */
+
+const ACTION_FRAMES = Object.freeze({
+  launcher: Object.freeze({ startup:0.10, active:0.07, recovery:0.18 }),
+  airTap: Object.freeze({ startup:0.06, active:0.07, recovery:0.13 }),
+  groundSweep: Object.freeze({ startup:0.07, active:0.06, recovery:0.16 }),
+  highSlash: Object.freeze({ startup:0.09, active:0.06, recovery:0.18 })
+});
+const ACTION_SETTINGS = Object.freeze({ inputBufferSeconds:0.20, bilateralHitstop:true });
+
+class CombatActionController {
+  constructor({ arena, actionSettings, frames } = {}) {
+    this.arena = arena ?? new CombatArena();
+    this.cfg = { ...ACTION_SETTINGS, ...actionSettings };
+    this.frames = { ...ACTION_FRAMES, ...frames };
+    this.time = 0;
+    this.accumulator = 0;
+    this.actionTime = 0;
+    this.action = null;
+    this.buffer = null;
+    this.attackerHitstopRemaining = 0;
+    this.events = [];
+  }
+  get phase() { return this.action?.phase ?? 'idle'; }
+  get actionName() { return this.action?.name ?? null; }
+  snapshot() { return {
+    time:this.time, actionTime:this.actionTime, phase:this.phase, action:this.actionName,
+    buffered:this.buffer?.name ?? null, attackerHitstopRemaining:this.attackerHitstopRemaining,
+    target:this.arena.snapshot()
+  }; }
+  record(type, fields={}) { const e={type, time:Number(this.time.toFixed(5)), ...fields}; this.events.push(e); return e; }
+  /** Inputs begin their STARTUP animation immediately, never apply instant damage. */
+  press(name) {
+    if (!Object.hasOwn(ATTACKS,name) || !this.frames[name]) throw new RangeError(`unknown action ${name}`);
+    if (!this.action) { this.start(name); return this.record('input-started',{name}); }
+    if (this.cfg.inputBufferSeconds<=0) return this.record('input-rejected',{name,reason:'busy'});
+    // Replacement policy: the most recent input owns the one-slot buffer.
+    this.buffer={ name, expiresAt:this.actionTime+this.cfg.inputBufferSeconds };
+    return this.record('input-buffered',{name,phase:this.phase});
+  }
+  start(name) {
+    const f=this.frames[name];
+    for (const k of ['startup','active','recovery']) {
+      if (!Number.isFinite(f[k]) || f[k]<0) throw new RangeError(`bad ${k} duration`);
+    }
+    this.action={name,phase:'startup',elapsed:0,impactDone:false};
+    this.record('phase',{name,phase:'startup'});
+  }
+  applyImpact() {
+    if (!this.action || this.action.impactDone) return;
+    this.action.impactDone=true;
+    const result=this.arena.hit(this.action.name);
+    this.record('impact',{name:this.action.name,result:result.type,reason:result.reason??null});
+    if (result.type==='hit') {
+      const period=this.arena.hitstopRemaining;
+      if (this.cfg.bilateralHitstop) this.attackerHitstopRemaining=period;
+    }
+  }
+  nextPhase() {
+    if (!this.action) return;
+    const a=this.action;
+    if (a.phase==='startup') {
+      a.phase='active';a.elapsed=0;
+      this.record('phase',{name:a.name,phase:'active'});
+      this.applyImpact();
+    } else if (a.phase==='active') {
+      a.phase='recovery';a.elapsed=0;
+      this.record('phase',{name:a.name,phase:'recovery'});
+    } else {
+      this.record('action-end',{name:a.name});
+      this.action=null;
+      if (this.buffer) {
+        const pending=this.buffer;this.buffer=null;
+        if (this.actionTime <= pending.expiresAt+1e-9) {
+          this.start(pending.name);
+          this.record('input-consumed',{name:pending.name});
+        } else this.record('input-expired',{name:pending.name});
+      }
+    }
+  }
+  fixedTick() {
+    const dt=this.arena.cfg.fixedStep;
+    this.time+=dt;
+    // Both channels always share a monotonic simulation clock.
+    const frozen=this.cfg.bilateralHitstop && this.attackerHitstopRemaining>0;
+    this.arena.tick(dt);
+    if (frozen) {
+      this.attackerHitstopRemaining=Math.max(0,this.attackerHitstopRemaining-dt);
+      return;
+    }
+    this.attackerHitstopRemaining=0;
+    this.actionTime+=dt;
+    if (!this.action) return;
+    // Each fixed tick may cross a single phase boundary: no double-hit at phase edges.
+    const maxStep=this.frames[this.action.name][this.action.phase];
+    this.action.elapsed+=dt;
+    if (this.action.elapsed+1e-9>=maxStep) this.nextPhase();
+  }
+  tick(seconds) {
+    if (!Number.isFinite(seconds)||seconds<0||seconds>5) throw new RangeError('invalid tick duration');
+    this.accumulator+=seconds;
+    const dt=this.arena.cfg.fixedStep;
+    while(this.accumulator+1e-10>=dt) {
+      this.accumulator-=dt;
+      if (this.accumulator<0)this.accumulator=0;
+      this.fixedTick();
+    }
+    return this.snapshot();
+  }
+}
+
+/** Original V5 action-interruption policy. No DNF resources or damage formulas.
+ * Super armor prevents an ACTION interruption only; it is not damage immunity.
+ */
+
+const INTERRUPT_SETTINGS = Object.freeze({
+  cancelEnabled: true,
+  cancelRecoveryAfter: 0.10,
+  cancelRules: Object.freeze({
+    launcher: ['airTap'],
+    airTap: ['launcher'],
+    groundSweep: ['launcher'],
+    highSlash: []
+  }),
+  armoredActions: ['launcher']
+});
+
+class CombatInterruptController extends CombatActionController {
+  constructor({ interruptSettings, ...options } = {}) {
+    super(options);
+    this.policy = { ...INTERRUPT_SETTINGS, ...interruptSettings };
+    if (!Number.isFinite(this.policy.cancelRecoveryAfter) || this.policy.cancelRecoveryAfter < 0)
+      throw new RangeError('cancelRecoveryAfter must be a finite nonnegative duration');
+  }
+  get armored() {
+    return this.phase === 'active' && this.policy.armoredActions.includes(this.actionName);
+  }
+  canCancelInto(name) {
+    return !!this.action && this.policy.cancelEnabled && this.phase === 'recovery' &&
+      this.action.elapsed + 1e-9 >= this.policy.cancelRecoveryAfter &&
+      (this.policy.cancelRules[this.actionName] ?? []).includes(name);
+  }
+  press(name) {
+    if (!Object.hasOwn(ATTACKS, name) || !this.frames[name]) throw new RangeError(`unknown action ${name}`);
+    if (this.canCancelInto(name)) {
+      const from = this.actionName;
+      this.action = null;
+      this.buffer = null; // never replay an outdated input after a cancel.
+      this.record('action-canceled', { from, to: name });
+      this.start(name);
+      return this.record('cancel-input-started', { from, name });
+    }
+    return super.press(name);
+  }
+  /** Caller only reports a validated incoming hit; no HP/damage calculations here. */
+  receiveHit({force=false}={}) {
+    if (this.armored && !force) {
+      return this.record('armor-resisted', { name:this.actionName, phase:this.phase });
+    }
+    if (!this.action) return this.record('incoming-hit-idle', {});
+    const old = this.actionName;
+    this.action = null;
+    this.buffer = null;
+    this.attackerHitstopRemaining = 0;
+    return this.record('action-interrupted', { name:old, force:!!force });
+  }
+  snapshot() { return { ...super.snapshot(), armored:this.armored, cancelReady:this.policy.cancelEnabled && this.action !== null && this.phase==='recovery' && this.action.elapsed+1e-9 >= this.policy.cancelRecoveryAfter && (this.policy.cancelRules[this.actionName] ?? []).length > 0 }; }
+}
+
+/** Original V6 two-fighter laboratory. All damage/guard values are experimental. */
+
+const DUEL_SKILLS = Object.freeze(Object.fromEntries(Object.entries(ATTACKS).map(([name, def]) => [name,
+  Object.freeze({ damage: {launcher:18, airTap:10, groundSweep:8, highSlash:14}[name],
+    hitstun:0.18, force:false, boxes:[Object.freeze({from:0, to:1, ...def})] })])));
+
+class DuelActionController extends CombatInterruptController {
+  // V4's single impact is replaced with continuous active-window checks by the duel.
+  applyImpact() {}
+  start(name) { super.start(name); this.action.contacts = new Set(); }
+}
+
+class CombatDuel {
+  constructor({ settings={}, skills={}, frames, interruptSettings, bilateralHitstop=true, hp=200 }={}) {
+    this.settings={...SETTINGS,...settings};
+    if (!Number.isFinite(this.settings.fixedStep) || this.settings.fixedStep<=0 || this.settings.fixedStep>0.1)
+      throw new RangeError('invalid fixedStep');
+    if (!Number.isFinite(hp) || hp<=0) throw new RangeError('invalid HP');
+    this.skills={...DUEL_SKILLS,...skills};
+    for (const s of Object.values(this.skills)) {
+      if (!Number.isFinite(s.damage)||s.damage<0||!Number.isFinite(s.hitstun)||s.hitstun<0||!s.boxes?.length)
+        throw new RangeError('invalid skill');
+      for (const b of s.boxes) if (![b.from,b.to,b.x0,b.x1,b.y0,b.y1].every(Number.isFinite) ||
+        b.from<0||b.to>1||b.from>=b.to||b.x0>=b.x1||b.y0>=b.y1) throw new RangeError('invalid hitbox');
+    }
+    this.time=0; this.accumulator=0; this.events=[];
+    this.fighters=['A','B'].map((id,i)=>{
+      const body=new CombatArena(this.settings); body.enemyX=i*0.8;
+      // Each body retains V3 physics/protection; controller clocks advance centrally once.
+      const facade={cfg:this.settings,tick(){},snapshot:()=>body.snapshot()};
+      const controller=new DuelActionController({arena:facade,frames,interruptSettings,
+        actionSettings:{bilateralHitstop}});
+      return {id,body,controller,facing:i===0?1:-1,hp,maxHp:hp,guard:false,stun:0,dead:false};
+    });
+  }
+  fighter(id) { const f=this.fighters.find(f=>f.id===id); if(!f)throw new RangeError('unknown fighter');return f; }
+  record(type,detail={}) {const e={time:Number(this.time.toFixed(5)),type,...detail};this.events.push(e);return e;}
+  press(id,name) {
+    const f=this.fighter(id);
+    if(f.dead||f.stun>0||!['idle','invulnerable'].includes(f.body.state)||f.guard)
+      return this.record('input-rejected',{id,reason:'cannot-act'});
+    return f.controller.press(name);
+  }
+  setGuard(id,on) {
+    const f=this.fighter(id);
+    if(on&&(f.dead||f.stun>0||f.body.state!=='idle'||f.controller.action)) return false;
+    f.guard=!!on;return true;
+  }
+  move(id,dx) {
+    if(!Number.isFinite(dx))throw new RangeError('invalid movement');
+    const f=this.fighter(id);
+    if(f.dead||f.stun>0||f.body.hitstopRemaining>0||f.controller.attackerHitstopRemaining>0||f.controller.action||f.body.state!=='idle')return false;
+    f.body.enemyX+=dx;if(dx)f.facing=Math.sign(dx);return true;
+  }
+  attackBoxes(f) {
+    const a=f.controller.action;
+    if(!a||a.phase!=='active'||f.dead)return [];
+    const ratio=a.elapsed/f.controller.frames[a.name].active;
+    return this.skills[a.name].boxes.filter(b=>ratio+1e-9>=b.from&&ratio<b.to).map(b=>{
+      const x=f.body.enemyX,y=f.body.y;
+      return {x0:x+(f.facing>0?b.x0:-b.x1),x1:x+(f.facing>0?b.x1:-b.x0),y0:y+b.y0,y1:y+b.y1};
+    });
+  }
+  fixedTick() {
+    const dt=this.settings.fixedStep;this.time+=dt;
+    const frozen=new Set(this.fighters.filter(f=>f.body.hitstopRemaining>0||f.controller.attackerHitstopRemaining>0));
+    for(const f of this.fighters) {
+      f.body.fixedTick();
+      if(!frozen.has(f))f.stun=Math.max(0,f.stun-dt);
+      if(f.dead)continue;
+      // Freeze victim action as well as physics. The V5 controller handles attacker freeze.
+      if(frozen.has(f)&&f.controller.attackerHitstopRemaining<=0) {f.controller.time+=dt;continue;}
+      f.controller.fixedTick();
+    }
+    // Capture both intents before resolving: equal-tick contacts trade, independent of A/B order.
+    const intents=[];
+    for(const f of this.fighters) {
+      if(frozen.has(f))continue;
+      const a=f.controller.action;if(!a||a.phase!=='active'||f.dead)continue;
+      const target=this.fighters.find(t=>t!==f);const b=target.body;
+      if(target.dead||a.contacts.has(target.id)||b.state==='invulnerable'||
+        !ATTACKS[a.name].allowed.includes(b.state)||b.time-b.lastHitTime<this.settings.minHitIntervalSeconds-1e-9)continue;
+      const box=this.attackBoxes(f).find(box=>b.overlap(box,b.enemyBox()));
+      if(box)intents.push({f,target,a,box,armored:target.controller.armored,
+        guarded:target.guard&&b.state==='idle'&&(f.body.enemyX-b.enemyX)*target.facing>=0});
+    }
+    for(const intent of intents)this.resolve(intent);
+  }
+  resolve({f,target,a,box,armored,guarded}) {
+    const s=this.skills[a.name],b=target.body;a.contacts.add(target.id);
+    if(guarded) {
+      // Original guard policy: frontal grounded guard has no chip, combo or hitstop.
+      this.record('guard',{attacker:f.id,target:target.id,skill:a.name});return;
+    }
+    const before={state:b.state,y:b.y,vy:b.vy,downRemaining:b.downRemaining,bounceRemaining:b.bounceRemaining};
+    const original=b.attackBox;b.attackBox=()=>box;
+    let result;try {result=b.hit(a.name);} finally {b.attackBox=original;}
+    if(result.type!=='hit') {this.record('rejected-contact',{reason:result.reason});return;}
+    // Armor blocks reaction, not damage, combo accounting or threshold protection.
+    const protectedStand=b.state==='invulnerable';
+    if(armored&&!s.force&&!protectedStand)Object.assign(b,before);
+    target.hp=Math.max(0,target.hp-s.damage);
+    const reaction=target.controller.receiveHit({force:s.force||protectedStand});
+    if(!armored||s.force||protectedStand) {
+      target.guard=false;target.stun=protectedStand?0:s.hitstun;
+      target.controller.buffer=null;
+    }
+    const stop=b.hitstopRemaining;
+    if(f.controller.cfg.bilateralHitstop)f.controller.attackerHitstopRemaining=Math.max(f.controller.attackerHitstopRemaining,stop);
+    this.record('damage',{attacker:f.id,target:target.id,skill:a.name,damage:s.damage,hp:target.hp,
+      armored:armored&&!s.force&&!protectedStand,interrupted:reaction.type==='action-interrupted',protectedStand});
+    if(target.hp===0) {
+      target.dead=true;target.guard=false;target.stun=0;target.controller.receiveHit({force:true});
+      target.controller.buffer=null;b.state='dead';b.y=0;b.vy=0;b.hitstopRemaining=0;
+      this.record('defeated',{id:target.id});
+    }
+  }
+  tick(seconds) {
+    if(!Number.isFinite(seconds)||seconds<0||seconds>5)throw new RangeError('invalid tick');
+    this.accumulator+=seconds;
+    while(this.accumulator+1e-10>=this.settings.fixedStep){this.accumulator=Math.max(0,this.accumulator-this.settings.fixedStep);this.fixedTick();}
+    return this.snapshot();
+  }
+  snapshot() {return {time:this.time,fighters:this.fighters.map(f=>({id:f.id,hp:f.hp,maxHp:f.maxHp,facing:f.facing,
+    guard:f.guard,stun:f.stun,dead:f.dead,body:f.body.snapshot(),action:f.controller.snapshot(),boxes:this.attackBoxes(f)}))};}
+}
+
+let duel=new CombatDuel(),paused=false,demo=false,last=0;
+const $=id=>document.getElementById(id),ctx=$('arena').getContext('2d');
+const names={idle:'站立',airborne:'浮空',down:'倒地',invulnerable:'保护无敌',dead:'败北',startup:'前摇',active:'有效段',recovery:'后摇'};
+function render(){
+  const snap=duel.snapshot();ctx.clearRect(0,0,850,390);ctx.strokeStyle='#4c607b';ctx.beginPath();ctx.moveTo(0,340);ctx.lineTo(850,340);ctx.stroke();
+  const mapX=x=>300+x*90,mapY=y=>340-y*65;
+  for(const f of snap.fighters){
+    $('hp-'+f.id).textContent=`HP ${f.hp} / ${f.maxHp}`;$('bar-'+f.id).style.width=100*f.hp/f.maxHp+'%';
+    $('status-'+f.id).textContent=`${names[f.body.state]} · ${names[f.action.phase]}${f.action.armored?' · 霸体':''}${f.stun>0?' · 受击硬直':''}`;
+    document.querySelector(`[data-guard="${f.id}"]`).setAttribute('aria-pressed',String(f.guard));
+    const box=duel.fighter(f.id).body.enemyBox();ctx.fillStyle=f.id==='A'?'#55cbbf':'#f18a79';ctx.globalAlpha=f.dead?0.3:1;
+    ctx.fillRect(mapX(box.x0),mapY(box.y1),(box.x1-box.x0)*90,(box.y1-box.y0)*65);ctx.globalAlpha=1;
+    ctx.fillStyle='#fff';ctx.font='16px system-ui';ctx.fillText(f.id+(f.facing>0?' →':' ←'),mapX(f.body.enemyX)-20,mapY(box.y1)-12);
+    if(f.guard){ctx.strokeStyle='#f6d77b';ctx.lineWidth=4;ctx.strokeRect(mapX(box.x0)-5,mapY(box.y1)-5,(box.x1-box.x0)*90+10,(box.y1-box.y0)*65+10);ctx.lineWidth=1;}
+    if($('boxes').checked){ctx.strokeStyle='#66ff83';for(const b of f.boxes)ctx.strokeRect(mapX(b.x0),mapY(b.y1),(b.x1-b.x0)*90,(b.y1-b.y0)*65);}
+  }
+  $('log').textContent=duel.events.slice(-14).map(e=>e.type==='damage'?`${e.time}s ${e.attacker} → ${e.target} 扣血 ${e.damage}${e.armored?' 霸体抗打断':''}${e.protectedStand?' 保护起身':''}`:e.type==='guard'?`${e.time}s ${e.target} 格挡成功`:e.type==='defeated'?`${e.id} 败北`:`${e.time}s ${e.type}`).join('\n');
+}
+function reset(){duel=new CombatDuel({bilateralHitstop:$('bilateral').checked});demo=false;render();}
+document.querySelectorAll('[data-skill]').forEach(b=>b.addEventListener('pointerdown',e=>{e.preventDefault();duel.press(b.dataset.id,b.dataset.skill);render();}));
+document.querySelectorAll('[data-move]').forEach(b=>b.addEventListener('pointerdown',e=>{e.preventDefault();duel.move(b.dataset.id,Number(b.dataset.move));render();}));
+document.querySelectorAll('[data-guard]').forEach(b=>b.addEventListener('click',()=>{const f=duel.fighter(b.dataset.guard);duel.setGuard(f.id,!f.guard);render();}));
+$('reset').onclick=reset;$('pause').onclick=()=>{paused=!paused;$('pause').textContent=paused?'继续':'暂停';};
+$('step').onclick=()=>{if(paused){duel.tick(1/120);render();}};
+$('demo').onclick=()=>{reset();demo=true;duel.press('A','launcher');render();};
+$('bilateral').onchange=()=>{for(const f of duel.fighters)f.controller.cfg.bilateralHitstop=$('bilateral').checked;};
+function frame(t){const dt=last?Math.min((t-last)/1000,0.05):0;last=t;if(!paused){
+  if(demo){const a=duel.fighter('A'),b=duel.fighter('B');if(!a.controller.action&&b.body.state==='down')duel.press('A','groundSweep');if(b.body.state==='invulnerable'||b.dead)demo=false;}
+  duel.tick(dt);
+}render();requestAnimationFrame(frame);}render();requestAnimationFrame(frame);
+// Deterministic diagnostic entry points for browser regressions; not a network API.
+window.combatLab={get duel(){return duel;},pause(){paused=true;$('pause').textContent='继续';},reset,
+  advance(t){duel.tick(t);render();},snapshot(){return duel.snapshot();}};
+</script></main></html>

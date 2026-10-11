@@ -1,0 +1,27 @@
+{
+  "executedAt": "2026-10-11T11:40:34.809Z",
+  "node": "v24.19.0",
+  "results": [
+    {
+      "name": "build",
+      "command": "node prototype/build-duel-lab.mjs",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": "build.txt"
+    },
+    {
+      "name": "node",
+      "command": "node --test tests/combat-actions.test.mjs tests/combat-core.test.mjs tests/combat-duel.test.mjs tests/combat-feel.test.mjs tests/combat-interrupts.test.mjs tests/duel-page.test.mjs",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": "node.txt"
+    },
+    {
+      "name": "browser",
+      "command": "node tests/duel-lab-smoke.cjs",
+      "exitCode": 1,
+      "status": "ENVIRONMENT_BLOCKED",
+      "log": "browser.txt"
+    }
+  ]
+}

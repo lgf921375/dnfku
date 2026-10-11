@@ -38,7 +38,14 @@
 - [V5 机制与缺陷报告](docs/combat-actions-v5-20261011.md)：包含“取消功能已关闭但 `cancelReady` 仍误报”为真的**已复现失败及修复证据**。旧版失败历史不删除。
 - **持续限制**：这只是原创角色动作逻辑；实际 HP/格挡/霸体下受伤、真实多角色实体攻击、安卓 APK、人手操作与官方 DNF 行为一致性都**未覆盖**。
 
-## 文档导航
+## V6 原创二角色扣血与碰撞实验（2026-10-11）
+
+- [二角色战斗层](prototype/combat-duel.mjs)：有效段逐步检查独立攻击盒、双向攻击、HP、正面格挡、霸体受伤不打断、保护起身与同帧换血；沿用V3/V4/V5规则，旧源码与测试未改。
+- [V6离线实验页](prototype/duel-lab-v6.html)：原创几何角色、双方技能、HP、格挡、步进移动与碰撞盒；由 [生成器](prototype/build-duel-lab.mjs) 直接使用测试模块生成。
+- [V6报告](docs/combat-duel-v6-20261011.md) / [Android路线评估](docs/android-route-v6-20261011.md)：Node v24.19.0本轮 **104/104通过**（旧65+新39）；[批量检查](tests/run-v6-batch.mjs) 与 [原始证据](docs/evidence-v6/results.json)。
+- **环境失败/未覆盖**：本轮Chromium缺失且下载失败，V6浏览器脚本启动退出1，页面断言0项执行。页面视觉/交互、Android真机/APK、Unity、主观手感、联网均未覆盖；历史V4/V5浏览器通过不能代替V6。
+
+## 既有研究文档导航
 
 1. [AGENTS.md](AGENTS.md)：本仓库后续审查和更新规则。
 2. [docs/source-audit-20261011.md](docs/source-audit-20261011.md)：真实文件路径与源码结论。

@@ -1,0 +1,43 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><title>V6 原创双角色战斗实验</title>
+<style>*{box-sizing:border-box}body{margin:0;background:#101825;color:#eaf1fc;font:14px system-ui}main{max-width:900px;margin:auto;padding:14px}h1{font-size:20px;margin:0 0 8px}.note{color:#b4c5d9;font-size:12px}canvas{width:100%;height:300px;background:#182639;border:1px solid #435674;border-radius:12px;margin:12px 0}.panels{display:grid;grid-template-columns:1fr 1fr;gap:10px}.panel{background:#202e42;padding:10px;border-radius:10px}h2{font-size:16px;margin:0 0 8px}.hp{height:8px;background:#07101c;margin:6px 0}.hp span{display:block;height:100%;background:#61d7c5}button{background:#314763;color:white;border:1px solid #526c8e;border-radius:8px;padding:12px 8px;min-height:44px;touch-action:manipulation}button:active{background:#526a87}.keys{display:grid;grid-template-columns:1fr 1fr;gap:6px}.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}#log{white-space:pre-wrap;height:140px;overflow:auto;font-size:12px;background:#080f19;padding:10px}label{display:flex;align-items:center;gap:5px}.status{min-height:38px;font-size:12px}.guard[aria-pressed=true]{background:#957c32}@media(max-width:430px){main{padding:10px}canvas{height:250px}button{font-size:12px}.panel{padding:7px}}</style>
+<main><h1>V6 · 双角色战斗实验</h1><div class="note">原创几何角色与实验参数。可离线打开；Android 真机、APK 和主观手感尚未验收。绿色框为攻击有效盒。</div>
+<canvas id="arena" width="850" height="390" aria-label="双角色战斗场景"></canvas><div class="panels">
+<section class="panel"><h2>A · 青石</h2><div id="hp-A">HP 200 / 200</div><div class="hp"><span id="bar-A"></span></div><div id="status-A" class="status"></div><div class="keys"><button data-id="A" data-skill="launcher">上挑</button><button data-id="A" data-skill="airTap">空追</button><button data-id="A" data-skill="groundSweep">扫地</button><button data-id="A" data-skill="highSlash">高位斩</button><button data-move="-0.2" data-id="A">← 移动</button><button data-move="0.2" data-id="A">移动 →</button><button class="guard" data-guard="A" aria-pressed="false">格挡开关</button></div></section>
+<section class="panel"><h2>B · 赤砂</h2><div id="hp-B">HP 200 / 200</div><div class="hp"><span id="bar-B"></span></div><div id="status-B" class="status"></div><div class="keys"><button data-id="B" data-skill="launcher">上挑</button><button data-id="B" data-skill="airTap">空追</button><button data-id="B" data-skill="groundSweep">扫地</button><button data-id="B" data-skill="highSlash">高位斩</button><button data-move="-0.2" data-id="B">← 移动</button><button data-move="0.2" data-id="B">移动 →</button><button class="guard" data-guard="B" aria-pressed="false">格挡开关</button></div></section></div>
+<div class="toolbar"><button id="reset">重置</button><button id="pause">暂停</button><button id="step">单步 1/120秒</button><button id="demo">浮空 → 扫地演示</button><label><input type="checkbox" id="bilateral" checked>双边逻辑顿帧</label><label><input type="checkbox" id="boxes" checked>显示碰撞盒</label></div><div id="log" role="log"></div>
+<script>
+/* COMBAT_MODULES */
+let duel=new CombatDuel(),paused=false,demo=false,last=0;
+const $=id=>document.getElementById(id),ctx=$('arena').getContext('2d');
+const names={idle:'站立',airborne:'浮空',down:'倒地',invulnerable:'保护无敌',dead:'败北',startup:'前摇',active:'有效段',recovery:'后摇'};
+function render(){
+  const snap=duel.snapshot();ctx.clearRect(0,0,850,390);ctx.strokeStyle='#4c607b';ctx.beginPath();ctx.moveTo(0,340);ctx.lineTo(850,340);ctx.stroke();
+  const mapX=x=>300+x*90,mapY=y=>340-y*65;
+  for(const f of snap.fighters){
+    $('hp-'+f.id).textContent=`HP ${f.hp} / ${f.maxHp}`;$('bar-'+f.id).style.width=100*f.hp/f.maxHp+'%';
+    $('status-'+f.id).textContent=`${names[f.body.state]} · ${names[f.action.phase]}${f.action.armored?' · 霸体':''}${f.stun>0?' · 受击硬直':''}`;
+    document.querySelector(`[data-guard="${f.id}"]`).setAttribute('aria-pressed',String(f.guard));
+    const box=duel.fighter(f.id).body.enemyBox();ctx.fillStyle=f.id==='A'?'#55cbbf':'#f18a79';ctx.globalAlpha=f.dead?0.3:1;
+    ctx.fillRect(mapX(box.x0),mapY(box.y1),(box.x1-box.x0)*90,(box.y1-box.y0)*65);ctx.globalAlpha=1;
+    ctx.fillStyle='#fff';ctx.font='16px system-ui';ctx.fillText(f.id+(f.facing>0?' →':' ←'),mapX(f.body.enemyX)-20,mapY(box.y1)-12);
+    if(f.guard){ctx.strokeStyle='#f6d77b';ctx.lineWidth=4;ctx.strokeRect(mapX(box.x0)-5,mapY(box.y1)-5,(box.x1-box.x0)*90+10,(box.y1-box.y0)*65+10);ctx.lineWidth=1;}
+    if($('boxes').checked){ctx.strokeStyle='#66ff83';for(const b of f.boxes)ctx.strokeRect(mapX(b.x0),mapY(b.y1),(b.x1-b.x0)*90,(b.y1-b.y0)*65);}
+  }
+  $('log').textContent=duel.events.slice(-14).map(e=>e.type==='damage'?`${e.time}s ${e.attacker} → ${e.target} 扣血 ${e.damage}${e.armored?' 霸体抗打断':''}${e.protectedStand?' 保护起身':''}`:e.type==='guard'?`${e.time}s ${e.target} 格挡成功`:e.type==='defeated'?`${e.id} 败北`:`${e.time}s ${e.type}`).join('\n');
+}
+function reset(){duel=new CombatDuel({bilateralHitstop:$('bilateral').checked});demo=false;render();}
+document.querySelectorAll('[data-skill]').forEach(b=>b.addEventListener('pointerdown',e=>{e.preventDefault();duel.press(b.dataset.id,b.dataset.skill);render();}));
+document.querySelectorAll('[data-move]').forEach(b=>b.addEventListener('pointerdown',e=>{e.preventDefault();duel.move(b.dataset.id,Number(b.dataset.move));render();}));
+document.querySelectorAll('[data-guard]').forEach(b=>b.addEventListener('click',()=>{const f=duel.fighter(b.dataset.guard);duel.setGuard(f.id,!f.guard);render();}));
+$('reset').onclick=reset;$('pause').onclick=()=>{paused=!paused;$('pause').textContent=paused?'继续':'暂停';};
+$('step').onclick=()=>{if(paused){duel.tick(1/120);render();}};
+$('demo').onclick=()=>{reset();demo=true;duel.press('A','launcher');render();};
+$('bilateral').onchange=()=>{for(const f of duel.fighters)f.controller.cfg.bilateralHitstop=$('bilateral').checked;};
+function frame(t){const dt=last?Math.min((t-last)/1000,0.05):0;last=t;if(!paused){
+  if(demo){const a=duel.fighter('A'),b=duel.fighter('B');if(!a.controller.action&&b.body.state==='down')duel.press('A','groundSweep');if(b.body.state==='invulnerable'||b.dead)demo=false;}
+  duel.tick(dt);
+}render();requestAnimationFrame(frame);}render();requestAnimationFrame(frame);
+// Deterministic diagnostic entry points for browser regressions; not a network API.
+window.combatLab={get duel(){return duel;},pause(){paused=true;$('pause').textContent='继续';},reset,
+  advance(t){duel.tick(t);render();},snapshot(){return duel.snapshot();}};
+</script></main></html>
