@@ -13,6 +13,14 @@ canvas{display:block;width:100%;height:auto;border:1px solid #2c405d;border-radi
 button{background:#2361a6;color:white;font-weight:700;font-size:1rem;border:1px solid #5084c0;border-radius:10px;min-height:55px;touch-action:manipulation}
 button:active{background:#4386cc}
 button.secondary{background:#2c374b;border-color:#44546f}
+.extras{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:12px 0}
+.extras button{padding:12px 14px;background:#186554;border-radius:10px;border:1px solid #41957d;font-weight:750}
+.tuning{padding:11px 12px;background:#14243a;border:1px solid #304663;border-radius:11px}
+.tuning summary{cursor:pointer;font-weight:750}
+.tuning-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:12px}
+.tuning label{font-size:12px;display:flex;flex-direction:column;gap:6px;color:#bbcadb}
+.tuning input{accent-color:#60bbdb;width:100%}
+@media(max-width:530px){.tuning-grid{grid-template-columns:1fr 1fr}}
 .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin:9px 0}
 small{color:#a7b5cc}
 pre{overflow:auto;white-space:pre-wrap;line-height:1.55;background:#0b1220;border:1px solid #26344c;border-radius:10px;padding:12px;min-height:118px;font-size:.8rem}
@@ -30,8 +38,15 @@ pre{overflow:auto;white-space:pre-wrap;line-height:1.55;background:#0b1220;borde
 <button data-action="highSlash">高位斩</button>
 </div>
 <div class="row"><button id="reset" class="secondary">重置场景</button><button id="pause" class="secondary">暂停模拟</button><small>空格=上挑、J=空追、K=扫地、L=高位斩、R=重置</small></div>
+<div class="extras"><button id="demo" type="button">▶ 自动演示：浮空 → 扫地 → 保护</button><small id="demo-state">可手动攻击，也可自动演示</small></div>
+<details class="tuning"><summary>战斗参数调节（原创测试值）</summary>
+<div class="tuning-grid">
+<label>上挑初速 <output id="launch-val">10.5</output><input data-param="launchVelocity" type="range" min="6" max="16" step="0.5" value="10.5"></label>
+<label>重力 <output id="gravity-val">22</output><input data-param="gravity" type="range" min="10" max="36" step="1" value="22"></label>
+<label>倒地时间 <output id="down-val">0.9 s</output><input data-param="knockdownSeconds" type="range" min="0.4" max="2.5" step="0.1" value="0.9"></label>
+</div></details>
 <pre id="log" aria-label="最新战斗事件"></pre>
-<p><small>实验配置：重力 22、上挑初速 10.5、空追速度 5.5、自然倒地 0.9 秒；4 次浮空命中或 3 次扫地命中触发保护，保护起身无敌 0.6 秒。以上均为原创原型测试数值，不是官方 DNF 数值。页面交互/手机浏览器仍待人工验收。</small></p>
+<p><small>实验配置：重力 22、上挑初速 10.5、空追速度 5.5、自然倒地 0.9 秒；4 次浮空命中或 3 次扫地命中触发保护，保护起身无敌 0.6 秒。以上均为原创原型测试数值，不是官方 DNF 数值。Chromium 自动按钮测试已覆盖主要路径；Android 真机触控尚未实测。</small></p>
 </main><script>
 "use strict";
 // Inline snapshot generated directly from prototype/combat-core.mjs to allow local file opening.
@@ -183,7 +198,7 @@ const modelCanvas=document.getElementById("arena");
 const ctx=modelCanvas.getContext("2d");
 const status=document.getElementById("status");
 const log=document.getElementById("log");
-let arena=new CombatArena(); let paused=false;let last=performance.now();
+let arena=new CombatArena();let demo=null;let paused=false;let last=performance.now();
 const labels={idle:"站立",airborne:"浮空",down:"倒地",invulnerable:"保护起身"};
 function draw(){
   const w=modelCanvas.width,h=modelCanvas.height,foot=320,pX=170,scaleX=115,scaleY=64;
@@ -209,7 +224,7 @@ function draw(){
   }
   ctx.fillStyle="#f9dfa7";ctx.font="14px system-ui";ctx.fillText("测试目标",ex-32,foot+25);
   status.textContent="状态："+labels[arena.state]+" ｜高度："+arena.y.toFixed(2)+" ｜纵速："+arena.vy.toFixed(2)+
-   " ｜空中命中："+arena.airHits+"/4 ｜扫地："+arena.groundHits+"/3 ｜连击："+arena.totalHits+
+   " ｜空中命中："+arena.airHits+"/"+arena.cfg.airHitLimit+" ｜扫地："+arena.groundHits+"/"+arena.cfg.groundHitLimit+" ｜连击："+arena.totalHits+
    " ｜倒地剩余："+arena.downRemaining.toFixed(2)+"s ｜无敌剩余："+arena.invulnerabilityRemaining.toFixed(2)+"s";
   log.textContent=arena.events.slice(-7).reverse().map(e=>e.time.toFixed(2)+"s  "+
    (e.type==="hit"?"命中 "+e.attack:e.type==="blocked"?"未命中 "+e.attack+" ("+e.reason+")":
@@ -217,19 +232,43 @@ function draw(){
     e.type==="landed"?"落地倒地":e.type==="ordinary-stand"?"自然起身":"保护结束")).join("\n")||"操作上挑、空追或扫地，观察事件记录。";
 }
 function action(name){if(!paused){arena.hit(name);draw();}}
+function reset(){arena=new CombatArena(arena.cfg);demo=null;last=performance.now();draw();}
 document.querySelectorAll("[data-action]").forEach(button=>{
-  button.addEventListener("pointerdown",event=>{event.preventDefault();action(button.dataset.action)});
+  button.addEventListener("pointerdown",event=>{event.preventDefault();demo=null;action(button.dataset.action)});
 });
-document.getElementById("reset").addEventListener("click",()=>{arena=new CombatArena();draw()});
+document.getElementById("reset").addEventListener("click",reset);
+document.getElementById("demo").addEventListener("click",()=>{
+  reset();paused=false;document.getElementById("pause").textContent="暂停模拟";
+  demo={stage:0,land:0};action("launcher");
+  document.getElementById("demo-state").textContent="自动演示进行中…";
+});
+document.querySelectorAll("[data-param]").forEach(input=>input.addEventListener("input",()=>{
+  const k=input.dataset.param;arena.cfg[k]=Number(input.value);
+  const ids={launchVelocity:"launch-val",gravity:"gravity-val",knockdownSeconds:"down-val"};
+  document.getElementById(ids[k]).textContent=input.value+(k==="knockdownSeconds"?" s":"");
+}));
+function stepDemo(){
+ if(!demo)return;
+ if(demo.stage===0&&arena.time>=0.25){action("airTap");demo.stage=1;}
+ else if(demo.stage===1&&arena.time>=0.51){action("airTap");demo.stage=2;}
+ else if(demo.stage===2&&arena.state==="down"){demo.land=arena.time;demo.stage=3;}
+ else if(demo.stage===3&&arena.time>=demo.land+0.08){action("groundSweep");demo.stage=4;}
+ else if(demo.stage===4&&arena.time>=demo.land+0.22){action("groundSweep");demo.stage=5;}
+ else if(demo.stage===5&&arena.time>=demo.land+0.36){action("groundSweep");demo.stage=6;}
+ else if(demo.stage===6){
+  document.getElementById("demo-state").textContent=arena.state==="invulnerable"?"自动演示：保护起身已触发":"自动演示结束（检查日志）";
+  demo=null;
+ }
+}
 document.getElementById("pause").addEventListener("click",event=>{
   paused=!paused;event.currentTarget.textContent=paused?"继续模拟":"暂停模拟";last=performance.now();draw();
 });
 document.addEventListener("keydown",e=>{
   const actions={Space:"launcher",KeyJ:"airTap",KeyK:"groundSweep",KeyL:"highSlash"};
-  if(e.code==="KeyR"){arena=new CombatArena();draw();return;}
-  if(actions[e.code]){e.preventDefault();action(actions[e.code]);}
+  if(e.code==="KeyR"){reset();return;}
+  if(actions[e.code]){e.preventDefault();demo=null;action(actions[e.code]);}
 });
-function frame(now){const dt=Math.min(0.05,(now-last)/1000);last=now;if(!paused)arena.tick(Math.max(0,dt));draw();requestAnimationFrame(frame);}
+function frame(now){const dt=Math.min(0.05,(now-last)/1000);last=now;if(!paused){arena.tick(Math.max(0,dt));stepDemo();}draw();requestAnimationFrame(frame);}
 draw();requestAnimationFrame(frame);
 })();
 </script></body></html>
