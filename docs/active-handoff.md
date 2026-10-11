@@ -76,3 +76,30 @@
 - 本次交接提交后的 GitHub `main` HEAD 由 GitHub 实时读取确定，切勿硬猜最终 SHA。
 - **优先下一步**：在隔离 Node 环境实际跑 `node --test tests/combat-core.test.mjs`，保存原始运行日志及退出码；然后人工打开无版权素材的独立 HTML，实测 PC/Android 触控、轨迹、保护强制起身效果并录屏。增加“达到总阈值7”与“帧时间极值”等回归覆盖。真正的 Android APK/Unity 打击感只有运行验收后才能标为通过。
 - **隔离约束**：仅修改 `lgf921375/dnfku` 自有文件；**没有**改写、部署、重启《皓石传奇三》，其单套服务、手机40C账号、600ms冷却和原怪物规则均未触碰。无版权原版 DNF 素材。
+
+## 2026-10-11 第四批交接：Node + Chromium 实测、重复扫地缺陷修复、自动演示
+
+### 范围与证据
+
+- 本轮开始先从已连接 GitHub 读取 `AGENTS.md`、`README.md`、本交接、既有隔离实验报告以及 `prototype/combat-core.mjs`、`tests/combat-core.test.mjs`、`prototype/standalone.html`。开始时 `dnfku/main` HEAD=`4ebe93b7457a4f6d4121c5a19feb0d1d561758f1`。沿用此前 MiniDNF `543839751adbe09eecc896da949945080782b45e`、Unity-DNF `4436c7212a6e3ed2cb389b2c0c4fa5b6211f79e6`、86JP `4e2f25e04f604b7081cc42eb0f4d8c9a20a8ed05` 静态来源；本轮并未运行这三个上游游戏。
+- 原仓库核心和 Node 测试文件已在隔离容器按 Git Blob SHA **精确复原**：`7349f0fefa71232d24a082cdcbf51df2fa88ebed`、`e059895cf235b8b95e130f587ef92c8b7022adb5`；基线 Node v22.16.0 执行 `node --test tests/combat-core.test.mjs` **16/16 PASS、exit 0**。原始 HTML 也按 Git Blob SHA `0232b65717c7c84e3b6fbfaadfd3b624119f49ef` 精确复原并在 Chromium 实际执行。
+- **失败（旧版原创模型，已复现）**：同一模拟帧连续触发扫地即可三次命中并立刻保护起身，说明旧 `CombatArena.hit()` 无最小有效命中间隔；不能据此说官方 DNF 或任何上游项目失败。
+- **修复及新发现（原创模型）**：设置 `minHitIntervalSeconds=0.09`（原创测试值），新增 `lastHitTime` 节奏闸门。攻击状态有效且 AABB 命中后，间隔过短返回 `hit-cadence`，不加命中计数也不刷新倒地时长；达到空中/扫地保护阈值后仍立即强制起身，保护无敌优先。
+- **通过（实际独立 Node 回归测试）**：最新版 **23/23 PASS、exit 0**，其中新增 7 项：同帧扫地拒绝、正常节奏连续扫地保护、独立总命中保护阈值、连击过窗清零、射程不命中、被节奏拒绝后不刷新倒地、无敌优先。详见 [隔离实验报告](isolated-combat-test-20261011.md) 追加章节。
+- **通过（实际 Chromium 无头浏览器模拟触控）**：390×844 移动视口、合成 `pointerdown`，Playwright 执行 `python tests/browser-smoke.py`，**11/11 PASS、exit 0、无 JavaScript 页面错误**；包括自动演示 `上挑→空追→落地→三次间隔扫地→保护起身`、按钮触发、参数调节、同帧重复拒绝、无敌禁止上挑。Python 脚本需预装 Playwright 与 Chromium；本轮无安装依赖、无外部服务。由于环境限制通过 `page.set_content` 加载 HTML，并非通过 Android 手机上的浏览器。
+- **未覆盖**：真实 Android 手机上的手指触控、30/60Hz 真实画面和打击感、正式客户端 APK、角色动画/判定盒边界与击中停顿双边同步、联网战斗、上游 Unity 编译、原版 DNF 真实数值及版权授权。不能把 Chromium 模拟移动视口当作 Android 真机实测。
+
+### 最新文件与提交
+
+- [原创战斗核心](../prototype/combat-core.mjs)，提交 `46d689fa91f913ac08c16d567129dc03fff8eb39`，blob `8b70ef908a5687392bce104604d029f077531604`。
+- [23 项 Node 自动测试](../tests/combat-core.test.mjs)，提交 `9f198c49ff7735d91e3e4c060af9b929e3423d50`，blob `79ab19676eea992acd44e5e72862e0759d0b039b`。
+- [新版单文件 HTML](../prototype/standalone.html)，自动连招与调参提交 `eb7d871bf929f569b9a59b20940449498b7a712f`、同步命中间隔提交 `383a1c262d4ba750eec92623d34d6fe5f042f6ad`，最终 blob `1b4dee8bf72b2c631deeed22965d33b55e28d10f`。
+- [浏览器回归脚本](../tests/browser-smoke.py)，提交 `a78f9376183e8a476fd5e393f08531bc4a6e9915`，blob `91483f222f2e1faa592e9f953f99c8697932021c`。
+- [增量实测报告](isolated-combat-test-20261011.md) 提交 `5551069cea663bf429304545e629aaad48d3da58`；README 导航更新提交 `07c7828ab928349f548f0f872ef8d6e4455c69e1`。
+- **本交接提交后的最新 HEAD**：以最终 GitHub `main` 实际 SHA 为准，勿提前捏造。
+
+### 下轮任务
+
+1. 请用户实际在 Android 手机浏览器下载并打开 `prototype/standalone.html`，对上挑滞空、扫地连击、命中节奏、强制起身体验录屏；在获得真实反馈前仅称“待人工实测”。
+2. 隔离原型进一步研究动作起手/有效帧/后摇、双边 hitstop、落地动画和贴地扫地判定，可设计不同命中节奏与攻击碰撞帧；先在原型逐项测试，再评估 Unity/Android 迁移。当前未实现或验证这些高级效果。
+3. 如继续开发，保持上游源码/版权与原创实验区分；按“通过（静态核查）/通过（明确限定的独立运行测试）/失败/未覆盖”存证。不得修改、部署、重启《皓石传奇三》或触动单套服务、40C、600ms 冷却、原怪物规则。
