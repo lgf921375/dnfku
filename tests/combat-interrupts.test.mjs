@@ -69,3 +69,19 @@ test('62 30/60/120Hz external drivers match cancel readiness',()=>{
  for(const fps of [30,60,120]){const a=make();a.press('launcher');for(let i=0;i<fps/2;i++)a.tick(1/fps);results.push(a.snapshot());}
  for(const x of results.slice(1)){assert.equal(x.phase,results[0].phase);assert.equal(x.cancelReady,results[0].cancelReady);assert.ok(Math.abs(x.actionTime-results[0].actionTime)<1e-10)}
 });
+
+test('63 cancelReady snapshot is false when cancel switch is disabled',()=>{
+ const a=make({interruptSettings:{cancelEnabled:false}});a.press('launcher');
+ wait(a,()=>a.phase==='recovery'&&a.action.elapsed>.11);
+ assert.equal(a.canCancelInto('airTap'),false);assert.equal(a.snapshot().cancelReady,false);
+});
+test('64 cancelReady is false when current action has no legal followup',()=>{
+ const a=make();a.press('highSlash');wait(a,()=>a.phase==='recovery'&&a.action.elapsed>.11);
+ assert.equal(a.snapshot().cancelReady,false);
+});
+test('65 legal recovery cancel works with input buffer switched off',()=>{
+ const a=make({actionSettings:{inputBufferSeconds:0}});a.press('launcher');
+ wait(a,()=>a.phase==='recovery'&&a.action.elapsed>.11);
+ assert.equal(a.snapshot().cancelReady,true);
+ assert.equal(a.press('airTap').type,'cancel-input-started');
+});
