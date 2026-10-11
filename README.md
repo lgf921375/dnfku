@@ -23,6 +23,13 @@
 
 **最新实测边界（2026-10-11）**：**33/33 Node**、**17/17 Chromium** 测试通过，已用原创模型量测 40ms 命中停顿与一次可选低幅反弹对落地时间的影响。之前同帧扫地刷保护缺陷已修复。所有数字仅指独立实验，不是 DNF 官方参数；**Unity/Android APK、Android 实机触控、真实手感与官方 DNF 行为对标均未覆盖**。详见 [V3 报告](docs/combat-feel-20261011.md) 和 [先前实验报告](docs/isolated-combat-test-20261011.md)。
 
+## V4 原创攻击时间轴（2026-10-11）
+
+- [攻击动作控制器](prototype/combat-actions.mjs)：基于现有 V3 `CombatArena` 的独立动作层；前摇/有效帧/后摇、一格按键缓冲及可切换的攻击者/受击者**逻辑时间**同步顿帧。**没有**将其等同于真实 Unity 双边物理/动画冻结。
+- [动作测试](tests/combat-actions.test.mjs)：新增 15 项独立 Node 自动回归；连同此前 33 项，`node --test tests/*.test.mjs` 在 Node v22.16.0 实际执行 **48/48 PASS、退出码0**。
+- [V4 研究报告](docs/combat-actions-v4-20261011.md)：源码状态机、原创动作时序、真实执行结果及未覆盖项。
+- **交互演示边界**：隔离容器另生成一份 V4 原创独立 HTML，Chromium 模拟触控执行 **12/12 PASS**，本轮已作为对话下载产物提供；**该 V4 HTML 尚未推送到 GitHub**。GitHub 的 `prototype/standalone.html` 仍是 V3 页面，不能把它描述成 V4。真实 Android 人手触控仍未覆盖。
+
 ## 文档导航
 
 1. [AGENTS.md](AGENTS.md)：本仓库后续审查和更新规则。
