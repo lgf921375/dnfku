@@ -14,13 +14,14 @@
 
 本仓库已新增**不使用 DNF 原版代码/素材**的原创 JavaScript 逻辑模型，用于尝试验证浮空、落地扫地、连击保护和强制起身；它不是上游游戏的移植版本，更不是已经验收的 Android 手游。
 
-- [单文件交互试验页](prototype/standalone.html)：原创几何图形、自动演示连招和重力/浮空/倒地时间调节；Chromium 无头浏览器模拟移动触控已验证，**Android 真机手指触控仍未覆盖**。
+- [单文件交互试验页](prototype/standalone.html)：原创几何图形、自动连招、重力/浮空/倒地时间、**命中顿帧与可选触地反弹**滑块；Chromium 自动模拟触控已覆盖主要事件，**Android 真机仍未覆盖**。
 - [独立战斗核心](prototype/combat-core.mjs)：测试专用的固定步长状态机与 AABB 命中判定。
-- [自动测试](tests/combat-core.test.mjs)：最新版 23 项；已在 Node.js v22.16.0 **实际执行 23/23 通过**。运行：`node --test tests/combat-core.test.mjs`。
+- [自动测试](tests/combat-core.test.mjs) + [手感扩展测试](tests/combat-feel.test.mjs)：共33项，已在 Node.js v22.16.0 **实际执行33/33通过**。运行：`node --test tests/*.test.mjs`。
 - [隔离实验报告](docs/isolated-combat-test-20261011.md)：保留原始 16 项 V8 基线，追加最新版 Node/Chromium 实测、旧版缺陷与修复证据。
-- [浏览器自动测试](tests/browser-smoke.py)：需预装 Python Playwright 与 Chromium，在隔离浏览器中模拟触控并验证自动连招，**不等于 Android 实机**。
+- [浏览器自动测试](tests/browser-smoke.py)：需预装 Python Playwright 与 Chromium；最新版**17/17通过**，验证自动连招、命中停顿与触地反弹，但**不等于 Android 实机**。
+- [V3 战斗手感实验报告](docs/combat-feel-20261011.md)：命中顿帧、反弹状态、实测落地时间、覆盖边界。
 
-**最新实测边界（2026-10-11）**：23/23 Node 核心测试与 11/11 Chromium 自动按钮/模拟触控测试通过。旧版同一模拟时刻多次扫地即可刷满保护的问题已复现并以最小有效命中间隔 90ms（原创实验参数）修复。Unity/Android APK、Android 真机触控、真实战斗手感与官方 DNF 对标均**未覆盖**；详见[隔离实验报告](docs/isolated-combat-test-20261011.md)。
+**最新实测边界（2026-10-11）**：**33/33 Node**、**17/17 Chromium** 测试通过，已用原创模型量测 40ms 命中停顿与一次可选低幅反弹对落地时间的影响。之前同帧扫地刷保护缺陷已修复。所有数字仅指独立实验，不是 DNF 官方参数；**Unity/Android APK、Android 实机触控、真实手感与官方 DNF 行为对标均未覆盖**。详见 [V3 报告](docs/combat-feel-20261011.md) 和 [先前实验报告](docs/isolated-combat-test-20261011.md)。
 
 ## 文档导航
 
