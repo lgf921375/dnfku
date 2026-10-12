@@ -1,0 +1,26 @@
+{
+  "run_url": "https://github.com/lgf921375/dnfku/actions/runs/38208502554",
+  "artifact_url": "https://github.com/lgf921375/dnfku/actions/runs/38208502554/artifacts/11728540448",
+  "artifact_bytes": 1265441,
+  "artifact_sha256": "dcad06e868c332e9dad881e60c2b812496e625f7ce30e00d652b9d0582165cfc",
+  "original_assertions": 5,
+  "sandbox": "disabled",
+  "browserVersion": "151.0.7922.34",
+  "video": {
+    "programs": [],
+    "streams": [
+      {
+        "width": 960,
+        "height": 540,
+        "avg_frame_rate": "25/1",
+        "nb_read_frames": "192"
+      }
+    ],
+    "format": {
+      "duration": "7.680000",
+      "size": "773183"
+    }
+  },
+  "game_fps": "NOT COVERED; encoded 25fps does not prove stable game frame rate",
+  "android": "NOT COVERED"
+}

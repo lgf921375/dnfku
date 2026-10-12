@@ -1,0 +1,13 @@
+{
+  "status": "PASS STATIC",
+  "checks": {
+    "tests/feedback-lab-smoke.cjs": 0,
+    "tests/feedback-lab-sandbox-preflight.cjs": 0,
+    "tests/juggle-lab-smoke.cjs": 0,
+    "prototype/combat-juggle.mjs": 0,
+    "prototype/build-juggle-lab.mjs": 0,
+    "V11 HTML script syntax": 0,
+    "original_assertions": 5
+  },
+  "workflow": "manual only; ubuntu24; contents:read; no stored checkout credentials; no secrets/sudo; sandbox remains disabled on hosted-only runner"
+}

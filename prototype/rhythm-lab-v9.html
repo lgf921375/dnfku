@@ -567,6 +567,13 @@ class CombatRhythm extends CombatContact {
     const {hand,tip}=rhythmWeapon(f),padding=.065;
     return [{x0:Math.min(hand.x,tip.x)-padding,x1:Math.max(hand.x,tip.x)+padding,y0:Math.min(hand.y,tip.y)-padding,y1:Math.max(hand.y,tip.y)+padding}];
   }
+  applyVerticalReaction(b,a,before){
+    if(before.state==='airborne'){
+      b.vy=a.cut===0?Math.min(6,before.vy+1.1):a.cut===1?Math.min(5,before.vy*.65+1.5):Math.min(-2.4,before.vy-3);
+    }else if(a.cut===2&&before.state==='idle'){
+      b.state='airborne';b.y=.01;b.vy=3.6;b.bounceRemaining=0;
+    }
+  }
   resolve(intent){
     const {f,target,a}=intent,b=target.body,before={state:b.state,vy:b.vy},targetBox=b.enemyBox();
     const cut=a.name==='highSlash'?CUTS[a.cut]:null,old=this.skills.highSlash;
@@ -583,12 +590,7 @@ class CombatRhythm extends CombatContact {
       if(!e.armored){
         target.hurt=.22;target.hurtDirection=f.facing;
         target.knockback=(cut?.push??.55)*f.facing*this.feel.knockback;
-        if(cut&&before.state==='airborne'){
-          // Relative impulses/damping, never a uniform velocity reset on every hit.
-          b.vy=a.cut===0?Math.min(6,before.vy+1.1):a.cut===1?Math.min(5,before.vy*.65+1.5):Math.min(-2.4,before.vy-3);
-        }else if(cut&&a.cut===2&&before.state==='idle'){
-          b.state='airborne';b.y=.01;b.vy=3.6;b.bounceRemaining=0;
-        }
+        if(cut)this.applyVerticalReaction(b,a,before);
       }
     }
     this.record('impact-feedback',{attacker:f.id,target:target.id,cut:e.cut,attackerStop:f.controller.attackerHitstopRemaining,victimStop:b.hitstopRemaining,vy:b.vy});

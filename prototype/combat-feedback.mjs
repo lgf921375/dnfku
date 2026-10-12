@@ -20,16 +20,18 @@ export function bladeContact(hand,tip,box,radius=5/90){
 }
 export class CombatFeedback extends CombatRhythm{
   constructor(options={}){super(options);for(const f of this.fighters){f.reaction=null;f.recovery=null;f.contactPoint=null;}}
+  pose(f){return feedbackPose(f);}
+  weapon(f){return feedbackWeapon(f);}
   attackBoxes(f){
     const a=f.controller.action,t=this.fighters.find(t=>t!==f);
     if(!a||a.phase!=='active'||f.dead||Math.abs(f.lane-t.lane)>.55)return [];
-    const {hand,tip}=feedbackWeapon(f),radius=5/90;
+    const {hand,tip}=this.weapon(f),radius=5/90;
     const point=bladeContact(hand,tip,t.body.enemyBox(),radius);f.contactPoint=point;
     if(!point)return [];
     return [{x0:Math.min(hand.x,tip.x)-radius,x1:Math.max(hand.x,tip.x)+radius,y0:Math.min(hand.y,tip.y)-radius,y1:Math.max(hand.y,tip.y)+radius}];
   }
   resolve(intent){
-    const {f,target,a}=intent,before=target.body.state,index=this.events.length,from=feedbackPose(target);
+    const {f,target,a}=intent,before=target.body.state,index=this.events.length,from=this.pose(target);
     super.resolve(intent);
     const e=this.events.slice(index).find(e=>e.type==='damage'||e.type==='guard');if(!e)return;
     const cut=a.cut??0,cfg=a.name==='highSlash'?CUTS[cut]:null;

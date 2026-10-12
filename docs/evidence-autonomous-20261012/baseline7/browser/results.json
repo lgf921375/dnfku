@@ -1,0 +1,330 @@
+{
+  "status": "passed-browser",
+  "assertions": 5,
+  "sandbox": "disabled",
+  "sandboxNotice": "Chromium沙箱已关闭",
+  "result": {
+    "phase": "保护起身",
+    "events": [
+      {
+        "time": 0.19167,
+        "type": "damage",
+        "attacker": "A",
+        "target": "B",
+        "skill": "highSlash",
+        "damage": 12,
+        "hp": 588,
+        "armored": false,
+        "interrupted": false,
+        "protectedStand": false,
+        "cut": 0,
+        "reaction": "light",
+        "hitstun": 0.255
+      },
+      {
+        "time": 0.19167,
+        "type": "impact-feedback",
+        "attacker": "A",
+        "target": "B",
+        "cut": 0,
+        "attackerStop": 0.045,
+        "victimStop": 0.045,
+        "vy": 0
+      },
+      {
+        "time": 0.19167,
+        "type": "reaction-start",
+        "target": "B",
+        "kind": "light",
+        "hitstun": 0.255
+      },
+      {
+        "time": 0.49167,
+        "type": "damage",
+        "attacker": "A",
+        "target": "B",
+        "skill": "highSlash",
+        "damage": 14,
+        "hp": 574,
+        "armored": false,
+        "interrupted": false,
+        "protectedStand": false,
+        "cut": 1,
+        "reaction": "reverse",
+        "hitstun": 0.25
+      },
+      {
+        "time": 0.49167,
+        "type": "impact-feedback",
+        "attacker": "A",
+        "target": "B",
+        "cut": 1,
+        "attackerStop": 0.055,
+        "victimStop": 0.055,
+        "vy": 0
+      },
+      {
+        "time": 0.49167,
+        "type": "reaction-start",
+        "target": "B",
+        "kind": "reverse",
+        "hitstun": 0.25
+      },
+      {
+        "time": 0.91667,
+        "type": "damage",
+        "attacker": "A",
+        "target": "B",
+        "skill": "highSlash",
+        "damage": 22,
+        "hp": 552,
+        "armored": false,
+        "interrupted": false,
+        "protectedStand": false,
+        "cut": 2,
+        "reaction": "heavy",
+        "hitstun": 0.33999999999999997
+      },
+      {
+        "time": 0.91667,
+        "type": "impact-feedback",
+        "attacker": "A",
+        "target": "B",
+        "cut": 2,
+        "attackerStop": 0.085,
+        "victimStop": 0.085,
+        "vy": 3.6
+      },
+      {
+        "time": 0.91667,
+        "type": "reaction-start",
+        "target": "B",
+        "kind": "heavy",
+        "hitstun": 0.33999999999999997
+      },
+      {
+        "time": 3.35,
+        "type": "damage",
+        "attacker": "A",
+        "target": "B",
+        "skill": "launcher",
+        "damage": 18,
+        "hp": 534,
+        "armored": false,
+        "interrupted": false,
+        "protectedStand": false,
+        "cut": null,
+        "reaction": "launch",
+        "hitstun": 0.18
+      },
+      {
+        "time": 3.35,
+        "type": "impact-feedback",
+        "attacker": "A",
+        "target": "B",
+        "cut": null,
+        "attackerStop": 0.07,
+        "victimStop": 0.07,
+        "vy": 10.5
+      },
+      {
+        "time": 3.35,
+        "type": "reaction-start",
+        "target": "B",
+        "kind": "launch",
+        "hitstun": 0.18
+      },
+      {
+        "time": 4.28333,
+        "type": "damage",
+        "attacker": "A",
+        "target": "B",
+        "skill": "highSlash",
+        "damage": 12,
+        "hp": 522,
+        "armored": false,
+        "interrupted": false,
+        "protectedStand": false,
+        "cut": 0,
+        "reaction": "air",
+        "hitstun": 0.255
+      },
+      {
+        "time": 4.28333,
+        "type": "impact-feedback",
+        "attacker": "A",
+        "target": "B",
+        "cut": 0,
+        "attackerStop": 0.045,
+        "victimStop": 0.045,
+        "vy": -7.283333333333342
+      },
+      {
+        "time": 4.28333,
+        "type": "reaction-start",
+        "target": "B",
+        "kind": "air",
+        "hitstun": 0.255
+      },
+      {
+        "time": 4.66667,
+        "type": "damage",
+        "attacker": "A",
+        "target": "B",
+        "skill": "highSlash",
+        "damage": 14,
+        "hp": 508,
+        "armored": false,
+        "interrupted": false,
+        "protectedStand": false,
+        "cut": 1,
+        "reaction": "ground",
+        "hitstun": 0.25
+      },
+      {
+        "time": 4.66667,
+        "type": "impact-feedback",
+        "attacker": "A",
+        "target": "B",
+        "cut": 1,
+        "attackerStop": 0.055,
+        "victimStop": 0.055,
+        "vy": 0
+      },
+      {
+        "time": 4.66667,
+        "type": "reaction-start",
+        "target": "B",
+        "kind": "ground",
+        "hitstun": 0.25
+      },
+      {
+        "time": 5.2,
+        "type": "damage",
+        "attacker": "A",
+        "target": "B",
+        "skill": "highSlash",
+        "damage": 22,
+        "hp": 486,
+        "armored": false,
+        "interrupted": false,
+        "protectedStand": false,
+        "cut": 2,
+        "reaction": "ground",
+        "hitstun": 0.33999999999999997
+      },
+      {
+        "time": 5.2,
+        "type": "impact-feedback",
+        "attacker": "A",
+        "target": "B",
+        "cut": 2,
+        "attackerStop": 0.085,
+        "victimStop": 0.085,
+        "vy": 0
+      },
+      {
+        "time": 5.2,
+        "type": "reaction-start",
+        "target": "B",
+        "kind": "ground",
+        "hitstun": 0.33999999999999997
+      },
+      {
+        "time": 5.775,
+        "type": "damage",
+        "attacker": "A",
+        "target": "B",
+        "skill": "highSlash",
+        "damage": 12,
+        "hp": 474,
+        "armored": false,
+        "interrupted": false,
+        "protectedStand": true,
+        "cut": 0
+      },
+      {
+        "time": 5.775,
+        "type": "impact-feedback",
+        "attacker": "A",
+        "target": "B",
+        "cut": 0,
+        "attackerStop": 0.045,
+        "victimStop": 0,
+        "vy": 0
+      }
+    ],
+    "bodyEvents": [
+      {
+        "time": 0.19167,
+        "type": "hit",
+        "attack": "highSlash",
+        "state": "idle"
+      },
+      {
+        "time": 0.49167,
+        "type": "hit",
+        "attack": "highSlash",
+        "state": "idle"
+      },
+      {
+        "time": 0.91667,
+        "type": "hit",
+        "attack": "highSlash",
+        "state": "idle"
+      },
+      {
+        "time": 1.33333,
+        "type": "landed",
+        "downRemaining": 0.9
+      },
+      {
+        "time": 2.24167,
+        "type": "ordinary-stand"
+      },
+      {
+        "time": 3.35,
+        "type": "hit",
+        "attack": "launcher",
+        "state": "airborne"
+      },
+      {
+        "time": 4.28333,
+        "type": "hit",
+        "attack": "highSlash",
+        "state": "airborne"
+      },
+      {
+        "time": 4.43333,
+        "type": "landed",
+        "downRemaining": 0.9
+      },
+      {
+        "time": 4.66667,
+        "type": "hit",
+        "attack": "highSlash",
+        "state": "down"
+      },
+      {
+        "time": 5.2,
+        "type": "hit",
+        "attack": "highSlash",
+        "state": "down"
+      },
+      {
+        "time": 5.775,
+        "type": "hit",
+        "attack": "highSlash",
+        "state": "down"
+      },
+      {
+        "time": 5.775,
+        "type": "forced-stand",
+        "reason": "ground-limit",
+        "airHits": 2,
+        "groundHits": 3,
+        "totalHits": 5
+      }
+    ]
+  }
+}

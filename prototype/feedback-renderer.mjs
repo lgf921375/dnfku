@@ -1,7 +1,7 @@
 /** Original Canvas bone poses and illustrated silhouette; no imported art. */
 const feedbackMix=(a,b,t)=>a+(b-a)*t;
 const feedbackSmooth=t=>t*t*(3-2*t);
-export function feedbackPose(f){
+export function feedbackPose(f,{risingFinisher=false}={}){
   const a=f.controller.action;
   let p={lean:-.02,crouch:0,arm:.65,blade:.3,step:0,backArm:1.4};
   if(a){
@@ -10,11 +10,11 @@ export function feedbackPose(f){
     const ready=launch?{lean:.2,crouch:16,arm:1.1,blade:1.1,step:13,backArm:2.2}:
       [{lean:-.2,crouch:8,arm:-2,blade:-2.7,step:14,backArm:1.8},
        {lean:.18,crouch:12,arm:.85,blade:.8,step:17,backArm:2.1},
-       {lean:-.18,crouch:15,arm:-1.8,blade:-1.9,step:20,backArm:1.5}][cut];
+       risingFinisher?{lean:.2,crouch:20,arm:1.1,blade:1.1,step:20,backArm:2.2}:{lean:-.18,crouch:15,arm:-1.8,blade:-1.9,step:20,backArm:1.5}][cut];
     const finish=launch?{lean:-.12,crouch:-3,arm:-1.05,blade:-1.32,step:18,backArm:1.7}:
       [{lean:.22,crouch:12,arm:.1,blade:.57,step:19,backArm:2.2},
        {lean:-.08,crouch:3,arm:-.6,blade:-1.14,step:20,backArm:2},
-       {lean:.32,crouch:19,arm:.25,blade:.87,step:25,backArm:2.4}][cut];
+       risingFinisher?{lean:-.12,crouch:-3,arm:-1.05,blade:-1.32,step:25,backArm:1.7}:{lean:.32,crouch:19,arm:.25,blade:.87,step:25,backArm:2.4}][cut];
     let start=p,end=ready,t=feedbackSmooth(r);
     if(a.phase==='active'){start=ready;end=finish;t=Math.sin(r*Math.PI/2);}
     if(a.phase==='recovery'){start=finish;end=p;t=feedbackSmooth(r);}
@@ -37,13 +37,13 @@ export function feedbackPose(f){
   if(f.recovery?.kind==='protection'&&!a){p.crouch=10*(1-f.recovery.age/f.recovery.duration);p.arm=-.7;p.blade=-1.6;}
   return p;
 }
-export function feedbackWeapon(f){
-  const p=feedbackPose(f),ex=12+Math.cos(p.arm)*26,ey=-120+Math.sin(p.arm)*26;
+export function feedbackWeapon(f,p=feedbackPose(f)){
+  const ex=12+Math.cos(p.arm)*26,ey=-120+Math.sin(p.arm)*26;
   const hx=ex+Math.cos(p.arm+.15)*24,hy=ey+Math.sin(p.arm+.15)*24;
   const transform=(x,y)=>({x:f.body.enemyX+f.facing*(x*Math.cos(p.lean)-(y+65)*Math.sin(p.lean))/90,y:f.body.y-(-65+p.crouch+x*Math.sin(p.lean)+(y+65)*Math.cos(p.lean))/90});
   return {hand:transform(hx+5*Math.cos(p.blade),hy+5*Math.sin(p.blade)),tip:transform(hx+110*Math.cos(p.blade),hy+110*Math.sin(p.blade))};
 }
-export function drawFeedback(ctx,game,{debug=false,width=960,height=540}={}){
+export function drawFeedback(ctx,game,{debug=false,width=960,height=540,pose=feedbackPose,weapon=feedbackWeapon,risingFinisher=false}={}){
   ctx.save();ctx.scale(width/960,height/540);
   const camera=Math.max(-.2,Math.min(5,game.fighter('A').body.enemyX-.5));
   const ground=f=>405+f.lane*34;
@@ -60,7 +60,7 @@ export function drawFeedback(ctx,game,{debug=false,width=960,height=540}={}){
   const limb=(from,to,w,color)=>{ctx.strokeStyle='#0b1220';ctx.lineCap='round';ctx.lineWidth=w+3;ctx.beginPath();ctx.moveTo(...from);ctx.lineTo(...to);ctx.stroke();ctx.strokeStyle=color;ctx.lineWidth=w;ctx.stroke();};
   const blade=(hx,hy,angle,color,alpha=1)=>{ctx.save();ctx.globalAlpha*=alpha;ctx.translate(hx,hy);ctx.rotate(angle);polygon([[-15,-4],[0,-4],[0,4],[-15,4]],'#533e36');polygon([[-2,-11],[5,-12],[5,12],[-2,10]],'#d9b37a');polygon([[5,-5],[96,-5],[110,0],[96,5],[5,5]],color);polygon([[7,-4],[94,-4],[108,0],[7,0]],'#f5f3dd',null);ctx.restore();};
   for(const f of [...game.fighters].sort((a,b)=>a.lane-b.lane)){
-    const x=sx(f.body.enemyX),floor=ground(f),y=floor-f.body.y*90,p=feedbackPose(f),a=f.controller.action;
+    const x=sx(f.body.enemyX),floor=ground(f),y=floor-f.body.y*90,p=pose(f),a=f.controller.action;
     ctx.save();ctx.fillStyle='#050b1590';ctx.beginPath();ctx.ellipse(x,floor+2,32/(1+f.body.y*.1),7,0,0,7);ctx.fill();ctx.restore();
     ctx.save();ctx.translate(x,y);ctx.scale(f.facing,1);
     const down=f.dead||f.body.state==='down',air=f.body.state==='airborne';
@@ -105,7 +105,7 @@ export function drawFeedback(ctx,game,{debug=false,width=960,height=540}={}){
     limb(shoulder,elbow,14,armor);limb(elbow,hand,10,skin);polygon([[9,-129],[22,-128],[29,-114],[9,-110]],highlight);
     ctx.fillStyle='#3c3841';ctx.beginPath();ctx.arc(...hand,7,0,7);ctx.fill();
     if(a?.phase==='active'){
-      for(let i=3;i>=1;i--)blade(...hand,p.blade-(a.name==='launcher'?-1: a.cut===1?-1:1)*i*.17,highlight,.09);
+      for(let i=3;i>=1;i--)blade(...hand,p.blade-(a.name==='launcher'||a.cut===1||(risingFinisher&&a.cut===2)?-1:1)*i*.17,highlight,.09);
       ctx.save();ctx.translate(...hand);ctx.strokeStyle=highlight+'99';ctx.lineWidth=8;ctx.beginPath();ctx.arc(0,0,94,p.blade-.55,p.blade+.12);ctx.stroke();ctx.strokeStyle='#f5fff4cc';ctx.lineWidth=2;ctx.stroke();ctx.restore();
     }
     blade(...hand,p.blade,flash?'#fff5bf':'#abc5d2');ctx.restore();
@@ -113,7 +113,7 @@ export function drawFeedback(ctx,game,{debug=false,width=960,height=540}={}){
     polygon([[kneeFront[0]-7,kneeFront[1]-6],[kneeFront[0]+7,kneeFront[1]-6],[kneeFront[0]+6,kneeFront[1]+8],[kneeFront[0]-6,kneeFront[1]+8]],highlight);
     if(f.body.state==='invulnerable'){ctx.strokeStyle='#8ce2ffb0';ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(0,-80,41,88,0,0,7);ctx.stroke();}
     ctx.restore();
-    if(debug&&a?.phase==='active'){const w=feedbackWeapon(f);ctx.strokeStyle='#69ffd7';ctx.lineWidth=10;ctx.globalAlpha=.4;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(sx(w.hand.x),floor-w.hand.y*90);ctx.lineTo(sx(w.tip.x),floor-w.tip.y*90);ctx.stroke();ctx.globalAlpha=1;}
+    if(debug&&a?.phase==='active'){const w=weapon(f);ctx.strokeStyle='#69ffd7';ctx.lineWidth=10;ctx.globalAlpha=.4;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(sx(w.hand.x),floor-w.hand.y*90);ctx.lineTo(sx(w.tip.x),floor-w.tip.y*90);ctx.stroke();ctx.globalAlpha=1;}
     if(debug){const b=f.body.enemyBox();ctx.strokeStyle='#ffd18b';ctx.lineWidth=1.5;ctx.strokeRect(sx(b.x0),floor-b.y1*90,(b.x1-b.x0)*90,(b.y1-b.y0)*90);ctx.fillStyle='#ffd18b';ctx.font='11px sans-serif';ctx.fillText('受击盒',sx(b.x0),floor-b.y1*90-5);for(const box of game.attackBoxes(f)){ctx.fillStyle='#69ffd728';ctx.strokeStyle='#69ffd7';ctx.fillRect(sx(box.x0),floor-box.y1*90,(box.x1-box.x0)*90,(box.y1-box.y0)*90);ctx.strokeRect(sx(box.x0),floor-box.y1*90,(box.x1-box.x0)*90,(box.y1-box.y0)*90);}}
   }
   for(const e of game.effects){const age=game.time-e.time,x=sx(e.x),floor=405+e.lane*34,y=e.impactY!==undefined?floor-e.impactY*90:floor-e.y*90-(e.type==='landing'?0:55);

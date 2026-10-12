@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "frames": 1600,
+  "fixedStep": "1/120",
+  "scope": "V10 deterministic snapshot and all events equal to 92c9524b; not browser/feel acceptance"
+}

@@ -95,3 +95,9 @@
 - [V10试用页](prototype/feedback-lab-v10.html)：三段受击姿势、着地/起身过渡、实际刀刃胶囊接触；保留同键站/空/地命中与强制起身规则。
 - [上游函数→V9→实际修改报告](docs/source-driven-feedback-v10-20261012.md)、[8秒模型对比录像](docs/evidence-v10/comparison-model.mp4)、[画面对比](docs/evidence-v10/reaction-comparison.png)。四项目真实下载/源码深审；Node147/147。
 - **浏览器验收未完成**：file协议被拒、内部预览proc权限失败、Chromium缺失；浏览器0断言。上述录像是Skia模型，不是浏览器/Android录像；音效与手机主观手感均未验收，不能宣称打击感优化完成。
+
+## V11 首轮自主研究与接触续浮空实验（2026-10-12）
+
+- [参考证据与逐函数差距表](docs/reference-gap-v11-20261012.md)：三套实际实现+Unity第三击配置，固定commit/行号/许可；两段历史手游视频观察及不确定性。
+- [V11实验页面](prototype/juggle-lab-v11.html)：末段改向上挑斩，实际接触才改变浮空速度，原V10和保护规则保留对照；[核心](prototype/combat-juggle.mjs)。
+- 逻辑153/153通过，V10默认1600步与92c9524b事件/快照相同；[手动对照工作流](.github/workflows/v11-candidate-acceptance.yml)先原V10五断言，再独立V11十检查。首次提交时新浏览器/视觉/安卓均未覆盖，不能称打击感复刻完成；Chromium沙箱已关闭，仅限GitHub托管非rootrunner。

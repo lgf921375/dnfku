@@ -1,0 +1,43 @@
+{
+  "sourceBlobs": [
+    [
+      "DCurrent/openbor",
+      "engine/openbor.c",
+      "ba010e9c580978e0566a3c10b3f9cfeec0d81134"
+    ],
+    [
+      "ikemen-engine/Ikemen-GO",
+      "src/char.go",
+      "ffece5ebfedb1090b1671ae36b4b6ffd110cde38"
+    ],
+    [
+      "v-star0719/U3D_MiniDNF",
+      "Project/Assets/Scripts/ActorBase.cs",
+      "6fd8451524edb5bc0d75890dcff60763c061f6dd"
+    ]
+  ],
+  "unity": [
+    {
+      "file": "Hit_3ActionSo.asset",
+      "sha": "c4fd64ba29c6623866b81de09b733524dcff48ff"
+    },
+    {
+      "file": "ActionUnit.cs",
+      "sha": "19e570acb266acbc9b2973da37800a2dc99509ed"
+    },
+    {
+      "file": "FightUnit.cs",
+      "sha": "6927a1fc9568fd61c976a10ea8cb85b468d0cb2b"
+    }
+  ],
+  "licenses": [
+    {
+      "repository": "DCurrent/openbor",
+      "sha": "f3e2e638db017f1568c04d3fd30763fef35263b0"
+    },
+    {
+      "repository": "ikemen-engine/Ikemen-GO",
+      "sha": "e00a5b19e48b534e08c5fec844cbc58d2f999359"
+    }
+  ]
+}
