@@ -1,0 +1,15 @@
+{
+  "status": "blocked-before-browser-launch",
+  "browser_launch_attempted": false,
+  "reason": "runuser oai/vscode exit 1: cannot set groups; no authorized ordinary-user execution succeeded",
+  "sandbox_requested_for_future_launch": true,
+  "sandbox_runtime_verified": false,
+  "v10_https_navigation": "not_run",
+  "smoke_script": "tests/feedback-lab-smoke.cjs",
+  "smoke_blob_sha": "86eb7f17e97af6ff0d776338149aa8cf7be675c6",
+  "smoke_script_exit_code": null,
+  "assertions_executed": 0,
+  "screenshots": [],
+  "videos": [],
+  "game_rules_modified": false
+}

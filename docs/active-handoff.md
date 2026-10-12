@@ -1,5 +1,16 @@
 # dnfku 当前研究交接
 
+## 当前优先交接：两个Chromium包已安装，普通用户入口失败（2026-10-12）
+
+- 起始main=`261b47ca58c3c8609c415462b9e4e5ceb326c23e`；本轮用户明确授权当前隔离窗口正式下载安装。已先读AGENTS/README/交接/Google安装方案；不改游戏规则、测试源码、系统配置，不操作《皓石传奇三》。
+- **通过（真实下载/安装）**：Google官方Chrome151.0.7922.34/linux64完整包193282658字节、Shell120231126字节，HTTP200/application/zip，curl退出0。全部ZIP条目CRC分别308/287通过，SHA256已记录，安全解压到独立 `/tmp/dnfku-cft-151.0.7922.34-20261012`，二进制存在0755；未覆盖系统浏览器、未写Playwright缓存或伪造标记。
+- **通过（版本/ldd）**：两者--version输出151.0.7922.34退出0，主二进制ldd退出0无not found。运行时动态依赖未覆盖。
+- **失败（普通用户入口）**：既有oai/vscode分别执行runuser -u USER -- id，两者退出1，stderr完整为runuser: cannot set groups: Operation not permitted。当前CapEff0/UID0/NoNewPrivs1/Seccomp2；不能归因为Google下载、浏览器库缺失或bwrap。
+- **未覆盖（浏览器与沙箱）**：入口失败发生于浏览器launch前，未执行root浏览器、未关闭sandbox、未提权或改宿主权限。无运行浏览器可确认实际sandbox；V10/smoke0断言，脚本未运行、退出码null，无本轮截图/录像。原脚本5个计数断言保持，Blob86eb7f17e97af6ff0d776338149aa8cf7be675c6。
+- [正式安装/阻塞报告](chromium-install-result-20261012.md)及[evidence目录](evidence-chromium-install-20261012/)包含完整下载命令、CRC/SHA、依赖/版本、入口错误、测试未覆盖状态和安装脚本。包仅在当前环境临时目录，不上传GitHub，环境回收需重新确认。
+- **下一步最小修复**：平台提供当前隔离环境的正常普通用户执行入口，保持安全隔离；随后仅适配测试launch的真实executablePath+chromiumSandbox:true及独立证据目录，保留原断言，使用V10 HTTPS进行真实测试。现有包无需重下；普通用户下沙箱是否可用仍需实测。暂不转GitHub Actions。
+- 本批仅文档/证据持久化；最终main SHA以提交后的回读为准。
+
 ## 当前优先交接：Google官方CfT包可限量读取，安装方案待执行（2026-10-12）
 
 - 本轮用户要求先返回检查结果/方案；未下载安装、未改代理/沙箱/系统权限/游戏或测试代码，未迁移GitHub Actions。起始main=`113b768c4bdacbbe1dfca03b913f52e68ced2c78`，先读AGENTS/README/交接。

@@ -1,0 +1,37 @@
+{
+  "uid": 0,
+  "euid": 0,
+  "ordinary_user_entry_attempts": [
+    {
+      "command": [
+        "runuser",
+        "-u",
+        "oai",
+        "--",
+        "id"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "runuser: cannot set groups: Operation not permitted\n"
+    },
+    {
+      "command": [
+        "runuser",
+        "-u",
+        "vscode",
+        "--",
+        "id"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "runuser: cannot set groups: Operation not permitted\n"
+    }
+  ],
+  "security_status": [
+    "CapEff:\t0000000000000000",
+    "NoNewPrivs:\t1",
+    "Seccomp:\t2",
+    "Seccomp_filters:\t1"
+  ],
+  "conclusion": "Existing runuser entry fails at set groups before browser execution; no permissions changed."
+}
