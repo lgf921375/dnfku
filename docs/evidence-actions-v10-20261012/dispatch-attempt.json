@@ -25,5 +25,10 @@
   "artifacts_readable": "none produced",
   "videos": [],
   "screenshots": [],
-  "credentials_saved_to_repository": false
+  "credentials_saved_to_repository": false,
+  "corrected_head": "f3aefb7658a87c7163ee7dcf8968a7a1a9adfe07",
+  "corrected_workflow_ui_name": "dnfku V10 browser acceptance",
+  "post_fix_ui_checked": true,
+  "workflow_page_screenshot": "workflow-page.jpg",
+  "screenshot_is_v10_game": false
 }
