@@ -1,0 +1,463 @@
+﻿2026-10-12T02:26:02.6590738Z Current runner version: '2.337.0'
+2026-10-12T02:26:02.6627005Z ##[group]Runner Image Provisioner
+2026-10-12T02:26:02.6628712Z Hosted Compute Agent
+2026-10-12T02:26:02.6629781Z Version: 20261002.596
+2026-10-12T02:26:02.6631045Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+2026-10-12T02:26:02.6632314Z Build Date: 2026-10-02T22:28:27Z
+2026-10-12T02:26:02.6633487Z Worker ID: {335bf018-5dbe-4a2b-892a-3d55bcbd00b7}
+2026-10-12T02:26:02.6634901Z Region: centralus
+2026-10-12T02:26:02.6636013Z Cloud: Azure
+2026-10-12T02:26:02.6637136Z ##[endgroup]
+2026-10-12T02:26:02.6639826Z ##[group]Operating System
+2026-10-12T02:26:02.6640950Z Ubuntu
+2026-10-12T02:26:02.6642088Z 24.04.5
+2026-10-12T02:26:02.6643096Z LTS
+2026-10-12T02:26:02.6644067Z ##[endgroup]
+2026-10-12T02:26:02.6645046Z ##[group]Runner Image
+2026-10-12T02:26:02.6646070Z Image: ubuntu-24.04
+2026-10-12T02:26:02.6647561Z Version: 20261004.327.1
+2026-10-12T02:26:02.6649914Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-12T02:26:02.6652918Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+2026-10-12T02:26:02.6654821Z ##[endgroup]
+2026-10-12T02:26:02.6657658Z ##[group]GITHUB_TOKEN Permissions
+2026-10-12T02:26:02.6660571Z Contents: read
+2026-10-12T02:26:02.6661798Z Metadata: read
+2026-10-12T02:26:02.6662807Z ##[endgroup]
+2026-10-12T02:26:02.6665363Z Secret source: Actions
+2026-10-12T02:26:02.6666375Z Cache mode: write
+2026-10-12T02:26:02.6667766Z Prepare workflow directory
+2026-10-12T02:26:02.7242976Z Prepare all required actions
+2026-10-12T02:26:02.7292371Z Getting action download info
+2026-10-12T02:26:02.9918442Z Download action repository 'actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803' (SHA:d23441a48e516b6c34aea4fa41551a30e30af803)
+2026-10-12T02:26:03.0879986Z Download action repository 'actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38' (SHA:249970729cb0ef3589644e2896645e5dc5ba9c38)
+2026-10-12T02:26:03.1750144Z Download action repository 'actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4' (SHA:330a01c490aca151604b8cf639adc76d48f6c5d4)
+2026-10-12T02:26:03.4271699Z Complete job name: v10
+2026-10-12T02:26:03.4976909Z ##[group]Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+2026-10-12T02:26:03.4978311Z with:
+2026-10-12T02:26:03.4978779Z   persist-credentials: false
+2026-10-12T02:26:03.4979311Z   repository: lgf921375/dnfku
+2026-10-12T02:26:03.4983331Z   token: ***
+2026-10-12T02:26:03.4983762Z   ssh-strict: true
+2026-10-12T02:26:03.4984198Z   ssh-user: git
+2026-10-12T02:26:03.4984622Z   clean: true
+2026-10-12T02:26:03.4985070Z   sparse-checkout-cone-mode: true
+2026-10-12T02:26:03.4985594Z   fetch-depth: 1
+2026-10-12T02:26:03.4986020Z   fetch-tags: false
+2026-10-12T02:26:03.4986461Z   show-progress: true
+2026-10-12T02:26:03.4986904Z   lfs: false
+2026-10-12T02:26:03.4987495Z   submodules: false
+2026-10-12T02:26:03.4987947Z   set-safe-directory: true
+2026-10-12T02:26:03.4988450Z   allow-unsafe-pr-checkout: false
+2026-10-12T02:26:03.4989248Z env:
+2026-10-12T02:26:03.4989935Z   DNFKU_PREVIEW_URL: https://lgf921375.github.io/dnfku/prototype/feedback-lab-v10.html
+2026-10-12T02:26:03.4990948Z   DNFKU_EVIDENCE_DIR: /home/runner/work/dnfku/dnfku/ci-evidence/browser
+2026-10-12T02:26:03.4991639Z ##[endgroup]
+2026-10-12T02:26:03.6012980Z Syncing repository: lgf921375/dnfku
+2026-10-12T02:26:03.6015405Z ##[group]Getting Git version info
+2026-10-12T02:26:03.6016489Z Working directory is '/home/runner/work/dnfku/dnfku'
+2026-10-12T02:26:03.6018341Z [command]/usr/bin/git version
+2026-10-12T02:26:03.6107636Z git version 2.55.0
+2026-10-12T02:26:03.6146427Z ##[endgroup]
+2026-10-12T02:26:03.6154143Z Temporarily overriding HOME='/home/runner/work/_temp/3311642b-3f64-4251-a56c-57d2873c3beb' before making global git config changes
+2026-10-12T02:26:03.6155557Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-12T02:26:03.6159135Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/dnfku/dnfku
+2026-10-12T02:26:03.6217873Z Deleting the contents of '/home/runner/work/dnfku/dnfku'
+2026-10-12T02:26:03.6231092Z ##[group]Determining repository object format
+2026-10-12T02:26:03.6232951Z ##[endgroup]
+2026-10-12T02:26:03.6234485Z ##[group]Initializing the repository
+2026-10-12T02:26:03.6237883Z [command]/usr/bin/git init /home/runner/work/dnfku/dnfku
+2026-10-12T02:26:03.6391615Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-12T02:26:03.6393440Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-12T02:26:03.6395099Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-12T02:26:03.6396488Z hint: call:
+2026-10-12T02:26:03.6397844Z hint:
+2026-10-12T02:26:03.6399239Z hint: 	git config --global init.defaultBranch <name>
+2026-10-12T02:26:03.6400262Z hint:
+2026-10-12T02:26:03.6401325Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-12T02:26:03.6402601Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-12T02:26:03.6403371Z hint:
+2026-10-12T02:26:03.6403869Z hint: 	git branch -m <name>
+2026-10-12T02:26:03.6404384Z hint:
+2026-10-12T02:26:03.6405033Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-12T02:26:03.6406003Z Initialized empty Git repository in /home/runner/work/dnfku/dnfku/.git/
+2026-10-12T02:26:03.6409000Z [command]/usr/bin/git remote add origin https://github.com/lgf921375/dnfku
+2026-10-12T02:26:03.6463804Z ##[endgroup]
+2026-10-12T02:26:03.6465118Z ##[group]Disabling automatic garbage collection
+2026-10-12T02:26:03.6467817Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-12T02:26:03.6506538Z ##[endgroup]
+2026-10-12T02:26:03.6508436Z ##[group]Setting up auth
+2026-10-12T02:26:03.6510224Z Removing SSH command configuration
+2026-10-12T02:26:03.6514838Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-12T02:26:03.6554067Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-12T02:26:03.6968155Z Removing HTTP extra header
+2026-10-12T02:26:03.6974052Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-12T02:26:03.7012967Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-12T02:26:03.7264086Z Removing includeIf entries pointing to credentials config files
+2026-10-12T02:26:03.7265219Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-12T02:26:03.7310416Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-12T02:26:03.7571511Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-149cbde3-82a1-492d-9abd-c91c2343d0e7.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-12T02:26:03.7614902Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/dnfku/dnfku/.git.path /home/runner/work/_temp/git-credentials-149cbde3-82a1-492d-9abd-c91c2343d0e7.config
+2026-10-12T02:26:03.7651936Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/dnfku/dnfku/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-149cbde3-82a1-492d-9abd-c91c2343d0e7.config
+2026-10-12T02:26:03.7692692Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-149cbde3-82a1-492d-9abd-c91c2343d0e7.config
+2026-10-12T02:26:03.7728798Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-149cbde3-82a1-492d-9abd-c91c2343d0e7.config
+2026-10-12T02:26:03.7763496Z ##[endgroup]
+2026-10-12T02:26:03.7765270Z ##[group]Fetching the repository
+2026-10-12T02:26:03.7773384Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +b15248baf4889e83b39f04881bfad89385ecdfe8:refs/remotes/origin/main
+2026-10-12T02:26:04.6783004Z From https://github.com/lgf921375/dnfku
+2026-10-12T02:26:04.6811751Z  * [new ref]         b15248baf4889e83b39f04881bfad89385ecdfe8 -> origin/main
+2026-10-12T02:26:04.6820153Z [command]/usr/bin/git branch --list --remote origin/main
+2026-10-12T02:26:04.6851688Z   origin/main
+2026-10-12T02:26:04.6863753Z [command]/usr/bin/git rev-parse refs/remotes/origin/main
+2026-10-12T02:26:04.6891006Z b15248baf4889e83b39f04881bfad89385ecdfe8
+2026-10-12T02:26:04.6901979Z ##[endgroup]
+2026-10-12T02:26:04.6903967Z ##[group]Determining the checkout info
+2026-10-12T02:26:04.6909535Z ##[endgroup]
+2026-10-12T02:26:04.6910852Z [command]/usr/bin/git sparse-checkout disable
+2026-10-12T02:26:04.6970298Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-12T02:26:04.7004208Z ##[group]Checking out the ref
+2026-10-12T02:26:04.7006339Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-10-12T02:26:04.7385802Z Switched to a new branch 'main'
+2026-10-12T02:26:04.7390645Z branch 'main' set up to track 'origin/main'.
+2026-10-12T02:26:04.7400167Z ##[endgroup]
+2026-10-12T02:26:04.7446966Z [command]/usr/bin/git log -1 --format=%H
+2026-10-12T02:26:04.7475053Z b15248baf4889e83b39f04881bfad89385ecdfe8
+2026-10-12T02:26:04.7485301Z ##[group]Removing auth
+2026-10-12T02:26:04.7486187Z Removing SSH command configuration
+2026-10-12T02:26:04.7489280Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-12T02:26:04.7524234Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-12T02:26:04.7754969Z Removing HTTP extra header
+2026-10-12T02:26:04.7758702Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-12T02:26:04.7794758Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-12T02:26:04.8015660Z Removing includeIf entries pointing to credentials config files
+2026-10-12T02:26:04.8019840Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-12T02:26:04.8050470Z includeif.gitdir:/home/runner/work/dnfku/dnfku/.git.path
+2026-10-12T02:26:04.8053059Z includeif.gitdir:/home/runner/work/dnfku/dnfku/.git/worktrees/*.path
+2026-10-12T02:26:04.8055482Z includeif.gitdir:/github/workspace/.git.path
+2026-10-12T02:26:04.8057823Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-12T02:26:04.8062916Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/dnfku/dnfku/.git.path
+2026-10-12T02:26:04.8085844Z /home/runner/work/_temp/git-credentials-149cbde3-82a1-492d-9abd-c91c2343d0e7.config
+2026-10-12T02:26:04.8097575Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/dnfku/dnfku/.git.path /home/runner/work/_temp/git-credentials-149cbde3-82a1-492d-9abd-c91c2343d0e7.config
+2026-10-12T02:26:04.8138367Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/dnfku/dnfku/.git/worktrees/*.path
+2026-10-12T02:26:04.8166272Z /home/runner/work/_temp/git-credentials-149cbde3-82a1-492d-9abd-c91c2343d0e7.config
+2026-10-12T02:26:04.8177102Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/dnfku/dnfku/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-149cbde3-82a1-492d-9abd-c91c2343d0e7.config
+2026-10-12T02:26:04.8219790Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-10-12T02:26:04.8246710Z /github/runner_temp/git-credentials-149cbde3-82a1-492d-9abd-c91c2343d0e7.config
+2026-10-12T02:26:04.8268332Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-149cbde3-82a1-492d-9abd-c91c2343d0e7.config
+2026-10-12T02:26:04.8304800Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-12T02:26:04.8331501Z /github/runner_temp/git-credentials-149cbde3-82a1-492d-9abd-c91c2343d0e7.config
+2026-10-12T02:26:04.8342653Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-149cbde3-82a1-492d-9abd-c91c2343d0e7.config
+2026-10-12T02:26:04.8379045Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-12T02:26:04.8597867Z Removing credentials config '/home/runner/work/_temp/git-credentials-149cbde3-82a1-492d-9abd-c91c2343d0e7.config'
+2026-10-12T02:26:04.8606690Z ##[endgroup]
+2026-10-12T02:26:04.9025807Z ##[group]Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+2026-10-12T02:26:04.9027670Z with:
+2026-10-12T02:26:04.9028517Z   node-version: 22
+2026-10-12T02:26:04.9029490Z   package-manager-cache: false
+2026-10-12T02:26:04.9030567Z   check-latest: false
+2026-10-12T02:26:04.9040151Z   token: ***
+2026-10-12T02:26:04.9041028Z env:
+2026-10-12T02:26:04.9042444Z   DNFKU_PREVIEW_URL: https://lgf921375.github.io/dnfku/prototype/feedback-lab-v10.html
+2026-10-12T02:26:04.9044520Z   DNFKU_EVIDENCE_DIR: /home/runner/work/dnfku/dnfku/ci-evidence/browser
+2026-10-12T02:26:04.9046014Z ##[endgroup]
+2026-10-12T02:26:05.0521013Z Found in cache @ /opt/hostedtoolcache/node/22.23.3/x64
+2026-10-12T02:26:05.0523905Z ##[group]Environment details
+2026-10-12T02:26:05.5244034Z node: v22.23.3
+2026-10-12T02:26:05.5245329Z npm: 10.9.9
+2026-10-12T02:26:05.5246005Z yarn: 1.22.22
+2026-10-12T02:26:05.5247518Z ##[endgroup]
+2026-10-12T02:26:05.5390906Z ##[group]Run mkdir -p ci-evidence
+2026-10-12T02:26:05.5391349Z [36;1mmkdir -p ci-evidence[0m
+2026-10-12T02:26:05.5391738Z [36;1mexport PLAYWRIGHT_BROWSERS_PATH="$RUNNER_TEMP/dnfku-browsers"[0m
+2026-10-12T02:26:05.5392293Z [36;1mecho "PLAYWRIGHT_BROWSERS_PATH=$PLAYWRIGHT_BROWSERS_PATH" >> "$GITHUB_ENV"[0m
+2026-10-12T02:26:05.5392723Z [36;1mset +e[0m
+2026-10-12T02:26:05.5393012Z [36;1mpython3 - <<'PY' > ci-evidence/environment.log 2>&1[0m
+2026-10-12T02:26:05.5393406Z [36;1mimport os, pathlib, json, subprocess[0m
+2026-10-12T02:26:05.5393745Z [36;1mevidence=pathlib.Path('ci-evidence')[0m
+2026-10-12T02:26:05.5395148Z [36;1mstatus={'uid':os.getuid(),'gid':os.getgid(),'groups':os.getgroups(),'id':subprocess.run(['id'],capture_output=True,text=True).stdout,'commit':subprocess.run(['git','rev-parse','HEAD'],capture_output=True,text=True).stdout.strip(),'proc_status':[x for x in pathlib.Path('/proc/self/status').read_text().splitlines() if x.startswith(('NoNewPrivs:','Seccomp:','CapEff:'))]}[0m
+2026-10-12T02:26:05.5396741Z [36;1mfor name in ['unprivileged_userns_clone','apparmor_restrict_unprivileged_userns','userns_restrict']:[0m
+2026-10-12T02:26:05.5397663Z [36;1m    p=pathlib.Path('/proc/sys/kernel')/name[0m
+2026-10-12T02:26:05.5398114Z [36;1m    status[name]=p.read_text().strip() if p.exists() else 'not exposed'[0m
+2026-10-12T02:26:05.5398637Z [36;1m(evidence/'environment.json').write_text(json.dumps(status,indent=2))[0m
+2026-10-12T02:26:05.5399136Z [36;1mif os.getuid()==0: raise RuntimeError('Root runner is not allowed')[0m
+2026-10-12T02:26:05.5399832Z [36;1mfor p in [evidence,pathlib.Path(os.environ['RUNNER_TEMP'])/'dnfku-profile',pathlib.Path(os.environ['PLAYWRIGHT_BROWSERS_PATH'])]:[0m
+2026-10-12T02:26:05.5400813Z [36;1m    p.mkdir(parents=True,exist_ok=True);probe=p/'write-probe';probe.write_text('ordinary-user');assert probe.read_text()=='ordinary-user';probe.unlink()[0m
+2026-10-12T02:26:05.5401499Z [36;1mprint(json.dumps(status,indent=2))[0m
+2026-10-12T02:26:05.5401789Z [36;1mPY[0m
+2026-10-12T02:26:05.5402215Z [36;1mcode=$?[0m
+2026-10-12T02:26:05.5402502Z [36;1mecho "$code" > ci-evidence/environment.exit-code[0m
+2026-10-12T02:26:05.5402851Z [36;1mcat ci-evidence/environment.log[0m
+2026-10-12T02:26:05.5403122Z [36;1mexit "$code"[0m
+2026-10-12T02:26:05.5708218Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-12T02:26:05.5708639Z env:
+2026-10-12T02:26:05.5709109Z   DNFKU_PREVIEW_URL: https://lgf921375.github.io/dnfku/prototype/feedback-lab-v10.html
+2026-10-12T02:26:05.5709759Z   DNFKU_EVIDENCE_DIR: /home/runner/work/dnfku/dnfku/ci-evidence/browser
+2026-10-12T02:26:05.5710212Z ##[endgroup]
+2026-10-12T02:26:05.6210346Z {
+2026-10-12T02:26:05.6210794Z   "uid": 1001,
+2026-10-12T02:26:05.6211082Z   "gid": 1001,
+2026-10-12T02:26:05.6211330Z   "groups": [
+2026-10-12T02:26:05.6211586Z     4,
+2026-10-12T02:26:05.6211825Z     100,
+2026-10-12T02:26:05.6212040Z     118,
+2026-10-12T02:26:05.6212268Z     999,
+2026-10-12T02:26:05.6212507Z     1001
+2026-10-12T02:26:05.6212747Z   ],
+2026-10-12T02:26:05.6213347Z   "id": "uid=1001(runner) gid=1001(runner) groups=1001(runner),4(adm),100(users),118(docker),999(systemd-journal)\n",
+2026-10-12T02:26:05.6214001Z   "commit": "b15248baf4889e83b39f04881bfad89385ecdfe8",
+2026-10-12T02:26:05.6214373Z   "proc_status": [
+2026-10-12T02:26:05.6214660Z     "CapEff:\t0000000000000000",
+2026-10-12T02:26:05.6214956Z     "NoNewPrivs:\t0",
+2026-10-12T02:26:05.6215208Z     "Seccomp:\t0"
+2026-10-12T02:26:05.6215439Z   ],
+2026-10-12T02:26:05.6215708Z   "unprivileged_userns_clone": "1",
+2026-10-12T02:26:05.6216102Z   "apparmor_restrict_unprivileged_userns": "1",
+2026-10-12T02:26:05.6216496Z   "userns_restrict": "not exposed"
+2026-10-12T02:26:05.6216792Z }
+2026-10-12T02:26:05.6259609Z ##[group]Run export CODEX_PRIMARY_RUNTIME_NODE_MODULES="$RUNNER_TEMP/dnfku-pw/node_modules"
+2026-10-12T02:26:05.6260328Z [36;1mexport CODEX_PRIMARY_RUNTIME_NODE_MODULES="$RUNNER_TEMP/dnfku-pw/node_modules"[0m
+2026-10-12T02:26:05.6260983Z [36;1mecho "CODEX_PRIMARY_RUNTIME_NODE_MODULES=$CODEX_PRIMARY_RUNTIME_NODE_MODULES" >> "$GITHUB_ENV"[0m
+2026-10-12T02:26:05.6261491Z [36;1mset +e[0m
+2026-10-12T02:26:05.6262084Z [36;1mnpm install --prefix "$RUNNER_TEMP/dnfku-pw" --no-audit --no-fund --save-exact playwright@1.62.1 > ci-evidence/npm-install.log 2>&1[0m
+2026-10-12T02:26:05.6262720Z [36;1mcode=$?[0m
+2026-10-12T02:26:05.6262998Z [36;1mecho "$code" > ci-evidence/npm-install.exit-code[0m
+2026-10-12T02:26:05.6263366Z [36;1mcat ci-evidence/npm-install.log[0m
+2026-10-12T02:26:05.6263692Z [36;1mif [ "$code" -ne 0 ]; then exit "$code"; fi[0m
+2026-10-12T02:26:05.6264044Z [36;1mnode - <<'JS' > ci-evidence/manifest.log 2>&1[0m
+2026-10-12T02:26:05.6264636Z [36;1mconst fs=require('node:fs'),path=require('node:path'),root=process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES;[0m
+2026-10-12T02:26:05.6265326Z [36;1mconst version=require(path.join(root,'playwright/package.json')).version;[0m
+2026-10-12T02:26:05.6265903Z [36;1mconst manifest=require(path.join(root,'playwright-core/browsers.json'));[0m
+2026-10-12T02:26:05.6266594Z [36;1mconst browsers=manifest.browsers.filter(x=>['chromium','chromium-headless-shell'].includes(x.name));[0m
+2026-10-12T02:26:05.6267663Z [36;1mfs.writeFileSync('ci-evidence/manifest.json',JSON.stringify({version,browsers},null,2));[0m
+2026-10-12T02:26:05.6268543Z [36;1mif(version!=='1.62.1'||browsers.length!==2||browsers.some(x=>x.browserVersion!=='151.0.7922.34'))throw Error('Playwright or browser version mismatch');[0m
+2026-10-12T02:26:05.6269280Z [36;1mconsole.log(JSON.stringify({version,browsers},null,2));[0m
+2026-10-12T02:26:05.6269633Z [36;1mJS[0m
+2026-10-12T02:26:05.6269829Z [36;1mcode=$?[0m
+2026-10-12T02:26:05.6270095Z [36;1mecho "$code" > ci-evidence/manifest.exit-code[0m
+2026-10-12T02:26:05.6270427Z [36;1mcat ci-evidence/manifest.log[0m
+2026-10-12T02:26:05.6270694Z [36;1mexit "$code"[0m
+2026-10-12T02:26:05.6334754Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-12T02:26:05.6335126Z env:
+2026-10-12T02:26:05.6335515Z   DNFKU_PREVIEW_URL: https://lgf921375.github.io/dnfku/prototype/feedback-lab-v10.html
+2026-10-12T02:26:05.6336252Z   DNFKU_EVIDENCE_DIR: /home/runner/work/dnfku/dnfku/ci-evidence/browser
+2026-10-12T02:26:05.6336725Z   PLAYWRIGHT_BROWSERS_PATH: /home/runner/work/_temp/dnfku-browsers
+2026-10-12T02:26:05.6337080Z ##[endgroup]
+2026-10-12T02:26:07.6962365Z 
+2026-10-12T02:26:07.6962962Z added 2 packages in 2s
+2026-10-12T02:26:07.7275991Z {
+2026-10-12T02:26:07.7276549Z   "version": "1.62.1",
+2026-10-12T02:26:07.7276983Z   "browsers": [
+2026-10-12T02:26:07.7277575Z     {
+2026-10-12T02:26:07.7277967Z       "name": "chromium",
+2026-10-12T02:26:07.7278379Z       "revision": "1234",
+2026-10-12T02:26:07.7278944Z       "installByDefault": true,
+2026-10-12T02:26:07.7279492Z       "browserVersion": "151.0.7922.34",
+2026-10-12T02:26:07.7280010Z       "title": "Chrome for Testing"
+2026-10-12T02:26:07.7280444Z     },
+2026-10-12T02:26:07.7280748Z     {
+2026-10-12T02:26:07.7281141Z       "name": "chromium-headless-shell",
+2026-10-12T02:26:07.7281642Z       "revision": "1234",
+2026-10-12T02:26:07.7282115Z       "installByDefault": true,
+2026-10-12T02:26:07.7282600Z       "browserVersion": "151.0.7922.34",
+2026-10-12T02:26:07.7283118Z       "title": "Chrome Headless Shell"
+2026-10-12T02:26:07.7283553Z     }
+2026-10-12T02:26:07.7283855Z   ]
+2026-10-12T02:26:07.7284146Z }
+2026-10-12T02:26:07.7317869Z ##[group]Run set +e
+2026-10-12T02:26:07.7318153Z [36;1mset +e[0m
+2026-10-12T02:26:07.7318664Z [36;1mnode "$CODEX_PRIMARY_RUNTIME_NODE_MODULES/playwright/cli.js" install chromium > ci-evidence/browser-install.log 2>&1[0m
+2026-10-12T02:26:07.7319225Z [36;1mcode=$?[0m
+2026-10-12T02:26:07.7319502Z [36;1mecho "$code" > ci-evidence/browser-install.exit-code[0m
+2026-10-12T02:26:07.7319872Z [36;1mcat ci-evidence/browser-install.log[0m
+2026-10-12T02:26:07.7320198Z [36;1mif [ "$code" -ne 0 ]; then exit "$code"; fi[0m
+2026-10-12T02:26:07.7320994Z [36;1mnode -e 'const {chromium}=require(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES+"/playwright"); console.log("DNFKU_CHROME_EXECUTABLE="+chromium.executablePath())' >> "$GITHUB_ENV"[0m
+2026-10-12T02:26:07.7388295Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-12T02:26:07.7388644Z env:
+2026-10-12T02:26:07.7389017Z   DNFKU_PREVIEW_URL: https://lgf921375.github.io/dnfku/prototype/feedback-lab-v10.html
+2026-10-12T02:26:07.7389598Z   DNFKU_EVIDENCE_DIR: /home/runner/work/dnfku/dnfku/ci-evidence/browser
+2026-10-12T02:26:07.7390056Z   PLAYWRIGHT_BROWSERS_PATH: /home/runner/work/_temp/dnfku-browsers
+2026-10-12T02:26:07.7390548Z   CODEX_PRIMARY_RUNTIME_NODE_MODULES: /home/runner/work/_temp/dnfku-pw/node_modules
+2026-10-12T02:26:07.7390952Z ##[endgroup]
+2026-10-12T02:26:18.0888768Z Downloading Chrome for Testing 151.0.7922.34 (playwright chromium v1234) from https://cdn.playwright.dev/builds/cft/151.0.7922.34/linux64/chrome-linux64.zip
+2026-10-12T02:26:18.0889922Z |                                                                                |   0% of 184.3 MiB
+2026-10-12T02:26:18.0890996Z |■■■■■■■■                                                                        |  10% of 184.3 MiB
+2026-10-12T02:26:18.0891670Z |■■■■■■■■■■■■■■■■                                                                |  20% of 184.3 MiB
+2026-10-12T02:26:18.0892326Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 184.3 MiB
+2026-10-12T02:26:18.0892977Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 184.3 MiB
+2026-10-12T02:26:18.0893621Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 184.3 MiB
+2026-10-12T02:26:18.0894274Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 184.3 MiB
+2026-10-12T02:26:18.0894936Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 184.3 MiB
+2026-10-12T02:26:18.0895663Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 184.3 MiB
+2026-10-12T02:26:18.0896622Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 184.3 MiB
+2026-10-12T02:26:18.0898557Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 184.3 MiB
+2026-10-12T02:26:18.0899811Z Chrome for Testing 151.0.7922.34 (playwright chromium v1234) downloaded to /home/runner/work/_temp/dnfku-browsers/chromium-1234
+2026-10-12T02:26:18.0900925Z Downloading FFmpeg (playwright ffmpeg v1011) from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1011/ffmpeg-linux.zip
+2026-10-12T02:26:18.0901788Z |                                                                                |   0% of 2.3 MiB
+2026-10-12T02:26:18.0902431Z |■■■■■■■■                                                                        |  10% of 2.3 MiB
+2026-10-12T02:26:18.0903028Z |■■■■■■■■■■■■■■■■                                                                |  20% of 2.3 MiB
+2026-10-12T02:26:18.0903630Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 2.3 MiB
+2026-10-12T02:26:18.0904293Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 2.3 MiB
+2026-10-12T02:26:18.0904984Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 2.3 MiB
+2026-10-12T02:26:18.0905940Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 2.3 MiB
+2026-10-12T02:26:18.0906708Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 2.3 MiB
+2026-10-12T02:26:18.0907986Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 2.3 MiB
+2026-10-12T02:26:18.0908988Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 2.3 MiB
+2026-10-12T02:26:18.0909761Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 2.3 MiB
+2026-10-12T02:26:18.0910498Z FFmpeg (playwright ffmpeg v1011) downloaded to /home/runner/work/_temp/dnfku-browsers/ffmpeg-1011
+2026-10-12T02:26:18.0911717Z Downloading Chrome Headless Shell 151.0.7922.34 (playwright chromium-headless-shell v1234) from https://cdn.playwright.dev/builds/cft/151.0.7922.34/linux64/chrome-headless-shell-linux64.zip
+2026-10-12T02:26:18.0912719Z |                                                                                |   0% of 114.7 MiB
+2026-10-12T02:26:18.0913331Z |■■■■■■■■                                                                        |  10% of 114.7 MiB
+2026-10-12T02:26:18.0913988Z |■■■■■■■■■■■■■■■■                                                                |  20% of 114.7 MiB
+2026-10-12T02:26:18.0914634Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 114.7 MiB
+2026-10-12T02:26:18.0915303Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 114.7 MiB
+2026-10-12T02:26:18.0916008Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 114.7 MiB
+2026-10-12T02:26:18.0916921Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 114.7 MiB
+2026-10-12T02:26:18.0918113Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 114.7 MiB
+2026-10-12T02:26:18.0919066Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 114.7 MiB
+2026-10-12T02:26:18.0919849Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 114.7 MiB
+2026-10-12T02:26:18.0920606Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 114.7 MiB
+2026-10-12T02:26:18.0921602Z Chrome Headless Shell 151.0.7922.34 (playwright chromium-headless-shell v1234) downloaded to /home/runner/work/_temp/dnfku-browsers/chromium_headless_shell-1234
+2026-10-12T02:26:18.4341879Z ##[group]Run set +e
+2026-10-12T02:26:18.4342166Z [36;1mset +e[0m
+2026-10-12T02:26:18.4342604Z [36;1mnode tests/feedback-lab-sandbox-preflight.cjs > ci-evidence/sandbox-preflight.log 2>&1[0m
+2026-10-12T02:26:18.4343116Z [36;1mcode=$?[0m
+2026-10-12T02:26:18.4343401Z [36;1mecho "$code" > ci-evidence/sandbox-preflight.exit-code[0m
+2026-10-12T02:26:18.4343778Z [36;1mcat ci-evidence/sandbox-preflight.log[0m
+2026-10-12T02:26:18.4344081Z [36;1mexit "$code"[0m
+2026-10-12T02:26:18.4420593Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-12T02:26:18.4421154Z env:
+2026-10-12T02:26:18.4421699Z   DNFKU_PREVIEW_URL: https://lgf921375.github.io/dnfku/prototype/feedback-lab-v10.html
+2026-10-12T02:26:18.4422451Z   DNFKU_EVIDENCE_DIR: /home/runner/work/dnfku/dnfku/ci-evidence/browser
+2026-10-12T02:26:18.4423116Z   PLAYWRIGHT_BROWSERS_PATH: /home/runner/work/_temp/dnfku-browsers
+2026-10-12T02:26:18.4423678Z   CODEX_PRIMARY_RUNTIME_NODE_MODULES: /home/runner/work/_temp/dnfku-pw/node_modules
+2026-10-12T02:26:18.4424289Z   DNFKU_CHROME_EXECUTABLE: /home/runner/work/_temp/dnfku-browsers/chromium-1234/chrome-linux64/chrome
+2026-10-12T02:26:18.4425004Z ##[endgroup]
+2026-10-12T02:26:19.1999810Z {
+2026-10-12T02:26:19.2000276Z   "uid": 1001,
+2026-10-12T02:26:19.2000635Z   "gid": 1001,
+2026-10-12T02:26:19.2001005Z   "browserLaunch": "passed",
+2026-10-12T02:26:19.2001443Z   "sandbox": "disabled",
+2026-10-12T02:26:19.2002255Z   "sandboxNotice": "Chromium沙箱已关闭",
+2026-10-12T02:26:19.2002827Z   "runnerEnvironment": "github-hosted",
+2026-10-12T02:26:19.2003688Z   "executable": "/home/runner/work/_temp/dnfku-browsers/chromium-1234/chrome-linux64/chrome",
+2026-10-12T02:26:19.2004441Z   "version": {
+2026-10-12T02:26:19.2004764Z     "exitCode": 0,
+2026-10-12T02:26:19.2005080Z     "stdout": "Google Chrome for Testing 151.0.7922.34 \n",
+2026-10-12T02:26:19.2005404Z     "stderr": ""
+2026-10-12T02:26:19.2005605Z   },
+2026-10-12T02:26:19.2005804Z   "dependencies": {
+2026-10-12T02:26:19.2006049Z     "exitCode": 0,
+2026-10-12T02:26:19.2032641Z     "stdout": "\tlinux-vdso.so.1 (0x00007f39f98a7000)\n\tlibdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f39f9890000)\n\tlibpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f39f988b000)\n\tlibglib-2.0.so.0 => /lib/x86_64-linux-gnu/libglib-2.0.so.0 (0x00007f39e7eb7000)\n\tlibgobject-2.0.so.0 => /lib/x86_64-linux-gnu/libgobject-2.0.so.0 (0x00007f39f9828000)\n\tlibnspr4.so => /lib/x86_64-linux-gnu/libnspr4.so (0x00007f39e7e78000)\n\tlibnss3.so => /lib/x86_64-linux-gnu/libnss3.so (0x00007f39e7d49000)\n\tlibnssutil3.so => /lib/x86_64-linux-gnu/libnssutil3.so (0x00007f39f97f4000)\n\tlibsmime3.so => /lib/x86_64-linux-gnu/libsmime3.so (0x00007f39e7d20000)\n\tlibgio-2.0.so.0 => /lib/x86_64-linux-gnu/libgio-2.0.so.0 (0x00007f39e7b50000)\n\tlibatk-1.0.so.0 => /lib/x86_64-linux-gnu/libatk-1.0.so.0 (0x00007f39e7b26000)\n\tlibatk-bridge-2.0.so.0 => /lib/x86_64-linux-gnu/libatk-bridge-2.0.so.0 (0x00007f39e7aea000)\n\tlibdbus-1.so.3 => /lib/x86_64-linux-gnu/libdbus-1.so.3 (0x00007f39e7a9b000)\n\tlibcups.so.2 => /lib/x86_64-linux-gnu/libcups.so.2 (0x00007f39e79fa000)\n\tlibexpat.so.1 => /lib/x86_64-linux-gnu/libexpat.so.1 (0x00007f39e79cc000)\n\tlibxcb.so.1 => /lib/x86_64-linux-gnu/libxcb.so.1 (0x00007f39e79a3000)\n\tlibxkbcommon.so.0 => /lib/x86_64-linux-gnu/libxkbcommon.so.0 (0x00007f39e795a000)\n\tlibasound.so.2 => /lib/x86_64-linux-gnu/libasound.so.2 (0x00007f39e7850000)\n\tlibgbm.so.1 => /lib/x86_64-linux-gnu/libgbm.so.1 (0x00007f39e7849000)\n\tlibX11.so.6 => /lib/x86_64-linux-gnu/libX11.so.6 (0x00007f39e770c000)\n\tlibXext.so.6 => /lib/x86_64-linux-gnu/libXext.so.6 (0x00007f39e76f8000)\n\tlibcairo.so.2 => /lib/x86_64-linux-gnu/libcairo.so.2 (0x00007f39e75b4000)\n\tlibpango-1.0.so.0 => /lib/x86_64-linux-gnu/libpango-1.0.so.0 (0x00007f39e7549000)\n\tlibudev.so.1 => /lib/x86_64-linux-gnu/libudev.so.1 (0x00007f39e7516000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007f39e742d000)\n\tlibXcomposite.so.1 => /lib/x86_64-linux-gnu/libXcomposite.so.1 (0x00007f39e7428000)\n\tlibXdamage.so.1 => /lib/x86_64-linux-gnu/libXdamage.so.1 (0x00007f39e7423000)\n\tlibXfixes.so.3 => /lib/x86_64-linux-gnu/libXfixes.so.3 (0x00007f39e741b000)\n\tlibXrandr.so.2 => /lib/x86_64-linux-gnu/libXrandr.so.2 (0x00007f39e740e000)\n\tlibatspi.so.0 => /lib/x86_64-linux-gnu/libatspi.so.0 (0x00007f39e73d4000)\n\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f39e73a6000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f39e7000000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007f39f98a9000)\n\tlibpcre2-8.so.0 => /lib/x86_64-linux-gnu/libpcre2-8.so.0 (0x00007f39e730c000)\n\tlibffi.so.8 => /lib/x86_64-linux-gnu/libffi.so.8 (0x00007f39e7300000)\n\tlibplc4.so => /lib/x86_64-linux-gnu/libplc4.so (0x00007f39e72f9000)\n\tlibplds4.so => /lib/x86_64-linux-gnu/libplds4.so (0x00007f39e72f2000)\n\tlibgmodule-2.0.so.0 => /lib/x86_64-linux-gnu/libgmodule-2.0.so.0 (0x00007f39e72eb000)\n\tlibz.so.1 => /lib/x86_64-linux-gnu/libz.so.1 (0x00007f39e72cf000)\n\tlibmount.so.1 => /lib/x86_64-linux-gnu/libmount.so.1 (0x00007f39e7282000)\n\tlibselinux.so.1 => /lib/x86_64-linux-gnu/libselinux.so.1 (0x00007f39e7255000)\n\tlibsystemd.so.0 => /lib/x86_64-linux-gnu/libsystemd.so.0 (0x00007f39e6f20000)\n\tlibgssapi_krb5.so.2 => /lib/x86_64-linux-gnu/libgssapi_krb5.so.2 (0x00007f39e6ecc000)\n\tlibavahi-common.so.3 => /lib/x86_64-linux-gnu/libavahi-common.so.3 (0x00007f39e7245000)\n\tlibavahi-client.so.3 => /lib/x86_64-linux-gnu/libavahi-client.so.3 (0x00007f39e7232000)\n\tlibgnutls.so.30 => /lib/x86_64-linux-gnu/libgnutls.so.30 (0x00007f39e6cd1000)\n\tlibXau.so.6 => /lib/x86_64-linux-gnu/libXau.so.6 (0x00007f39e722a000)\n\tlibXdmcp.so.6 => /lib/x86_64-linux-gnu/libXdmcp.so.6 (0x00007f39e7222000)\n\tlibdrm.so.2 => /lib/x86_64-linux-gnu/libdrm.so.2 (0x00007f39e6cba000)\n\tlibpng16.so.16 => /lib/x86_64-linux-gnu/libpng16.so.16 (0x00007f39e6c82000)\n\tlibfontconfig.so.1 => /lib/x86_64-linux-gnu/libfontconfig.so.1 (0x00007f39e6c31000)\n\tlibfreetype.so.6 => /lib/x86_64-linux-gnu/libfreetype.so.6 (0x00007f39e6b65000)\n\tlibXrender.so.1 => /lib/x86_64-linux-gnu/libXrender.so.1 (0x00007f39e7214000)\n\tlibxcb-render.so.0 => /lib/x86_64-linux-gnu/libxcb-render.so.0 (0x00007f39e6b56000)\n\tlibxcb-shm.so.0 => /lib/x86_64-linux-gnu/libxcb-shm.so.0 (0x00007f39e6b51000)\n\tlibpixman-1.so.0 => /lib/x86_64-linux-gnu/libpixman-1.so.0 (0x00007f39e6aa2000)\n\tlibfribidi.so.0 => /lib/x86_64-linux-gnu/libfribidi.so.0 (0x00007f39e6a82000)\n\tlibthai.so.0 => /lib/x86_64-linux-gnu/libthai.so.0 (0x00007f39e6a77000)\n\tlibharfbuzz.so.0 => /lib/x86_64-linux-gnu/libharfbuzz.so.0 (0x00007f39e696a000)\n\tlibcap.so.2 => /lib/x86_64-linux-gnu/libcap.so.2 (0x00007f39e695d000)\n\tlibXi.so.6 => /lib/x86_64-linux-gnu/libXi.so.6 (0x00007f39e694a000)\n\tlibblkid.so.1 => /lib/x86_64-linux-gnu/libblkid.so.1 (0x00007f39e690d000)\n\tlibgcrypt.so.20 => /lib/x86_64-linux-gnu/libgcrypt.so.20 (0x00007f39e67c4000)\n\tliblz4.so.1 => /lib/x86_64-linux-gnu/liblz4.so.1 (0x00007f39e67a2000)\n\tliblzma.so.5 => /lib/x86_64-linux-gnu/liblzma.so.5 (0x00007f39e6770000)\n\tlibzstd.so.1 => /lib/x86_64-linux-gnu/libzstd.so.1 (0x00007f39e66b6000)\n\tlibkrb5.so.3 => /lib/x86_64-linux-gnu/libkrb5.so.3 (0x00007f39e65eb000)\n\tlibk5crypto.so.3 => /lib/x86_64-linux-gnu/libk5crypto.so.3 (0x00007f39e65bf000)\n\tlibcom_err.so.2 => /lib/x86_64-linux-gnu/libcom_err.so.2 (0x00007f39e65b9000)\n\tlibkrb5support.so.0 => /lib/x86_64-linux-gnu/libkrb5support.so.0 (0x00007f39e65ac000)\n\tlibp11-kit.so.0 => /lib/x86_64-linux-gnu/libp11-kit.so.0 (0x00007f39e6408000)\n\tlibidn2.so.0 => /lib/x86_64-linux-gnu/libidn2.so.0 (0x00007f39e63e4000)\n\tlibunistring.so.5 => /lib/x86_64-linux-gnu/libunistring.so.5 (0x00007f39e6237000)\n\tlibtasn1.so.6 => /lib/x86_64-linux-gnu/libtasn1.so.6 (0x00007f39e6221000)\n\tlibnettle.so.8 => /lib/x86_64-linux-gnu/libnettle.so.8 (0x00007f39e61cc000)\n\tlibhogweed.so.6 => /lib/x86_64-linux-gnu/libhogweed.so.6 (0x00007f39e6184000)\n\tlibgmp.so.10 => /lib/x86_64-linux-gnu/libgmp.so.10 (0x00007f39e6100000)\n\tlibbsd.so.0 => /lib/x86_64-linux-gnu/libbsd.so.0 (0x00007f39e60e8000)\n\tlibbz2.so.1.0 => /lib/x86_64-linux-gnu/libbz2.so.1.0 (0x00007f39e60d4000)\n\tlibbrotlidec.so.1 => /lib/x86_64-linux-gnu/libbrotlidec.so.1 (0x00007f39e60c6000)\n\tlibdatrie.so.1 => /lib/x86_64-linux-gnu/libdatrie.so.1 (0x00007f39e60bd000)\n\tlibgraphite2.so.3 => /lib/x86_64-linux-gnu/libgraphite2.so.3 (0x00007f39e6097000)\n\tlibgpg-error.so.0 => /lib/x86_64-linux-gnu/libgpg-error.so.0 (0x00007f39e6070000)\n\tlibkeyutils.so.1 => /lib/x86_64-linux-gnu/libkeyutils.so.1 (0x00007f39e6069000)\n\tlibresolv.so.2 => /lib/x86_64-linux-gnu/libresolv.so.2 (0x00007f39e6057000)\n\tlibmd.so.0 => /lib/x86_64-linux-gnu/libmd.so.0 (0x00007f39e6048000)\n\tlibbrotlicommon.so.1 => /lib/x86_64-linux-gnu/libbrotlicommon.so.1 (0x00007f39e6025000)\n",
+2026-10-12T02:26:19.2055146Z     "stderr": ""
+2026-10-12T02:26:19.2055357Z   },
+2026-10-12T02:26:19.2055589Z   "browserVersion": "151.0.7922.34",
+2026-10-12T02:26:19.2055861Z   "status": "failed",
+2026-10-12T02:26:19.2056871Z   "error": "cdpSession.send: Protocol error (Browser.getBrowserCommandLine): Command line not returned because --enable-automation not set.\n    at /home/runner/work/dnfku/dnfku/tests/feedback-lab-sandbox-preflight.cjs:26:32"
+2026-10-12T02:26:19.2058035Z }
+2026-10-12T02:26:19.2066953Z ##[error]Process completed with exit code 1.
+2026-10-12T02:26:19.2139570Z ##[group]Run mkdir -p ci-evidence
+2026-10-12T02:26:19.2139907Z [36;1mmkdir -p ci-evidence[0m
+2026-10-12T02:26:19.2140159Z [36;1mpython3 - <<'PY'[0m
+2026-10-12T02:26:19.2140399Z [36;1mimport pathlib,json,os[0m
+2026-10-12T02:26:19.2140673Z [36;1mroot=pathlib.Path('ci-evidence')[0m
+2026-10-12T02:26:19.2140956Z [36;1mdef read_json(p):[0m
+2026-10-12T02:26:19.2141275Z [36;1m    return json.loads(p.read_text()) if p.exists() else None[0m
+2026-10-12T02:26:19.2143177Z [36;1msummary={'job_status_before_upload':os.environ['JOB_STATUS'],'run_id':os.environ['GITHUB_RUN_ID'],'commit':os.environ['GITHUB_SHA'],'sandbox_notice':'Chromium沙箱已关闭','browser_preflight':read_json(root/'sandbox.json'),'smoke':read_json(root/'browser/results.json'),'exit_codes':{p.name:p.read_text().strip() for p in root.glob('*.exit-code')},'screenshots':[str(p) for p in root.rglob('*.png')],'videos':[str(p) for p in root.rglob('*.webm')],'frame_rate_acceptance':'not covered','android_hand_feel':'not covered'}[0m
+2026-10-12T02:26:19.2145226Z [36;1m(root/'summary.json').write_text(json.dumps(summary,indent=2))[0m
+2026-10-12T02:26:19.2145627Z [36;1mprint(json.dumps(summary,indent=2))[0m
+2026-10-12T02:26:19.2145911Z [36;1mPY[0m
+2026-10-12T02:26:19.2207435Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-12T02:26:19.2207794Z env:
+2026-10-12T02:26:19.2208157Z   DNFKU_PREVIEW_URL: https://lgf921375.github.io/dnfku/prototype/feedback-lab-v10.html
+2026-10-12T02:26:19.2208702Z   DNFKU_EVIDENCE_DIR: /home/runner/work/dnfku/dnfku/ci-evidence/browser
+2026-10-12T02:26:19.2209160Z   PLAYWRIGHT_BROWSERS_PATH: /home/runner/work/_temp/dnfku-browsers
+2026-10-12T02:26:19.2209657Z   CODEX_PRIMARY_RUNTIME_NODE_MODULES: /home/runner/work/_temp/dnfku-pw/node_modules
+2026-10-12T02:26:19.2210264Z   DNFKU_CHROME_EXECUTABLE: /home/runner/work/_temp/dnfku-browsers/chromium-1234/chrome-linux64/chrome
+2026-10-12T02:26:19.2210745Z   JOB_STATUS: failure
+2026-10-12T02:26:19.2210955Z ##[endgroup]
+2026-10-12T02:26:19.2541316Z {
+2026-10-12T02:26:19.2541789Z   "job_status_before_upload": "failure",
+2026-10-12T02:26:19.2542233Z   "run_id": "38195756623",
+2026-10-12T02:26:19.2542607Z   "commit": "b15248baf4889e83b39f04881bfad89385ecdfe8",
+2026-10-12T02:26:19.2543072Z   "sandbox_notice": "Chromium\u6c99\u7bb1\u5df2\u5173\u95ed",
+2026-10-12T02:26:19.2543454Z   "browser_preflight": {
+2026-10-12T02:26:19.2543716Z     "uid": 1001,
+2026-10-12T02:26:19.2543996Z     "gid": 1001,
+2026-10-12T02:26:19.2544264Z     "browserLaunch": "passed",
+2026-10-12T02:26:19.2544560Z     "sandbox": "disabled",
+2026-10-12T02:26:19.2544932Z     "sandboxNotice": "Chromium\u6c99\u7bb1\u5df2\u5173\u95ed",
+2026-10-12T02:26:19.2545359Z     "runnerEnvironment": "github-hosted",
+2026-10-12T02:26:19.2545935Z     "executable": "/home/runner/work/_temp/dnfku-browsers/chromium-1234/chrome-linux64/chrome",
+2026-10-12T02:26:19.2546439Z     "version": {
+2026-10-12T02:26:19.2546682Z       "exitCode": 0,
+2026-10-12T02:26:19.2547029Z       "stdout": "Google Chrome for Testing 151.0.7922.34 \n",
+2026-10-12T02:26:19.2547633Z       "stderr": ""
+2026-10-12T02:26:19.2547868Z     },
+2026-10-12T02:26:19.2548088Z     "dependencies": {
+2026-10-12T02:26:19.2548337Z       "exitCode": 0,
+2026-10-12T02:26:19.2575505Z       "stdout": "\tlinux-vdso.so.1 (0x00007f39f98a7000)\n\tlibdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f39f9890000)\n\tlibpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f39f988b000)\n\tlibglib-2.0.so.0 => /lib/x86_64-linux-gnu/libglib-2.0.so.0 (0x00007f39e7eb7000)\n\tlibgobject-2.0.so.0 => /lib/x86_64-linux-gnu/libgobject-2.0.so.0 (0x00007f39f9828000)\n\tlibnspr4.so => /lib/x86_64-linux-gnu/libnspr4.so (0x00007f39e7e78000)\n\tlibnss3.so => /lib/x86_64-linux-gnu/libnss3.so (0x00007f39e7d49000)\n\tlibnssutil3.so => /lib/x86_64-linux-gnu/libnssutil3.so (0x00007f39f97f4000)\n\tlibsmime3.so => /lib/x86_64-linux-gnu/libsmime3.so (0x00007f39e7d20000)\n\tlibgio-2.0.so.0 => /lib/x86_64-linux-gnu/libgio-2.0.so.0 (0x00007f39e7b50000)\n\tlibatk-1.0.so.0 => /lib/x86_64-linux-gnu/libatk-1.0.so.0 (0x00007f39e7b26000)\n\tlibatk-bridge-2.0.so.0 => /lib/x86_64-linux-gnu/libatk-bridge-2.0.so.0 (0x00007f39e7aea000)\n\tlibdbus-1.so.3 => /lib/x86_64-linux-gnu/libdbus-1.so.3 (0x00007f39e7a9b000)\n\tlibcups.so.2 => /lib/x86_64-linux-gnu/libcups.so.2 (0x00007f39e79fa000)\n\tlibexpat.so.1 => /lib/x86_64-linux-gnu/libexpat.so.1 (0x00007f39e79cc000)\n\tlibxcb.so.1 => /lib/x86_64-linux-gnu/libxcb.so.1 (0x00007f39e79a3000)\n\tlibxkbcommon.so.0 => /lib/x86_64-linux-gnu/libxkbcommon.so.0 (0x00007f39e795a000)\n\tlibasound.so.2 => /lib/x86_64-linux-gnu/libasound.so.2 (0x00007f39e7850000)\n\tlibgbm.so.1 => /lib/x86_64-linux-gnu/libgbm.so.1 (0x00007f39e7849000)\n\tlibX11.so.6 => /lib/x86_64-linux-gnu/libX11.so.6 (0x00007f39e770c000)\n\tlibXext.so.6 => /lib/x86_64-linux-gnu/libXext.so.6 (0x00007f39e76f8000)\n\tlibcairo.so.2 => /lib/x86_64-linux-gnu/libcairo.so.2 (0x00007f39e75b4000)\n\tlibpango-1.0.so.0 => /lib/x86_64-linux-gnu/libpango-1.0.so.0 (0x00007f39e7549000)\n\tlibudev.so.1 => /lib/x86_64-linux-gnu/libudev.so.1 (0x00007f39e7516000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007f39e742d000)\n\tlibXcomposite.so.1 => /lib/x86_64-linux-gnu/libXcomposite.so.1 (0x00007f39e7428000)\n\tlibXdamage.so.1 => /lib/x86_64-linux-gnu/libXdamage.so.1 (0x00007f39e7423000)\n\tlibXfixes.so.3 => /lib/x86_64-linux-gnu/libXfixes.so.3 (0x00007f39e741b000)\n\tlibXrandr.so.2 => /lib/x86_64-linux-gnu/libXrandr.so.2 (0x00007f39e740e000)\n\tlibatspi.so.0 => /lib/x86_64-linux-gnu/libatspi.so.0 (0x00007f39e73d4000)\n\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f39e73a6000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f39e7000000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007f39f98a9000)\n\tlibpcre2-8.so.0 => /lib/x86_64-linux-gnu/libpcre2-8.so.0 (0x00007f39e730c000)\n\tlibffi.so.8 => /lib/x86_64-linux-gnu/libffi.so.8 (0x00007f39e7300000)\n\tlibplc4.so => /lib/x86_64-linux-gnu/libplc4.so (0x00007f39e72f9000)\n\tlibplds4.so => /lib/x86_64-linux-gnu/libplds4.so (0x00007f39e72f2000)\n\tlibgmodule-2.0.so.0 => /lib/x86_64-linux-gnu/libgmodule-2.0.so.0 (0x00007f39e72eb000)\n\tlibz.so.1 => /lib/x86_64-linux-gnu/libz.so.1 (0x00007f39e72cf000)\n\tlibmount.so.1 => /lib/x86_64-linux-gnu/libmount.so.1 (0x00007f39e7282000)\n\tlibselinux.so.1 => /lib/x86_64-linux-gnu/libselinux.so.1 (0x00007f39e7255000)\n\tlibsystemd.so.0 => /lib/x86_64-linux-gnu/libsystemd.so.0 (0x00007f39e6f20000)\n\tlibgssapi_krb5.so.2 => /lib/x86_64-linux-gnu/libgssapi_krb5.so.2 (0x00007f39e6ecc000)\n\tlibavahi-common.so.3 => /lib/x86_64-linux-gnu/libavahi-common.so.3 (0x00007f39e7245000)\n\tlibavahi-client.so.3 => /lib/x86_64-linux-gnu/libavahi-client.so.3 (0x00007f39e7232000)\n\tlibgnutls.so.30 => /lib/x86_64-linux-gnu/libgnutls.so.30 (0x00007f39e6cd1000)\n\tlibXau.so.6 => /lib/x86_64-linux-gnu/libXau.so.6 (0x00007f39e722a000)\n\tlibXdmcp.so.6 => /lib/x86_64-linux-gnu/libXdmcp.so.6 (0x00007f39e7222000)\n\tlibdrm.so.2 => /lib/x86_64-linux-gnu/libdrm.so.2 (0x00007f39e6cba000)\n\tlibpng16.so.16 => /lib/x86_64-linux-gnu/libpng16.so.16 (0x00007f39e6c82000)\n\tlibfontconfig.so.1 => /lib/x86_64-linux-gnu/libfontconfig.so.1 (0x00007f39e6c31000)\n\tlibfreetype.so.6 => /lib/x86_64-linux-gnu/libfreetype.so.6 (0x00007f39e6b65000)\n\tlibXrender.so.1 => /lib/x86_64-linux-gnu/libXrender.so.1 (0x00007f39e7214000)\n\tlibxcb-render.so.0 => /lib/x86_64-linux-gnu/libxcb-render.so.0 (0x00007f39e6b56000)\n\tlibxcb-shm.so.0 => /lib/x86_64-linux-gnu/libxcb-shm.so.0 (0x00007f39e6b51000)\n\tlibpixman-1.so.0 => /lib/x86_64-linux-gnu/libpixman-1.so.0 (0x00007f39e6aa2000)\n\tlibfribidi.so.0 => /lib/x86_64-linux-gnu/libfribidi.so.0 (0x00007f39e6a82000)\n\tlibthai.so.0 => /lib/x86_64-linux-gnu/libthai.so.0 (0x00007f39e6a77000)\n\tlibharfbuzz.so.0 => /lib/x86_64-linux-gnu/libharfbuzz.so.0 (0x00007f39e696a000)\n\tlibcap.so.2 => /lib/x86_64-linux-gnu/libcap.so.2 (0x00007f39e695d000)\n\tlibXi.so.6 => /lib/x86_64-linux-gnu/libXi.so.6 (0x00007f39e694a000)\n\tlibblkid.so.1 => /lib/x86_64-linux-gnu/libblkid.so.1 (0x00007f39e690d000)\n\tlibgcrypt.so.20 => /lib/x86_64-linux-gnu/libgcrypt.so.20 (0x00007f39e67c4000)\n\tliblz4.so.1 => /lib/x86_64-linux-gnu/liblz4.so.1 (0x00007f39e67a2000)\n\tliblzma.so.5 => /lib/x86_64-linux-gnu/liblzma.so.5 (0x00007f39e6770000)\n\tlibzstd.so.1 => /lib/x86_64-linux-gnu/libzstd.so.1 (0x00007f39e66b6000)\n\tlibkrb5.so.3 => /lib/x86_64-linux-gnu/libkrb5.so.3 (0x00007f39e65eb000)\n\tlibk5crypto.so.3 => /lib/x86_64-linux-gnu/libk5crypto.so.3 (0x00007f39e65bf000)\n\tlibcom_err.so.2 => /lib/x86_64-linux-gnu/libcom_err.so.2 (0x00007f39e65b9000)\n\tlibkrb5support.so.0 => /lib/x86_64-linux-gnu/libkrb5support.so.0 (0x00007f39e65ac000)\n\tlibp11-kit.so.0 => /lib/x86_64-linux-gnu/libp11-kit.so.0 (0x00007f39e6408000)\n\tlibidn2.so.0 => /lib/x86_64-linux-gnu/libidn2.so.0 (0x00007f39e63e4000)\n\tlibunistring.so.5 => /lib/x86_64-linux-gnu/libunistring.so.5 (0x00007f39e6237000)\n\tlibtasn1.so.6 => /lib/x86_64-linux-gnu/libtasn1.so.6 (0x00007f39e6221000)\n\tlibnettle.so.8 => /lib/x86_64-linux-gnu/libnettle.so.8 (0x00007f39e61cc000)\n\tlibhogweed.so.6 => /lib/x86_64-linux-gnu/libhogweed.so.6 (0x00007f39e6184000)\n\tlibgmp.so.10 => /lib/x86_64-linux-gnu/libgmp.so.10 (0x00007f39e6100000)\n\tlibbsd.so.0 => /lib/x86_64-linux-gnu/libbsd.so.0 (0x00007f39e60e8000)\n\tlibbz2.so.1.0 => /lib/x86_64-linux-gnu/libbz2.so.1.0 (0x00007f39e60d4000)\n\tlibbrotlidec.so.1 => /lib/x86_64-linux-gnu/libbrotlidec.so.1 (0x00007f39e60c6000)\n\tlibdatrie.so.1 => /lib/x86_64-linux-gnu/libdatrie.so.1 (0x00007f39e60bd000)\n\tlibgraphite2.so.3 => /lib/x86_64-linux-gnu/libgraphite2.so.3 (0x00007f39e6097000)\n\tlibgpg-error.so.0 => /lib/x86_64-linux-gnu/libgpg-error.so.0 (0x00007f39e6070000)\n\tlibkeyutils.so.1 => /lib/x86_64-linux-gnu/libkeyutils.so.1 (0x00007f39e6069000)\n\tlibresolv.so.2 => /lib/x86_64-linux-gnu/libresolv.so.2 (0x00007f39e6057000)\n\tlibmd.so.0 => /lib/x86_64-linux-gnu/libmd.so.0 (0x00007f39e6048000)\n\tlibbrotlicommon.so.1 => /lib/x86_64-linux-gnu/libbrotlicommon.so.1 (0x00007f39e6025000)\n",
+2026-10-12T02:26:19.2599633Z       "stderr": ""
+2026-10-12T02:26:19.2599862Z     },
+2026-10-12T02:26:19.2600111Z     "browserVersion": "151.0.7922.34",
+2026-10-12T02:26:19.2600394Z     "status": "failed",
+2026-10-12T02:26:19.2601405Z     "error": "cdpSession.send: Protocol error (Browser.getBrowserCommandLine): Command line not returned because --enable-automation not set.\n    at /home/runner/work/dnfku/dnfku/tests/feedback-lab-sandbox-preflight.cjs:26:32"
+2026-10-12T02:26:19.2602319Z   },
+2026-10-12T02:26:19.2602506Z   "smoke": null,
+2026-10-12T02:26:19.2602716Z   "exit_codes": {
+2026-10-12T02:26:19.2602975Z     "browser-install.exit-code": "0",
+2026-10-12T02:26:19.2603297Z     "sandbox-preflight.exit-code": "1",
+2026-10-12T02:26:19.2603613Z     "npm-install.exit-code": "0",
+2026-10-12T02:26:19.2603903Z     "environment.exit-code": "0",
+2026-10-12T02:26:19.2604165Z     "manifest.exit-code": "0"
+2026-10-12T02:26:19.2604404Z   },
+2026-10-12T02:26:19.2604597Z   "screenshots": [],
+2026-10-12T02:26:19.2604818Z   "videos": [],
+2026-10-12T02:26:19.2605073Z   "frame_rate_acceptance": "not covered",
+2026-10-12T02:26:19.2605395Z   "android_hand_feel": "not covered"
+2026-10-12T02:26:19.2605645Z }
+2026-10-12T02:26:19.2669195Z ##[group]Run actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4
+2026-10-12T02:26:19.2669634Z with:
+2026-10-12T02:26:19.2669855Z   name: dnfku-v10-browser-38195756623
+2026-10-12T02:26:19.2670125Z   path: ci-evidence/
+2026-10-12T02:26:19.2670357Z   if-no-files-found: error
+2026-10-12T02:26:19.2670584Z   retention-days: 14
+2026-10-12T02:26:19.2670790Z   compression-level: 6
+2026-10-12T02:26:19.2671013Z   overwrite: false
+2026-10-12T02:26:19.2671230Z   include-hidden-files: false
+2026-10-12T02:26:19.2671459Z env:
+2026-10-12T02:26:19.2671812Z   DNFKU_PREVIEW_URL: https://lgf921375.github.io/dnfku/prototype/feedback-lab-v10.html
+2026-10-12T02:26:19.2672361Z   DNFKU_EVIDENCE_DIR: /home/runner/work/dnfku/dnfku/ci-evidence/browser
+2026-10-12T02:26:19.2672836Z   PLAYWRIGHT_BROWSERS_PATH: /home/runner/work/_temp/dnfku-browsers
+2026-10-12T02:26:19.2673345Z   CODEX_PRIMARY_RUNTIME_NODE_MODULES: /home/runner/work/_temp/dnfku-pw/node_modules
+2026-10-12T02:26:19.2673987Z   DNFKU_CHROME_EXECUTABLE: /home/runner/work/_temp/dnfku-browsers/chromium-1234/chrome-linux64/chrome
+2026-10-12T02:26:19.2674446Z ##[endgroup]
+2026-10-12T02:26:19.4255042Z (node:2607) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-12T02:26:19.4256576Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-12T02:26:19.4366279Z With the provided path, there will be 14 files uploaded
+2026-10-12T02:26:19.4372650Z Artifact name is valid!
+2026-10-12T02:26:19.4373425Z Root directory input is valid!
+2026-10-12T02:26:19.7042725Z Beginning upload of artifact content to blob storage
+2026-10-12T02:26:19.7453885Z (node:2607) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-12T02:26:19.8760720Z Uploaded bytes 8308
+2026-10-12T02:26:19.9177955Z Finished uploading artifact content to blob storage!
+2026-10-12T02:26:19.9178843Z SHA256 digest of uploaded artifact zip is 3ed3eb2b6e306d79dbbc81c54a5fb5ef90d1d988417eb2412b92f26c0fe84904
+2026-10-12T02:26:19.9180899Z Finalizing artifact upload
+2026-10-12T02:26:20.1506701Z Artifact dnfku-v10-browser-38195756623.zip successfully finalized. Artifact ID 11723367047
+2026-10-12T02:26:20.1508856Z Artifact dnfku-v10-browser-38195756623 has been successfully uploaded! Final size is 8308 bytes. Artifact ID is 11723367047
+2026-10-12T02:26:20.1517954Z Artifact download URL: https://github.com/lgf921375/dnfku/actions/runs/38195756623/artifacts/11723367047
+2026-10-12T02:26:20.1742827Z Post job cleanup.
+2026-10-12T02:26:20.2747854Z [command]/usr/bin/git version
+2026-10-12T02:26:20.2842009Z git version 2.55.0
+2026-10-12T02:26:20.2918956Z Temporarily overriding HOME='/home/runner/work/_temp/f8d87717-134e-41a7-a6a8-a64eb2d0e0c3' before making global git config changes
+2026-10-12T02:26:20.2920759Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-12T02:26:20.2921973Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/dnfku/dnfku
+2026-10-12T02:26:20.3137464Z Removing SSH command configuration
+2026-10-12T02:26:20.3138675Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-12T02:26:20.3195766Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-12T02:26:20.3474648Z Removing HTTP extra header
+2026-10-12T02:26:20.3483211Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-12T02:26:20.3536261Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-12T02:26:20.3834180Z Removing includeIf entries pointing to credentials config files
+2026-10-12T02:26:20.3835304Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-12T02:26:20.3938689Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-12T02:26:20.5845558Z Cleaning up orphan processes
+2026-10-12T02:26:20.6134113Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

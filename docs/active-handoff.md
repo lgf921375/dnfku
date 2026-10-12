@@ -1,5 +1,15 @@
 # dnfku 当前研究交接
 
+## 当前优先交接：#5 Chromium已启动，移除CDP命令行查询（2026-10-12）
+
+- 起始mainb15248ba，先读AGENTS/README/交接/真实源码；用户要求最小修复后只返回commit，不自行触发。
+- **通过（实际#5运行）**：run38195756623/job114637897734，Chrome151.0.7922.34 browserLaunch=passed；GitHub托管runner UID/GID1001；安装/manifest/版本/ldd退出0。**Chromium沙箱已关闭**，不冒充安全验收。
+- **失败（真实预检查）**：Browser.getBrowserCommandLine缺--enable-automation，预检查退出1；与sandbox无关，CDP查询在HTTPS加载前阻止执行。原5断言全部skipped/0执行，无PNG/WebM。
+- **通过（Artifact取证）**：ID11723367047，8308字节/14文件，实际下载与全ZIP CRC通过，SHA256匹配3ed3eb2b6e306d79dbbc81c54a5fb5ef90d1d988417eb2412b92f26c0fe84904。保留原ZIP/summary/完整job日志，不保存签名URL。
+- **仅删3行**：预检查CDP session创建、命令行查询、依赖参数判断。保留真实启动、版本、HTTPS响应、标题、截图、沙箱关闭提示及hosted/非root限制；workflow/smoke/游戏源码不改。
+- **通过（静态）**：预检查及smoke node --check退出0，必要检查仍在。**未覆盖（修复后）**：本轮不触发/不rerun，等待用户手动执行一次后核实5项和录像。
+- [修复与原始证据](v10-run5-preflight-fix-20261012.md)。不操作《皓石传奇三》；最终main SHA回读为准。
+
 ## 当前优先交接：用户授权一次无Chromium沙箱Actions，修改已就绪待触发（2026-10-12）
 
 - 起始mainc40eb13b；先读AGENTS/README/交接/上次实际run报告。用户本轮明确授权一次性GitHub托管runner chromiumSandbox:false，优先于之前禁止关闭该浏览器sandbox的用户要求；不涉及宿主安全策略/正式服务器/个人电脑。
