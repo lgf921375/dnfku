@@ -1,0 +1,29 @@
+{
+  "start_head": "4a0669cd1e3ee989be254886cc05b4243c7fa240",
+  "repository": "lgf921375/dnfku",
+  "branch": "main",
+  "workflow_path": ".github/workflows/v10-browser-acceptance.yml",
+  "existing_validation_run": {
+    "id": 38191658416,
+    "url": "https://github.com/lgf921375/dnfku/actions/runs/38191658416",
+    "event": "push",
+    "conclusion": "failure",
+    "error": "(Line: 16, Col: 33): Unrecognized named-value: 'runner'. Located at position 1 within expression: runner.temp",
+    "jobs": 0,
+    "artifacts": 0
+  },
+  "correction": "Remove runner.temp from job env; export PLAYWRIGHT_BROWSERS_PATH using RUNNER_TEMP within step and persist through GITHUB_ENV.",
+  "workflow_dispatch_count_this_session": 0,
+  "authentication_status": "not-complete",
+  "nonsecret_login_errors": [
+    "This account does not support password sign-in, please try another sign-in method or account recovery.",
+    "Google password incorrect; no repeat password submission."
+  ],
+  "chromium_launch": "not-covered",
+  "sandbox": "not-covered",
+  "assertions_executed": 0,
+  "artifacts_readable": "none produced",
+  "videos": [],
+  "screenshots": [],
+  "credentials_saved_to_repository": false
+}

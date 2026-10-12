@@ -1,5 +1,15 @@
 # dnfku 当前研究交接
 
+## 当前优先交接：修复Actions表达式错误，网页登录未完成（2026-10-12）
+
+- 用户已授权GitHub网页一次workflow_dispatch。起始main4a0669cd；重新核对lgf921375/dnfku/main/工作流。本轮手动触发次数仍0，未重跑其他workflow。
+- **失败（GitHub真实校验）**：发现run38191658416为push校验记录，jobs0/artifacts0，错误Line16 runner.temp在job.env不支持。上轮仅YAML静态通过不足以称工作流有效；记录纠错，不冒充Ubuntu浏览器已运行。
+- **最小修复**：仅将PLAYWRIGHT_BROWSERS_PATH移到步骤内由RUNNER_TEMP设置并写GITHUB_ENV。仅workflow_dispatch、普通用户、sandbox:true及5原断言保持；游戏/原攻击规则不改。
+- **登录阻塞**：Cloud Chrome尚未登录；GitHub不支持此账号密码方式，用户选择Google后收到密码有误。安全browserAuth完成非秘密提示读取；没有重复提交或保存凭据/OAuth会话信息。需手动接管正确登录，禁止聊天提供密码。
+- **未覆盖**：手动run尚无，Chromium实际启动/实际sandbox/5断言均0执行，本轮V10截图录像无、Artifacts0。旧push校验失败run不得当本次手动验收；帧率/安卓手感未覆盖。
+- [追加纠错报告](v10-actions-acceptance-20261012.md)、[非秘密触发证据](evidence-actions-v10-20261012/dispatch-attempt.json)。后续登录完成才核对main并只触发一次，保留run_id/真实日志/Artifacts。
+- 不部署服务器、不操作《皓石传奇三》，不关闭沙箱、不提权；最终main从提交后回读。
+
 ## 当前优先交接：V10手动Actions实现，首次触发待网页入口（2026-10-12）
 
 - 起始main=`d4253857190404b099efa9363c0f596dda78418d`；用户授权迁移并执行一次。已读AGENTS/README/交接/Actions方案，未改游戏机制或《皓石传奇三》。

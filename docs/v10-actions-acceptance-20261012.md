@@ -35,3 +35,21 @@ node --check两脚本退出0；YAML解析、manual-only、权限、runner、alwa
 
 即使未来5项通过，视频帧率测量、长时间稳定性、手机多指触控/音效和安卓真实手感仍不自动通过。当前没有实际视频，不能报帧率值。
 
+## 2026-10-12 网页触发接续：GitHub校验错误已定位，登录尚未完成
+
+用户已明确授权GitHub网页触发一次；本轮重新核对仓库lgf921375/dnfku、main及起始HEAD4a0669cd，未触发任何workflow_dispatch（次数0），未重跑其他工作流。
+
+**纠错**：上轮YAML本地解析通过不等于GitHub表达式校验通过。实际发现 [run38191658416](https://github.com/lgf921375/dnfku/actions/runs/38191658416)，event=push、conclusion=failure，jobs=0、Artifacts=0，是提交时的工作流校验错误，不是Ubuntu浏览器作业执行：
+
+```text
+(Line: 16, Col: 33): Unrecognized named-value: 'runner'. Located at position 1 within expression: runner.temp
+```
+
+原因是作业级env不支持runner上下文。最小修复仅移除该处runner.temp，在首个环境检查步骤内export PLAYWRIGHT_BROWSERS_PATH="$RUNNER_TEMP/dnfku-browsers"，写入GITHUB_ENV供后续步骤使用。未新增push触发器，仍仅workflow_dispatch；不改sandbox启动/5断言/游戏代码。
+
+**真实网页登录阻塞**：Cloud Chrome未登录。安全browserAuth首次GitHub密码方式被站点明确拒绝：该账号不支持password sign-in。用户通过安全表单选择Google后，Google返回密码有误。此为具体凭据错误，不推断为自动化拦截。没有在聊天、日志或仓库保存/输出密码、验证码、cookie、OAuth会话URL；没有重复提交密码，后续按安全浏览器手动交接完成登录。
+
+截至本段写入，workflow_dispatch=0，Chromium启动/实际沙箱/原5断言均未覆盖，0执行，无本轮V10截图/WebM，Artifacts未生成。旧校验run的Artifacts列表真实读取为0，不称存在可下载证据。
+
+用户接管正确登录后，仍需核对main、工作流有效和Run workflow→main，只点击一次；记录run_id后读取日志、退出码与产物，安全启动失败即停。本次修复不自动触发验收、不rerun；30/60fps与安卓手感继续未覆盖。
+

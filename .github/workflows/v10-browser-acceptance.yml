@@ -13,7 +13,6 @@ jobs:
     env:
       DNFKU_PREVIEW_URL: https://lgf921375.github.io/dnfku/prototype/feedback-lab-v10.html
       DNFKU_EVIDENCE_DIR: ${{ github.workspace }}/ci-evidence/browser
-      PLAYWRIGHT_BROWSERS_PATH: ${{ runner.temp }}/dnfku-browsers
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
@@ -25,6 +24,8 @@ jobs:
       - name: Check ordinary user and writable directories
         run: |
           mkdir -p ci-evidence
+          export PLAYWRIGHT_BROWSERS_PATH="$RUNNER_TEMP/dnfku-browsers"
+          echo "PLAYWRIGHT_BROWSERS_PATH=$PLAYWRIGHT_BROWSERS_PATH" >> "$GITHUB_ENV"
           set +e
           python3 - <<'PY' > ci-evidence/environment.log 2>&1
           import os, pathlib, json, subprocess
