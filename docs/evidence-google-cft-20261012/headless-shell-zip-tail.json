@@ -1,0 +1,34 @@
+{
+  "target": "headless-shell",
+  "url": "https://storage.googleapis.com/chrome-for-testing-public/151.0.7922.34/linux64/chrome-headless-shell-linux64.zip",
+  "command": [
+    "curl",
+    "-q",
+    "-sS",
+    "--range",
+    "-128",
+    "--max-filesize",
+    "4096",
+    "--connect-timeout",
+    "8",
+    "--max-time",
+    "20",
+    "--proto",
+    "=https",
+    "https://storage.googleapis.com/chrome-for-testing-public/151.0.7922.34/linux64/chrome-headless-shell-linux64.zip"
+  ],
+  "exit_code": 0,
+  "bytes": 128,
+  "last_22_bytes_hex": "504b0506000000001f011f01e5870000db0c2a070000",
+  "eocd_found": true,
+  "stderr": "",
+  "eocd": {
+    "disk": 0,
+    "central_directory_disk": 0,
+    "entries_on_disk": 287,
+    "total_entries": 287,
+    "central_directory_bytes": 34789,
+    "central_directory_offset": 120196315,
+    "comment_bytes": 0
+  }
+}

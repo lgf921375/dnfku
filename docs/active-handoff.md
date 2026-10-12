@@ -1,5 +1,17 @@
 # dnfku 当前研究交接
 
+## 当前优先交接：Google官方CfT包可限量读取，安装方案待执行（2026-10-12）
+
+- 本轮用户要求先返回检查结果/方案；未下载安装、未改代理/沙箱/系统权限/游戏或测试代码，未迁移GitHub Actions。起始main=`113b768c4bdacbbe1dfca03b913f52e68ced2c78`，先读AGENTS/README/交接。
+- **官方目录真实读取**：GoogleChromeLabs/chrome-for-testing固定commit `df9c8fc89b8a9c9eacf1b5a747b3f0bf366fe21d`，known-good-versions-with-downloads列出151.0.7922.34/linux64的完整Chrome和Shell；URL来自真实条目，不猜路径。
+- **通过（当前窗口HTTP限量）**：storage.googleapis.com/chrome-for-testing-public/151.0.7922.34/linux64/下chrome-linux64.zip及chrome-headless-shell-linux64.zip均HEAD200/application/zip，总长193282658及120231126；Range206各4096字节，PK0304；尾部128字节均有PK0506 EOCD，结构总长相符。不是此前cdn.playwright.dev的195字节HTML。
+- **静态匹配**：Playwright1.62.1 manifest要求browserVersion151.0.7922.34、缓存revision1234；官方Google revision1654411为不同编号体系。默认headless寻找Shell；完整Chrome新headless可用channel:chromium或explicit executablePath。
+- **新运行前提**：当前UID0，无DISPLAY/WAYLAND_DISPLAY；NoNewPrivs1/Seccomp2不足以证明sandbox可用。Playwright默认chromiumSandbox=false会加--no-sandbox，未来必须显式true，并由平台提供普通用户/安全运行条件；本轮不切用户、不开关隔离。
+- [完整检查/安装方案](google-cft-install-plan-20261012.md)、[官方条目](evidence-google-cft-20261012/official-catalog-entry.json)、[HTTP](evidence-google-cft-20261012/response-results.json)、ZIP尾部及模式/环境日志已保存。
+- **下一步方案**：当前窗口按两个准确官方URL完整下载→核对大小/zip全CRC→独立用户可写目录解压→显式可执行路径+sandbox:true、普通用户运行→HTTPS真实验收。整包传输/CRC/安装/依赖/启动/GUI均未覆盖，不能标安装成功。
+- 不将PLAYWRIGHT_DOWNLOAD_HOST简单指向Google根来猜拼接路径；不伪造缓存安装标记，不用sudo/关闭sandbox/第三方包。仅在出现真实阻塞后再考虑其他授权环境。
+- 本批只保存诊断文档、日志和交接；不部署/重启服务，不触碰《皓石传奇三》。最终SHA以main回读为准。
+
 ## 当前优先交接：Chromium下载链路返回195字节HTML（2026-10-12，只读诊断）
 
 - 起始main=`0e35d851402d471b04ef986d8967735f543e820a`，先读AGENTS/README/交接；本轮没有安装重试、DEBUG安装、改代理/网络/隔离、使用sudo或改游戏源码。

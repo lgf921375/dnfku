@@ -1,0 +1,14 @@
+{
+  "official_catalog": {
+    "commit": "df9c8fc89b8a9c9eacf1b5a747b3f0bf366fe21d",
+    "path": "data/known-good-versions-with-downloads.json",
+    "blob_sha": "4b679724a58ed7035ec6484373075b71ddffc832",
+    "timestamp": "2026-10-11T20:21:20.500Z"
+  },
+  "official_version": "151.0.7922.34",
+  "official_revision": "1654411",
+  "urls": {
+    "chromium": "https://storage.googleapis.com/chrome-for-testing-public/151.0.7922.34/linux64/chrome-linux64.zip",
+    "headless-shell": "https://storage.googleapis.com/chrome-for-testing-public/151.0.7922.34/linux64/chrome-headless-shell-linux64.zip"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "playwrightVersion": "1.62.1",
+  "manifest": [
+    {
+      "name": "chromium",
+      "revision": "1234",
+      "installByDefault": true,
+      "browserVersion": "151.0.7922.34",
+      "title": "Chrome for Testing"
+    },
+    {
+      "name": "chromium-headless-shell",
+      "revision": "1234",
+      "installByDefault": true,
+      "browserVersion": "151.0.7922.34",
+      "title": "Chrome Headless Shell"
+    }
+  ],
+  "fullExecutablePath": "/root/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome",
+  "shellExecutablePath": "/root/.cache/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-linux64/chrome-headless-shell",
+  "launchSelection": {
+    "defaultHeadless": "chromium-headless-shell",
+    "channelChromium": "chromium",
+    "headed": "chromium"
+  },
+  "chromiumSandboxDefault": false,
+  "requireSandboxTrue": true,
+  "fullPackageDownloaded": false,
+  "fullArchiveCRCValidated": false,
+  "browserLaunched": false,
+  "sourceLines": {
+    "file": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js",
+    "sandboxArguments": 43075,
+    "executableSelection": 43100
+  }
+}

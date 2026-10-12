@@ -1,0 +1,32 @@
+{
+  "target": "headless-shell",
+  "method": "HEAD",
+  "url": "https://storage.googleapis.com/chrome-for-testing-public/151.0.7922.34/linux64/chrome-headless-shell-linux64.zip",
+  "curl_exit_code": 0,
+  "headers": [
+    "HTTP/1.1 200 OK",
+    "HTTP/2 200 ",
+    "content-type: application/zip",
+    "accept-ranges: bytes",
+    "content-length: 120231126",
+    "server: UploadServer"
+  ],
+  "summary": {
+    "http_code": "200",
+    "url_effective": "https://storage.googleapis.com/chrome-for-testing-public/151.0.7922.34/linux64/chrome-headless-shell-linux64.zip",
+    "size_download": 0,
+    "num_redirects": 0
+  },
+  "response_file_bytes": 793,
+  "entity_body_bytes": 0,
+  "output_file_content": "HEAD headers only",
+  "first_16_bytes_hex": null,
+  "zip_local_header": null,
+  "stderr": "",
+  "request_limits": {
+    "range": null,
+    "max_filesize": null,
+    "max_time": 20
+  },
+  "proxy_environment_preserved": true
+}

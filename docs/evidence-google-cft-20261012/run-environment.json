@@ -1,0 +1,12 @@
+{
+  "uid": 0,
+  "euid": 0,
+  "display_present": false,
+  "wayland_display_present": false,
+  "sandbox_run_executed": false,
+  "system_dependencies_validated": false,
+  "current_process_security_flags": {
+    "NoNewPrivs": "1",
+    "Seccomp": "2"
+  }
+}
