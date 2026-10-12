@@ -1,0 +1,21 @@
+{
+  "manual_dispatch_only": true,
+  "node_syntax_checks_exit_code": 0,
+  "yaml_check_exit_code": 0,
+  "original_assertion_lines": [
+    " if(!(await page.title()).includes('V10'))throw Error('Preview is not V10');assertions++;",
+    " await page.waitForFunction(()=>window.rhythmLab.game.events.some(e=>e.type==='damage'),null,{timeout:3000});assertions++;",
+    " if(result.phase!=='保护起身')throw Error('Demo did not reach protection');assertions++;",
+    " if(!result.events.some(e=>e.reaction==='air')||!result.events.some(e=>e.reaction==='ground'))throw Error('Air/down chase absent');assertions++;",
+    " if(errors.length)throw Error(errors.join('\\n'));assertions++;"
+  ],
+  "assertions_preserved": 5,
+  "product_files_changed": 0,
+  "workflow_dispatch_tool_available": false,
+  "gh_cli_available": false,
+  "actions_run": "not-triggered",
+  "browserLaunch": "not-covered",
+  "sandbox": "not-covered",
+  "v10AssertionsExecuted": 0,
+  "videos": []
+}

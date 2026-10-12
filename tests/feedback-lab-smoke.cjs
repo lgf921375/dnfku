@@ -1,12 +1,13 @@
 // Browser acceptance: real page controls. No HP/body-state injection.
 const {createRequire}=require('node:module');const path=require('node:path');const fs=require('node:fs');
 const req=createRequire(__filename),{chromium}=req(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES+'/playwright');
-const dir=path.resolve(__dirname,'../docs/evidence-v10/browser');fs.mkdirSync(dir,{recursive:true});
-(async()=>{let browser,assertions=0;const errors=[];
+const dir=path.resolve(process.env.DNFKU_EVIDENCE_DIR??path.join(__dirname,'../docs/evidence-v10/browser'));fs.mkdirSync(dir,{recursive:true});
+(async()=>{let browser,context,page,assertions=0;const errors=[];
 try{
- browser=await chromium.launch({headless:true});
- const context=await browser.newContext({viewport:{width:960,height:540},hasTouch:true,recordVideo:{dir,size:{width:960,height:540}}});
- const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
+ if(process.getuid?.()===0)throw Error('Root browser execution is not allowed');
+ browser=await chromium.launch({executablePath:process.env.DNFKU_CHROME_EXECUTABLE,channel:'chromium',headless:true,chromiumSandbox:true});
+ context=await browser.newContext({viewport:{width:960,height:540},hasTouch:true,recordVideo:{dir,size:{width:960,height:540}}});
+ page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
  await page.goto(process.env.DNFKU_PREVIEW_URL??'http://terminal.local:4173/',{waitUntil:'load'});
  if(!(await page.title()).includes('V10'))throw Error('Preview is not V10');assertions++;
  await page.getByRole('button',{name:'重来',exact:true}).click();
@@ -23,7 +24,15 @@ try{
  if(errors.length)throw Error(errors.join('\n'));assertions++;
  await page.screenshot({path:path.join(dir,'protection.png')});
  fs.writeFileSync(path.join(dir,'results.json'),JSON.stringify({status:'passed-browser',assertions,result},null,2));
- await context.close();console.log(JSON.stringify({status:'passed-browser',assertions}));
-}catch(e){console.error(JSON.stringify({status:'failed-or-blocked',assertions,error:e.stack}));process.exitCode=1;}
-finally{if(browser)await browser.close();}
+ console.log(JSON.stringify({status:'passed-browser',assertions}));
+}catch(e){
+ const failure={status:'failed-or-blocked',assertions,error:e.stack,errors};
+ fs.writeFileSync(path.join(dir,'results.json'),JSON.stringify(failure,null,2));
+ if(page)try{await page.screenshot({path:path.join(dir,'failure.png')});}catch(captureError){console.error(captureError.stack);}
+ console.error(JSON.stringify(failure));process.exitCode=1;
+}
+finally{
+ if(context)try{await context.close();}catch(e){console.error(e.stack);process.exitCode=1;}
+ if(browser)try{await browser.close();}catch(e){console.error(e.stack);process.exitCode=1;}
+}
 })();

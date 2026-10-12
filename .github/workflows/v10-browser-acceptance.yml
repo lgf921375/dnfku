@@ -1,0 +1,116 @@
+name: dnfku V10 browser acceptance
+'on':
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  v10:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    defaults:
+      run:
+        shell: bash
+    env:
+      DNFKU_PREVIEW_URL: https://lgf921375.github.io/dnfku/prototype/feedback-lab-v10.html
+      DNFKU_EVIDENCE_DIR: ${{ github.workspace }}/ci-evidence/browser
+      PLAYWRIGHT_BROWSERS_PATH: ${{ runner.temp }}/dnfku-browsers
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '22'
+          package-manager-cache: false
+      - name: Check ordinary user and writable directories
+        run: |
+          mkdir -p ci-evidence
+          set +e
+          python3 - <<'PY' > ci-evidence/environment.log 2>&1
+          import os, pathlib, json, subprocess
+          evidence=pathlib.Path('ci-evidence')
+          status={'uid':os.getuid(),'gid':os.getgid(),'groups':os.getgroups(),'id':subprocess.run(['id'],capture_output=True,text=True).stdout,'commit':subprocess.run(['git','rev-parse','HEAD'],capture_output=True,text=True).stdout.strip(),'proc_status':[x for x in pathlib.Path('/proc/self/status').read_text().splitlines() if x.startswith(('NoNewPrivs:','Seccomp:','CapEff:'))]}
+          for name in ['unprivileged_userns_clone','apparmor_restrict_unprivileged_userns','userns_restrict']:
+              p=pathlib.Path('/proc/sys/kernel')/name
+              status[name]=p.read_text().strip() if p.exists() else 'not exposed'
+          (evidence/'environment.json').write_text(json.dumps(status,indent=2))
+          if os.getuid()==0: raise RuntimeError('Root runner is not allowed')
+          for p in [evidence,pathlib.Path(os.environ['RUNNER_TEMP'])/'dnfku-profile',pathlib.Path(os.environ['PLAYWRIGHT_BROWSERS_PATH'])]:
+              p.mkdir(parents=True,exist_ok=True);probe=p/'write-probe';probe.write_text('ordinary-user');assert probe.read_text()=='ordinary-user';probe.unlink()
+          print(json.dumps(status,indent=2))
+          PY
+          code=$?
+          echo "$code" > ci-evidence/environment.exit-code
+          cat ci-evidence/environment.log
+          exit "$code"
+      - name: Install exact Playwright and verify manifest
+        run: |
+          export CODEX_PRIMARY_RUNTIME_NODE_MODULES="$RUNNER_TEMP/dnfku-pw/node_modules"
+          echo "CODEX_PRIMARY_RUNTIME_NODE_MODULES=$CODEX_PRIMARY_RUNTIME_NODE_MODULES" >> "$GITHUB_ENV"
+          set +e
+          npm install --prefix "$RUNNER_TEMP/dnfku-pw" --no-audit --no-fund --save-exact playwright@1.62.1 > ci-evidence/npm-install.log 2>&1
+          code=$?
+          echo "$code" > ci-evidence/npm-install.exit-code
+          cat ci-evidence/npm-install.log
+          if [ "$code" -ne 0 ]; then exit "$code"; fi
+          node - <<'JS' > ci-evidence/manifest.log 2>&1
+          const fs=require('node:fs'),path=require('node:path'),root=process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES;
+          const version=require(path.join(root,'playwright/package.json')).version;
+          const manifest=require(path.join(root,'playwright-core/browsers.json'));
+          const browsers=manifest.browsers.filter(x=>['chromium','chromium-headless-shell'].includes(x.name));
+          fs.writeFileSync('ci-evidence/manifest.json',JSON.stringify({version,browsers},null,2));
+          if(version!=='1.62.1'||browsers.length!==2||browsers.some(x=>x.browserVersion!=='151.0.7922.34'))throw Error('Playwright or browser version mismatch');
+          console.log(JSON.stringify({version,browsers},null,2));
+          JS
+          code=$?
+          echo "$code" > ci-evidence/manifest.exit-code
+          cat ci-evidence/manifest.log
+          exit "$code"
+      - name: Install corresponding Chromium and recorder
+        run: |
+          set +e
+          node "$CODEX_PRIMARY_RUNTIME_NODE_MODULES/playwright/cli.js" install chromium > ci-evidence/browser-install.log 2>&1
+          code=$?
+          echo "$code" > ci-evidence/browser-install.exit-code
+          cat ci-evidence/browser-install.log
+          if [ "$code" -ne 0 ]; then exit "$code"; fi
+          node -e 'const {chromium}=require(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES+"/playwright"); console.log("DNFKU_CHROME_EXECUTABLE="+chromium.executablePath())' >> "$GITHUB_ENV"
+      - name: Verify dependencies and actual Chromium sandbox
+        run: |
+          set +e
+          node tests/feedback-lab-sandbox-preflight.cjs > ci-evidence/sandbox-preflight.log 2>&1
+          code=$?
+          echo "$code" > ci-evidence/sandbox-preflight.exit-code
+          cat ci-evidence/sandbox-preflight.log
+          exit "$code"
+      - name: Run original five V10 assertions
+        run: |
+          set +e
+          node tests/feedback-lab-smoke.cjs > ci-evidence/smoke.log 2>&1
+          code=$?
+          echo "$code" > ci-evidence/smoke.exit-code
+          cat ci-evidence/smoke.log
+          exit "$code"
+      - name: Record final coverage and evidence inventory
+        if: always()
+        env:
+          JOB_STATUS: ${{ job.status }}
+        run: |
+          mkdir -p ci-evidence
+          python3 - <<'PY'
+          import pathlib,json,os
+          root=pathlib.Path('ci-evidence')
+          def read_json(p):
+              return json.loads(p.read_text()) if p.exists() else None
+          summary={'job_status_before_upload':os.environ['JOB_STATUS'],'run_id':os.environ['GITHUB_RUN_ID'],'commit':os.environ['GITHUB_SHA'],'sandbox':read_json(root/'sandbox.json'),'smoke':read_json(root/'browser/results.json'),'exit_codes':{p.name:p.read_text().strip() for p in root.glob('*.exit-code')},'screenshots':[str(p) for p in root.rglob('*.png')],'videos':[str(p) for p in root.rglob('*.webm')],'frame_rate_acceptance':'not covered','android_hand_feel':'not covered'}
+          (root/'summary.json').write_text(json.dumps(summary,indent=2))
+          print(json.dumps(summary,indent=2))
+          PY
+      - uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5
+        if: always()
+        with:
+          name: dnfku-v10-browser-${{ github.run_id }}
+          path: ci-evidence/
+          if-no-files-found: error
+          retention-days: 14
+

@@ -1,5 +1,16 @@
 # dnfku 当前研究交接
 
+## 当前优先交接：V10手动Actions实现，首次触发待网页入口（2026-10-12）
+
+- 起始main=`d4253857190404b099efa9363c0f596dda78418d`；用户授权迁移并执行一次。已读AGENTS/README/交接/Actions方案，未改游戏机制或《皓石传奇三》。
+- 新增 .github/workflows/v10-browser-acceptance.yml，仅workflow_dispatch/ubuntu-24.04/contents:read；普通UID与真实目录读写，PW精确1.62.1/Chrome151manifest核查，官方浏览器安装；无sudo、宿主策略修改或sandbox关闭。
+- 新增sandbox preflight，实际Chrome启动参数+chrome://sandbox诊断/截图核查，安全证据不足即停。原smoke仅启动路径+sandbox:true、独立证据目录、失败/录像关闭适配；5条assertions++原行逐行保持。
+- **通过（静态）**：2脚本node --check退出0，YAML/manual-only/权限/上传核查通过。product文件0修改。各阶段日志/退出码、真实PNG/WebM和summary通过always上传Actions Artifacts。
+- **未覆盖**：尚未触发Actions，runner身份/Chromium实际启动/实际sandbox/5断言/本轮截图录像全未覆盖，0断言；不能标通过。帧率与安卓手感未覆盖。
+- **首次触发能力阻塞**：当前GitHub连接器没有workflow_dispatch工具，本地没有gh；rerun不能替代首次执行。按开发者插件fallback要求，需用户允许GitHub网页浏览器入口后手动触发一次；先保存具体工作流供审查，不擅自browser fallback/获取凭据。
+- [实施与边界](v10-actions-acceptance-20261012.md)、[静态证据](evidence-actions-v10-20261012/static-checks.json)。后续取得run_id后核日志/Artifacts更新结果；不以本段静态通过冒充实测。
+- 最终提交SHA从main回读；当前仅验收工作流/必要测试适配与文档，不部署或修改战斗规则。
+
 ## 当前优先交接：工具无原生普通用户参数，停止本地启动（2026-10-12）
 
 - 起始main=`9d22acadf3dd5fdcd4af71d10ba289d00d3d77bd`，先读AGENTS/交接/安装报告/原smoke。本轮只查原生工具入口，不重下浏览器、不重试runuser、不切UID、不提权或改安全策略。
