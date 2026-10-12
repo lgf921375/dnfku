@@ -1,5 +1,16 @@
 # dnfku 当前研究交接
 
+## 当前优先交接：工具无原生普通用户参数，停止本地启动（2026-10-12）
+
+- 起始main=`9d22acadf3dd5fdcd4af71d10ba289d00d3d77bd`，先读AGENTS/交接/安装报告/原smoke。本轮只查原生工具入口，不重下浏览器、不重试runuser、不切UID、不提权或改安全策略。
+- **通过（接口核查）**：本会话exec_command完整参数无user/uid/gid；没有其他暴露的本地命令工具可指定用户。shell/login/sandbox_permissions不是普通用户身份参数；不向工具传未声明参数。
+- **失败/不可用（普通用户入口）**：当前受支持入口不存在；id仍UID/GID0。普通用户id、读两个安装目录、写独立数据目录均未覆盖，不用root检查冒充。
+- **通过（文件复查）**：完整Chrome/Shell仍存在0755，当前/tmp安装保留，不需重复下载。
+- **未覆盖**：Chromium安全启动、实际沙箱、V10 HTTPS与原smoke均未执行，0断言，无本轮截图录像。按用户明确指令停止当前环境启动尝试。
+- [核查与Actions最小方案](chromium-native-entry-actions-plan-20261012.md)、[工具接口证据](evidence-runtime-entry-20261012/native-entry-tool-schema.json)。方案仅手动workflow_dispatch、普通用户id/读写验证、精确PW版本与manifest核查、官方浏览器/FFmpeg安装、显式sandbox:true、原5断言、always上传真实日志/截图/视频。禁止sudo/修改策略；没有启动或Actions实测不标通过。
+- 尚未创建启用workflow或触发Actions，也未改测试/游戏代码；后续只调整smoke launch路径+sandbox和必要失败清理，保留断言。新runner独立安装与当前窗口“不重下”区分。
+- 本批仅文档/接口证据和交接；不操作《皓石传奇三》。最终SHA从main回读。
+
 ## 当前优先交接：两个Chromium包已安装，普通用户入口失败（2026-10-12）
 
 - 起始main=`261b47ca58c3c8609c415462b9e4e5ceb326c23e`；本轮用户明确授权当前隔离窗口正式下载安装。已先读AGENTS/README/交接/Google安装方案；不改游戏规则、测试源码、系统配置，不操作《皓石传奇三》。
