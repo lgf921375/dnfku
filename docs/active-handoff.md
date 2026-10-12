@@ -1,5 +1,16 @@
 # dnfku 当前研究交接
 
+## 当前优先交接：唯一手动Actions已运行，No usable sandbox失败（2026-10-12）
+
+- 用户接管后GitHub已登录，网页显示用户菜单/Settings/Run workflow。核对main77e867fd，**只触发一次workflow_dispatch**：run38193839109/job114632108113、attempt1，完成failure；未重跑。
+- **通过（真实runner）**：Ubuntu24.04.5，UID/GID1001(runner)，目录读写；PW1.62.1及Chrome/Shell151.0.7922.34/FFmpeg安装、manifest、Chrome版本、ldd退出0。
+- **失败（安全启动）**：sandbox:true真实launch、pid2542，zygote初始化No usable sandbox!，SIGABRT；预检查退出1。未添加sandbox禁用参数、未提权或改策略；直接原因明确，AppArmor特定规则未做审计验证。
+- **未覆盖**：没有成功启动可证明实际sandbox；原smoke步骤skipped，原5断言0执行（非5项失败），无V10截图/WebM，帧率/安卓手感未覆盖。产物browserLaunch=not-run初始字段不足，error已证明确实尝试launch，解释纠错保留原产物。
+- **通过（真实Artifact）**：ID11722453127、14245字节，下载并全ZIP CRC通过，14文件可读，SHA256匹配8c690e27fa1bec78128554922ea3995b3224c903726268f9f96641da4a8dc494。summary screenshots/videos空、smoke null；完整错误/退出码已保存GitHub，不持久化下载签名/登录凭据。
+- [运行结果](v10-actions-run-38193839109.md)、[实际run](https://github.com/lgf921375/dnfku/actions/runs/38193839109)、[Artifact](https://github.com/lgf921375/dnfku/actions/runs/38193839109/artifacts/11722453127)。最终网页截图受browser原生凭据状态保护限制，未绕过；日志和Artifact已通过连接器实际读取。
+- 安全失败按指令停止，唯一执行授权已用完。下一轮仅先只读核查其他现成安全Ubuntu镜像/预配置QA环境；不直接重跑或改变宿主策略。没有成功基线暂不进行手感优化开发。
+- 本轮仅结果文档/日志交接，不改游戏战斗代码、不操作《皓石传奇三》。最终main回读为准。
+
 ## 当前优先交接：修复Actions表达式错误，网页登录未完成（2026-10-12）
 
 - 用户已授权GitHub网页一次workflow_dispatch。起始main4a0669cd；重新核对lgf921375/dnfku/main/工作流。本轮手动触发次数仍0，未重跑其他workflow。

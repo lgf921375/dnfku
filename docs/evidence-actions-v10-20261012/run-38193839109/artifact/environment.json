@@ -1,0 +1,21 @@
+{
+  "uid": 1001,
+  "gid": 1001,
+  "groups": [
+    4,
+    100,
+    118,
+    999,
+    1001
+  ],
+  "id": "uid=1001(runner) gid=1001(runner) groups=1001(runner),4(adm),100(users),118(docker),999(systemd-journal)\n",
+  "commit": "77e867fd093fd4aeba59325055bcdb7b2f110350",
+  "proc_status": [
+    "CapEff:\t0000000000000000",
+    "NoNewPrivs:\t0",
+    "Seccomp:\t0"
+  ],
+  "unprivileged_userns_clone": "1",
+  "apparmor_restrict_unprivileged_userns": "1",
+  "userns_restrict": "not exposed"
+}
