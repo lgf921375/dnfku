@@ -5,7 +5,8 @@ const dir=path.resolve(process.env.DNFKU_EVIDENCE_DIR??path.join(__dirname,'../d
 (async()=>{let browser,context,page,assertions=0;const errors=[];
 try{
  if(process.getuid?.()===0)throw Error('Root browser execution is not allowed');
- browser=await chromium.launch({executablePath:process.env.DNFKU_CHROME_EXECUTABLE,channel:'chromium',headless:true,chromiumSandbox:true});
+ if(process.env.GITHUB_ACTIONS!=='true'||process.env.RUNNER_ENVIRONMENT!=='github-hosted')throw Error('Sandbox-disabled test is restricted to GitHub-hosted Actions runners');
+ browser=await chromium.launch({executablePath:process.env.DNFKU_CHROME_EXECUTABLE,channel:'chromium',headless:true,chromiumSandbox:false});
  context=await browser.newContext({viewport:{width:960,height:540},hasTouch:true,recordVideo:{dir,size:{width:960,height:540}}});
  page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
  await page.goto(process.env.DNFKU_PREVIEW_URL??'http://terminal.local:4173/',{waitUntil:'load'});
@@ -23,10 +24,10 @@ try{
  if(!result.events.some(e=>e.reaction==='air')||!result.events.some(e=>e.reaction==='ground'))throw Error('Air/down chase absent');assertions++;
  if(errors.length)throw Error(errors.join('\n'));assertions++;
  await page.screenshot({path:path.join(dir,'protection.png')});
- fs.writeFileSync(path.join(dir,'results.json'),JSON.stringify({status:'passed-browser',assertions,result},null,2));
+ fs.writeFileSync(path.join(dir,'results.json'),JSON.stringify({status:'passed-browser',assertions,sandbox:'disabled',sandboxNotice:'Chromium沙箱已关闭',result},null,2));
  console.log(JSON.stringify({status:'passed-browser',assertions}));
 }catch(e){
- const failure={status:'failed-or-blocked',assertions,error:e.stack,errors};
+ const failure={status:'failed-or-blocked',assertions,sandbox:'disabled',sandboxNotice:'Chromium沙箱已关闭',error:e.stack,errors};
  fs.writeFileSync(path.join(dir,'results.json'),JSON.stringify(failure,null,2));
  if(page)try{await page.screenshot({path:path.join(dir,'failure.png')});}catch(captureError){console.error(captureError.stack);}
  console.error(JSON.stringify(failure));process.exitCode=1;

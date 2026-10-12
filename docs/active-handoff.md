@@ -1,5 +1,15 @@
 # dnfku 当前研究交接
 
+## 当前优先交接：用户授权一次无Chromium沙箱Actions，修改已就绪待触发（2026-10-12）
+
+- 起始mainc40eb13b；先读AGENTS/README/交接/上次实际run报告。用户本轮明确授权一次性GitHub托管runner chromiumSandbox:false，优先于之前禁止关闭该浏览器sandbox的用户要求；不涉及宿主安全策略/正式服务器/个人电脑。
+- **配置说明：Chromium沙箱已关闭**。预检查及smoke均false；预检查改实际启动+V10 HTTPS响应/标题/截图，不以sandbox启用判通过。两脚本只允许github-hosted Actions和非root。原5条断言逐行保留，游戏/攻击规则0修改。
+- **通过（静态）**：两个node --check及YAML/manual-only/ubuntu/contents:read/checkout不持久化凭据检查退出0。保留错误/退出码、截图/recordVideo/finally清理、always Artifacts，无Secrets/sudo或策略变更。
+- **触发阻塞**：当前浏览器工具原生凭据状态无法安全恢复，按提示重置一次工具会话后仍被阻止；不是GitHub账号未登录的证据，也不是新Chrome启动结果。连接器没有新workflow_dispatch接口，不用旧run的rerun替代。
+- **未覆盖**：新手动触发0次、无新run_id；Chromium启动/原5断言/本次PNG/WebM均未覆盖，不承诺100%通过。须用户在GitHub工作流main界面提交一次后，用连接器读取全局run/Artifacts，无需共享登录凭据。
+- [实施与边界](v10-unsandbox-actions-20261012.md)、[静态检查](evidence-actions-v10-20261012/unsandbox-static.json)。新run失败即停止并保留与sandbox是否有关的真实错误；不无限重试。
+- 不操作《皓石传奇三》；最终提交SHA以main回读为准。
+
 ## 当前优先交接：唯一手动Actions已运行，No usable sandbox失败（2026-10-12）
 
 - 用户接管后GitHub已登录，网页显示用户菜单/Settings/Run workflow。核对main77e867fd，**只触发一次workflow_dispatch**：run38193839109/job114632108113、attempt1，完成failure；未重跑。

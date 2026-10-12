@@ -76,7 +76,7 @@ jobs:
           cat ci-evidence/browser-install.log
           if [ "$code" -ne 0 ]; then exit "$code"; fi
           node -e 'const {chromium}=require(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES+"/playwright"); console.log("DNFKU_CHROME_EXECUTABLE="+chromium.executablePath())' >> "$GITHUB_ENV"
-      - name: Verify dependencies and actual Chromium sandbox
+      - name: Verify browser launch and V10 HTTPS (sandbox disabled)
         run: |
           set +e
           node tests/feedback-lab-sandbox-preflight.cjs > ci-evidence/sandbox-preflight.log 2>&1
@@ -103,7 +103,7 @@ jobs:
           root=pathlib.Path('ci-evidence')
           def read_json(p):
               return json.loads(p.read_text()) if p.exists() else None
-          summary={'job_status_before_upload':os.environ['JOB_STATUS'],'run_id':os.environ['GITHUB_RUN_ID'],'commit':os.environ['GITHUB_SHA'],'sandbox':read_json(root/'sandbox.json'),'smoke':read_json(root/'browser/results.json'),'exit_codes':{p.name:p.read_text().strip() for p in root.glob('*.exit-code')},'screenshots':[str(p) for p in root.rglob('*.png')],'videos':[str(p) for p in root.rglob('*.webm')],'frame_rate_acceptance':'not covered','android_hand_feel':'not covered'}
+          summary={'job_status_before_upload':os.environ['JOB_STATUS'],'run_id':os.environ['GITHUB_RUN_ID'],'commit':os.environ['GITHUB_SHA'],'sandbox_notice':'Chromium沙箱已关闭','browser_preflight':read_json(root/'sandbox.json'),'smoke':read_json(root/'browser/results.json'),'exit_codes':{p.name:p.read_text().strip() for p in root.glob('*.exit-code')},'screenshots':[str(p) for p in root.rglob('*.png')],'videos':[str(p) for p in root.rglob('*.webm')],'frame_rate_acceptance':'not covered','android_hand_feel':'not covered'}
           (root/'summary.json').write_text(json.dumps(summary,indent=2))
           print(json.dumps(summary,indent=2))
           PY

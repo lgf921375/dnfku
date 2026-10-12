@@ -1,0 +1,31 @@
+{
+  "starting_head": "c40eb13b0606034eda2a25754ec6055d43530c0b",
+  "scope": "one-off GitHub-hosted Actions only",
+  "sandbox_configuration": false,
+  "sandbox_notice": "Chromium沙箱已关闭",
+  "actual_browser_launch": "not-covered",
+  "static_checks": {
+    "node_check_exit_code": 0,
+    "yaml_exit_code": 0,
+    "workflow_dispatch_only": true,
+    "ubuntu_hosted": true,
+    "contents_read": true,
+    "checkout_persist_credentials": false,
+    "nonroot_guard": true,
+    "hosted_runner_guard": true,
+    "original_assertion_lines": [
+      " if(!(await page.title()).includes('V10'))throw Error('Preview is not V10');assertions++;",
+      " await page.waitForFunction(()=>window.rhythmLab.game.events.some(e=>e.type==='damage'),null,{timeout:3000});assertions++;",
+      " if(result.phase!=='保护起身')throw Error('Demo did not reach protection');assertions++;",
+      " if(!result.events.some(e=>e.reaction==='air')||!result.events.some(e=>e.reaction==='ground'))throw Error('Air/down chase absent');assertions++;",
+      " if(errors.length)throw Error(errors.join('\\n'));assertions++;"
+    ],
+    "assertions_preserved": 5
+  },
+  "dispatch_count": 0,
+  "browser_tool_error": "Browser observation is unavailable because native credential state cannot be safely resumed. Start a new browser runtime to continue.",
+  "browser_tool_recovery": "One cua_repl kernel reset attempted; same blocker remained. No repeated workflow runs.",
+  "connector_dispatch_available": false,
+  "game_source_changed": false,
+  "secrets_added": false
+}
