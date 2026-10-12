@@ -1,5 +1,17 @@
 # dnfku 当前研究交接
 
+## 当前优先交接：Chromium下载链路返回195字节HTML（2026-10-12，只读诊断）
+
+- 起始main=`0e35d851402d471b04ef986d8967735f543e820a`，先读AGENTS/README/交接；本轮没有安装重试、DEBUG安装、改代理/网络/隔离、使用sudo或改游戏源码。
+- **通过（真实限量HTTP诊断）**：当前Playwright1.62.1 dry-run退出0，官方配置Chrome151.0.7922.34/revision1234；主机cdn.playwright.dev，完整包路径/builds/cft/151.0.7922.34/linux64/chrome-linux64.zip，Shell路径同目录chrome-headless-shell-linux64.zip。完整Chrome URL来自实际历史安装日志，Shell为本轮dry-run确认的后续配置地址。
+- **失败（内容有效性）**：两地址HEAD200、Range206，Content-Type text/html、Content-Length195、Content-Range bytes0-194/195，下载195字节，开头<html>。正文Site Unavailable / Unable to access this site；0重定向，没有观察到403/404/502/407。
+- **原因边界**：当前得到HTML而非ZIP，足以解释解压签名错误；不能认定真实ZIP截断，也不能确定源站/CDN/出口代理哪层返回HTML。上轮临时ZIP不存在，未做旧文件字节复验。
+- **代理/环境**：Playwright自身getProxyForUrl确认CDN请求选中http代理，NO_PROXY未绕过；download host/timeout/cache覆盖变量未设置。代理主机脱敏，不保存凭据。进程间端口不同，未归因为损坏。
+- **磁盘/缓存**：可用约31.68GB，缓存只见88字节.links，无安装程序/ZIP；PATH与常见Chrome目录未发现可复用浏览器。系统库缺失尚未覆盖，bwrap是不同层故障。
+- [完整报告](playwright-download-diagnosis-20261012.md)、[HTTP结果](evidence-download-20261012/response-results.json)、[HTML提示](evidence-download-20261012/chromium-body-sanitized.json)、[dry-run](evidence-download-20261012/dry-run.txt)和脱敏环境/磁盘日志均保存。
+- **最小下一步**：平台核查官方CDN请求为何返回Site Unavailable，在拿到真实ZIP前不盲装、不改超时/清缓存/换版本；当前出口无法获取时采用另一已授权匹配Chromium的QA环境。已有Cloud Chrome HTTPS验收可用，但不冒充原脚本通过/流畅度达标。
+- 本批仅诊断文档与交接。未触及《皓石传奇三》或部署/重启任何服务；最终SHA以main回读为准。
+
 ## 当前优先交接：HTTPS云Chrome验收已运行，启动错误分层诊断（2026-10-12）
 
 - 本轮按用户要求暂停V10功能开发；起始main=`7902c5808be99447f49506b165642f2897d03dfd`。先读GitHub AGENTS/README/交接及旧浏览器日志，未改游戏源码/规则或测试脚本。

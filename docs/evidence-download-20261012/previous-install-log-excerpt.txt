@@ -1,0 +1,9 @@
+Source: previous tool outputs in this conversation; installer was not rerun in this diagnostic.
+Downloading Chrome for Testing 151.0.7922.34 (playwright chromium v1234) from https://cdn.playwright.dev/builds/cft/151.0.7922.34/linux64/chrome-linux64.zip
+100% of 0 MiB
+Error: End of central directory record signature not found. Either not a zip file, or file is truncated.
+Failed to install browsers
+Error: Failed to download Chrome for Testing 151.0.7922.34 (playwright chromium v1234)
+Download failure, code=1
+Installer exit_code=1
+Headless Shell download was not reached/observed in that failed install log.

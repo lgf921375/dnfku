@@ -1,0 +1,74 @@
+{
+  "HTTPS_PROXY": {
+    "set": true,
+    "scheme": "http",
+    "host": "<redacted>",
+    "port": 40653,
+    "credentials_present": false
+  },
+  "HTTP_PROXY": {
+    "set": true,
+    "scheme": "http",
+    "host": "<redacted>",
+    "port": 40653,
+    "credentials_present": false
+  },
+  "ALL_PROXY": {
+    "set": true,
+    "scheme": "socks5h",
+    "host": "<redacted>",
+    "port": 35809,
+    "credentials_present": false
+  },
+  "https_proxy": {
+    "set": true,
+    "scheme": "http",
+    "host": "<redacted>",
+    "port": 40653,
+    "credentials_present": false
+  },
+  "http_proxy": {
+    "set": true,
+    "scheme": "http",
+    "host": "<redacted>",
+    "port": 40653,
+    "credentials_present": false
+  },
+  "all_proxy": {
+    "set": true,
+    "scheme": "socks5h",
+    "host": "<redacted>",
+    "port": 35809,
+    "credentials_present": false
+  },
+  "NO_PROXY": {
+    "set": true,
+    "entries": 6,
+    "includes_localhost": true
+  },
+  "no_proxy": {
+    "set": true,
+    "entries": 6,
+    "includes_localhost": true
+  },
+  "PLAYWRIGHT_DOWNLOAD_HOST": {
+    "set": false,
+    "value": null
+  },
+  "PLAYWRIGHT_CHROMIUM_DOWNLOAD_HOST": {
+    "set": false,
+    "value": null
+  },
+  "PLAYWRIGHT_DOWNLOAD_CONNECTION_TIMEOUT": {
+    "set": false,
+    "value": null
+  },
+  "PLAYWRIGHT_BROWSERS_PATH": {
+    "set": false,
+    "value": null
+  },
+  "PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD": {
+    "set": false,
+    "value": null
+  }
+}

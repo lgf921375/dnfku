@@ -1,0 +1,42 @@
+{
+  "disk": {
+    "/workspace/scratch": {
+      "total_bytes": 33770192896,
+      "free_bytes": 31681376256
+    },
+    "/tmp": {
+      "total_bytes": 33770192896,
+      "free_bytes": 31681376256
+    },
+    "/root/.cache": {
+      "total_bytes": 33770192896,
+      "free_bytes": 31681376256
+    }
+  },
+  "browser_on_path": {
+    "google-chrome": null,
+    "google-chrome-stable": null,
+    "chromium": null,
+    "chromium-browser": null,
+    "chrome": null
+  },
+  "cache": [
+    {
+      "path": "/root/.cache/ms-playwright/.links/40bba7d35b85fbf8be946ec2d782221d4ce57758",
+      "bytes": 88
+    }
+  ],
+  "common_browser_locations": [],
+  "temp_downloads": [
+    {
+      "path": "/tmp/playwright-artifacts-oullyE",
+      "bytes": 4096,
+      "is_file": false
+    },
+    {
+      "path": "/tmp/playwright_chromiumdev_profile-m5tRKd",
+      "bytes": 4096,
+      "is_file": false
+    }
+  ]
+}

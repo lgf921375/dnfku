@@ -1,0 +1,9 @@
+{
+  "method": "limited GET Range 0-255",
+  "url": "https://cdn.playwright.dev/builds/cft/151.0.7922.34/linux64/chrome-linux64.zip",
+  "curl_exit_code": 0,
+  "bytes": 195,
+  "first_16_bytes_hex": "3c68746d6c3e0a202020203c68656164",
+  "sanitized_body": "<html>\n    <head><title>Site Unavailable</title></head>\n    <body>\n      <center>\n        <h1>Site Unavailable</h1>\n        <p>Unable to access this site.</p>\n      </center>\n    </body>\n</html>\n",
+  "stderr": ""
+}

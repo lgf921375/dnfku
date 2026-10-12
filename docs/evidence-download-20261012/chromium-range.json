@@ -1,0 +1,58 @@
+{
+  "target": "chromium",
+  "method": "RANGE",
+  "url": "https://cdn.playwright.dev/builds/cft/151.0.7922.34/linux64/chrome-linux64.zip",
+  "curl_exit_code": 0,
+  "headers": [
+    "HTTP/1.1 200 OK",
+    "HTTP/2 206 ",
+    "server: openresty/1.27.1.1",
+    "content-type: text/html",
+    "content-length: 195",
+    "content-range: bytes 0-194/195"
+  ],
+  "summary": {
+    "http_code": "206",
+    "url_effective": "https://cdn.playwright.dev/builds/cft/151.0.7922.34/linux64/chrome-linux64.zip",
+    "size_download": 195,
+    "num_redirects": 0
+  },
+  "response_file_bytes": 195,
+  "first_16_bytes_hex": "3c68746d6c3e0a202020203c68656164",
+  "zip_local_header": false,
+  "stderr": "",
+  "request_limits": {
+    "range": "0-4095",
+    "max_filesize": 8192,
+    "max_time": 20
+  },
+  "proxy_environment_preserved": true,
+  "entity_body_bytes": 195,
+  "command_sanitized": [
+    "curl",
+    "-q",
+    "-sS",
+    "--location",
+    "--max-redirs",
+    "5",
+    "--connect-timeout",
+    "8",
+    "--max-time",
+    "20",
+    "--proto",
+    "=https",
+    "--proto-redir",
+    "=https",
+    "--range",
+    "0-4095",
+    "--max-filesize",
+    "8192",
+    "--dump-header",
+    "-",
+    "--output",
+    "<temporary-body-file>",
+    "--write-out",
+    "<HTTP code/effective URL/byte count/redirect count>",
+    "https://cdn.playwright.dev/builds/cft/151.0.7922.34/linux64/chrome-linux64.zip"
+  ]
+}

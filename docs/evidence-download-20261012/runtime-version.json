@@ -1,0 +1,42 @@
+{
+  "playwrightVersion": "1.62.1",
+  "nodeVersion": "v24.19.0",
+  "browsers": [
+    {
+      "name": "chromium",
+      "revision": "1234",
+      "installByDefault": true,
+      "browserVersion": "151.0.7922.34",
+      "title": "Chrome for Testing"
+    },
+    {
+      "name": "chromium-headless-shell",
+      "revision": "1234",
+      "installByDefault": true,
+      "browserVersion": "151.0.7922.34",
+      "title": "Chrome Headless Shell"
+    }
+  ],
+  "sourceLocations": [
+    {
+      "file": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js",
+      "function": "cftUrl",
+      "line": 32239
+    },
+    {
+      "file": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js",
+      "function": "httpRequest / getProxyForUrl selection",
+      "line": 8402
+    },
+    {
+      "file": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/coreBundle.js",
+      "function": "Registry._downloadURLs",
+      "line": 33411
+    },
+    {
+      "file": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/lib/utilsBundle.js",
+      "function": "getProxyForUrl",
+      "line": 54745
+    }
+  ]
+}

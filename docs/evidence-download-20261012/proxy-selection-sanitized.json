@@ -1,0 +1,18 @@
+{
+  "targetHost": "cdn.playwright.dev",
+  "proxySelected": true,
+  "noProxyBypass": false,
+  "proxy": {
+    "protocol": "http:",
+    "hostname": "<redacted>",
+    "port": "45823",
+    "credentialsPresent": false
+  },
+  "matchingEnvKeys": [
+    "https_proxy",
+    "HTTPS_PROXY",
+    "HTTP_PROXY",
+    "http_proxy"
+  ],
+  "playwrightVersion": "1.62.1"
+}
