@@ -1,7 +1,7 @@
 {
   "file": "dnfku_summoner_S2_evidence_20261013.zip",
-  "bytes": 6284739,
-  "sha256": "ca92e936e20446f479170be78acfb9404b709ed084d1aa8522159ff2a8c49a4e",
+  "bytes": 6284768,
+  "sha256": "414760017586c444892c837e44bfc1b10fbd0732710963aa595beb67c137eb83",
   "crc": "PASS",
   "entries": 24,
   "allVideosDecodeExit0": true,
@@ -99,5 +99,19 @@
       "source": "actual desktop Chromium Canvas MediaRecorder; no DOM/audio; not Android"
     }
   ],
-  "screenshotsIncluded": false
+  "screenshotsIncluded": false,
+  "persistenceRepair": {
+    "initialArchiveValidBeforeSave": {
+      "bytes": 6284739,
+      "sha256": "ca92e936e20446f479170be78acfb9404b709ed084d1aa8522159ff2a8c49a4e"
+    },
+    "initialSavedBytes": 734353,
+    "initialSavedCRC": "FAIL: missing ZIP directory after truncation",
+    "rebuildFromUnchangedRawInputs": true,
+    "publishedAfterClosedAtomicRename": true,
+    "replacementVersion": 1,
+    "persistedReadbackBytes": 6284768,
+    "persistedReadbackSHA256Matched": true,
+    "persistedReadbackCRC": "PASS"
+  }
 }
