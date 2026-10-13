@@ -1,0 +1,190 @@
+{
+  "utc": "2026-10-13T01:20:06.812287+00:00",
+  "run": 38214754382,
+  "job": 114696788116,
+  "artifact": 11732530314,
+  "url": "https://github.com/lgf921375/dnfku/actions/runs/38214754382/artifacts/11732530314",
+  "artifactExpiresUTC": "2026-10-26T06:53:44Z",
+  "archiveSize": 2597562,
+  "archiveSHA256": "8f086504f39d1b1c4f350e5747fc205e832dca7e1a87224a90a143abdf32e464",
+  "zipCRC": "PASS all29",
+  "files": [
+    {
+      "name": "sandbox-preflight.log",
+      "size": 7518,
+      "sha256": "f3b70b98cd6785a984b6d26f4a396f195f750edcff2f41b897ca0d0d7f464cea"
+    },
+    {
+      "name": "preflight-v10.png",
+      "size": 167452,
+      "sha256": "f7b52387558905167eedab9b7d2e528f4aa1c920c865569f62d7221ed616c4c1"
+    },
+    {
+      "name": "manifest.json",
+      "size": 411,
+      "sha256": "ede5fab122947dd25b6d1a21d0a33d264c0fbefaba3a156a4fd5a1ff8a2d5d64"
+    },
+    {
+      "name": "manifest.exit-code",
+      "size": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "name": "v11-smoke.log",
+      "size": 413,
+      "sha256": "2c228f150ce37f66e67e114045f2816faf74afc978732cf63e9944df7fabe50f"
+    },
+    {
+      "name": "summary.json",
+      "size": 697902,
+      "sha256": "2348698c628408941317f4f22853a16bf63db1755f024bf4729969dbb8cc6cc0"
+    },
+    {
+      "name": "smoke.log",
+      "size": 43,
+      "sha256": "d94abc3945667ccd3d861ea08708bd0a3a297fc6cc805e1d1f51c8dfe599f0be"
+    },
+    {
+      "name": "smoke.exit-code",
+      "size": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "name": "environment.exit-code",
+      "size": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "name": "browser-install.log",
+      "size": 6826,
+      "sha256": "2106e49ab547e4fa210dccf55dbb0cb19f367862adfcf204d114943444a5232f"
+    },
+    {
+      "name": "v11-smoke.exit-code",
+      "size": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "name": "browser-install.exit-code",
+      "size": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "name": "npm-install.log",
+      "size": 24,
+      "sha256": "65c731cd02e19c79f6f5a3e84a4dd64a49acd6c47d2ee551d7cc9da191e8c96c"
+    },
+    {
+      "name": "npm-install.exit-code",
+      "size": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "name": "sandbox.json",
+      "size": 7517,
+      "sha256": "124f125debfe24cfc9afb07d17d629d0f88a40eb38753af4282576554e8fdb6e"
+    },
+    {
+      "name": "manifest.log",
+      "size": 412,
+      "sha256": "7085391366663eaf7c3faffc61718832292b0a249326958c43e6af45db4b9c84"
+    },
+    {
+      "name": "sandbox-preflight.exit-code",
+      "size": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "name": "environment.json",
+      "size": 485,
+      "sha256": "e41502820ad160563ea34b46e3ddf47a7a6be4213d8c2b0fa99f604bc84edbd6"
+    },
+    {
+      "name": "environment.log",
+      "size": 486,
+      "sha256": "cf6b7175682f4f283e6b7b9715733c5e92ac3264778ff99ca763dc47d67399aa"
+    },
+    {
+      "name": "browser/protection.png",
+      "size": 152406,
+      "sha256": "ad6bf5f9ec596655d96719a470fc37830ad5f590b3144ad018a764ae44daaaf7"
+    },
+    {
+      "name": "browser/manual-hit.png",
+      "size": 171412,
+      "sha256": "fefac149d1ab3e962db01574ed4c62c98d70866fdac79d79b745c1e517f91d93"
+    },
+    {
+      "name": "browser/results.json",
+      "size": 7179,
+      "sha256": "2d04004810dfb1e5312162cb19d5676740d04b80b6ef24a3864f64bd7f4b1832"
+    },
+    {
+      "name": "browser/page@53f42251dd1a7acaa47e0f633a290d3f.webm",
+      "size": 773531,
+      "sha256": "291dbfdbe3d5089ec693ed88e1fb612cfda995881a3c4c926e210462371b3dab"
+    },
+    {
+      "name": "v11/natural-land.png",
+      "size": 131953,
+      "sha256": "0cf329780c8410754b8d070aed049b74626e49d6061424de9fb706d08f6764ba"
+    },
+    {
+      "name": "v11/air-follow.png",
+      "size": 184025,
+      "sha256": "efcdf4535c1f4d6ece94e2838c58dce9c6584e591f07e7e27986e1b19f374f79"
+    },
+    {
+      "name": "v11/failure.png",
+      "size": 142225,
+      "sha256": "3812d7f3c005c420792e26553ccf95b8a5fcec7200b4480431a8aeeaabd87503"
+    },
+    {
+      "name": "v11/page@1d25e8a9d0e689f4b2064af011c73ff7.webm",
+      "size": 640705,
+      "sha256": "851462105d63d8a07050ca3bba6d3d56f1e04ca19d70f5a56417fb5a1444a54d"
+    },
+    {
+      "name": "v11/third-lift.png",
+      "size": 180337,
+      "sha256": "082a9024a07ba2f086744fa9d12e0da12c8d77a0de8dfe4eac7313c87d984556"
+    },
+    {
+      "name": "v11/results.json",
+      "size": 636050,
+      "sha256": "dffe45aee2dddaf882d337c2589b408644b14db8531b32541a6956a405bc593a"
+    }
+  ],
+  "coverage": {
+    "V10Historical": {
+      "passed": 5
+    },
+    "V11Historical": {
+      "passed": 3,
+      "failed": 1,
+      "notExecuted": 6
+    },
+    "V11LocalNew": {
+      "executed": 0,
+      "status": "BLOCKED UID0"
+    },
+    "NodeNew": {
+      "passed": 171,
+      "failed": 0
+    }
+  },
+  "videoMetadata": {
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "vp8",
+        "width": 960,
+        "height": 540,
+        "r_frame_rate": "25/1"
+      }
+    ],
+    "format": {
+      "duration": "6.040000"
+    }
+  }
+}

@@ -2,6 +2,10 @@
 
 ## 实际基线与状态
 
+### 2026-10-13 追加纠错（原失败保留）
+
+V11首次Actions已实际执行并失败：run38214754382/job114696788116，Artifact11732530314已完整下载/CRC/SHA核对。前三检查PASS；第四断言遗漏合法ground-limit（groundHits3/totalHits6），后六未执行。原连续普攻片段中保护触发后HP保持504，没有后续damage。现已在独立工作分支提炼公共保护断言和sandbox:true本地入口，Node171/171实测通过；本地UID0预检查exit2、浏览器0断言，修正后的浏览器验收仍未覆盖。没有改战斗源码或参数；详见[纠错及本地报告](v11-protection-local-20261013.md)。下面“首次提交未覆盖”的记载为历史边界，不能继续当作最新run状态。
+
 起点main `92c9524b30295d9e6c7a21ac8457d9cc9de5f0b3`。已读AGENTS、README、最新交接及旧攻击研究报告，再次读取上游实际文件并对照Git树blob。仅操作dnfku。
 
 - **实测通过（历史基线）**：[V10 #7](https://github.com/lgf921375/dnfku/actions/runs/38208502554)，原5断言通过。实际下载[Artifact11728540448](https://github.com/lgf921375/dnfku/actions/runs/38208502554/artifacts/11728540448)，1265441字节，全部ZIP CRC通过，SHA256 `dcad06e868c332e9dad881e60c2b812496e625f7ce30e00d652b9d0582165cfc`。

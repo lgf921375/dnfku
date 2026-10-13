@@ -1,0 +1,46 @@
+[
+  {
+    "file": "tests/protection-evidence.cjs",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "tests/juggle-lab-acceptance.cjs",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "tests/juggle-lab-smoke.cjs",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "tests/juggle-lab-local.cjs",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "tests/combat-protection-evidence.test.mjs",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "check": "production/workflows/original V10 assertions unchanged",
+    "exitCode": 0,
+    "changed": []
+  },
+  {
+    "check": "local-browser",
+    "exitCode": 2,
+    "output": "BLOCKED: UID 0; use an ordinary-user execution environment. No browser/server launched.\n"
+  },
+  {
+    "check": "ci-root-guard",
+    "exitCode": 1,
+    "output": "{\"status\":\"failed-or-blocked\",\"checks\":[],\"exitCode\":1}\nError: Restricted to non-root GitHub-hosted Actions\n    at /workspace/scratch/fddb459d7ec2/dnfku/tests/juggle-lab-smoke.cjs:8:121\n    at Object.<anonymous> (/workspace/scratch/fddb459d7ec2/dnfku/tests/juggle-lab-smoke.cjs:18:3)\n    at Module._compile (node:internal/modules/cjs/loader:1872:14)\n    at Object..js (node:internal/modules/cjs/loader:2003:10)\n    at Module.load (node:internal/modules/cjs/loader:1594:32)\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47\n"
+  },
+  {
+    "check": "CI root/hosted guards still precede launch",
+    "verifiedBy": "source inspection plus real UID0 CI guard exit1; Actions not triggered"
+  }
+]

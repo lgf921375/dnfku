@@ -1,0 +1,38 @@
+{
+  "status": "blocked-environment",
+  "error": "BLOCKED: UID 0; use an ordinary-user execution environment. No browser/server launched.",
+  "checks": [],
+  "browserAssertions": 0,
+  "exitCode": 2,
+  "elapsedMs": 217,
+  "sandboxRequested": true,
+  "actualSandbox": "NOT COVERED",
+  "environment": {
+    "utc": "2026-10-13T01:17:19.036Z",
+    "localShanghai": "2026-10-13 09:17:19",
+    "cwd": "/workspace/scratch/fddb459d7ec2/dnfku",
+    "uid": 0,
+    "gid": 0,
+    "node": "v24.19.0",
+    "platform": "linux",
+    "arch": "x64",
+    "sandboxRequested": true,
+    "browserLaunch": "NOT RUN",
+    "actualSandbox": "NOT COVERED",
+    "commit": "d4e6acfaeddfcb9e953b473f2fcebc5fecc6dec5",
+    "branch": "work/v11-local-20261013",
+    "playwrightVersion": "1.62.1",
+    "expectedShell": {
+      "name": "chromium-headless-shell",
+      "revision": "1234",
+      "installByDefault": true,
+      "browserVersion": "151.0.7922.34",
+      "title": "Chrome Headless Shell"
+    },
+    "executable": "/workspace/scratch/27a600746412/local-browser-check/chrome-headless-shell-linux64/chrome-headless-shell",
+    "htmlSHA256": "9ab585f72a6d170d168a56e257567c6b00feda925026e980dde37c779aa0c6b7",
+    "executableSHA256": "e11fc9ce65c96313476f7ee9844b6fb6a9220fb048693cfe9eee00acf4170a9f",
+    "shellVersion": "Google Chrome for Testing 151.0.7922.34",
+    "versionMatched": true
+  }
+}

@@ -1,5 +1,16 @@
 # dnfku 当前研究交接
 
+## 当前优先交接：V11保护断言纠错，本地UID0阻塞（2026-10-13）
+
+- 起始main=`d4e6acfaeddfcb9e953b473f2fcebc5fecc6dec5`；独立分支 `work/v11-local-20261013`。先已通过连接GitHub读AGENTS/README/本交接、V11报告和实际文件。最近runs全结束，in_progress=0/queued=0，本机无dnfku测试/Chrome；其他隔离窗口是否有人编辑无法观察。
+- **通过（历史取证）**：V11#1 run38214754382/job114696788116，Artifact11732530314完整ZIP2597562字节/29项CRC及SHA核对。前三检查PASS、第四FAIL、后六未执行；同run V10原5通过。连续普攻触发ground-limit：groundHits3/totalHits6，最后HP504，触发后无damage。旧断言只接受air4或total7，遗漏合法地面保护；原始失败不删除。
+- **通过（本轮Node）**：基线153/153；新增公共输入/整保护周期/缓冲/恢复/反例18项，最终171/171 exit0。历史RAF间隔+声明输入延迟复现ground3/total6/HP504，不称精确鼠标重放。20/30/60/90/120Hz不同输入节奏测试不等于手机性能。
+- **实现/静态通过**：公共V11十三项断言、独立sandbox:true本地执行器（loopback/超时/日志/证据/清理）；CI保持原non-root/GitHub-hosted/sandbox:false限制。产品源码/参数/workflow/V10原五项无修改。
+- **失败/阻塞（实际本地入口）**：UID/GID0，Playwright1.62.1/Shell151.0.7922.34匹配；安全入口exit2、Chrome/HTTP未启动、0断言。未切UID、未关闭sandbox、未伪造CI变量、未安装、未触发Actions。CI root guard实际exit1/0断言。
+- **未覆盖**：新浏览器断言/本地V10五项、实际sandbox内部诊断、录像/超时回收运行、Android/APK/帧率/主观手感。历史PNG中文方框/追击火花与绘制人物间距是待验视觉差距，不称打击感达标。
+- [完整报告](v11-protection-local-20261013.md)、[真实证据](evidence-v11-local-20261013/)。普通用户原生入口是下一步环境要求；当前工具无user/uid/gid参数。先复核匹配Shell及PW录像依赖再跑 `DNFKU_CHROME_EXECUTABLE=/absolute/path/to/chrome-headless-shell DNFKU_EVIDENCE_DIR=/absolute/path/to/evidence node tests/juggle-lab-local.cjs`。当前环境已实测阻塞，不原地无限重试。
+- 分支为WIP，未合main/未部署；最终提交SHA以GitHub回读为准。两窗口仍由用户转发结果；不触碰《皓石传奇三》。
+
 ## 当前优先交接：自主研究与V11候选已实现，待真实浏览器对照（2026-10-12）
 
 - 起始main92c9524b；按用户上传的自主研究指令读取约束、再次核查固定上游实现；OpenBOR/Ikemen-GO/MiniDNF深入读取，Unity第三击配置补充，观察两段2020手游历史录像，所有限制在[证据/差距表](reference-gap-v11-20261012.md)。不声称掌握官方完整参数/保护。
