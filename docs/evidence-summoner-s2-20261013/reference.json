@@ -1,0 +1,211 @@
+{
+  "higherQuality": {
+    "requests": [
+      {
+        "http": 206,
+        "range": "bytes 0-1048575/17529667",
+        "bytes": 1048576
+      },
+      {
+        "http": 206,
+        "range": "bytes 1048576-2097151/17529667",
+        "bytes": 1048576
+      }
+    ],
+    "bytes": 2097152,
+    "sha256": "c5d3e4098df46ac8f03aede794c2f19a5b0a6493a86060b1f7b4e6b60fe72da1",
+    "stream": {
+      "width": 852,
+      "height": 480,
+      "frameRate": "30.000",
+      "codecs": "hev1.1.6.L120.90",
+      "bandwidth": 334787
+    },
+    "scope": "public480p/30fps prefix only, not full video/audio"
+  },
+  "summoner2022": {
+    "bvid": "BV1eS4y1e7bQ",
+    "title": "【DNF全职业技能展示系列视频】知源·召唤师",
+    "cid": 745512830,
+    "duration": 300,
+    "htmlHTTP": 200,
+    "mediaHTTP": 206,
+    "bytes": 1048576,
+    "contentRange": "bytes 0-1048575/10258231",
+    "sha256": "85847234cd759ae356a95b2c5246b0858d8678efac736ff7a351e2ecbe312ca5",
+    "stream": {
+      "width": 666,
+      "height": 360,
+      "codecs": "hev1.1.6.L120.90",
+      "bandwidth": 274437
+    },
+    "previousFailure": "6MiB read IncompleteRead1048544 bytes; no saved body",
+    "currentError": null
+  },
+  "dfo2024": {
+    "bvid": "BV1Jb421i7oL",
+    "title": "【美服】DNF(DFO)全职业技能演示、我自己打的",
+    "page": {
+      "cid": 1568758808,
+      "page": 8,
+      "from": "vupload",
+      "part": "女魔法师",
+      "duration": 326,
+      "vid": "",
+      "weblink": "",
+      "dimension": {
+        "width": 3848,
+        "height": 2160,
+        "rotate": 0
+      },
+      "first_frame": "http://i2.hdslb.com/bfs/storyff/n240602sa34695aujt1hc71uj7i06fqh_firsti.jpg",
+      "ctime": 1717326406
+    },
+    "allParts": [
+      {
+        "page": 1,
+        "part": "作者寄语"
+      },
+      {
+        "page": 2,
+        "part": "男鬼剑士"
+      },
+      {
+        "page": 3,
+        "part": "女鬼剑士"
+      },
+      {
+        "page": 4,
+        "part": "女格斗家"
+      },
+      {
+        "page": 5,
+        "part": "男格斗家"
+      },
+      {
+        "page": 6,
+        "part": "男神枪手"
+      },
+      {
+        "page": 7,
+        "part": "女神枪手"
+      },
+      {
+        "page": 8,
+        "part": "女魔法师"
+      },
+      {
+        "page": 9,
+        "part": "男魔法师"
+      },
+      {
+        "page": 10,
+        "part": "男圣职者"
+      },
+      {
+        "page": 11,
+        "part": "女圣职者"
+      },
+      {
+        "page": 12,
+        "part": "暗夜使者"
+      },
+      {
+        "page": 13,
+        "part": "守护者"
+      },
+      {
+        "page": 14,
+        "part": "魔枪士"
+      },
+      {
+        "page": 15,
+        "part": "枪剑士"
+      },
+      {
+        "page": 16,
+        "part": "弓箭手"
+      },
+      {
+        "page": 17,
+        "part": "外传"
+      }
+    ],
+    "http": 206,
+    "bytes": 1048576,
+    "range": "bytes 0-1048575/17231098",
+    "sha256": "e369e56219f6469a5bfa5731b2cd95a4fb13278e69b9e6da97448e404d4a7ef8",
+    "stream": {
+      "width": 640,
+      "height": 358,
+      "codecs": "avc1.64001E",
+      "bandwidth": 423152
+    }
+  },
+  "sourceScopes": {
+    "ownerClip": "BV1vDx1zKEKg18.5–20.5s decoded60frames at852x480/30fps; empty swing only",
+    "summoner2022": "0–16s at1fps and16–32s at1fps samples, minions/Lasher; no owner-contact measurement",
+    "dfo2024": "part8 female mage,0–16s at1fps and16–28s at0.5fps; introductions/Elementalist skills; not Summoner owner basics; pagep7 actually female gunner, chose femaleMage actualcid",
+    "sourcePictures": "temporary analysis only; not published or bundled"
+  },
+  "manualCalibration": {
+    "floorPixelY": 104,
+    "unitsPerPixel": 1.0975609756097562,
+    "uncertaintyEstimatePixels": 3,
+    "errorBoundMeasured": false,
+    "secondDisplayedFrame12": {
+      "backFootPixel": [
+        105,
+        68
+      ],
+      "frontFootPixel": [
+        171,
+        74
+      ],
+      "normalizedBackFootHeight": 39.51219512195122,
+      "normalizedFrontFootHeight": 32.926829268292686
+    },
+    "thirdDisplayedFrame24": {
+      "backFootPixel": [
+        141,
+        74
+      ],
+      "frontFootPixel": [
+        176,
+        65
+      ],
+      "normalizedBackFootHeight": 32.926829268292686,
+      "normalizedFrontFootHeight": 42.80487804878049
+    },
+    "notInferred": [
+      "jump impulse/gravity",
+      "automatic advance distance",
+      "damage",
+      "target reactions",
+      "actual attack-active frames"
+    ],
+    "heldPoseEstimates": {
+      "11": "reuse frame12 estimated landmarks",
+      "29": "reuse frame24 estimated landmarks",
+      "independentMeasurements": false
+    }
+  },
+  "upstreamAudit": {
+    "YieZhiqiu/dnf": {
+      "sha": "1639d7b00b43d39693f9821e1155879d5d67d0c8",
+      "paths": [
+        "README.md",
+        "dnfcss.css",
+        "dnfhtml.html"
+      ],
+      "htmlBlob": "dc5999966076514b00b4f95ece29147521dc1921",
+      "scope": "HTML site introduction/navigation observed; no usable Summoner battle config identified",
+      "license": null
+    },
+    "officialBalance": {
+      "url": "https://www.dfoneople.com/news/updates/3990/Character-Changes/Character-Renewal/Battle-Mage",
+      "scope": "Basic/related skill range independent of weapon type on BattleMage page; do NOT automatically apply as current Summoner range",
+      "exactSummonerBoxes": "NOT COVERED"
+    }
+  }
+}

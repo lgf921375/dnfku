@@ -1,0 +1,103 @@
+{
+  "file": "dnfku_summoner_S2_evidence_20261013.zip",
+  "bytes": 6284739,
+  "sha256": "ca92e936e20446f479170be78acfb9404b709ed084d1aa8522159ff2a8c49a4e",
+  "crc": "PASS",
+  "entries": 24,
+  "allVideosDecodeExit0": true,
+  "media": [
+    {
+      "run": "summoner-s2-browser",
+      "file": "summoner-s2-browser-canvas.webm",
+      "bytes": 640536,
+      "sha256": "1b6be638fea412e1099112d2427603193a80c5d14c7fdd7f4934802fe3af37ee",
+      "probeExit": 0,
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "vp8",
+            "width": 960,
+            "height": 540,
+            "nb_read_frames": "108"
+          }
+        ],
+        "format": {}
+      },
+      "decodeExit": 0,
+      "error": "",
+      "source": "actual desktop Chromium Canvas MediaRecorder; no DOM/audio; not Android"
+    },
+    {
+      "run": "summoner-s2-browser",
+      "file": "v10-browser-canvas.webm",
+      "bytes": 1512707,
+      "sha256": "c0d2928b17a319835581a563e730a9ad824f691a41ae8953443fb53e06c0c2de",
+      "probeExit": 0,
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "vp8",
+            "width": 960,
+            "height": 540,
+            "nb_read_frames": "195"
+          }
+        ],
+        "format": {
+          "duration": "6.466645"
+        }
+      },
+      "decodeExit": 0,
+      "error": "",
+      "source": "actual desktop Chromium Canvas MediaRecorder; no DOM/audio; not Android"
+    },
+    {
+      "run": "summoner-s2-browser",
+      "file": "v11-browser-canvas.webm",
+      "bytes": 3500952,
+      "sha256": "55998c3ee8568ea01fe4155f0adb866662ff6f1f00d46163ff1e187654698f71",
+      "probeExit": 0,
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "vp8",
+            "width": 960,
+            "height": 540,
+            "nb_read_frames": "501"
+          }
+        ],
+        "format": {
+          "duration": "16.665972"
+        }
+      },
+      "decodeExit": 0,
+      "error": "",
+      "source": "actual desktop Chromium Canvas MediaRecorder; no DOM/audio; not Android"
+    },
+    {
+      "run": "summoner-s1-regression-after-s2",
+      "file": "summoner-s1-browser-canvas.webm",
+      "bytes": 632065,
+      "sha256": "a843f6ef4c5e08aeefd8260985e6373138144739d0907f478563dc238bc57d0d",
+      "probeExit": 0,
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "vp8",
+            "width": 960,
+            "height": 540,
+            "nb_read_frames": "111"
+          }
+        ],
+        "format": {}
+      },
+      "decodeExit": 0,
+      "error": "",
+      "source": "actual desktop Chromium Canvas MediaRecorder; no DOM/audio; not Android"
+    }
+  ],
+  "screenshotsIncluded": false
+}

@@ -1,0 +1,225 @@
+{
+  "gitParent": "fa78063c17a5fbda5e684207598cc02fa74cab61",
+  "node": {
+    "pass": 192,
+    "fail": 0,
+    "exit": 0
+  },
+  "S2": {
+    "exit": 0,
+    "v10": 5,
+    "v11": 13,
+    "checks": [
+      {
+        "name": "S2 loopback HTML bytes and title",
+        "status": "PASS"
+      },
+      {
+        "name": "offline Chinese UI font actually loaded",
+        "status": "PASS"
+      },
+      {
+        "name": "real pointer click runs exactly the first motion",
+        "status": "PASS"
+      },
+      {
+        "name": "full replay starts three observed segments, completes at 1.000s",
+        "status": "PASS"
+      },
+      {
+        "name": "real held pointer chains; release settles without another first stage",
+        "status": "PASS"
+      },
+      {
+        "name": "S2 public preview: both feet elevated in second/third poses",
+        "status": "PASS"
+      },
+      {
+        "name": "frame preview freezes motion clock",
+        "status": "PASS"
+      },
+      {
+        "name": "real turn button mirrors staff geometry",
+        "status": "PASS"
+      },
+      {
+        "name": "real keyboard moves idle owner left",
+        "status": "PASS"
+      },
+      {
+        "name": "real X keyboard press starts a staff motion",
+        "status": "PASS"
+      },
+      {
+        "name": "owner-only candidate does not assert damage or lift",
+        "status": "PASS"
+      },
+      {
+        "name": "no browser errors",
+        "status": "PASS"
+      }
+    ],
+    "mobile": [
+      {
+        "name": "portrait390x844: no horizontal overflow and readable-sized DOM buttons",
+        "status": "PASS"
+      },
+      {
+        "name": "real touch tap: only first owner motion starts",
+        "status": "PASS"
+      },
+      {
+        "name": "real touch hold/release: three owner motions then settle",
+        "status": "PASS"
+      },
+      {
+        "name": "touch cancellation: no stuck held attack or continuing loop",
+        "status": "PASS"
+      },
+      {
+        "name": "landscape844x390: full Canvas and primary attack button visible together",
+        "status": "PASS"
+      },
+      {
+        "name": "landscape: touch replay completes all three motions",
+        "status": "PASS"
+      }
+    ],
+    "pageErrors": [],
+    "consoleErrors": [],
+    "requestFailures": []
+  },
+  "S1Regression": {
+    "exit": 0,
+    "baselineScope": "NOT RUN: explicit DNFKU_LOCAL_SUITE=summoner",
+    "checks": [
+      {
+        "name": "S1 loopback HTML bytes and title",
+        "status": "PASS"
+      },
+      {
+        "name": "offline Chinese UI font actually loaded",
+        "status": "PASS"
+      },
+      {
+        "name": "real pointer click runs exactly the first motion",
+        "status": "PASS"
+      },
+      {
+        "name": "full replay starts three observed segments, completes at 1.000s",
+        "status": "PASS"
+      },
+      {
+        "name": "real held pointer chains; release settles without another first stage",
+        "status": "PASS"
+      },
+      {
+        "name": "public frame slider changes raised pose to the low finish",
+        "status": "PASS"
+      },
+      {
+        "name": "frame preview freezes motion clock",
+        "status": "PASS"
+      },
+      {
+        "name": "real turn button mirrors staff geometry",
+        "status": "PASS"
+      },
+      {
+        "name": "real keyboard moves idle owner left",
+        "status": "PASS"
+      },
+      {
+        "name": "real X keyboard press starts a staff motion",
+        "status": "PASS"
+      },
+      {
+        "name": "owner-only candidate does not assert damage or lift",
+        "status": "PASS"
+      },
+      {
+        "name": "no browser errors",
+        "status": "PASS"
+      }
+    ],
+    "mobile": [
+      {
+        "name": "portrait390x844: no horizontal overflow and readable-sized DOM buttons",
+        "status": "PASS"
+      },
+      {
+        "name": "real touch tap: only first owner motion starts",
+        "status": "PASS"
+      },
+      {
+        "name": "real touch hold/release: three owner motions then settle",
+        "status": "PASS"
+      },
+      {
+        "name": "touch cancellation: no stuck held attack or continuing loop",
+        "status": "PASS"
+      },
+      {
+        "name": "landscape844x390: full Canvas and primary attack button visible together",
+        "status": "PASS"
+      },
+      {
+        "name": "landscape: touch replay completes all three motions",
+        "status": "PASS"
+      }
+    ],
+    "pageErrors": []
+  },
+  "initialNodeFailure": {
+    "passed": 191,
+    "failed": 1,
+    "scope": "assertion compared equivalent staff angles differing by2pi; corrected direction-vector comparison without product change",
+    "raw": "summoner-s2-node.tap"
+  },
+  "source": {
+    "prototype/summoner-motion-s2.mjs": {
+      "bytes": 3607,
+      "sha256": "eb9f19c6144c1346267c373a7e6ba007181deaed9a1ecdbd6517cf0263d03d12",
+      "blob": "762f044369a26b149be824d267bf449bd33c710a"
+    },
+    "prototype/summoner-renderer-s2.mjs": {
+      "bytes": 5398,
+      "sha256": "d3363cad1bffbe63b6b9f118dca3e230cf1ab8be173c377f433777e281f53f51",
+      "blob": "601832e3f19ae1b7553522a971836f6768c28800"
+    },
+    "prototype/build-summoner-lab-s2.mjs": {
+      "bytes": 1195,
+      "sha256": "b0c2d20e58a5e4430abbb9a9c5bed971f717d39408ff29d4dd5a5f500d9f9fa2",
+      "blob": "6373ba8139df3292a794ebd507040e2e4d3455fb"
+    },
+    "prototype/summoner-lab-s2.html": {
+      "bytes": 81276,
+      "sha256": "6a87bbe2b6130a2c82e691d47cab15fc1c8e01b29283f20a86130852e8a23539",
+      "blob": "9bf3d4276262dd0f085085945ad1ad45391e67be"
+    },
+    "tests/summoner-s2.test.mjs": {
+      "bytes": 2861,
+      "sha256": "a0b17798b4d2b3a9e575bcf2bfbc2d992c332b0af73472ef60f483a5e4fb76b6",
+      "blob": "b3d00cd7b2d9006db0f4e7e0d4b98bf137d65534"
+    },
+    "tests/summoner-lab-acceptance.cjs": {
+      "bytes": 5005,
+      "sha256": "0308a6fd49f67cdb7e6aae113b927a925826bd287f80dbea1f53f689524a5202",
+      "blob": "abcdf612f0e770a897677196b43a8851c2ca98c1"
+    },
+    "tests/juggle-lab-local.cjs": {
+      "bytes": 17018,
+      "sha256": "6c368023b48476aa944d92cbc1a6fc91f11ccc5c4de1dc3ae6e2707c5474f32b",
+      "blob": "86d9ad3ef27d62f1244ddca469288480fbb46b3e"
+    }
+  },
+  "browserSandbox": "disabled under persistent isolated-local grant",
+  "notCovered": [
+    "DNF visual identity",
+    "owner-target combat",
+    "true jump physics",
+    "exact input/active frames",
+    "audio",
+    "Android device/hand feel"
+  ]
+}

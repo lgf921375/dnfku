@@ -1,10 +1,10 @@
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
-async function runSummonerAcceptance({page,dir,url,exactHtml,result,onPageLoaded}){
+async function runSummonerAcceptance({page,dir,url,exactHtml,result,onPageLoaded,version='S1',liftedPose=false}){
  const s=result.summoner={checks:[],cases:{},status:'running',scope:'Original owner motion only; DNF victim/visual identity NOT COVERED'};
  const check=(name,ok)=>{s.checks.push({name,status:ok?'PASS':'FAIL'});if(!ok)throw Error(name);};
  const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
  const response=await page.goto(url,{waitUntil:'load'});
- check('S1 loopback HTML bytes and title',response.status()===200&&(await page.title()).includes('S1')&&sha(await response.body())===sha(fs.readFileSync(exactHtml)));
+ check(version+' loopback HTML bytes and title',response.status()===200&&(await page.title()).includes(version)&&sha(await response.body())===sha(fs.readFileSync(exactHtml)));
  await page.evaluate(()=>document.fonts.ready);await onPageLoaded();
  check('offline Chinese UI font actually loaded',await page.evaluate(()=>document.fonts.check('14px MotionFont','召唤师普通攻击')&&[...document.fonts].some(f=>f.family==='MotionFont'&&f.status==='loaded')));
  const observe=()=>page.evaluate(()=>({snapshot:summonerLab.motion.snapshot(),events:summonerLab.motion.events,samples:summonerLab.samples}));
@@ -24,7 +24,7 @@ async function runSummonerAcceptance({page,dir,url,exactHtml,result,onPageLoaded
  await page.screenshot({fullPage:true,path:path.join(dir,'summoner-raised-frame12.png')});
  await page.locator('#frame').fill('24');s.cases.low=await observe();
  await page.screenshot({fullPage:true,path:path.join(dir,'summoner-low-frame24.png')});
- check('public frame slider changes raised pose to the low finish',s.cases.low.snapshot.pose.head[1]<s.cases.raised.snapshot.pose.head[1]-20);
+ check(liftedPose?'S2 public preview: both feet elevated in second/third poses':'public frame slider changes raised pose to the low finish',liftedPose?[s.cases.raised,s.cases.low].every(c=>c.snapshot.pose.frontFoot[1]>25&&c.snapshot.pose.backFoot[1]>25):s.cases.low.snapshot.pose.head[1]<s.cases.raised.snapshot.pose.head[1]-20);
  const old=s.cases.low.snapshot.time;await page.waitForTimeout(150);s.cases.pause=await observe();check('frame preview freezes motion clock',s.cases.pause.snapshot.time===old);
  await page.getByRole('button',{name:'转身',exact:true}).click();s.cases.mirror=await observe();
  check('real turn button mirrors staff geometry',Math.abs(s.cases.low.snapshot.staff.tip.x+s.cases.mirror.snapshot.staff.tip.x)<1e-8&&s.cases.mirror.snapshot.facing===-1);
