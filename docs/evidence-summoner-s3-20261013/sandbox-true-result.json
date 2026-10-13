@@ -1,0 +1,31 @@
+{
+  "startedUTC": "2026-10-13T05:40:14.882Z",
+  "uid": 0,
+  "gid": 0,
+  "node": "v24.19.0",
+  "playwrightVersion": "1.62.1",
+  "expectedBrowser": {
+    "name": "chromium-headless-shell",
+    "revision": "1234",
+    "installByDefault": true,
+    "browserVersion": "151.0.7922.34",
+    "title": "Chrome Headless Shell"
+  },
+  "executable": "/workspace/scratch/fddb459d7ec2/browser-restored-20261013-s3/chrome-headless-shell-linux64/chrome-headless-shell",
+  "requestedOptions": {
+    "headless": true,
+    "chromiumSandbox": true,
+    "timeout": 15000
+  },
+  "launchAttempted": true,
+  "browserLaunch": "FAIL",
+  "actualSandbox": "NOT COVERED",
+  "gameAssertions": 0,
+  "httpServerStarted": false,
+  "externalPageLoaded": false,
+  "hostPolicyChanged": false,
+  "identityChanged": false,
+  "error": "browserType.launch: Target page, context or browser has been closed\nBrowser logs:\nChromium sandboxing failed!\n================================\nTo avoid the sandboxing issue, do either of the following:\n  - (preferred): Configure your environment to support sandboxing\n  - (alternative): Launch Chromium without sandbox using 'chromiumSandbox: false' option\n================================\n\nCall log:\n\u001b[2m  - <launching> /workspace/scratch/fddb459d7ec2/browser-restored-20261013-s3/chrome-headless-shell-linux64/chrome-headless-shell --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --user-data-dir=/tmp/playwright_chromiumdev_profile-uJ5gj5 --remote-debugging-pipe --no-startup-window\u001b[22m\n\u001b[2m  - <launched> pid=18\u001b[22m\n\u001b[2m  - [pid=18][err] [1013/134014.919241:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:101] Running as root without --no-sandbox is not supported. See https://crbug.com/638180.\u001b[22m\n\u001b[2m  - [pid=18] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=18] <kill>\u001b[22m\n\u001b[2m  - [pid=18] <will force kill>\u001b[22m\n\u001b[2m  - [pid=18] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=18] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=18] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=18] <gracefully close end>\u001b[22m\n\n    at /workspace/scratch/fddb459d7ec2/s3-sandbox-restored-probe/probe.cjs:14:29\n    at Object.<anonymous> (/workspace/scratch/fddb459d7ec2/s3-sandbox-restored-probe/probe.cjs:22:481)",
+  "cleanup": "No Browser object obtained; launch framework cleanup applies",
+  "finishedUTC": "2026-10-13T05:40:14.925Z"
+}

@@ -4,9 +4,10 @@ const crypto=require('node:crypto'),{spawn,execFileSync}=require('node:child_pro
 const {runJuggleAcceptance}=require('./juggle-lab-acceptance.cjs');
 const {runSummonerAcceptance}=require('./summoner-lab-acceptance.cjs');
 const {runSummonerMobileAcceptance}=require('./summoner-mobile-acceptance.cjs');
+const {runSummonerFeedbackAcceptance}=require('./summoner-feedback-acceptance.cjs');
 const root=path.resolve(__dirname,'..');
 const summonerOnly=process.env.DNFKU_LOCAL_SUITE==='summoner';
-const summonerVersion=process.env.DNFKU_SUMMONER_CANDIDATE==='s2'?'S2':'S1';
+const summonerVersion=process.env.DNFKU_SUMMONER_CANDIDATE==='s3'?'S3':process.env.DNFKU_SUMMONER_CANDIDATE==='s2'?'S2':'S1';
 const summonerPage='/summoner-lab-'+summonerVersion.toLowerCase()+'.html';
 const defaultGrant=path.join(root,'docs/local-testing-authorization.json');
 const authorizationPath=process.env.DNFKU_LOCAL_AUTHORIZATION_RECORD??(fs.existsSync(defaultGrant)?defaultGrant:undefined);
@@ -77,7 +78,7 @@ async function worker(){
       if(claim.nonce!==authorizationNonce)throw Error('Authorization is not assigned to this worker');
       result.authorization=env.authorization;
     }
-    const pages=new Map(['/juggle-lab-v11.html','/feedback-lab-v10.html','/summoner-lab-s1.html','/summoner-lab-s2.html'].map(url=>[url,fs.readFileSync(path.join(root,'prototype',url.slice(1)))]));
+    const pages=new Map(['/juggle-lab-v11.html','/feedback-lab-v10.html','/summoner-lab-s1.html','/summoner-lab-s2.html','/summoner-lab-s3.html'].map(url=>[url,fs.readFileSync(path.join(root,'prototype',url.slice(1)))]));
     server=http.createServer((req,res)=>{const bytes=pages.get(req.url);if(!bytes){res.writeHead(404);res.end();return;}res.writeHead(200,{'Content-Type':'text/html; charset=utf-8','Content-Length':bytes.length,'Cache-Control':'no-store'});res.end(bytes);});
     await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(0,'127.0.0.1',resolve);});
     result.binding=server.address();const origin=`http://127.0.0.1:${result.binding.port}`;
@@ -114,10 +115,15 @@ async function worker(){
     await runJuggleAcceptance({page,dir,url:origin+'/juggle-lab-v11.html',exactHtml:path.join(root,'prototype/juggle-lab-v11.html'),transport:'loopback HTTP',result,onPageLoaded:()=>startRecording('v11'),onProgress:name=>{write('status.json',{phase:'browser-case',case:name,utc:new Date().toISOString()});write('results.json',result);}});
     await stopRecording();
     }else result.baselines='NOT RUN: explicit DNFKU_LOCAL_SUITE=summoner';
-    await runSummonerAcceptance({page,dir,url:origin+summonerPage,exactHtml:path.join(root,'prototype',summonerPage.slice(1)),result,version:summonerVersion,liftedPose:summonerVersion==='S2',onPageLoaded:async()=>{
+    await runSummonerAcceptance({page,dir,url:origin+summonerPage,exactHtml:path.join(root,'prototype',summonerPage.slice(1)),result,version:summonerVersion,liftedPose:summonerVersion!=='S1',onPageLoaded:async()=>{
+      if(summonerVersion==='S3')await page.locator('#empty').check();
       await page.getByRole('button',{name:'录制动作',exact:true}).click();
       await page.getByRole('button',{name:'停止并下载',exact:true}).waitFor({state:'visible',timeout:5000});recording='summoner-'+summonerVersion.toLowerCase();
     }});
+    if(summonerVersion==='S3'){
+      await runSummonerFeedbackAcceptance({page,dir,result});
+      if(result.feedback.status!=='passed-feedback-browser')throw Error('S3 feedback browser acceptance failed; see feedback-results.json');
+    }
     if(process.env.DNFKU_TEST_MOBILE==='1'){
       await stopRecording();
       // Mobile navigation destroys the recorder. Screenshots stay local for

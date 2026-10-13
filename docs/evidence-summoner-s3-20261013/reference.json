@@ -1,0 +1,124 @@
+{
+  "sourceFacts": [
+    {
+      "repository": "Oceanisher/Unity-DNF",
+      "commit": "4436c7212a6e3ed2cb389b2c0c4fa5b6211f79e6",
+      "path": "Assets/Scripts/Obj/Unit/Control/ActionUnit.cs",
+      "blobSHA": "19e570acb266acbc9b2973da37800a2dc99509ed",
+      "readLines": [
+        [
+          90,
+          142
+        ],
+        [
+          675,
+          730
+        ]
+      ],
+      "facts": [
+        "OnFightActive requires damage, matching action/frame and no existing freeze before FreezeStart",
+        "OnFightPassive changes to CharacterHurt and still has a victim-freeze TODO"
+      ]
+    },
+    {
+      "repository": "Oceanisher/Unity-DNF",
+      "commit": "4436c7212a6e3ed2cb389b2c0c4fa5b6211f79e6",
+      "path": "Assets/Resources/Config/Object/Character/GhostKnight/Action/Hit_1ActionSo.asset",
+      "blobSHA": "10d4b0e7c09417cb095ebbf7b37b05663dbdba5c",
+      "facts": [
+        "Actual actionName is GhostKnight basic1, frameFreezeInfo time200",
+        "Not a Summoner configuration; do not use200 as her timing"
+      ]
+    },
+    {
+      "repository": "ikemen-engine/Ikemen-GO",
+      "commit": "b464672651c87c42aeca10bb5c33003f26d42071",
+      "path": "src/char.go",
+      "blobSHA": "ffece5ebfedb1090b1671ae36b4b6ffd110cde38",
+      "readLines": [
+        [
+          12591,
+          12650
+        ]
+      ],
+      "facts": [
+        "Hitpause gates hurt/recovery timer processing; generic fighting-engine behavior, not DNF Summoner data"
+      ]
+    }
+  ],
+  "readFailures": [
+    {
+      "repository": "DCurrent/openbor",
+      "commit": "787b6770409935137579715febf80cf7a529b748",
+      "path": "engine/openbor.c",
+      "requestedLines": [
+        29143,
+        29212
+      ],
+      "returnedContent": "empty",
+      "scope": "No fresh line verification claimed; old report remains historical"
+    }
+  ],
+  "videoMetadata": {
+    "stableURL": "https://www.bilibili.com/video/BV1rb411H7ho/",
+    "utc": "2026-10-13T05:40:12.747044+00:00",
+    "status": 200,
+    "bvid": "BV1rb411H7ho",
+    "aid": 46328944,
+    "cid": 81169768,
+    "title": "DNF召唤师 简易加点 基础知识 修炼场连招及一些小技巧讲解",
+    "duration": 1067,
+    "pubdate": 1552633732
+  },
+  "mediaAttempts": [
+    {
+      "stableURL": "https://www.bilibili.com/video/BV1rb411H7ho/",
+      "scope": "anonymous public playback, prefix only",
+      "playAPIStatus": 0,
+      "error": "The read operation timed out"
+    },
+    {
+      "scope": "Retry with smaller 256KiB Range after 1MiB timeout",
+      "width": 640,
+      "height": 360,
+      "fpsDeclared": "30.303",
+      "error": "The read operation timed out"
+    }
+  ],
+  "videoObservationStatus": "NOT COVERED: both media transfers timed out; no frames/audio watched from the new2019 source",
+  "referenceMotion": "S2 empty-swing reference retained; no new DNF owner-victim timing evidence",
+  "creativeCandidate": {
+    "activeFrameWindowsHalfOpen": [
+      [
+        4,
+        6
+      ],
+      [
+        11,
+        14
+      ],
+      [
+        20,
+        23
+      ]
+    ],
+    "stopTicks120Hz": [
+      5,
+      5,
+      8
+    ],
+    "pushWorldUnits": [
+      3,
+      4,
+      8
+    ],
+    "damage": [
+      8,
+      10,
+      14
+    ],
+    "targetHP": 120,
+    "staffRadius": 2.1,
+    "laneTolerance": 9
+  }
+}

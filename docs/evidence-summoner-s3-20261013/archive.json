@@ -1,0 +1,19 @@
+{
+  "archive": {
+    "path": "/workspace/scratch/fddb459d7ec2/dnfku_summoner_S3_evidence_20261013.zip",
+    "bytes": 254504,
+    "sha256": "b6da55cf24b5646a785201811ac3056836b66f0ec3dcc0eca2aa6e5099ae312b",
+    "entries": 9,
+    "CRC": "PASS",
+    "persistentReadbackVerified": true,
+    "readbackBytes": 254504
+  },
+  "video": {
+    "path": "/workspace/scratch/fddb459d7ec2/dnfku_summoner_S3_browser_test_20261013.webm",
+    "bytes": 3188572,
+    "sha256": "df5fcfd442719f9792327862f8e59af717ef28052dc6eb58e1e3d2939963f8d6",
+    "source": "Actual browser Canvas test recording; no DOM/audio; repeat DTS warnings recorded",
+    "persistentReadbackVerified": true,
+    "readbackBytes": 3188572
+  }
+}

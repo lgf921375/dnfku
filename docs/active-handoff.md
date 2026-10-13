@@ -1,5 +1,16 @@
 # dnfku 当前研究交接
 
+## 当前优先交接：S3本人命中反馈候选（2026-10-13）
+
+- 用户“继续复刻，还有攻击反馈也研究研究”。起点local/remote bbc80f2，已读约定、交接、最新报告；目标仍按端游召唤师本人，未切到另一窗口男鬼剑士。没有并行代理。
+- **新候选**：summoner-feedback-s3、renderer-s3、impact-audio、新模板/构建/离线页/独立字库。先前方/景深筛选、法杖胶囊对身体盒精判，命中去重并联动双边短停/受击形变/推退/接触火花/轻震屏/可选原创声音；空挥和失配没有反馈。数值全部原创候选，未套GhostKnight200。S1/S2和旧战斗参数/HTML/workflow不改。
+- **源复核**：固定Unity-DNF4436c721 ActionUnit主动FreezeStart条件/被动TODO、GhostKnight配置与Ikemenb464672 hitpause计时门控。OpenBOR区间返回空，未称新复核成功；2019召唤视频仅元数据/播放API，媒体1MiB与256KiB均超时，未取得新的本人命中帧。
+- **通过**：Node205/205（原192+13）；实际浏览器V10 5/V11 13/S3空挥12/反馈13/mobile6共49，exit0、异常0；声音只验证运行AudioContext与原创新缓冲调度。113个UI汉字在离线字库齐全。反馈旁结果曾停在running11，主结果完整13，已原子恢复并核对一致。
+- **环境纠错**：旧Shell比完整缓存包内文件短53910864字节，SHA不同；CRC287项通过缓存解压到独立browser-restored-20261013-s3，e11fc9ce/151.0.7922.34/--version exit0。恢复后sandbox:true明确root without --no-sandbox退出1；开发验收沿用长期授权sandbox:false、localhost127.0.0.1。未改宿主策略/旧文件/系统权限，未重下载、云浏览器、Actions、部署或其它项目。
+- **媒体边界**：真实Canvas录像大小/SHA匹配且全解码exit0；S3有重复DTS警告，不冒充稳定FPS/音频回录。内部PNG不交付；原DNF帧/片段/签名URL不上仓或包。
+- **未覆盖**：精确DNF召唤师命中帧/受击盒/数值/停顿、浮空/倒地追击/保护、官方美术/音效、Android/真人手感。下一步先补对应版本本人普攻命中普通目标样本再校准，不能称效果一样。
+- [报告](summoner-feedback-s3-20261013.md)、[实证](evidence-summoner-s3-20261013/)。最新SHA以实际远端回读为准。
+
 ## 当前优先交接：用户显式true开启沙箱，实际探测失败（2026-10-13 13:28 上海）
 
 - 起点local/remote881da77，已读真实约定/交接/报告，工作区干净，可见旧Chrome0；仅独立启动一次，明确 `chromiumSandbox:true`，没有自动回退关闭。

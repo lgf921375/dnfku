@@ -1,0 +1,26 @@
+[
+  {
+    "file": "v10-browser-canvas.webm",
+    "currentBytes": 1482200,
+    "currentSHA256": "7d0e6d81dbc34a1e02be47dea13b094b88a02bd4ff07c5f46484571b92ed0e8f",
+    "matchesRecorded": true,
+    "fullDecodeExitCode": 0,
+    "fullDecodeStderr": ""
+  },
+  {
+    "file": "v11-browser-canvas.webm",
+    "currentBytes": 4108745,
+    "currentSHA256": "1450fb8fc704e81650bfeb2d3ff1095caf3df00783982c1c09d3471809f3d45b",
+    "matchesRecorded": true,
+    "fullDecodeExitCode": 0,
+    "fullDecodeStderr": ""
+  },
+  {
+    "file": "summoner-s3-browser-canvas.webm",
+    "currentBytes": 3188572,
+    "currentSHA256": "df5fcfd442719f9792327862f8e59af717ef28052dc6eb58e1e3d2939963f8d6",
+    "matchesRecorded": true,
+    "fullDecodeExitCode": 0,
+    "fullDecodeStderr": "[null @ 0x55e5dedc7900] Application provided invalid, non monotonically increasing dts to muxer in stream 0: 78 >= 78\n[null @ 0x55e5dedc7900] Application provided invalid, non monotonically increasing dts to muxer in stream 0: 193 >= 193\n[null @ 0x55e5dedc7900] Application provided invalid, non monotonically increasing dts to muxer in stream 0: 231 >= 231\n[null @ 0x55e5dedc7900] Application provided invalid, non monotonically increasing dts to muxer in stream 0: 273 >= 273\n[null @ 0x55e5dedc7900] Application provided invalid, non monotonically increasing dts to muxer in stream 0: 297 >= 297\n[null @ 0x55e5dedc7900] Application provided invalid, non monotonically increasing dts to muxer in stream 0: 424 >= 424\n"
+  }
+]

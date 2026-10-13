@@ -1,0 +1,12 @@
+{
+  "archive": "/workspace/scratch/27a600746412/local-browser-check/chrome-headless-shell-linux64.zip",
+  "archiveSHA256": "3cfc2bd00d1bafcf8a68dc74c9c92bb7150ddc8d26ade948a776316e1cec4f14",
+  "executable": "/workspace/scratch/fddb459d7ec2/browser-restored-20261013-s3/chrome-headless-shell-linux64/chrome-headless-shell",
+  "executableBytes": 196975952,
+  "executableSHA256": "e11fc9ce65c96313476f7ee9844b6fb6a9220fb048693cfe9eee00acf4170a9f",
+  "matchesHistoricalSHA": true,
+  "versionExitCode": 0,
+  "versionStdout": "Google Chrome for Testing 151.0.7922.34\n",
+  "versionStderr": "",
+  "uid": 0
+}

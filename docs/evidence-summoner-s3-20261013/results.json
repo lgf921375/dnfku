@@ -1,0 +1,1775 @@
+{
+  "testedBaseCommit": "bbc80f2df1a47f33fc24155e642e98f24ade58ff",
+  "testedSourceSHA256": {
+    "prototype/summoner-motion.mjs": "59d9fd5d5e62414268c6b01c66f1948aaa3de6bb7e8bdfb793d3c438e16df7ac",
+    "prototype/summoner-motion-s2.mjs": "eb9f19c6144c1346267c373a7e6ba007181deaed9a1ecdbd6517cf0263d03d12",
+    "prototype/summoner-feedback-s3.mjs": "b2ab3b0b90f4997b644033d705fd60001878b1f23427b8d7909792573901ccb3",
+    "prototype/summoner-renderer-s3.mjs": "703b4c7e02e8a8a8e5d087ff43a56560f9a8eeb7f9cadcdc254ca415e14f0336",
+    "prototype/summoner-impact-audio.mjs": "8b4fdb92d32df681239e9577ef920a11bb6df322f122fb4d6b09b0aacbbb62b7",
+    "prototype/summoner-lab-s3.template.html": "5a940cd3c17a80d320425ee4bc0222d17597349fe7ea8678cdff3cf4de5ae567",
+    "prototype/build-summoner-lab-s3.mjs": "92b7fa0e8dbf05434c362def11709272962d98915324a263dfdd797ffcc27cb1",
+    "prototype/summoner-lab-s3.html": "84e2e3619939ad4683d54bae39cabeffb3c8cc03d296ee6b81251b26483989d9",
+    "prototype/fonts/summoner-s3-ui.woff": "98b94f85016100c172ba84251c54cd7398d06df7e983f5ee2038364589b538dc",
+    "tests/juggle-lab-local.cjs": "2c8b9f7840539fa86aefaaef954b6c772908a9b079baeec7e2e1b72760e1709e",
+    "tests/summoner-feedback-acceptance.cjs": "19a8bbf28d9031c10affeb0816788af0a08ed5d2e88bc4afcc3f2d3a15872b6f",
+    "tests/summoner-feedback-s3.test.mjs": "d65e86834a08625bc38b64bbb0a6b53c37b9b378bc90734c1eff17fbe9de0a7c"
+  },
+  "node": {
+    "tests": 205,
+    "pass": 205,
+    "fail": 0,
+    "exitCode": 0
+  },
+  "browser": {
+    "status": "passed-browser",
+    "exitCode": 0,
+    "actualSandbox": "Chromium沙箱已关闭；用户长期授权隔离Work本地测试",
+    "v10": {
+      "checks": 5,
+      "status": "passed-browser"
+    },
+    "v11": [
+      {
+        "name": "V11 loopback HTTP 200, title and exact tested HTML",
+        "status": "PASS"
+      },
+      {
+        "name": "real held basic: standing third lifts, same-key falling contact reverses velocity",
+        "status": "PASS"
+      },
+      {
+        "name": "release: natural gravity landing after queued input settles",
+        "status": "PASS"
+      },
+      {
+        "name": "continuous basic reaches a valid original air, ground or total protection threshold",
+        "status": "PASS"
+      },
+      {
+        "name": "continued public inputs cause no damage or HP change while protected",
+        "status": "PASS"
+      },
+      {
+        "name": "release and queued input: immunity history intact, protection expires",
+        "status": "PASS"
+      },
+      {
+        "name": "after immunity ends a new real button attack can damage again",
+        "status": "PASS"
+      },
+      {
+        "name": "distance miss causes no damage or float",
+        "status": "PASS"
+      },
+      {
+        "name": "lane miss causes no damage or float",
+        "status": "PASS"
+      },
+      {
+        "name": "unreachable height stress case: no basic hit",
+        "status": "PASS"
+      },
+      {
+        "name": "full demo: launch, two air follows, natural drop, three ground hits and ground-limit",
+        "status": "PASS"
+      },
+      {
+        "name": "protection expires into idle",
+        "status": "PASS"
+      },
+      {
+        "name": "no browser JavaScript errors",
+        "status": "PASS"
+      }
+    ],
+    "ownerEmptyS3": [
+      {
+        "name": "S3 loopback HTML bytes and title",
+        "status": "PASS"
+      },
+      {
+        "name": "offline Chinese UI font actually loaded",
+        "status": "PASS"
+      },
+      {
+        "name": "real pointer click runs exactly the first motion",
+        "status": "PASS"
+      },
+      {
+        "name": "full replay starts three observed segments, completes at 1.000s",
+        "status": "PASS"
+      },
+      {
+        "name": "real held pointer chains; release settles without another first stage",
+        "status": "PASS"
+      },
+      {
+        "name": "S2 public preview: both feet elevated in second/third poses",
+        "status": "PASS"
+      },
+      {
+        "name": "frame preview freezes motion clock",
+        "status": "PASS"
+      },
+      {
+        "name": "real turn button mirrors staff geometry",
+        "status": "PASS"
+      },
+      {
+        "name": "real keyboard moves idle owner left",
+        "status": "PASS"
+      },
+      {
+        "name": "real X keyboard press starts a staff motion",
+        "status": "PASS"
+      },
+      {
+        "name": "owner-only candidate does not assert damage or lift",
+        "status": "PASS"
+      },
+      {
+        "name": "no browser errors",
+        "status": "PASS"
+      }
+    ],
+    "feedbackS3": [
+      {
+        "name": "target replay: three contacts, unique actions, HP88",
+        "status": "PASS"
+      },
+      {
+        "name": "rendered frame samples: owner and victim stay fixed together during hitstop",
+        "status": "PASS"
+      },
+      {
+        "name": "confirmed contact coordinates drive the live effect",
+        "status": "PASS"
+      },
+      {
+        "name": "empty swing: no impact, HP loss or feedback",
+        "status": "PASS"
+      },
+      {
+        "name": "depth offset: visible target but no hit",
+        "status": "PASS"
+      },
+      {
+        "name": "public movement out of range: no remote hit",
+        "status": "PASS"
+      },
+      {
+        "name": "turn and held X: left-facing contact and recoil mirror",
+        "status": "PASS"
+      },
+      {
+        "name": "feedback switch: same damage, no stop/effect/reaction",
+        "status": "PASS"
+      },
+      {
+        "name": "sound enabled by gesture: running AudioContext, one original buffer per hit",
+        "status": "PASS"
+      },
+      {
+        "name": "sound enabled with an empty swing: no impact buffers",
+        "status": "PASS"
+      },
+      {
+        "name": "single pointer click: one hit and settle",
+        "status": "PASS"
+      },
+      {
+        "name": "reset after a hit clears HP/recoil/effect/input and stops the loop",
+        "status": "PASS"
+      },
+      {
+        "name": "no page/console/network errors",
+        "status": "PASS"
+      }
+    ],
+    "mobile": [
+      {
+        "name": "portrait390x844: no horizontal overflow and readable-sized DOM buttons",
+        "status": "PASS"
+      },
+      {
+        "name": "real touch tap: only first owner motion starts",
+        "status": "PASS"
+      },
+      {
+        "name": "real touch hold/release: three owner motions then settle",
+        "status": "PASS"
+      },
+      {
+        "name": "touch cancellation: no stuck held attack or continuing loop",
+        "status": "PASS"
+      },
+      {
+        "name": "landscape844x390: full Canvas and primary attack button visible together",
+        "status": "PASS"
+      },
+      {
+        "name": "landscape: touch replay completes all three motions",
+        "status": "PASS"
+      }
+    ],
+    "counts": {
+      "v10": 5,
+      "v11": 13,
+      "ownerEmptyS3": 12,
+      "feedbackS3": 13,
+      "mobile": 6,
+      "total": 49
+    },
+    "errors": [],
+    "consoleErrors": [],
+    "requestFailures": [],
+    "confirmedFreezePair": [
+      {
+        "wall": 4032.2,
+        "time": 0.13333333333333333,
+        "feedbackTime": 0.13333333333333333,
+        "stop": 0.041666666666666664,
+        "targetX": 45,
+        "targetAge": 0,
+        "stage": 0,
+        "frame": 4,
+        "held": false
+      },
+      {
+        "wall": 4048.8,
+        "time": 0.13333333333333333,
+        "feedbackTime": 0.15,
+        "stop": 0.025,
+        "targetX": 45,
+        "targetAge": 0,
+        "stage": 0,
+        "frame": 4,
+        "held": false
+      }
+    ],
+    "feedbackCases": {
+      "contact": {
+        "snapshot": {
+          "time": 0.9999999999999989,
+          "action": null,
+          "queued": false,
+          "held": false,
+          "replay": false,
+          "paused": false,
+          "facing": 1,
+          "x": 0,
+          "pose": {
+            "frame": 30,
+            "hip": [
+              0,
+              38
+            ],
+            "shoulder": [
+              0,
+              65
+            ],
+            "head": [
+              2,
+              78
+            ],
+            "hand": [
+              -10,
+              58
+            ],
+            "staffAngle": -4.903185307179586,
+            "backKnee": [
+              -9,
+              20
+            ],
+            "backFoot": [
+              -12,
+              1
+            ],
+            "frontKnee": [
+              7,
+              19
+            ],
+            "frontFoot": [
+              10,
+              1
+            ],
+            "freeHand": [
+              14,
+              49
+            ]
+          },
+          "staff": {
+            "grip": {
+              "x": -10,
+              "y": 58
+            },
+            "butt": {
+              "x": -15.499584107637194,
+              "y": 29.526247619201566
+            },
+            "tip": {
+              "x": -2.604007579384465,
+              "y": 96.29228768452202
+            }
+          },
+          "combatStatus": "ORIGINAL CANDIDATE: active frames, damage, stop, recoil and sound are not official DNF values; DNF parity NOT COVERED",
+          "poseModel": "S2 body calibration; elevated feet are animation landmarks, no air physics",
+          "feedbackTime": 1.1499999999999984,
+          "attackerStop": 0,
+          "target": {
+            "x": 60.00000000000005,
+            "lane": 0,
+            "present": true,
+            "hp": 88,
+            "stop": 0,
+            "stun": 0,
+            "reaction": null,
+            "pushRemaining": 0,
+            "pushSpeed": 57.14285714285714
+          },
+          "targetPose": {
+            "x": 60.00000000000005,
+            "lean": 0,
+            "compress": 0,
+            "head": {
+              "x": 60.00000000000005,
+              "y": 80
+            },
+            "shoulder": {
+              "x": 60.00000000000005,
+              "y": 66
+            },
+            "hip": {
+              "x": 60.00000000000005,
+              "y": 35
+            }
+          },
+          "hitCount": 3,
+          "effects": []
+        },
+        "impacts": [
+          {
+            "time": 0.133333,
+            "type": "impact",
+            "wall": 0.133333,
+            "stage": 0,
+            "attackId": 1,
+            "point": {
+              "x": 45.00000000000001,
+              "y": 48.72153994237265
+            },
+            "damage": 8,
+            "targetHP": 112,
+            "stopSeconds": 0.041666666666666664,
+            "feedbackEnabled": true
+          },
+          {
+            "time": 0.366667,
+            "type": "impact",
+            "wall": 0.408333,
+            "stage": 1,
+            "attackId": 2,
+            "point": {
+              "x": 44.564698040512866,
+              "y": 87.83444123254155
+            },
+            "damage": 10,
+            "targetHP": 102,
+            "stopSeconds": 0.041666666666666664,
+            "feedbackEnabled": true
+          },
+          {
+            "time": 0.666667,
+            "type": "impact",
+            "wall": 0.75,
+            "stage": 2,
+            "attackId": 3,
+            "point": {
+              "x": 43.16222393969558,
+              "y": 57.698548927099665
+            },
+            "damage": 14,
+            "targetHP": 88,
+            "stopSeconds": 0.06666666666666667,
+            "feedbackEnabled": true
+          }
+        ],
+        "audio": {
+          "played": 0,
+          "scheduled": [],
+          "error": null,
+          "contextState": "not-created"
+        }
+      },
+      "impact": {
+        "snapshot": {
+          "time": 0.16666666666666666,
+          "action": {
+            "stage": 0,
+            "frame": 4,
+            "elapsed": 0.13333333333333333,
+            "attackId": 1,
+            "hitTarget": true
+          },
+          "queued": false,
+          "held": false,
+          "replay": false,
+          "paused": false,
+          "facing": 1,
+          "x": 0,
+          "pose": {
+            "frame": 4,
+            "hip": [
+              1,
+              31
+            ],
+            "shoulder": [
+              8,
+              52
+            ],
+            "head": [
+              10,
+              65
+            ],
+            "hand": [
+              36,
+              48
+            ],
+            "staffAngle": 0.08000000000000007,
+            "backKnee": [
+              -8,
+              17
+            ],
+            "backFoot": [
+              -21,
+              1
+            ],
+            "frontKnee": [
+              16,
+              16
+            ],
+            "frontFoot": [
+              26,
+              1
+            ],
+            "freeHand": [
+              12,
+              47
+            ]
+          },
+          "staff": {
+            "grip": {
+              "x": 36,
+              "y": 48
+            },
+            "butt": {
+              "x": 7.09275051722404,
+              "y": 45.68247387489399
+            },
+            "tip": {
+              "x": 74.87526654580216,
+              "y": 51.11667306479774
+            }
+          },
+          "combatStatus": "ORIGINAL CANDIDATE: active frames, damage, stop, recoil and sound are not official DNF values; DNF parity NOT COVERED",
+          "poseModel": "S2 body calibration; elevated feet are animation landmarks, no air physics",
+          "feedbackTime": 0.175,
+          "attackerStop": 0.03333333333333333,
+          "target": {
+            "x": 45,
+            "lane": 0,
+            "present": true,
+            "hp": 112,
+            "stop": 0.03333333333333333,
+            "stun": 0.18,
+            "reaction": {
+              "stage": 0,
+              "age": 0,
+              "duration": 0.18,
+              "direction": 1,
+              "fromLean": 0
+            },
+            "pushRemaining": 3,
+            "pushSpeed": 21.428571428571427
+          },
+          "targetPose": {
+            "x": 45,
+            "lean": 1.6,
+            "compress": 0.4,
+            "head": {
+              "x": 46.6,
+              "y": 79.6
+            },
+            "shoulder": {
+              "x": 46.04,
+              "y": 65.6
+            },
+            "hip": {
+              "x": 45.192,
+              "y": 34.9
+            }
+          },
+          "hitCount": 1,
+          "effects": [
+            {
+              "x": 45.00000000000001,
+              "y": 48.72153994237265,
+              "age": 0.008333333333333333,
+              "stage": 0,
+              "direction": 1,
+              "attackId": 1
+            }
+          ]
+        },
+        "impacts": [
+          {
+            "time": 0.166667,
+            "type": "impact",
+            "wall": 0.166667,
+            "stage": 0,
+            "attackId": 1,
+            "point": {
+              "x": 45.00000000000001,
+              "y": 48.72153994237265
+            },
+            "damage": 8,
+            "targetHP": 112,
+            "stopSeconds": 0.041666666666666664,
+            "feedbackEnabled": true
+          }
+        ],
+        "audio": {
+          "played": 0,
+          "scheduled": [],
+          "error": null,
+          "contextState": "not-created"
+        }
+      },
+      "empty": {
+        "snapshot": {
+          "time": 0.9999999999999989,
+          "action": null,
+          "queued": false,
+          "held": false,
+          "replay": false,
+          "paused": false,
+          "facing": 1,
+          "x": 0,
+          "pose": {
+            "frame": 30,
+            "hip": [
+              0,
+              38
+            ],
+            "shoulder": [
+              0,
+              65
+            ],
+            "head": [
+              2,
+              78
+            ],
+            "hand": [
+              -10,
+              58
+            ],
+            "staffAngle": -4.903185307179586,
+            "backKnee": [
+              -9,
+              20
+            ],
+            "backFoot": [
+              -12,
+              1
+            ],
+            "frontKnee": [
+              7,
+              19
+            ],
+            "frontFoot": [
+              10,
+              1
+            ],
+            "freeHand": [
+              14,
+              49
+            ]
+          },
+          "staff": {
+            "grip": {
+              "x": -10,
+              "y": 58
+            },
+            "butt": {
+              "x": -15.499584107637194,
+              "y": 29.526247619201566
+            },
+            "tip": {
+              "x": -2.604007579384465,
+              "y": 96.29228768452202
+            }
+          },
+          "combatStatus": "ORIGINAL CANDIDATE: active frames, damage, stop, recoil and sound are not official DNF values; DNF parity NOT COVERED",
+          "poseModel": "S2 body calibration; elevated feet are animation landmarks, no air physics",
+          "feedbackTime": 0.9999999999999989,
+          "attackerStop": 0,
+          "target": {
+            "x": 45,
+            "lane": 0,
+            "present": false,
+            "hp": 120,
+            "stop": 0,
+            "stun": 0,
+            "reaction": null,
+            "pushRemaining": 0,
+            "pushSpeed": 0
+          },
+          "targetPose": {
+            "x": 45,
+            "lean": 0,
+            "compress": 0,
+            "head": {
+              "x": 45,
+              "y": 80
+            },
+            "shoulder": {
+              "x": 45,
+              "y": 66
+            },
+            "hip": {
+              "x": 45,
+              "y": 35
+            }
+          },
+          "hitCount": 0,
+          "effects": []
+        },
+        "impacts": [],
+        "audio": {
+          "played": 0,
+          "scheduled": [],
+          "error": null,
+          "contextState": "not-created"
+        }
+      },
+      "depth": {
+        "snapshot": {
+          "time": 0.9999999999999989,
+          "action": null,
+          "queued": false,
+          "held": false,
+          "replay": false,
+          "paused": false,
+          "facing": 1,
+          "x": 0,
+          "pose": {
+            "frame": 30,
+            "hip": [
+              0,
+              38
+            ],
+            "shoulder": [
+              0,
+              65
+            ],
+            "head": [
+              2,
+              78
+            ],
+            "hand": [
+              -10,
+              58
+            ],
+            "staffAngle": -4.903185307179586,
+            "backKnee": [
+              -9,
+              20
+            ],
+            "backFoot": [
+              -12,
+              1
+            ],
+            "frontKnee": [
+              7,
+              19
+            ],
+            "frontFoot": [
+              10,
+              1
+            ],
+            "freeHand": [
+              14,
+              49
+            ]
+          },
+          "staff": {
+            "grip": {
+              "x": -10,
+              "y": 58
+            },
+            "butt": {
+              "x": -15.499584107637194,
+              "y": 29.526247619201566
+            },
+            "tip": {
+              "x": -2.604007579384465,
+              "y": 96.29228768452202
+            }
+          },
+          "combatStatus": "ORIGINAL CANDIDATE: active frames, damage, stop, recoil and sound are not official DNF values; DNF parity NOT COVERED",
+          "poseModel": "S2 body calibration; elevated feet are animation landmarks, no air physics",
+          "feedbackTime": 0.9999999999999989,
+          "attackerStop": 0,
+          "target": {
+            "x": 45,
+            "lane": 24,
+            "present": true,
+            "hp": 120,
+            "stop": 0,
+            "stun": 0,
+            "reaction": null,
+            "pushRemaining": 0,
+            "pushSpeed": 0
+          },
+          "targetPose": {
+            "x": 45,
+            "lean": 0,
+            "compress": 0,
+            "head": {
+              "x": 45,
+              "y": 80
+            },
+            "shoulder": {
+              "x": 45,
+              "y": 66
+            },
+            "hip": {
+              "x": 45,
+              "y": 35
+            }
+          },
+          "hitCount": 0,
+          "effects": []
+        },
+        "impacts": [],
+        "audio": {
+          "played": 0,
+          "scheduled": [],
+          "error": null,
+          "contextState": "not-created"
+        }
+      },
+      "range": {
+        "snapshot": {
+          "time": 1.3083333333333311,
+          "action": null,
+          "queued": false,
+          "held": false,
+          "replay": false,
+          "paused": false,
+          "facing": -1,
+          "x": -90.24999999999997,
+          "pose": {
+            "frame": 10,
+            "hip": [
+              0,
+              37
+            ],
+            "shoulder": [
+              0,
+              63
+            ],
+            "head": [
+              2,
+              77
+            ],
+            "hand": [
+              11,
+              65
+            ],
+            "staffAngle": 0.95,
+            "backKnee": [
+              -10,
+              20
+            ],
+            "backFoot": [
+              -18,
+              1
+            ],
+            "frontKnee": [
+              9,
+              20
+            ],
+            "frontFoot": [
+              19,
+              1
+            ],
+            "freeHand": [
+              13,
+              60
+            ]
+          },
+          "staff": {
+            "grip": {
+              "x": -101.24999999999997,
+              "y": 65
+            },
+            "butt": {
+              "x": -84.38119040554734,
+              "y": 41.41095036110816
+            },
+            "tip": {
+              "x": -123.93564048909143,
+              "y": 96.72320468678558
+            }
+          },
+          "combatStatus": "ORIGINAL CANDIDATE: active frames, damage, stop, recoil and sound are not official DNF values; DNF parity NOT COVERED",
+          "poseModel": "S2 body calibration; elevated feet are animation landmarks, no air physics",
+          "feedbackTime": 1.3083333333333311,
+          "attackerStop": 0,
+          "target": {
+            "x": 45,
+            "lane": 0,
+            "present": true,
+            "hp": 120,
+            "stop": 0,
+            "stun": 0,
+            "reaction": null,
+            "pushRemaining": 0,
+            "pushSpeed": 0
+          },
+          "targetPose": {
+            "x": 45,
+            "lean": 0,
+            "compress": 0,
+            "head": {
+              "x": 45,
+              "y": 80
+            },
+            "shoulder": {
+              "x": 45,
+              "y": 66
+            },
+            "hip": {
+              "x": 45,
+              "y": 35
+            }
+          },
+          "hitCount": 0,
+          "effects": []
+        },
+        "impacts": [],
+        "audio": {
+          "played": 0,
+          "scheduled": [],
+          "error": null,
+          "contextState": "not-created"
+        }
+      },
+      "mirror": {
+        "snapshot": {
+          "time": 1.1083333333333318,
+          "action": null,
+          "queued": false,
+          "held": false,
+          "replay": false,
+          "paused": false,
+          "facing": -1,
+          "x": 0,
+          "pose": {
+            "frame": 30,
+            "hip": [
+              0,
+              38
+            ],
+            "shoulder": [
+              0,
+              65
+            ],
+            "head": [
+              2,
+              78
+            ],
+            "hand": [
+              -10,
+              58
+            ],
+            "staffAngle": -4.903185307179586,
+            "backKnee": [
+              -9,
+              20
+            ],
+            "backFoot": [
+              -12,
+              1
+            ],
+            "frontKnee": [
+              7,
+              19
+            ],
+            "frontFoot": [
+              10,
+              1
+            ],
+            "freeHand": [
+              14,
+              49
+            ]
+          },
+          "staff": {
+            "grip": {
+              "x": 10,
+              "y": 58
+            },
+            "butt": {
+              "x": 15.499584107637194,
+              "y": 29.526247619201566
+            },
+            "tip": {
+              "x": 2.604007579384465,
+              "y": 96.29228768452202
+            }
+          },
+          "combatStatus": "ORIGINAL CANDIDATE: active frames, damage, stop, recoil and sound are not official DNF values; DNF parity NOT COVERED",
+          "poseModel": "S2 body calibration; elevated feet are animation landmarks, no air physics",
+          "feedbackTime": 1.2583333333333313,
+          "attackerStop": 0,
+          "target": {
+            "x": -60.00000000000005,
+            "lane": 0,
+            "present": true,
+            "hp": 88,
+            "stop": 0,
+            "stun": 0,
+            "reaction": null,
+            "pushRemaining": 0,
+            "pushSpeed": -57.14285714285714
+          },
+          "targetPose": {
+            "x": -60.00000000000005,
+            "lean": 0,
+            "compress": 0,
+            "head": {
+              "x": -60.00000000000005,
+              "y": 80
+            },
+            "shoulder": {
+              "x": -60.00000000000005,
+              "y": 66
+            },
+            "hip": {
+              "x": -60.00000000000005,
+              "y": 35
+            }
+          },
+          "hitCount": 3,
+          "effects": []
+        },
+        "impacts": [
+          {
+            "time": 0.233333,
+            "type": "impact",
+            "wall": 0.233333,
+            "stage": 0,
+            "attackId": 1,
+            "point": {
+              "x": -45.00000000000001,
+              "y": 48.72153994237265
+            },
+            "damage": 8,
+            "targetHP": 112,
+            "stopSeconds": 0.041666666666666664,
+            "feedbackEnabled": true
+          },
+          {
+            "time": 0.466667,
+            "type": "impact",
+            "wall": 0.508333,
+            "stage": 1,
+            "attackId": 2,
+            "point": {
+              "x": -44.564698040512866,
+              "y": 87.83444123254155
+            },
+            "damage": 10,
+            "targetHP": 102,
+            "stopSeconds": 0.041666666666666664,
+            "feedbackEnabled": true
+          },
+          {
+            "time": 0.766667,
+            "type": "impact",
+            "wall": 0.85,
+            "stage": 2,
+            "attackId": 3,
+            "point": {
+              "x": -43.16222393969558,
+              "y": 57.698548927099665
+            },
+            "damage": 14,
+            "targetHP": 88,
+            "stopSeconds": 0.06666666666666667,
+            "feedbackEnabled": true
+          }
+        ],
+        "audio": {
+          "played": 0,
+          "scheduled": [],
+          "error": null,
+          "contextState": "not-created"
+        }
+      },
+      "off": {
+        "snapshot": {
+          "time": 1.0083333333333322,
+          "action": null,
+          "queued": false,
+          "held": false,
+          "replay": false,
+          "paused": false,
+          "facing": 1,
+          "x": 0,
+          "pose": {
+            "frame": 30,
+            "hip": [
+              0,
+              38
+            ],
+            "shoulder": [
+              0,
+              65
+            ],
+            "head": [
+              2,
+              78
+            ],
+            "hand": [
+              -10,
+              58
+            ],
+            "staffAngle": -4.903185307179586,
+            "backKnee": [
+              -9,
+              20
+            ],
+            "backFoot": [
+              -12,
+              1
+            ],
+            "frontKnee": [
+              7,
+              19
+            ],
+            "frontFoot": [
+              10,
+              1
+            ],
+            "freeHand": [
+              14,
+              49
+            ]
+          },
+          "staff": {
+            "grip": {
+              "x": -10,
+              "y": 58
+            },
+            "butt": {
+              "x": -15.499584107637194,
+              "y": 29.526247619201566
+            },
+            "tip": {
+              "x": -2.604007579384465,
+              "y": 96.29228768452202
+            }
+          },
+          "combatStatus": "ORIGINAL CANDIDATE: active frames, damage, stop, recoil and sound are not official DNF values; DNF parity NOT COVERED",
+          "poseModel": "S2 body calibration; elevated feet are animation landmarks, no air physics",
+          "feedbackTime": 1.0083333333333322,
+          "attackerStop": 0,
+          "target": {
+            "x": 45,
+            "lane": 0,
+            "present": true,
+            "hp": 88,
+            "stop": 0,
+            "stun": 0,
+            "reaction": null,
+            "pushRemaining": 0,
+            "pushSpeed": 0
+          },
+          "targetPose": {
+            "x": 45,
+            "lean": 0,
+            "compress": 0,
+            "head": {
+              "x": 45,
+              "y": 80
+            },
+            "shoulder": {
+              "x": 45,
+              "y": 66
+            },
+            "hip": {
+              "x": 45,
+              "y": 35
+            }
+          },
+          "hitCount": 3,
+          "effects": []
+        },
+        "impacts": [
+          {
+            "time": 0.133333,
+            "type": "impact",
+            "wall": 0.133333,
+            "stage": 0,
+            "attackId": 1,
+            "point": {
+              "x": 45.00000000000001,
+              "y": 48.72153994237265
+            },
+            "damage": 8,
+            "targetHP": 112,
+            "stopSeconds": 0,
+            "feedbackEnabled": false
+          },
+          {
+            "time": 0.366667,
+            "type": "impact",
+            "wall": 0.366667,
+            "stage": 1,
+            "attackId": 2,
+            "point": {
+              "x": 43.06469804051285,
+              "y": 87.45142835070999
+            },
+            "damage": 10,
+            "targetHP": 102,
+            "stopSeconds": 0,
+            "feedbackEnabled": false
+          },
+          {
+            "time": 0.666667,
+            "type": "impact",
+            "wall": 0.666667,
+            "stage": 2,
+            "attackId": 3,
+            "point": {
+              "x": 39.662223939695544,
+              "y": 58.942903337878796
+            },
+            "damage": 14,
+            "targetHP": 88,
+            "stopSeconds": 0,
+            "feedbackEnabled": false
+          }
+        ],
+        "audio": {
+          "played": 0,
+          "scheduled": [],
+          "error": null,
+          "contextState": "not-created"
+        }
+      },
+      "sound": {
+        "snapshot": {
+          "time": 0.9999999999999989,
+          "action": null,
+          "queued": false,
+          "held": false,
+          "replay": false,
+          "paused": false,
+          "facing": 1,
+          "x": 0,
+          "pose": {
+            "frame": 30,
+            "hip": [
+              0,
+              38
+            ],
+            "shoulder": [
+              0,
+              65
+            ],
+            "head": [
+              2,
+              78
+            ],
+            "hand": [
+              -10,
+              58
+            ],
+            "staffAngle": -4.903185307179586,
+            "backKnee": [
+              -9,
+              20
+            ],
+            "backFoot": [
+              -12,
+              1
+            ],
+            "frontKnee": [
+              7,
+              19
+            ],
+            "frontFoot": [
+              10,
+              1
+            ],
+            "freeHand": [
+              14,
+              49
+            ]
+          },
+          "staff": {
+            "grip": {
+              "x": -10,
+              "y": 58
+            },
+            "butt": {
+              "x": -15.499584107637194,
+              "y": 29.526247619201566
+            },
+            "tip": {
+              "x": -2.604007579384465,
+              "y": 96.29228768452202
+            }
+          },
+          "combatStatus": "ORIGINAL CANDIDATE: active frames, damage, stop, recoil and sound are not official DNF values; DNF parity NOT COVERED",
+          "poseModel": "S2 body calibration; elevated feet are animation landmarks, no air physics",
+          "feedbackTime": 1.1499999999999984,
+          "attackerStop": 0,
+          "target": {
+            "x": 60.00000000000005,
+            "lane": 0,
+            "present": true,
+            "hp": 88,
+            "stop": 0,
+            "stun": 0,
+            "reaction": null,
+            "pushRemaining": 0,
+            "pushSpeed": 57.14285714285714
+          },
+          "targetPose": {
+            "x": 60.00000000000005,
+            "lean": 0,
+            "compress": 0,
+            "head": {
+              "x": 60.00000000000005,
+              "y": 80
+            },
+            "shoulder": {
+              "x": 60.00000000000005,
+              "y": 66
+            },
+            "hip": {
+              "x": 60.00000000000005,
+              "y": 35
+            }
+          },
+          "hitCount": 3,
+          "effects": []
+        },
+        "impacts": [
+          {
+            "time": 0.133333,
+            "type": "impact",
+            "wall": 0.133333,
+            "stage": 0,
+            "attackId": 1,
+            "point": {
+              "x": 45.00000000000001,
+              "y": 48.72153994237265
+            },
+            "damage": 8,
+            "targetHP": 112,
+            "stopSeconds": 0.041666666666666664,
+            "feedbackEnabled": true
+          },
+          {
+            "time": 0.366667,
+            "type": "impact",
+            "wall": 0.408333,
+            "stage": 1,
+            "attackId": 2,
+            "point": {
+              "x": 44.564698040512866,
+              "y": 87.83444123254155
+            },
+            "damage": 10,
+            "targetHP": 102,
+            "stopSeconds": 0.041666666666666664,
+            "feedbackEnabled": true
+          },
+          {
+            "time": 0.666667,
+            "type": "impact",
+            "wall": 0.75,
+            "stage": 2,
+            "attackId": 3,
+            "point": {
+              "x": 43.16222393969558,
+              "y": 57.698548927099665
+            },
+            "damage": 14,
+            "targetHP": 88,
+            "stopSeconds": 0.06666666666666667,
+            "feedbackEnabled": true
+          }
+        ],
+        "audio": {
+          "played": 3,
+          "scheduled": [
+            {
+              "attackId": 1,
+              "stage": 0,
+              "samples": 3088
+            },
+            {
+              "attackId": 2,
+              "stage": 1,
+              "samples": 3528
+            },
+            {
+              "attackId": 3,
+              "stage": 2,
+              "samples": 4851
+            }
+          ],
+          "error": null,
+          "contextState": "running"
+        }
+      },
+      "emptySound": {
+        "snapshot": {
+          "time": 0.9999999999999989,
+          "action": null,
+          "queued": false,
+          "held": false,
+          "replay": false,
+          "paused": false,
+          "facing": 1,
+          "x": 0,
+          "pose": {
+            "frame": 30,
+            "hip": [
+              0,
+              38
+            ],
+            "shoulder": [
+              0,
+              65
+            ],
+            "head": [
+              2,
+              78
+            ],
+            "hand": [
+              -10,
+              58
+            ],
+            "staffAngle": -4.903185307179586,
+            "backKnee": [
+              -9,
+              20
+            ],
+            "backFoot": [
+              -12,
+              1
+            ],
+            "frontKnee": [
+              7,
+              19
+            ],
+            "frontFoot": [
+              10,
+              1
+            ],
+            "freeHand": [
+              14,
+              49
+            ]
+          },
+          "staff": {
+            "grip": {
+              "x": -10,
+              "y": 58
+            },
+            "butt": {
+              "x": -15.499584107637194,
+              "y": 29.526247619201566
+            },
+            "tip": {
+              "x": -2.604007579384465,
+              "y": 96.29228768452202
+            }
+          },
+          "combatStatus": "ORIGINAL CANDIDATE: active frames, damage, stop, recoil and sound are not official DNF values; DNF parity NOT COVERED",
+          "poseModel": "S2 body calibration; elevated feet are animation landmarks, no air physics",
+          "feedbackTime": 0.9999999999999989,
+          "attackerStop": 0,
+          "target": {
+            "x": 45,
+            "lane": 0,
+            "present": false,
+            "hp": 120,
+            "stop": 0,
+            "stun": 0,
+            "reaction": null,
+            "pushRemaining": 0,
+            "pushSpeed": 0
+          },
+          "targetPose": {
+            "x": 45,
+            "lean": 0,
+            "compress": 0,
+            "head": {
+              "x": 45,
+              "y": 80
+            },
+            "shoulder": {
+              "x": 45,
+              "y": 66
+            },
+            "hip": {
+              "x": 45,
+              "y": 35
+            }
+          },
+          "hitCount": 0,
+          "effects": []
+        },
+        "impacts": [],
+        "audio": {
+          "played": 3,
+          "scheduled": [
+            {
+              "attackId": 1,
+              "stage": 0,
+              "samples": 3088
+            },
+            {
+              "attackId": 2,
+              "stage": 1,
+              "samples": 3528
+            },
+            {
+              "attackId": 3,
+              "stage": 2,
+              "samples": 4851
+            }
+          ],
+          "error": null,
+          "contextState": "running"
+        }
+      },
+      "single": {
+        "snapshot": {
+          "time": 0.37500000000000033,
+          "action": null,
+          "queued": false,
+          "held": false,
+          "replay": false,
+          "paused": false,
+          "facing": 1,
+          "x": 0,
+          "pose": {
+            "frame": 10.275955932784639,
+            "hip": [
+              0,
+              37.01379779663923
+            ],
+            "shoulder": [
+              0,
+              63.02759559327846
+            ],
+            "head": [
+              2,
+              77.01379779663924
+            ],
+            "hand": [
+              10.71024627057613,
+              64.90341542352537
+            ],
+            "staffAngle": 0.9559330525548697,
+            "backKnee": [
+              -9.986202203360769,
+              20
+            ],
+            "backFoot": [
+              -17.91721322016461,
+              1
+            ],
+            "frontKnee": [
+              8.972404406721536,
+              19.98620220336077
+            ],
+            "frontFoot": [
+              18.87581983024691,
+              1
+            ],
+            "freeHand": [
+              13.013797796639231,
+              59.84822423696845
+            ]
+          },
+          "staff": {
+            "grip": {
+              "x": 10.71024627057613,
+              "y": 64.90341542352537
+            },
+            "butt": {
+              "x": -6.018312174181569,
+              "y": 41.21469801712437
+            },
+            "tip": {
+              "x": 33.207273144560624,
+              "y": 96.76065607351293
+            }
+          },
+          "combatStatus": "ORIGINAL CANDIDATE: active frames, damage, stop, recoil and sound are not official DNF values; DNF parity NOT COVERED",
+          "poseModel": "S2 body calibration; elevated feet are animation landmarks, no air physics",
+          "feedbackTime": 0.41666666666666713,
+          "attackerStop": 0,
+          "target": {
+            "x": 48.000000000000036,
+            "lane": 0,
+            "present": true,
+            "hp": 112,
+            "stop": 0,
+            "stun": 0,
+            "reaction": null,
+            "pushRemaining": 0,
+            "pushSpeed": 21.428571428571427
+          },
+          "targetPose": {
+            "x": 48.000000000000036,
+            "lean": 0,
+            "compress": 0,
+            "head": {
+              "x": 48.000000000000036,
+              "y": 80
+            },
+            "shoulder": {
+              "x": 48.000000000000036,
+              "y": 66
+            },
+            "hip": {
+              "x": 48.000000000000036,
+              "y": 35
+            }
+          },
+          "hitCount": 1,
+          "effects": []
+        },
+        "impacts": [
+          {
+            "time": 0.166667,
+            "type": "impact",
+            "wall": 0.166667,
+            "stage": 0,
+            "attackId": 1,
+            "point": {
+              "x": 45.00000000000001,
+              "y": 48.72153994237265
+            },
+            "damage": 8,
+            "targetHP": 112,
+            "stopSeconds": 0.041666666666666664,
+            "feedbackEnabled": true
+          }
+        ],
+        "audio": {
+          "played": 3,
+          "scheduled": [
+            {
+              "attackId": 1,
+              "stage": 0,
+              "samples": 3088
+            },
+            {
+              "attackId": 2,
+              "stage": 1,
+              "samples": 3528
+            },
+            {
+              "attackId": 3,
+              "stage": 2,
+              "samples": 4851
+            }
+          ],
+          "error": null,
+          "contextState": "running"
+        }
+      },
+      "reset": {
+        "snapshot": {
+          "time": 0.175,
+          "action": null,
+          "queued": false,
+          "held": false,
+          "replay": false,
+          "paused": false,
+          "facing": 1,
+          "x": 0,
+          "pose": {
+            "frame": 30,
+            "hip": [
+              0,
+              38
+            ],
+            "shoulder": [
+              0,
+              65
+            ],
+            "head": [
+              2,
+              78
+            ],
+            "hand": [
+              -10,
+              58
+            ],
+            "staffAngle": 1.38,
+            "backKnee": [
+              -9,
+              20
+            ],
+            "backFoot": [
+              -12,
+              1
+            ],
+            "frontKnee": [
+              7,
+              19
+            ],
+            "frontFoot": [
+              10,
+              1
+            ],
+            "freeHand": [
+              14,
+              49
+            ]
+          },
+          "staff": {
+            "grip": {
+              "x": -10,
+              "y": 58
+            },
+            "butt": {
+              "x": -15.4995841076372,
+              "y": 29.52624761920157
+            },
+            "tip": {
+              "x": -2.604007579384456,
+              "y": 96.29228768452202
+            }
+          },
+          "combatStatus": "ORIGINAL CANDIDATE: active frames, damage, stop, recoil and sound are not official DNF values; DNF parity NOT COVERED",
+          "poseModel": "S2 body calibration; elevated feet are animation landmarks, no air physics",
+          "feedbackTime": 0.175,
+          "attackerStop": 0,
+          "target": {
+            "x": 45,
+            "lane": 0,
+            "present": true,
+            "hp": 120,
+            "stop": 0,
+            "stun": 0,
+            "reaction": null,
+            "pushRemaining": 0,
+            "pushSpeed": 0
+          },
+          "targetPose": {
+            "x": 45,
+            "lean": 0,
+            "compress": 0,
+            "head": {
+              "x": 45,
+              "y": 80
+            },
+            "shoulder": {
+              "x": 45,
+              "y": 66
+            },
+            "hip": {
+              "x": 45,
+              "y": 35
+            }
+          },
+          "hitCount": 0,
+          "effects": []
+        },
+        "impacts": [],
+        "audio": {
+          "played": 3,
+          "scheduled": [
+            {
+              "attackId": 1,
+              "stage": 0,
+              "samples": 3088
+            },
+            {
+              "attackId": 2,
+              "stage": 1,
+              "samples": 3528
+            },
+            {
+              "attackId": 3,
+              "stage": 2,
+              "samples": 4851
+            }
+          ],
+          "error": null,
+          "contextState": "running"
+        }
+      }
+    }
+  },
+  "evidenceSaveCorrection": {
+    "node": 205,
+    "v10": 5,
+    "v11": 13,
+    "ownerEmptyS3": 12,
+    "feedbackS3": 13,
+    "mobile": 6,
+    "browserStatus": "passed-browser",
+    "exitCode": 0,
+    "errors": 0,
+    "consoleErrors": 0,
+    "networkErrors": 0,
+    "feedbackFilePreviouslyMatchedFinal": false,
+    "previousFeedbackFileChecks": 11,
+    "previousFeedbackFileStatus": "running",
+    "nativeCanvasVideos": [
+      {
+        "file": "v10-browser-canvas.webm",
+        "source": "real browser Canvas.captureStream + UI MediaRecorder; excludes DOM controls/audio",
+        "bytes": 1482200,
+        "sha256": "7d0e6d81dbc34a1e02be47dea13b094b88a02bd4ff07c5f46484571b92ed0e8f"
+      },
+      {
+        "file": "v11-browser-canvas.webm",
+        "source": "real browser Canvas.captureStream + UI MediaRecorder; excludes DOM controls/audio",
+        "bytes": 4108745,
+        "sha256": "1450fb8fc704e81650bfeb2d3ff1095caf3df00783982c1c09d3471809f3d45b"
+      },
+      {
+        "file": "summoner-s3-browser-canvas.webm",
+        "source": "real browser Canvas.captureStream + UI MediaRecorder; excludes DOM controls/audio",
+        "bytes": 3188572,
+        "sha256": "df5fcfd442719f9792327862f8e59af717ef28052dc6eb58e1e3d2939963f8d6"
+      }
+    ],
+    "feedbackFileNowMatchedFinal": true,
+    "feedbackFileSHA256": "5ebe885a0e29e12bfc5f5ee6fafe2fcdd439db9ef07c0d889e71e7ea45260f2d"
+  },
+  "uncovered": [
+    "Exact DNF Summoner collision/active frames, damage and hitstop",
+    "DNF victim float/down/protection",
+    "Original DNF artwork and sound",
+    "Android device, subjective feel or stable frame rate"
+  ]
+}
