@@ -1,0 +1,403 @@
+{
+  "parentCommit": "d1e9e9945d6708c99d163109f859a2106bfb3f22",
+  "node": {
+    "status": "PASS",
+    "newInitial": {
+      "pass": 13,
+      "fail": 0,
+      "exitCode": 0
+    },
+    "final": {
+      "pass": 246,
+      "fail": 0,
+      "old": 233,
+      "new": 13,
+      "exitCode": 0
+    },
+    "tapSHA256": "e21ed2463a4ffc22dab7ab7e1f3a335f0712017cf6594f094e48ac6017a8b26d"
+  },
+  "browser": {
+    "status": "passed-browser",
+    "exitCode": 0,
+    "uniqueChecks": 50,
+    "sections": {
+      "summoner": {
+        "status": "passed-browser",
+        "checks": [
+          {
+            "name": "S6 loopback HTML bytes and title",
+            "status": "PASS"
+          },
+          {
+            "name": "offline Chinese UI font actually loaded",
+            "status": "PASS"
+          },
+          {
+            "name": "real pointer click runs exactly the first motion",
+            "status": "PASS"
+          },
+          {
+            "name": "full replay starts three observed segments, completes at 1.000s",
+            "status": "PASS"
+          },
+          {
+            "name": "real held pointer chains; release settles without another first stage",
+            "status": "PASS"
+          },
+          {
+            "name": "S2 public preview: both feet elevated in second/third poses",
+            "status": "PASS"
+          },
+          {
+            "name": "frame preview freezes motion clock",
+            "status": "PASS"
+          },
+          {
+            "name": "real turn button mirrors staff geometry",
+            "status": "PASS"
+          },
+          {
+            "name": "real keyboard moves idle owner left",
+            "status": "PASS"
+          },
+          {
+            "name": "real X keyboard press starts a staff motion",
+            "status": "PASS"
+          },
+          {
+            "name": "owner-only candidate does not assert damage or lift",
+            "status": "PASS"
+          },
+          {
+            "name": "no browser errors",
+            "status": "PASS"
+          }
+        ]
+      },
+      "feedback": {
+        "status": "passed-feedback-browser",
+        "checks": [
+          {
+            "name": "target replay: three contacts, unique actions, HP88",
+            "status": "PASS"
+          },
+          {
+            "name": "rendered frame samples: owner and victim stay fixed together during hitstop",
+            "status": "PASS"
+          },
+          {
+            "name": "confirmed contact coordinates drive the live effect",
+            "status": "PASS"
+          },
+          {
+            "name": "empty swing: no impact, HP loss or feedback",
+            "status": "PASS"
+          },
+          {
+            "name": "depth offset: visible target but no hit",
+            "status": "PASS"
+          },
+          {
+            "name": "public movement out of range: no remote hit",
+            "status": "PASS"
+          },
+          {
+            "name": "turn and held X: left-facing contact and recoil mirror",
+            "status": "PASS"
+          },
+          {
+            "name": "feedback switch: same damage, no stop/effect/reaction",
+            "status": "PASS"
+          },
+          {
+            "name": "sound enabled by gesture: running AudioContext, one original buffer per hit",
+            "status": "PASS"
+          },
+          {
+            "name": "sound enabled with an empty swing: no impact buffers",
+            "status": "PASS"
+          },
+          {
+            "name": "single pointer click: one hit and settle",
+            "status": "PASS"
+          },
+          {
+            "name": "reset after a hit clears HP/recoil/effect/input and stops the loop",
+            "status": "PASS"
+          },
+          {
+            "name": "no page/console/network errors",
+            "status": "PASS"
+          }
+        ]
+      },
+      "victim": {
+        "status": "passed-victim-browser",
+        "checks": [
+          {
+            "name": "ordinary monster: three standing hits, HP88, no fabricated launch",
+            "status": "PASS"
+          },
+          {
+            "name": "PK player: three standing hits, HP88, no fabricated launch",
+            "status": "PASS"
+          },
+          {
+            "name": "actual hitstop renders changed hurt pose immediately and freezes that pose",
+            "status": "PASS"
+          },
+          {
+            "name": "live confirmed contacts choose body/head/body responses by contact height",
+            "status": "PASS"
+          },
+          {
+            "name": "public air fixture: true contact, floor landing, down and smooth get-up",
+            "status": "PASS"
+          },
+          {
+            "name": "public down fixture: high swings miss, low third hit uses flat victim boxes",
+            "status": "PASS"
+          },
+          {
+            "name": "optional PK ground chase: second genuine low hit triggers protected rise",
+            "status": "PASS"
+          },
+          {
+            "name": "PVE ground chase never inherits enabled PK trial protection",
+            "status": "PASS"
+          },
+          {
+            "name": "public super armor takes damage without recoil or standing protection accumulation",
+            "status": "PASS"
+          },
+          {
+            "name": "public frame pause freezes victim altitude, velocity, pose and state timers",
+            "status": "PASS"
+          },
+          {
+            "name": "live renderer after public movement keeps staff drawing aligned with collision coordinates",
+            "status": "PASS"
+          },
+          {
+            "name": "public reset clears stale physics and retains the selected down fixture",
+            "status": "PASS"
+          },
+          {
+            "name": "no page, console or network errors",
+            "status": "PASS"
+          },
+          {
+            "name": "public low-HP air contact preserves altitude during lethal hitstop and then falls",
+            "status": "PASS"
+          },
+          {
+            "name": "public downed lethal hit remains low instead of switching to standing hurt",
+            "status": "PASS"
+          },
+          {
+            "name": "public pre-positioned ordinary get-up is interrupted by a genuine staff contact",
+            "status": "PASS"
+          },
+          {
+            "name": "public armored get-up takes damage without ordinary interruption",
+            "status": "PASS"
+          },
+          {
+            "name": "continued real held attacks after death do not create extra damage or defeat events",
+            "status": "PASS"
+          },
+          {
+            "name": "public low-HP switch/reset restores a live selected fixture without orphan timers",
+            "status": "PASS"
+          }
+        ]
+      },
+      "mobile": {
+        "status": "passed-mobile-viewport",
+        "checks": [
+          {
+            "name": "portrait390x844: no horizontal overflow and readable-sized DOM buttons",
+            "status": "PASS"
+          },
+          {
+            "name": "real touch tap: only first owner motion starts",
+            "status": "PASS"
+          },
+          {
+            "name": "real touch hold/release: three owner motions then settle",
+            "status": "PASS"
+          },
+          {
+            "name": "touch cancellation: no stuck held attack or continuing loop",
+            "status": "PASS"
+          },
+          {
+            "name": "landscape844x390: full Canvas and primary attack button visible together",
+            "status": "PASS"
+          },
+          {
+            "name": "landscape: touch replay completes all three motions",
+            "status": "PASS"
+          }
+        ]
+      }
+    },
+    "sidecarsMatchMain": {
+      "feedback": true,
+      "victim": true,
+      "mobile": true
+    },
+    "errors": [],
+    "consoleErrors": [],
+    "requestFailures": [],
+    "oldV10V11": "NOT RUN this turn",
+    "oldS5Browser": "NOT RUN separately; 13 reused healthy checks run against S6",
+    "sandbox": "Chromium沙箱已关闭；用户长期授权隔离Work本地测试",
+    "binding": {
+      "address": "127.0.0.1",
+      "family": "IPv4",
+      "port": 38907
+    },
+    "Android": "NOT COVERED",
+    "mobile": "default monster viewport touch; PK desktop pointer"
+  },
+  "testedFiles": {
+    "prototype/summoner-victim-s6.mjs": "8f4f2d0093e4fad283b192f1deffd778006e1cc2f9cc4d7d49a89819c97d1fa2",
+    "prototype/summoner-renderer-s6.mjs": "7ea5ee3be25d5a71e0e0b93a2d9148392b0a87bdba0cd69c5ac0c39d9f1c2b38",
+    "prototype/summoner-lab-s6.template.html": "c8ed9afbd222d71323b7066abfb03830333bf1653ca751a247c4ae20f78fd1fa",
+    "prototype/build-summoner-lab-s6.mjs": "6dbcabed485a0317205a4a2fc61fbd3d68a1bd5bf549fd57b1b00a40d2e63b66",
+    "prototype/summoner-lab-s6.html": "438425e111d0a034e77652eef8bbf582db1b4967ac39d2ce8386656da92944f3",
+    "prototype/fonts/summoner-s6-ui.woff": "9d32638dc8c734f40dd86bdd3e9b188e3fc99b56ecca0cdbc8671073a989128d",
+    "tests/summoner-victim-s6.test.mjs": "492f9f60c046949aec460095f9f3ee942604be2a7b5fa3c1d50f2e00cc46f2a2",
+    "tests/summoner-victim-s6-acceptance.cjs": "35f39e0f796978c7a1e81610ea1f467d1ab47d7ca6b72fafbe5ff631132fe7ce",
+    "tests/summoner-victim-s5-acceptance.cjs": "7f7d477ffc611df6208de92ec9a09e47d5ff8e60bc6ae8ef15a81d6d039b1414",
+    "tests/juggle-lab-local.cjs": "8119147289651ce3a5b8b3004f6c0eafd917fd8bf8caaba51c8cf0beca976469"
+  },
+  "previousFilesUnchanged": {
+    "prototype/summoner-victim-s5.mjs": true,
+    "prototype/summoner-renderer-s5.mjs": true,
+    "prototype/summoner-lab-s5.html": true,
+    "prototype/summoner-motion.mjs": true,
+    "prototype/summoner-motion-s2.mjs": true,
+    "prototype/summoner-feedback-s3.mjs": true,
+    "prototype/summoner-impact-audio.mjs": true,
+    "prototype/combat-juggle.mjs": true,
+    "prototype/combat-feedback.mjs": true,
+    "tests/summoner-feedback-acceptance.cjs": true
+  },
+  "font": {
+    "ChineseChars": 137,
+    "missing": [],
+    "license": "OFL-1.1"
+  },
+  "source": {
+    "repository": "v-star0719/U3D_MiniDNF",
+    "commit": "543839751adbe09eecc896da949945080782b45e",
+    "path": "Project/Assets/Scripts/ActorBase.cs",
+    "blob": "6fd8451524edb5bc0d75890dcff60763c061f6dd",
+    "readRanges": [
+      [
+        330,
+        432
+      ],
+      [
+        666,
+        790
+      ]
+    ],
+    "scope": "static reference to state structure; original DNF values NOT COVERED"
+  },
+  "referenceSearch": "system2 and system1 results/metadata; no new DNF owner-target footage decoded",
+  "regression": {
+    "air": {
+      "S5": {
+        "stateBefore": "air",
+        "stateAfter": "down",
+        "yBefore": 12,
+        "yAfter": 0,
+        "headBefore": {
+          "x": 65.88799619354162,
+          "y": 83.0064265548331
+        },
+        "headAfter": {
+          "x": 49,
+          "y": 77
+        }
+      },
+      "S6": {
+        "stateBefore": "air",
+        "stateAfter": "air",
+        "yBefore": 12,
+        "yAfter": 12,
+        "headBefore": {
+          "x": 65.88799619354162,
+          "y": 83.0064265548331
+        },
+        "headAfter": {
+          "x": 62.66599714515622,
+          "y": 83.75481991612483
+        }
+      }
+    },
+    "down": {
+      "S5": {
+        "stateBefore": "down",
+        "stateAfter": "down",
+        "yBefore": 0,
+        "yAfter": 0,
+        "headBefore": {
+          "x": 8,
+          "y": 13
+        },
+        "headAfter": {
+          "x": 41,
+          "y": 77
+        }
+      },
+      "S6": {
+        "stateBefore": "down",
+        "stateAfter": "down",
+        "yBefore": 0,
+        "yAfter": 0,
+        "headBefore": {
+          "x": 8,
+          "y": 13
+        },
+        "headAfter": {
+          "x": 8,
+          "y": 16
+        }
+      }
+    },
+    "rise": {
+      "S5": {
+        "stateBefore": "rise",
+        "stateAfter": "rise",
+        "yBefore": 0,
+        "yAfter": 0,
+        "headBefore": {
+          "x": 14.466003005259203,
+          "y": 31.05092505634861
+        },
+        "headAfter": {
+          "x": 14.466003005259203,
+          "y": 31.05092505634861
+        }
+      },
+      "S6": {
+        "stateBefore": "rise",
+        "stateAfter": "standing",
+        "yBefore": 0,
+        "yAfter": 0,
+        "headBefore": {
+          "x": 14.466003005259203,
+          "y": 31.05092505634861
+        },
+        "headAfter": {
+          "x": 35.14990045078888,
+          "y": 67.5576387584523
+        }
+      }
+    }
+  }
+}

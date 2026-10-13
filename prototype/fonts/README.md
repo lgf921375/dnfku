@@ -7,3 +7,5 @@ Subset uses standard WOFF compression because this runtime lacks the WOFF2 Brotl
 The font is embedded in the standalone generated HTML; no host font installation.
 
 S5 offline UI subset: summoner-s5-ui.woff, 131 Chinese UI characters covered; same Noto Sans CJK SC source and OFL-1.1 license.
+
+S6 offline UI subset: summoner-s6-ui.woff, 137 Chinese UI characters covered; same Noto Sans CJK SC source and OFL-1.1 license.
