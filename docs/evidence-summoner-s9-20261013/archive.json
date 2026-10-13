@@ -1,0 +1,8 @@
+{
+  "file": "dnfku_summoner_S9_evidence_20261013.zip",
+  "bytes": 776348,
+  "sha256": "a9e1f38e19d3515f2119ef5ea90f0dcab525160cbc9d70979f4458c287b81ddb",
+  "entries": 27,
+  "CRCFailure": null,
+  "includes": "Both browser runs including real failed landscape layout, actual Node and static/media checks; no PNG, original DNF media, signed URLs, duplicate Git source/report."
+}

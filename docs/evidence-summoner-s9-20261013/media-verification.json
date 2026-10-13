@@ -1,0 +1,10 @@
+{
+  "file": "dnfku_summoner_S9_browser_test_20261013.webm",
+  "bytes": 13650070,
+  "sha256": "602181bdef732044e2c86dd79202563faa582c6ff669591479edc38f12f38f74",
+  "fullRawVideoDecode": {
+    "exitCode": 0,
+    "stderrBytes": 0
+  },
+  "scope": "Own Canvas capture only; excludes DOM configuration/timeline and audio, no stable FPS guarantee"
+}

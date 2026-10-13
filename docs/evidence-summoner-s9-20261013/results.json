@@ -1,0 +1,138 @@
+{
+  "startingCommit": "6ba90c4dc590438b3677a2cf4f11a91455bc82f8",
+  "startingTree": "c290f4b184186cee9a623aa95c789c42d05eedce",
+  "node": {
+    "new": 9,
+    "newPass": 9,
+    "actual": 273,
+    "pass": 273,
+    "fail": 0,
+    "exitCode": 0
+  },
+  "browserInitial": {
+    "checks": 65,
+    "pass": 64,
+    "fail": 1,
+    "exitCode": 1,
+    "failure": [
+      {
+        "name": "landscape phone-size shows Canvas, both choices and combo button together",
+        "status": "FAIL"
+      }
+    ],
+    "mobileBaseline": "NOT RUN after combo layout failure",
+    "landscape": {
+      "height": 390,
+      "width": 844,
+      "scrollWidth": 844,
+      "items": [
+        {
+          "id": "comparison",
+          "top": 49,
+          "bottom": 93
+        },
+        {
+          "id": "scene",
+          "top": 49,
+          "bottom": 93
+        },
+        {
+          "id": "stage",
+          "top": 103,
+          "bottom": 297.984375
+        },
+        {
+          "id": "combo",
+          "top": 355.984375,
+          "bottom": 399.984375
+        }
+      ]
+    }
+  },
+  "browserFinal": {
+    "checks": 71,
+    "counts": {
+      "summoner": 12,
+      "feedback": 13,
+      "victim": 26,
+      "combo": 14,
+      "mobile": 6
+    },
+    "pass": 71,
+    "fail": 0,
+    "exitCode": 0,
+    "sidecarsMatch": {
+      "feedback": true,
+      "victim": true,
+      "combo": true,
+      "mobile": true
+    },
+    "errors": [],
+    "consoleErrors": [],
+    "requestFailures": [],
+    "landscape": {
+      "height": 390,
+      "width": 844,
+      "scrollWidth": 844,
+      "items": [
+        {
+          "id": "comparison",
+          "top": 49,
+          "bottom": 93
+        },
+        {
+          "id": "scene",
+          "top": 49,
+          "bottom": 93
+        },
+        {
+          "id": "stage",
+          "top": 103,
+          "bottom": 277.984375
+        },
+        {
+          "id": "combo",
+          "top": 335.984375,
+          "bottom": 379.984375
+        }
+      ]
+    }
+  },
+  "testedFilesSHA256": {
+    "prototype/build-summoner-lab-s9.mjs": "fef41f742e6bc0c2230470a26d0363a0bf135d8d345c4c7a8f86fb695ad481f1",
+    "prototype/summoner-lab-s9.template.html": "a51165f7e79ad76059efcaf252482ee6b3b5d1eafa7082a084355f723c644be7",
+    "prototype/summoner-lab-s9.html": "61a4dd754c8edfec88cdd6e40fb32221d4c71cf5cdf58fe0a62f63dad4e78398",
+    "prototype/summoner-combo-s9.mjs": "dcd8ffc4cd86b08061b7cf88e12b1150828e46af13e42ce1a1fe8de31baa727b",
+    "prototype/fonts/summoner-s9-ui.woff": "3434908882b405f108ad67290d8869b40cb4a62110fb3a8b30072cd5aa7ccbd3",
+    "tests/juggle-lab-local.cjs": "a59014f3720879eb34bf7775fe7592ae2a01f310cf6d45ac9ffab4639c8bfa32",
+    "tests/summoner-combo-s9.test.mjs": "39ebbd4b3e21a0f1fb76299a3efcb1aa345cf3e888c5ec83a823d4abae1ff73f",
+    "tests/summoner-combo-s9-acceptance.cjs": "cb080be4dd8b71ef61c3d7c3315ef12b139804f07221dcf68d37f50251b06587"
+  },
+  "static": {
+    "buildDeterministic": true,
+    "htmlSHA256": "61a4dd754c8edfec88cdd6e40fb32221d4c71cf5cdf58fe0a62f63dad4e78398",
+    "inlineScriptNodeCheckExitCode": 0,
+    "inlineScriptStderr": "",
+    "existingCombatAndRendererUnchanged": {
+      "summoner-motion.mjs": true,
+      "summoner-motion-s2.mjs": true,
+      "summoner-feedback-s3.mjs": true,
+      "summoner-impact-audio.mjs": true,
+      "summoner-victim-s6.mjs": true,
+      "summoner-contact-s7.mjs": true,
+      "summoner-victim-s7.mjs": true,
+      "summoner-renderer-s7.mjs": true
+    },
+    "fontChineseCount": 217,
+    "fontMissing": [],
+    "initialCandidateSHA256": "c972715ea7238850b24b75a5672bd443d0f35fd00cb22b8d4d8b81b6f38f2046"
+  },
+  "notCovered": [
+    "Original DNF full summoner combo parity and exact victim-hit footage",
+    "Summoner grounded basic launch evidence",
+    "Original hitstun/hurtboxes/armor/PK values",
+    "Android hardware and human hand feel",
+    "Old S1-S8/V10/V11 browser pages separately rerun"
+  ],
+  "scope": "No reset inside complete demo. Original auto approach helper on unchanged S7. Local sandbox-disabled Chromium under persistent local authorization, HTTP127.0.0.1."
+}

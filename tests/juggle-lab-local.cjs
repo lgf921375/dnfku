@@ -11,7 +11,7 @@ const {runSummonerVictimS6Acceptance}=require('./summoner-victim-s6-acceptance.c
 const {runSummonerContactS7Acceptance}=require('./summoner-contact-s7-acceptance.cjs');
 const root=path.resolve(__dirname,'..');
 const summonerOnly=process.env.DNFKU_LOCAL_SUITE==='summoner';
-const summonerVersion=process.env.DNFKU_SUMMONER_CANDIDATE==='s8'?'S8':process.env.DNFKU_SUMMONER_CANDIDATE==='s7'?'S7':process.env.DNFKU_SUMMONER_CANDIDATE==='s6'?'S6':process.env.DNFKU_SUMMONER_CANDIDATE==='s5'?'S5':process.env.DNFKU_SUMMONER_CANDIDATE==='s4'?'S4':process.env.DNFKU_SUMMONER_CANDIDATE==='s3'?'S3':process.env.DNFKU_SUMMONER_CANDIDATE==='s2'?'S2':'S1';
+const summonerVersion=process.env.DNFKU_SUMMONER_CANDIDATE==='s9'?'S9':process.env.DNFKU_SUMMONER_CANDIDATE==='s8'?'S8':process.env.DNFKU_SUMMONER_CANDIDATE==='s7'?'S7':process.env.DNFKU_SUMMONER_CANDIDATE==='s6'?'S6':process.env.DNFKU_SUMMONER_CANDIDATE==='s5'?'S5':process.env.DNFKU_SUMMONER_CANDIDATE==='s4'?'S4':process.env.DNFKU_SUMMONER_CANDIDATE==='s3'?'S3':process.env.DNFKU_SUMMONER_CANDIDATE==='s2'?'S2':'S1';
 const summonerPage='/summoner-lab-'+summonerVersion.toLowerCase()+'.html';
 const defaultGrant=path.join(root,'docs/local-testing-authorization.json');
 const authorizationPath=process.env.DNFKU_LOCAL_AUTHORIZATION_RECORD??(fs.existsSync(defaultGrant)?defaultGrant:undefined);
@@ -82,7 +82,7 @@ async function worker(){
       if(claim.nonce!==authorizationNonce)throw Error('Authorization is not assigned to this worker');
       result.authorization=env.authorization;
     }
-    const pages=new Map(['/juggle-lab-v11.html','/feedback-lab-v10.html','/summoner-lab-s1.html','/summoner-lab-s2.html','/summoner-lab-s3.html','/summoner-lab-s4.html','/summoner-lab-s5.html','/summoner-lab-s6.html','/summoner-lab-s7.html','/summoner-lab-s8.html'].map(url=>[url,fs.readFileSync(path.join(root,'prototype',url.slice(1)))]));
+    const pages=new Map(['/juggle-lab-v11.html','/feedback-lab-v10.html','/summoner-lab-s1.html','/summoner-lab-s2.html','/summoner-lab-s3.html','/summoner-lab-s4.html','/summoner-lab-s5.html','/summoner-lab-s6.html','/summoner-lab-s7.html','/summoner-lab-s8.html','/summoner-lab-s9.html'].map(url=>[url,fs.readFileSync(path.join(root,'prototype',url.slice(1)))]));
     server=http.createServer((req,res)=>{const bytes=pages.get(req.url);if(!bytes){res.writeHead(404);res.end();return;}res.writeHead(200,{'Content-Type':'text/html; charset=utf-8','Content-Length':bytes.length,'Cache-Control':'no-store'});res.end(bytes);});
     await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(0,'127.0.0.1',resolve);});
     result.binding=server.address();const origin=`http://127.0.0.1:${result.binding.port}`;
@@ -120,11 +120,13 @@ async function worker(){
     await stopRecording();
     }else result.baselines='NOT RUN: explicit DNFKU_LOCAL_SUITE=summoner';
     await runSummonerAcceptance({page,dir,url:origin+summonerPage,exactHtml:path.join(root,'prototype',summonerPage.slice(1)),result,version:summonerVersion,liftedPose:summonerVersion!=='S1',onPageLoaded:async()=>{
-      if(['S3','S4','S5','S6','S7','S8'].includes(summonerVersion))await page.locator('#empty').check();
+      if(summonerVersion==='S9'){await page.locator('#comparison').selectOption('standing');await page.locator('#scene').selectOption('standing');await page.getByText('逐帧查看',{exact:true}).click();}
+      if(['S3','S4','S5','S6','S7','S8','S9'].includes(summonerVersion))await page.locator('#empty').check();
+      if(summonerVersion==='S9')await page.getByText('逐帧查看',{exact:true}).click();
       await page.getByRole('button',{name:'录制动作',exact:true}).click();
       await page.getByRole('button',{name:'停止并下载',exact:true}).waitFor({state:'visible',timeout:5000});recording='summoner-'+summonerVersion.toLowerCase();
     }});
-    if(['S3','S4','S5','S6','S7','S8'].includes(summonerVersion)){
+    if(['S3','S4','S5','S6','S7','S8','S9'].includes(summonerVersion)){
       await runSummonerFeedbackAcceptance({page,dir,result});
       if(result.feedback.status!=='passed-feedback-browser')throw Error('S3 feedback browser acceptance failed; see feedback-results.json');
     }
@@ -140,13 +142,17 @@ async function worker(){
       await runSummonerVictimS6Acceptance({page,dir,result});
       if(result.victim.status!=='passed-victim-browser')throw Error('S6 victim acceptance failed; see victim-results.json');
     }
-    if(['S7','S8'].includes(summonerVersion)){
+    if(['S7','S8','S9'].includes(summonerVersion)){
       await runSummonerContactS7Acceptance({page,dir,result});
       if(result.victim.status!=='passed-victim-browser')throw Error('S7 contact acceptance failed; see victim-results.json');
     }
     if(summonerVersion==='S8'){
       await require('./summoner-comparison-s8-acceptance.cjs').runSummonerComparisonS8Acceptance({page,dir,result});
       if(result.comparison.status!=='passed-comparison-browser')throw Error('S8 comparison acceptance failed; see comparison-results.json');
+    }
+    if(summonerVersion==='S9'){
+      await require('./summoner-combo-s9-acceptance.cjs').runSummonerComboS9Acceptance({page,dir,result});
+      if(result.combo.status!=='passed-combo-browser')throw Error('S9 compound combo acceptance failed; see combo-results.json');
     }
     if(process.env.DNFKU_TEST_MOBILE==='1'){
       await stopRecording();
