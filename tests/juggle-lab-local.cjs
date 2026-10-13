@@ -3,6 +3,7 @@ const fs=require('node:fs'),path=require('node:path'),http=require('node:http');
 const crypto=require('node:crypto'),{spawn,execFileSync}=require('node:child_process');
 const {runJuggleAcceptance}=require('./juggle-lab-acceptance.cjs');
 const {runSummonerAcceptance}=require('./summoner-lab-acceptance.cjs');
+const {runSummonerMobileAcceptance}=require('./summoner-mobile-acceptance.cjs');
 const root=path.resolve(__dirname,'..');
 const summonerOnly=process.env.DNFKU_LOCAL_SUITE==='summoner';
 const defaultGrant=path.join(root,'docs/local-testing-authorization.json');
@@ -115,6 +116,13 @@ async function worker(){
       await page.getByRole('button',{name:'录制动作',exact:true}).click();
       await page.getByRole('button',{name:'停止并下载',exact:true}).waitFor({state:'visible',timeout:5000});recording='summoner-s1';
     }});
+    if(process.env.DNFKU_TEST_MOBILE==='1'){
+      await stopRecording();
+      // Mobile navigation destroys the recorder. Screenshots stay local for
+      // internal visual inspection; the tested desktop Canvas video is retained.
+      await runSummonerMobileAcceptance({page,dir,url:origin+'/summoner-lab-s1.html',result});
+      if(result.mobile.status!=='passed-mobile-viewport')throw Error('Mobile-size touch/layout acceptance failed; see mobile-results.json');
+    }
     result.status='passed-browser';
   }catch(e){result.error=e.stack;process.exitCode=1;if(page)try{await page.mouse.up();
     if(result.summoner)result.summoner.failureState=await page.evaluate(()=>({snapshot:summonerLab.motion.snapshot(),events:summonerLab.motion.events,samples:summonerLab.samples.slice(-120),fonts:[...document.fonts].map(f=>({family:f.family,status:f.status})),focused:document.activeElement?.outerHTML}));

@@ -1,0 +1,482 @@
+{
+  "requestShanghai": "2026-10-13T11:47:40+08:00",
+  "gitParent": "a21a342dfa4bbbe0326f4027414da79ae9629190",
+  "source": {
+    "prototype/summoner-lab-s1.html": {
+      "sha256": "ecc1bbbab06a016bc64bb06ff1a53fa309ddfe0eee4d2dd78bc50f49015e273a",
+      "gitBlob": "60d54443aeef4a0eda86ec625206e28ebc246e2b"
+    },
+    "prototype/summoner-lab.template.html": {
+      "sha256": "b83435e71e1ab16641a3789a34d3ff2224391d1be777cb02c4ced91104b37c96",
+      "gitBlob": "6f5a7f8ddb764b5a2eef364001cd07248dca3aa1"
+    },
+    "prototype/summoner-motion.mjs": {
+      "sha256": "59d9fd5d5e62414268c6b01c66f1948aaa3de6bb7e8bdfb793d3c438e16df7ac",
+      "gitBlob": "9ea4f0d943543e7de8b01373702b8a8a20e308d3"
+    },
+    "prototype/summoner-renderer.mjs": {
+      "sha256": "4f02ecf71b42c6298f41890924b23e627f22126048404ca09cb2bbab99257c74",
+      "gitBlob": "8a553c20e5b889ea6dc3b561f132af7d79a39486"
+    },
+    "tests/juggle-lab-local.cjs": {
+      "sha256": "174142f0a8337b671c38e8b67e3aa12b37121f783da0c9b438a60549f6fd8477",
+      "gitBlob": "f763c0e9e037ee6a28465106503900ed17781453"
+    },
+    "tests/summoner-lab-acceptance.cjs": {
+      "sha256": "99975b183e4b674b5bd351deb6b0d052e3669b0d4a0f1230f3f17154299fc3be",
+      "gitBlob": "b039f85290f97aee09299eaf6b0226db519ca892"
+    },
+    "tests/summoner-mobile-acceptance.cjs": {
+      "sha256": "596e8dbc71739e95954ec9cf169e8d995f94c3e0b797434255441c58ec61c72b",
+      "gitBlob": "f3e518a9625363f4a74172cabfa85579535835aa"
+    }
+  },
+  "node": {
+    "pass": 184,
+    "fail": 0,
+    "exit": 0
+  },
+  "initial": {
+    "status": "failed-or-blocked",
+    "exit": 1,
+    "V10": 5,
+    "V11": 13,
+    "S1": 12,
+    "mobile": [
+      {
+        "name": "portrait390x844: no horizontal overflow and readable-sized DOM buttons",
+        "status": "PASS"
+      },
+      {
+        "name": "real touch tap: only first owner motion starts",
+        "status": "PASS"
+      },
+      {
+        "name": "real touch hold/release: three owner motions then settle",
+        "status": "PASS"
+      },
+      {
+        "name": "touch cancellation: no stuck held attack or continuing loop",
+        "status": "PASS"
+      },
+      {
+        "name": "landscape844x390: full Canvas and primary attack button visible together",
+        "status": "FAIL"
+      },
+      {
+        "name": "landscape: touch replay completes all three motions",
+        "status": "PASS"
+      }
+    ],
+    "landscapeGeometry": {
+      "width": 844,
+      "height": 390,
+      "scrollWidth": 844,
+      "canvas": {
+        "top": 89.09375,
+        "bottom": 543.59375,
+        "left": 18,
+        "right": 826,
+        "width": 808,
+        "height": 454.5
+      },
+      "attack": {
+        "top": 590.59375,
+        "bottom": 634.59375,
+        "left": 18,
+        "right": 136,
+        "width": 118,
+        "height": 44
+      }
+    },
+    "pageerrors": []
+  },
+  "fixed": {
+    "status": "passed-browser",
+    "exit": 0,
+    "baselineScope": "NOT RUN: explicit DNFKU_LOCAL_SUITE=summoner",
+    "S1": [
+      {
+        "name": "S1 loopback HTML bytes and title",
+        "status": "PASS"
+      },
+      {
+        "name": "offline Chinese UI font actually loaded",
+        "status": "PASS"
+      },
+      {
+        "name": "real pointer click runs exactly the first motion",
+        "status": "PASS"
+      },
+      {
+        "name": "full replay starts three observed segments, completes at 1.000s",
+        "status": "PASS"
+      },
+      {
+        "name": "real held pointer chains; release settles without another first stage",
+        "status": "PASS"
+      },
+      {
+        "name": "public frame slider changes raised pose to the low finish",
+        "status": "PASS"
+      },
+      {
+        "name": "frame preview freezes motion clock",
+        "status": "PASS"
+      },
+      {
+        "name": "real turn button mirrors staff geometry",
+        "status": "PASS"
+      },
+      {
+        "name": "real keyboard moves idle owner left",
+        "status": "PASS"
+      },
+      {
+        "name": "real X keyboard press starts a staff motion",
+        "status": "PASS"
+      },
+      {
+        "name": "owner-only candidate does not assert damage or lift",
+        "status": "PASS"
+      },
+      {
+        "name": "no browser errors",
+        "status": "PASS"
+      }
+    ],
+    "mobile": [
+      {
+        "name": "portrait390x844: no horizontal overflow and readable-sized DOM buttons",
+        "status": "PASS"
+      },
+      {
+        "name": "real touch tap: only first owner motion starts",
+        "status": "PASS"
+      },
+      {
+        "name": "real touch hold/release: three owner motions then settle",
+        "status": "PASS"
+      },
+      {
+        "name": "touch cancellation: no stuck held attack or continuing loop",
+        "status": "PASS"
+      },
+      {
+        "name": "landscape844x390: full Canvas and primary attack button visible together",
+        "status": "PASS"
+      },
+      {
+        "name": "landscape: touch replay completes all three motions",
+        "status": "PASS"
+      }
+    ],
+    "landscapeGeometry": {
+      "width": 844,
+      "height": 390,
+      "scrollWidth": 844,
+      "canvas": {
+        "top": 45,
+        "bottom": 304.984375,
+        "left": 190.890625,
+        "right": 653.109375,
+        "width": 462.21875,
+        "height": 259.984375
+      },
+      "attack": {
+        "top": 339.984375,
+        "bottom": 383.984375,
+        "left": 8,
+        "right": 126,
+        "width": 118,
+        "height": 44
+      }
+    },
+    "pageerrors": [],
+    "consoleErrors": [],
+    "requestFailures": [],
+    "touchEvidence": {
+      "tap": [
+        {
+          "type": "pointerdown",
+          "target": "reset",
+          "pointerType": "touch",
+          "trusted": true
+        },
+        {
+          "type": "pointerup",
+          "target": "reset",
+          "pointerType": "touch",
+          "trusted": true
+        },
+        {
+          "type": "pointerdown",
+          "target": "attack",
+          "pointerType": "touch",
+          "trusted": true
+        },
+        {
+          "type": "pointerup",
+          "target": "attack",
+          "pointerType": "touch",
+          "trusted": true
+        }
+      ],
+      "held": [
+        {
+          "type": "pointerdown",
+          "target": "reset",
+          "pointerType": "touch",
+          "trusted": true
+        },
+        {
+          "type": "pointerup",
+          "target": "reset",
+          "pointerType": "touch",
+          "trusted": true
+        },
+        {
+          "type": "pointerdown",
+          "target": "attack",
+          "pointerType": "touch",
+          "trusted": true
+        },
+        {
+          "type": "pointerup",
+          "target": "attack",
+          "pointerType": "touch",
+          "trusted": true
+        },
+        {
+          "type": "pointerdown",
+          "target": "reset",
+          "pointerType": "touch",
+          "trusted": true
+        },
+        {
+          "type": "pointerup",
+          "target": "reset",
+          "pointerType": "touch",
+          "trusted": true
+        },
+        {
+          "type": "pointerdown",
+          "target": "attack",
+          "pointerType": "touch",
+          "trusted": true
+        },
+        {
+          "type": "pointerup",
+          "target": "attack",
+          "pointerType": "touch",
+          "trusted": true
+        }
+      ],
+      "cancelled": [
+        {
+          "type": "pointerdown",
+          "target": "reset",
+          "pointerType": "touch",
+          "trusted": true
+        },
+        {
+          "type": "pointerup",
+          "target": "reset",
+          "pointerType": "touch",
+          "trusted": true
+        },
+        {
+          "type": "pointerdown",
+          "target": "attack",
+          "pointerType": "touch",
+          "trusted": true
+        },
+        {
+          "type": "pointerup",
+          "target": "attack",
+          "pointerType": "touch",
+          "trusted": true
+        },
+        {
+          "type": "pointerdown",
+          "target": "reset",
+          "pointerType": "touch",
+          "trusted": true
+        },
+        {
+          "type": "pointerup",
+          "target": "reset",
+          "pointerType": "touch",
+          "trusted": true
+        },
+        {
+          "type": "pointerdown",
+          "target": "attack",
+          "pointerType": "touch",
+          "trusted": true
+        },
+        {
+          "type": "pointerup",
+          "target": "attack",
+          "pointerType": "touch",
+          "trusted": true
+        },
+        {
+          "type": "pointerdown",
+          "target": "reset",
+          "pointerType": "touch",
+          "trusted": true
+        },
+        {
+          "type": "pointerup",
+          "target": "reset",
+          "pointerType": "touch",
+          "trusted": true
+        },
+        {
+          "type": "pointerdown",
+          "target": "attack",
+          "pointerType": "touch",
+          "trusted": true
+        },
+        {
+          "type": "pointercancel",
+          "target": "attack",
+          "pointerType": "touch",
+          "trusted": true
+        }
+      ]
+    }
+  },
+  "browserSandbox": "DISABLED per persistent isolated-local authorization",
+  "mobileProfile": "Desktop Chromium viewport390x844 +844x390, hasTouch:true, synthesized CDP touch; NOT Android hardware",
+  "media": [
+    {
+      "run": "first",
+      "file": "summoner-mobile-browser-canvas.webm",
+      "bytes": 5453,
+      "sha256": "04990777d2559b98bafc17737a47f2a9ad313ccec4d64b53556cac59e68c9399",
+      "probeExit": 0,
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "vp8",
+            "width": 960,
+            "height": 540,
+            "avg_frame_rate": "0/0",
+            "nb_read_frames": "1"
+          }
+        ],
+        "format": {}
+      },
+      "decodeExit": 0,
+      "decodeError": "",
+      "scope": "auxiliary desktop capture before mobile navigation; NOT mobile recording"
+    },
+    {
+      "run": "first",
+      "file": "summoner-s1-browser-canvas.webm",
+      "bytes": 603040,
+      "sha256": "3a8980753a00d045c9ed502f5becffea55a807f442ead6d8143a1b0874462075",
+      "probeExit": 0,
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "vp8",
+            "width": 960,
+            "height": 540,
+            "avg_frame_rate": "30/1",
+            "nb_read_frames": "109"
+          }
+        ],
+        "format": {}
+      },
+      "decodeExit": 0,
+      "decodeError": "",
+      "scope": "real desktop Chromium Canvas capture; excludes DOM/audio"
+    },
+    {
+      "run": "first",
+      "file": "v10-browser-canvas.webm",
+      "bytes": 1507982,
+      "sha256": "2cc51bfc552a47ce9a5225a02766b8ce94a9705d24ee8bf75fab5b9bd0045e94",
+      "probeExit": 0,
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "vp8",
+            "width": 960,
+            "height": 540,
+            "avg_frame_rate": "0/0",
+            "nb_read_frames": "194"
+          }
+        ],
+        "format": {
+          "duration": "6.433250"
+        }
+      },
+      "decodeExit": 0,
+      "decodeError": "",
+      "scope": "real desktop Chromium Canvas capture; excludes DOM/audio"
+    },
+    {
+      "run": "first",
+      "file": "v11-browser-canvas.webm",
+      "bytes": 4030447,
+      "sha256": "fcee506068120776aa563d96d8594c0af54357f39edf7e2557b9c3bd5c3f7af5",
+      "probeExit": 0,
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "vp8",
+            "width": 960,
+            "height": 540,
+            "avg_frame_rate": "0/0",
+            "nb_read_frames": "568"
+          }
+        ],
+        "format": {
+          "duration": "18.932716"
+        }
+      },
+      "decodeExit": 0,
+      "decodeError": "",
+      "scope": "real desktop Chromium Canvas capture; excludes DOM/audio"
+    },
+    {
+      "run": "fixed",
+      "file": "summoner-s1-browser-canvas.webm",
+      "bytes": 624681,
+      "sha256": "1f2af4a511db00da40e61a79f6e355aaee88e578f2e522b882d0621abc3c8223",
+      "probeExit": 0,
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "vp8",
+            "width": 960,
+            "height": 540,
+            "avg_frame_rate": "30/1",
+            "nb_read_frames": "110"
+          }
+        ],
+        "format": {}
+      },
+      "decodeExit": 0,
+      "decodeError": "[null @ 0x55860d8f5980] Application provided invalid, non monotonically increasing dts to muxer in stream 0: 89 >= 89\n",
+      "scope": "real desktop Chromium Canvas capture; excludes DOM/audio"
+    }
+  ],
+  "internalScreenshotsPersisted": false,
+  "notCovered": [
+    "Android hardware/APK",
+    "human hand feel",
+    "mobile performance",
+    "DNF visual identity",
+    "target hit/launch/hitstop/audio parity"
+  ]
+}

@@ -12,5 +12,12 @@
     "Do not change host sandbox, proxy or system permissions",
     "No production deployment/restart or other project changes",
     "No automatic GitHub Actions triggers from this local authorization"
+  ],
+  "reaffirmations": [
+    {
+      "userResponse": "永久授权帮我测",
+      "userMessageShanghai": "2026-10-13T11:47:40+08:00",
+      "scope": "same isolated Work local project testing"
+    }
   ]
 }
