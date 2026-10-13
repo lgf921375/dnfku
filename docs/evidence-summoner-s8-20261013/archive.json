@@ -1,0 +1,8 @@
+{
+  "file": "dnfku_summoner_S8_evidence_20261013.zip",
+  "bytes": 797150,
+  "sha256": "68faf090cd8650ddb90de44d9ea61e5caedbb0a4d022c417cbf39556626d6058",
+  "entries": 27,
+  "CRCFailure": null,
+  "includes": "Both actual passing browser runs, raw logs/JSON, Node run and static/media checks; no PNG, original DNF media, signed URLs, duplicate Git code or reports."
+}

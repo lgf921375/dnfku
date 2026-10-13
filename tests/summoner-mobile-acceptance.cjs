@@ -26,7 +26,7 @@ async function runSummonerMobileAcceptance({page,dir,url,result}){
   await page.screenshot({fullPage:true,path:path.join(dir,'mobile-landscape-internal.png')});const c=m.cases.landscapeLayout;
   return c.scrollWidth<=c.width&&c.canvas.top>=0&&c.canvas.bottom<=c.height&&c.attack.top>=0&&c.attack.bottom<=c.height;
  });
- await check('landscape: touch replay completes all three motions',async()=>{await tap('整套参考演示');await wait(()=>summonerLab.motion.events.some(e=>e.type==='reference-done'));m.cases.landscapeReplay=await observe();return m.cases.landscapeReplay.events.find(e=>e.type==='reference-done').time===1;});
+ await check('landscape: touch replay completes all three motions',async()=>{await page.locator('#replay').tap();await wait(()=>summonerLab.motion.events.some(e=>e.type==='reference-done'));m.cases.landscapeReplay=await observe();return m.cases.landscapeReplay.events.find(e=>e.type==='reference-done').time===1;});
  await cdp.detach();m.status=m.checks.every(c=>c.status==='PASS')?'passed-mobile-viewport':'failed-mobile-viewport';record();return m;
 }
 module.exports={runSummonerMobileAcceptance};

@@ -9,7 +9,7 @@ async function runSummonerFeedbackAcceptance({page,dir,result}){
  const state=()=>page.evaluate(()=>({snapshot:summonerLab.motion.snapshot(),events:summonerLab.motion.events,samples:summonerLab.samples.slice(-500),audio:summonerLab.audio}));
  const wait=fn=>page.waitForFunction(fn,null,{timeout:4000,polling:'raf'});
  const mode=async({empty=false,feedback=true,lane=false,sound=false}={})=>{for(const [id,value] of Object.entries({empty,feedback,lane,sound}))await page.locator('#'+id).setChecked(value);await page.getByRole('button',{name:'重来',exact:true}).click();};
- const replay=async()=>{await page.getByRole('button',{name:'整套参考演示',exact:true}).click();await wait(()=>summonerLab.motion.events.some(e=>e.type==='reference-done'));};
+ const replay=async()=>{await page.locator('#replay').click();await wait(()=>summonerLab.motion.events.some(e=>e.type==='reference-done'));};
  const impacts=c=>c.events.filter(e=>e.type==='impact');
  await check('target replay: three contacts, unique actions, HP88',async()=>{await mode();await replay();f.cases.contact=await state();const es=impacts(f.cases.contact);return JSON.stringify(es.map(e=>e.stage))==='[0,1,2]'&&new Set(es.map(e=>e.attackId)).size===3&&f.cases.contact.snapshot.target.hp===88;});
  await check('rendered frame samples: owner and victim stay fixed together during hitstop',async()=>{const samples=f.cases.contact.samples;return samples.some((a,i)=>{const b=samples[i+1];return b&&a.stop>0&&b.stop>0&&a.time===b.time&&a.targetX===b.targetX&&a.targetAge===b.targetAge&&a.feedbackTime<b.feedbackTime;});});

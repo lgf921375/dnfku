@@ -13,7 +13,7 @@ async function runSummonerAcceptance({page,dir,url,exactHtml,result,onPageLoaded
  await page.getByRole('button',{name:'普通攻击 · X',exact:true}).click();
  await wait(()=>!summonerLab.motion.action&&summonerLab.motion.events.some(e=>e.type==='motion-end'));
  s.cases.single=await observe();check('real pointer click runs exactly the first motion',s.cases.single.events.filter(e=>e.type==='motion-start').length===1);
- await reset();await page.getByRole('button',{name:'整套参考演示',exact:true}).click();
+ await reset();await page.locator('#replay').click();
  await wait(()=>summonerLab.motion.events.some(e=>e.type==='reference-done'));s.cases.demo=await observe();
  check('full replay starts three observed segments, completes at 1.000s',JSON.stringify(s.cases.demo.events.filter(e=>e.type==='motion-start').map(e=>e.stage))==='[0,1,2]'&&s.cases.demo.events.find(e=>e.type==='reference-done').time===1);
  await reset();const box=await page.getByRole('button',{name:'普通攻击 · X',exact:true}).boundingBox();await page.mouse.move(box.x+box.width/2,box.y+box.height/2);await page.mouse.down();

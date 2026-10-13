@@ -11,3 +11,5 @@ S5 offline UI subset: summoner-s5-ui.woff, 131 Chinese UI characters covered; sa
 S6 offline UI subset: summoner-s6-ui.woff, 137 Chinese UI characters covered; same Noto Sans CJK SC source and OFL-1.1 license.
 
 S7 offline UI subset: summoner-s7-ui.woff, 149 Chinese UI characters covered; same Noto Sans CJK SC source and OFL-1.1 license.
+
+S8 offline UI subset: summoner-s8-ui.woff, 230 Chinese UI characters covered; same Noto Sans CJK SC source and OFL-1.1 license.

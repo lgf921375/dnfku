@@ -1,0 +1,16 @@
+{
+  "file": "dnfku_summoner_S8_browser_test_20261013.webm",
+  "bytes": 15075768,
+  "sha256": "3bdef9a154447dca12e6a448b8cd60e1937f496abb49fe2366ba6ae253ffa414",
+  "fullFFmpegDecode": {
+    "exitCode": 0,
+    "stderrBytes": 122,
+    "stderr": "Null muxer reports duplicate output DTS 1895 >= 1895; exit0. No stable frame-rate guarantee."
+  },
+  "scope": "Own Canvas only; excludes DOM menu and audio. No stable fps claim. Internal screenshots not delivered.",
+  "fullRawVideoDecode": {
+    "exitCode": 0,
+    "stderrBytes": 0,
+    "scope": "All video frames decoded to rawvideo /dev/null; no derived media file."
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "startingCommit": "5ce66951c4692cb196154127ee714ca4f465df52",
+  "startingTree": "980525aa610b5dd318df10755a4f3b52a02da6bd",
+  "node": {
+    "actual": 264,
+    "pass": 264,
+    "fail": 0,
+    "exitCode": 0,
+    "newUnitTests": 0
+  },
+  "browserInitial": {
+    "checks": 75,
+    "pass": 75,
+    "fail": 0,
+    "exitCode": 0
+  },
+  "browserFinal": {
+    "checks": 79,
+    "counts": {
+      "summoner": 12,
+      "feedback": 13,
+      "victim": 26,
+      "comparison": 22,
+      "mobile": 6
+    },
+    "pass": 79,
+    "fail": 0,
+    "exitCode": 0,
+    "sidecarsMatch": {
+      "feedback": true,
+      "victim": true,
+      "comparison": true,
+      "mobile": true
+    },
+    "errors": [],
+    "consoleErrors": [],
+    "requestFailures": []
+  },
+  "testedFilesSHA256": {
+    "prototype/build-summoner-lab-s8.mjs": "4dbe166431ab7f41310c32b0e0505e32d2cded577957cf33d830486f8c279546",
+    "prototype/summoner-lab-s8.template.html": "8c4f2ca68484b9c64c280546290f00a0da03734567d458b9141a084706ac7cf5",
+    "prototype/summoner-lab-s8.html": "069e870b1a606bb8752d7e3a76857b0213c9d4e80088d65920deaa3db767c003",
+    "prototype/fonts/summoner-s8-ui.woff": "42402d7aa229a4738ee672f2523c40df4f00e4b766575e719411fbe7ef5699bf",
+    "tests/juggle-lab-local.cjs": "ff61514fc2b88decb6595e74d1c7618a3005a31eeb7058cc8aaac9e484401043",
+    "tests/summoner-mobile-acceptance.cjs": "ad6a90eb08b000d2ef6ab95d270bcbe656156a4a0c925332ce00882d7edca895",
+    "tests/summoner-contact-s7-acceptance.cjs": "06f78a5a692dc5fc0dfcb1f6437c25336b57aee93edf5e0c41dbd3b954065ae8",
+    "tests/summoner-victim-s6-acceptance.cjs": "916d71b8982364a0c915e2e2cf73eac3e091dc9158b864678731276b5f4d66c3",
+    "tests/summoner-lab-acceptance.cjs": "8c8c48a2f55b4ddefc857952f7816d8b5645b05e7356f6693a126b373dc6a585",
+    "tests/summoner-victim-acceptance.cjs": "7b306230a6315233e05612b4a857f6ccf5e0cbbd2620957a0b1841daed5cef84",
+    "tests/summoner-victim-s5-acceptance.cjs": "e19b0735e92dcb5f0cd0f666c3ae02c73b8fd8e09ea4aeaf84a10e4f851a08a0",
+    "tests/summoner-comparison-s8-acceptance.cjs": "c0557023f152d566b12183ed1d8dc379a6aa7a6f7769f93f8d3c5f676b8f7042",
+    "tests/summoner-feedback-acceptance.cjs": "c0190158faf0449f4f2b08600e8b18a440662f357953313b413d551f6312466d"
+  },
+  "static": {
+    "buildDeterministic": true,
+    "htmlSHA256": "069e870b1a606bb8752d7e3a76857b0213c9d4e80088d65920deaa3db767c003",
+    "inlineScriptNodeCheckExitCode": 0,
+    "inlineScriptStderr": "",
+    "combatAndRendererUnchangedFromStartingS7": {
+      "summoner-motion.mjs": true,
+      "summoner-motion-s2.mjs": true,
+      "summoner-feedback-s3.mjs": true,
+      "summoner-impact-audio.mjs": true,
+      "summoner-victim-s6.mjs": true,
+      "summoner-contact-s7.mjs": true,
+      "summoner-victim-s7.mjs": true,
+      "summoner-renderer-s7.mjs": true
+    }
+  },
+  "notCovered": [
+    "Original DNF Summoner actual victim-hit parity",
+    "Exact original hurtboxes, hitstun, armor and PK thresholds",
+    "Android hardware/browser or human feel",
+    "External playback reference side-by-side",
+    "Old S1-S7/V10/V11 browser pages were not separately rerun"
+  ],
+  "scope": "Current S8 isolated localhost Chromium sandbox disabled under persistent local authorization; no cloud browser, deployment, Actions or other project changes"
+}
