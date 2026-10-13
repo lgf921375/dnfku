@@ -1,0 +1,46 @@
+{
+  "v10-browser-canvas.webm": {
+    "exitCode": 0,
+    "metadata": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "vp8",
+          "width": 960,
+          "height": 540,
+          "r_frame_rate": "60/1",
+          "avg_frame_rate": "0/0",
+          "nb_read_frames": "195"
+        }
+      ],
+      "format": {
+        "duration": "6.465872"
+      }
+    },
+    "error": "",
+    "fullDecodeExit": 0,
+    "decodeError": ""
+  },
+  "v11-browser-canvas.webm": {
+    "exitCode": 0,
+    "metadata": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "vp8",
+          "width": 960,
+          "height": 540,
+          "r_frame_rate": "60/1",
+          "avg_frame_rate": "0/0",
+          "nb_read_frames": "509"
+        }
+      ],
+      "format": {
+        "duration": "16.965791"
+      }
+    },
+    "error": "",
+    "fullDecodeExit": 0,
+    "decodeError": ""
+  }
+}

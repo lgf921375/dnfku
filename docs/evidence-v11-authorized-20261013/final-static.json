@@ -1,0 +1,14 @@
+[
+  {
+    "file": "tests/juggle-lab-local.cjs",
+    "exitCode": 0,
+    "sha256": "b22b6410390e42d0efe770586055aecdccc1cc735200fca1f164040bcec2ab70",
+    "stderr": ""
+  },
+  {
+    "file": "tests/juggle-lab-acceptance.cjs",
+    "exitCode": 0,
+    "sha256": "aac78e72cbb547e6c030b3698232c93291fd91129e761e415152e105802be391",
+    "stderr": ""
+  }
+]

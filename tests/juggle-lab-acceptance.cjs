@@ -1,13 +1,14 @@
 // Shared V11 controls and evidence. Wrappers own environment permissions and launch mode.
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const {validProtection,protectionUnchanged,protectionHistoryUnchanged}=require('./protection-evidence.cjs');
-async function runJuggleAcceptance({page,dir,url,exactHtml,transport,result,onProgress=()=>{}}) {
+async function runJuggleAcceptance({page,dir,url,exactHtml,transport,result,onProgress=()=>{},onPageLoaded=async()=>{}}) {
  const {errors,checks,cases}=result;
  const check=(name,ok)=>{checks.push({name,status:ok?'PASS':'FAIL'});onProgress(name);if(!ok)throw Error(name);};
  page.setDefaultTimeout(12000);page.setDefaultNavigationTimeout(15000);
  const response=await page.goto(url,{waitUntil:'load',timeout:15000});
  const sha=x=>crypto.createHash('sha256').update(x).digest('hex');
  check(`V11 ${transport} 200, title and exact tested HTML`,new URL(page.url()).protocol===(transport==='HTTPS'?'https:':'http:')&&response.status()===200&&(await page.title()).includes('V11')&&sha(await response.body())===sha(fs.readFileSync(exactHtml)));
+ await onPageLoaded(page);
  // Passive frame sampling. This writes only test evidence, never fighter/HP/timer/controller fields.
  await page.evaluate(()=>{window.v11Samples=[];let last=0,previousGame=null;
    function observe(now){const g=window.rhythmLab?.game;if(g!==previousGame){window.v11Samples=[];previousGame=g;last=0;}if(g&&window.v11Samples.length<6000)window.v11Samples.push({wall:now,rafDelta:last?now-last:null,time:g.time,a:g.fighter('A').body.snapshot(),b:g.fighter('B').body.snapshot(),hp:g.fighter('B').hp,damage:g.events.filter(e=>e.type==='damage').length});last=now;requestAnimationFrame(observe);}requestAnimationFrame(observe);

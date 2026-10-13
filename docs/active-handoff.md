@@ -1,5 +1,15 @@
 # dnfku 当前研究交接
 
+## 当前优先交接：一次本地Headless Shell实测通过，授权已消费（2026-10-13）
+
+- 起始工作分支/local=`3ce4e5ca0fa194b9656df70344d50c48a9159230`，main仍d4e6acfa；先通过连接GitHub读AGENTS/README/此交接和上轮报告。用户09:59:15上海明确回复“授权”：仅本Work隔离环境、loopback、一次sandbox:false验收。
+- **通过（实际运行）**：Node171/171；Headless Shell151.0.7922.34/PW1.62.1，V10原5/5 + V11共享13/13，exit0、24.841s，pageerror/console.error/requestfailed均0。连续air-limit保护HP492保持，免疫结束新按钮后HP470；demo另覆盖3次扫地ground-limit。
+- **沙箱状态**：Chromium浏览器沙箱已关闭；UID/GID0，未改宿主策略/代理、未sudo/切UID/装依赖。默认无授权root入口仍exit2；一次授权原子消费锁复用实际exit2/EEXIST，没有第二次Chrome launch。授权已用完，后续不可默认为长期关闭沙箱授权。
+- **真实证据**：2段浏览器Canvas WebM（V10 6.465872s/195帧，V11 16.965791s/509帧，VP8/960×540），全片解码exit0；8张完整UI PNG、完整被动RAF/HP/事件。Canvas录像不含DOM按钮或音轨，不是Skia模型；编码60/1不代表稳定60fps。全部媒体及原始JSON在持久下载证据包，GitHub保留轻量索引/结果。
+- **改动范围**：仅本地测试包装的一次授权/页面原生录像、共享验收加载钩子和文档；prototype/参数、workflow、CI限制和V10原五项0修改。默认非root+sandbox:true仍保留。正常退出后可见Chrome/测试进程0；强制超时回收未触发/未覆盖。
+- **未覆盖/待改**：Android/APK、实机触控/帧率/主观手感、DNF视频逐帧相似度、音效；中文字体方框/空中火花与绘制身体错位仍存在。源码敌方AABB未随渲染空中旋转，后续优先统一姿态与受击形状，不放大盒刷通过。
+- [本轮报告](v11-authorized-local-browser-20261013.md)、[轻量证据](evidence-v11-authorized-20261013/)、[上轮原失败纠错](v11-protection-local-20261013.md)。本轮先保存到当前独立工作分支，最终SHA回读；main未合、无部署/重启、无Actions，不接触《皓石传奇三》。两窗口仍由用户转发，下一窗口先核实HEAD/进程，不能重用已消费授权记录。
+
 ## 当前优先交接：V11保护断言纠错，本地UID0阻塞（2026-10-13）
 
 - 起始main=`d4e6acfaeddfcb9e953b473f2fcebc5fecc6dec5`；独立分支 `work/v11-local-20261013`。先已通过连接GitHub读AGENTS/README/本交接、V11报告和实际文件。最近runs全结束，in_progress=0/queued=0，本机无dnfku测试/Chrome；其他隔离窗口是否有人编辑无法观察。

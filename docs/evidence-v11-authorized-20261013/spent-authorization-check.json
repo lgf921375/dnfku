@@ -1,0 +1,6 @@
+{
+  "exitCode": 2,
+  "output": "EEXIST: file already exists, open '/workspace/scratch/fddb459d7ec2/dnfku/docs/evidence-v11-authorized-20261013/authorization.json.used'\n",
+  "browserLaunches": 0,
+  "scope": "Reusing consumed record must fail before browser/server launch"
+}

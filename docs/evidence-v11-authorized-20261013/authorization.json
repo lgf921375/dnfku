@@ -1,0 +1,16 @@
+{
+  "userResponse": "授权",
+  "userMessageShanghai": "2026-10-13T09:59:15+08:00",
+  "scope": "current-isolated-Work-loopback-only",
+  "browserSandbox": false,
+  "runs": 1,
+  "tests": "local V10 original five + shared V11 thirteen",
+  "notAuthorized": [
+    "production deployment",
+    "host sandbox changes",
+    "other devices",
+    "CI trigger",
+    "automatic reruns"
+  ],
+  "recordedUTC": "2026-10-13T02:02:12.122165+00:00"
+}

@@ -1,0 +1,44 @@
+{
+  "utc": "2026-10-13T02:02:50.535Z",
+  "localShanghai": "2026-10-13 10:02:50",
+  "cwd": "/workspace/scratch/fddb459d7ec2/dnfku",
+  "uid": 0,
+  "gid": 0,
+  "node": "v24.19.0",
+  "platform": "linux",
+  "arch": "x64",
+  "sandboxRequested": false,
+  "browserLaunch": "NOT RUN",
+  "actualSandbox": "NOT COVERED",
+  "authorization": {
+    "userResponse": "授权",
+    "userMessageShanghai": "2026-10-13T09:59:15+08:00",
+    "scope": "current-isolated-Work-loopback-only",
+    "browserSandbox": false,
+    "runs": 1,
+    "tests": "local V10 original five + shared V11 thirteen",
+    "notAuthorized": [
+      "production deployment",
+      "host sandbox changes",
+      "other devices",
+      "CI trigger",
+      "automatic reruns"
+    ],
+    "recordedUTC": "2026-10-13T02:02:12.122165+00:00"
+  },
+  "commit": "3ce4e5ca0fa194b9656df70344d50c48a9159230",
+  "branch": "work/v11-local-20261013",
+  "playwrightVersion": "1.62.1",
+  "expectedShell": {
+    "name": "chromium-headless-shell",
+    "revision": "1234",
+    "installByDefault": true,
+    "browserVersion": "151.0.7922.34",
+    "title": "Chrome Headless Shell"
+  },
+  "executable": "/workspace/scratch/27a600746412/local-browser-check/chrome-headless-shell-linux64/chrome-headless-shell",
+  "htmlSHA256": "9ab585f72a6d170d168a56e257567c6b00feda925026e980dde37c779aa0c6b7",
+  "executableSHA256": "e11fc9ce65c96313476f7ee9844b6fb6a9220fb048693cfe9eee00acf4170a9f",
+  "shellVersion": "Google Chrome for Testing 151.0.7922.34",
+  "versionMatched": true
+}

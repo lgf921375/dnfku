@@ -1,15 +1,24 @@
-// Local-only, sandbox-required runner. No CI identity spoofing or user switching.
+// Local-only runner. Default requires sandbox; one-use exception requires a reviewed record.
 const fs=require('node:fs'),path=require('node:path'),http=require('node:http');
 const crypto=require('node:crypto'),{spawn,execFileSync}=require('node:child_process');
 const {runJuggleAcceptance}=require('./juggle-lab-acceptance.cjs');
 const root=path.resolve(__dirname,'..');
+const authorizationPath=process.env.DNFKU_LOCAL_AUTHORIZATION_RECORD;
+const authorizedOnce=!!authorizationPath;
+const authorizationNonce=process.env.DNFKU_LOCAL_AUTHORIZATION_NONCE??crypto.randomUUID();
+function authorization(){
+  if(!authorizedOnce)return null;
+  const record=JSON.parse(fs.readFileSync(authorizationPath));
+  if(record.scope!=='current-isolated-Work-loopback-only'||record.browserSandbox!==false||record.runs!==1||record.userResponse!=='授权')throw Error('Invalid explicit local one-run authorization record');
+  return record;
+}
 const dir=path.resolve(process.env.DNFKU_EVIDENCE_DIR??path.join(root,'local-evidence/v11'));
 fs.mkdirSync(dir,{recursive:true});
 const write=(name,data)=>fs.writeFileSync(path.join(dir,name),JSON.stringify(data,null,2)+'\n');
 const sha=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 function playwright(){return require(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES?path.join(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES,'playwright'):'playwright');}
 function environment(){
-  const result={utc:new Date().toISOString(),localShanghai:new Date().toLocaleString('sv-SE',{timeZone:'Asia/Shanghai'}),cwd:process.cwd(),uid:process.getuid?.(),gid:process.getgid?.(),node:process.version,platform:process.platform,arch:process.arch,sandboxRequested:true,browserLaunch:'NOT RUN',actualSandbox:'NOT COVERED'};
+  const result={utc:new Date().toISOString(),localShanghai:new Date().toLocaleString('sv-SE',{timeZone:'Asia/Shanghai'}),cwd:process.cwd(),uid:process.getuid?.(),gid:process.getgid?.(),node:process.version,platform:process.platform,arch:process.arch,sandboxRequested:!authorizedOnce,browserLaunch:'NOT RUN',actualSandbox:'NOT COVERED',authorization:authorization()};
   try{result.commit=execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8',timeout:5000}).trim();result.branch=execFileSync('git',['branch','--show-current'],{cwd:root,encoding:'utf8',timeout:5000}).trim();}catch(e){result.gitError=e.message;}
   const modules=process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES;
   const pwPackage=modules?path.join(modules,'playwright/package.json'):require.resolve('playwright/package.json');
@@ -30,30 +39,51 @@ function environment(){
 }
 async function worker(){
   const {chromium}=playwright();let browser,context,page,server;
-  const result={status:'failed-or-blocked',sandboxRequested:true,actualSandbox:'NOT COVERED',checks:[],errors:[],consoleErrors:[],requestFailures:[],cases:{},androidHandFeel:'NOT COVERED',visualSimilarity:'NOT COVERED'};
+  const result={status:'failed-or-blocked',sandboxRequested:!authorizedOnce,actualSandbox:'NOT COVERED',checks:[],errors:[],consoleErrors:[],requestFailures:[],cases:{},videos:[],androidHandFeel:'NOT COVERED',visualSimilarity:'NOT COVERED'};
+  let recording=null;
+  async function startRecording(label){
+    await page.getByRole('button',{name:'录制战斗',exact:true}).click();
+    await page.getByRole('button',{name:'停止并下载',exact:true}).waitFor({state:'visible',timeout:5000});recording=label;
+  }
+  async function stopRecording(){
+    if(!recording)return;
+    const label=recording;recording=null;
+    const promise=page.waitForEvent('download',{timeout:5000});
+    await page.getByRole('button',{name:'停止并下载',exact:true}).click();
+    const download=await promise,file=path.join(dir,label+'-browser-canvas.webm');await download.saveAs(file);
+    result.videos.push({file:path.basename(file),source:'real browser Canvas.captureStream + UI MediaRecorder; excludes DOM controls/audio',bytes:fs.statSync(file).size,sha256:sha(fs.readFileSync(file))});
+  }
   process.once('SIGTERM',()=>{
     result.timeoutSignal='SIGTERM';process.exitCode=124;
     if(browser)browser.close().catch(e=>{result.signalCleanupError=e.message;});
     else {write('results.json',{...result,status:'failed-timeout',exitCode:124});process.exit(124);}
   });
   try{
-    if(process.getuid?.()===0)throw Error('Root browser execution is not allowed');
+    if(process.getuid?.()===0&&!authorizedOnce)throw Error('Root browser execution is not allowed');
     if(process.env.GITHUB_ACTIONS||process.env.RUNNER_ENVIRONMENT)throw Error('Use the CI wrapper in CI; local runner must not impersonate CI');
     const env=environment();if(!env.versionMatched)throw Error('Installed Shell does not match the installed Playwright manifest');
+    if(authorizedOnce){
+      const claim=JSON.parse(fs.readFileSync(authorizationPath+'.used'));
+      if(claim.nonce!==authorizationNonce)throw Error('Authorization is not assigned to this worker');
+      result.authorization=env.authorization;
+    }
     const pages=new Map(['/juggle-lab-v11.html','/feedback-lab-v10.html'].map(url=>[url,fs.readFileSync(path.join(root,'prototype',url.slice(1)))]));
     server=http.createServer((req,res)=>{const bytes=pages.get(req.url);if(!bytes){res.writeHead(404);res.end();return;}res.writeHead(200,{'Content-Type':'text/html; charset=utf-8','Content-Length':bytes.length,'Cache-Control':'no-store'});res.end(bytes);});
     await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(0,'127.0.0.1',resolve);});
     result.binding=server.address();const origin=`http://127.0.0.1:${result.binding.port}`;
-    browser=await chromium.launch({executablePath:env.executable,headless:true,chromiumSandbox:true,timeout:15000,args:['--renderer-process-limit=2']});
+    browser=await chromium.launch({executablePath:env.executable,headless:true,chromiumSandbox:!authorizedOnce,timeout:15000,args:['--renderer-process-limit=2']});
     result.browserVersion=browser.version();if(result.browserVersion!==env.expectedShell.browserVersion)throw Error('Launched browser version mismatch');
-    result.actualSandbox='Launch succeeded with chromiumSandbox:true; sandbox internals not separately audited';
-    context=await browser.newContext({viewport:{width:960,height:540},hasTouch:true,recordVideo:{dir,size:{width:960,height:540}}});
+    result.actualSandbox=authorizedOnce?'Chromium沙箱已关闭；用户仅授权当前隔离Work本地一次验收':'Launch succeeded with chromiumSandbox:true; sandbox internals not separately audited';
+    // Reuse the page's real recording button, without installing or impersonating
+    // Playwright's missing FFmpeg cache. Canvas-only scope is recorded explicitly.
+    context=await browser.newContext({viewport:{width:960,height:540},hasTouch:true,acceptDownloads:true});
     await context.route('**/*',route=>new URL(route.request().url()).origin===origin?route.continue():route.abort('blockedbyclient'));
     page=await context.newPage();page.setDefaultTimeout(12000);page.setDefaultNavigationTimeout(15000);
     page.on('pageerror',e=>result.errors.push(e.message));page.on('console',m=>{if(m.type()==='error')result.consoleErrors.push(m.text());});page.on('requestfailed',r=>result.requestFailures.push({url:r.url().split('?')[0],error:r.failure()?.errorText}));
     // Local baseline preserves the exact five V10 checks; its CI file stays untouched.
     result.v10={assertions:0,status:'running'};
     await page.goto(origin+'/feedback-lab-v10.html',{waitUntil:'load'});
+    await startRecording('v10');
     if(!(await page.title()).includes('V10'))throw Error('Preview is not V10');result.v10.assertions++;
     await page.getByRole('button',{name:'重来',exact:true}).click();
     await page.keyboard.down('d');await page.waitForTimeout(150);await page.keyboard.up('d');
@@ -68,10 +98,12 @@ async function worker(){
     if(result.errors.length)throw Error(result.errors.join('\n'));result.v10.assertions++;
     result.v10.status='passed-browser';result.v10.result=baseline;
     await page.screenshot({path:path.join(dir,'v10-protection.png')});
-    await runJuggleAcceptance({page,dir,url:origin+'/juggle-lab-v11.html',exactHtml:path.join(root,'prototype/juggle-lab-v11.html'),transport:'loopback HTTP',result,onProgress:name=>{write('status.json',{phase:'browser-case',case:name,utc:new Date().toISOString()});write('results.json',result);}});
+    await stopRecording();
+    await runJuggleAcceptance({page,dir,url:origin+'/juggle-lab-v11.html',exactHtml:path.join(root,'prototype/juggle-lab-v11.html'),transport:'loopback HTTP',result,onPageLoaded:()=>startRecording('v11'),onProgress:name=>{write('status.json',{phase:'browser-case',case:name,utc:new Date().toISOString()});write('results.json',result);}});
     result.status='passed-browser';
   }catch(e){result.error=e.stack;process.exitCode=1;if(page)try{await page.mouse.up();await page.screenshot({path:path.join(dir,'failure.png')});}catch(capture){result.captureError=capture.stack;}}
-  finally{for(const [name,resource] of [['context',context],['browser',browser]])if(resource)try{await resource.close();}catch(e){result[name+'CleanupError']=e.stack;process.exitCode=1;}
+  finally{if(page&&recording)try{await stopRecording();}catch(e){result.recordingError=e.stack;process.exitCode=1;}
+    for(const [name,resource] of [['context',context],['browser',browser]])if(resource)try{await resource.close();}catch(e){result[name+'CleanupError']=e.stack;process.exitCode=1;}
     if(server)await new Promise(resolve=>{server.close(resolve);server.closeAllConnections();});
     result.exitCode=process.exitCode??0;if(result.timeoutSignal)result.status='failed-timeout';else if(result.exitCode&&result.status==='passed-browser')result.status='failed-cleanup';write('results.json',result);
   }
@@ -80,12 +112,14 @@ function parent(){
   const started=Date.now();let env;
   try{
     env=environment();write('environment.json',env);
-    if(env.uid===0)throw Error('BLOCKED: UID 0; use an ordinary-user execution environment. No browser/server launched.');
+    if(env.uid===0&&!authorizedOnce)throw Error('BLOCKED: UID 0; use an ordinary-user execution environment. No browser/server launched.');
     if(process.env.GITHUB_ACTIONS||process.env.RUNNER_ENVIRONMENT)throw Error('Local execution must not impersonate CI');
     if(!env.versionMatched)throw Error('Supply a matched DNFKU_CHROME_EXECUTABLE Headless Shell path');
-  }catch(e){write('results.json',{status:'blocked-environment',error:e.message,checks:[],browserAssertions:0,exitCode:2,elapsedMs:Date.now()-started,sandboxRequested:true,actualSandbox:'NOT COVERED',environment:env});write('status.json',{phase:'blocked',exitCode:2});fs.writeFileSync(path.join(dir,'exit-code.txt'),'2\n');console.error(e.message);process.exitCode=2;return;}
+    if(authorizedOnce)fs.writeFileSync(authorizationPath+'.used',JSON.stringify({status:'claimed',nonce:authorizationNonce,parentPid:process.pid,utc:new Date().toISOString()}),{flag:'wx'});
+  }catch(e){write('results.json',{status:'blocked-environment',error:e.message,checks:[],browserAssertions:0,exitCode:2,elapsedMs:Date.now()-started,sandboxRequested:!authorizedOnce,actualSandbox:'NOT COVERED',environment:env});write('status.json',{phase:'blocked',exitCode:2});fs.writeFileSync(path.join(dir,'exit-code.txt'),'2\n');console.error(e.message);process.exitCode=2;return;}
   const log=fs.openSync(path.join(dir,'browser.log'),'w');
-  const child=spawn(process.execPath,['--max-old-space-size=384',__filename,'--worker'],{cwd:root,env:{...process.env,DNFKU_EVIDENCE_DIR:dir},detached:process.platform==='linux',stdio:['ignore',log,log]});
+  const child=spawn(process.execPath,['--max-old-space-size=384',__filename,'--worker'],{cwd:root,env:{...process.env,DNFKU_EVIDENCE_DIR:dir,DNFKU_LOCAL_AUTHORIZATION_NONCE:authorizationNonce},detached:process.platform==='linux',stdio:['ignore',log,log]});
+  if(authorizedOnce)fs.writeFileSync(authorizationPath+'.used',JSON.stringify({status:'worker-assigned',nonce:authorizationNonce,parentPid:process.pid,childPid:child.pid,utc:new Date().toISOString()}));
   fs.closeSync(log);write('status.json',{phase:'running',pid:child.pid,utc:new Date().toISOString(),timeoutMs:90000});
   let timedOut=false,killTimer;
   const signal=s=>{try{process.kill(process.platform==='linux'?-child.pid:child.pid,s);}catch(e){if(e.code!=='ESRCH')throw e;}};
@@ -112,7 +146,10 @@ function parent(){
   child.on('close',(code,signalName)=>{clearTimeout(timeout);clearTimeout(killTimer);const exitCode=timedOut?124:code??2;
     if(timedOut)killOwned(timeoutDescendants);
     write('status.json',{phase:timedOut?'timed-out':'completed',exitCode,signal:signalName,elapsedMs:Date.now()-started});fs.writeFileSync(path.join(dir,'exit-code.txt'),exitCode+'\n');
-    if(timedOut||!fs.existsSync(path.join(dir,'results.json')))write('results.json',{status:timedOut?'failed-timeout':'blocked-environment',checks:[],exitCode});
+    if(timedOut||!fs.existsSync(path.join(dir,'results.json'))){
+      let partial={checks:[]};try{partial=JSON.parse(fs.readFileSync(path.join(dir,'results.json')));}catch{}
+      write('results.json',{...partial,previousStatus:partial.status,status:timedOut?'failed-timeout':'blocked-environment',exitCode});
+    }
     console.log(JSON.stringify({exitCode,timedOut,evidence:dir}));process.exitCode=exitCode;
   });
 }

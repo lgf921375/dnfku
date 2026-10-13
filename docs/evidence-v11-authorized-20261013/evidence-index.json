@@ -1,0 +1,82 @@
+{
+  "baseCommit": "3ce4e5ca0fa194b9656df70344d50c48a9159230",
+  "browserVersion": "151.0.7922.34",
+  "sandboxNotice": "Chromium沙箱已关闭；用户仅授权当前隔离Work本地一次验收",
+  "files": [
+    {
+      "name": "browser/natural-land.png",
+      "bytes": 132246,
+      "sha256": "9bd8a4be3808f6d0131fceb694f01798ba16decf32ec13003e21141fe3707dc1"
+    },
+    {
+      "name": "browser/height-miss-gravity12.png",
+      "bytes": 117574,
+      "sha256": "f1dafa0d808aabf94f2500d1ff18163fad7ff51c4dd161b0824f37e254249759"
+    },
+    {
+      "name": "browser/air-follow.png",
+      "bytes": 183965,
+      "sha256": "e9c713bccd01f3b52053635413506c3b03b31e0d876061f14f6f4b2a8701b63c"
+    },
+    {
+      "name": "browser/exit-code.txt",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "name": "browser/browser.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "browser/v10-protection.png",
+      "bytes": 153104,
+      "sha256": "f7f66454f2d5600372e573f55df3afc85c47a971818a12334140dc2468c6c38b"
+    },
+    {
+      "name": "browser/v10-browser-canvas.webm",
+      "bytes": 1512763,
+      "sha256": "1b165b64ac0654aac8c33b5c0f0343bf980eb42c281504fdc80e48396de30998"
+    },
+    {
+      "name": "browser/v10-manual-hit.png",
+      "bytes": 170627,
+      "sha256": "4d067043254bdc55c70849e5865f898471ed655ff85682beae83443e0e05852b"
+    },
+    {
+      "name": "browser/air-or-ground-protection.png",
+      "bytes": 149422,
+      "sha256": "49847e1c1599f9f806b8732fe69679d4d1a8d0a8b67fb7fa13cfe36781f4773f"
+    },
+    {
+      "name": "browser/third-lift.png",
+      "bytes": 180839,
+      "sha256": "3113a2e53327a41cb7316ece15ee86b2d50cf8d82eff5d7b689a4794ba06c0af"
+    },
+    {
+      "name": "browser/v11-browser-canvas.webm",
+      "bytes": 3533337,
+      "sha256": "820a643c234a4fafc7b501d716fb3a67ccb49db1addc200f260808fd24eccf6d"
+    },
+    {
+      "name": "browser/environment.json",
+      "bytes": 1501,
+      "sha256": "78e5906c408f348e1eb9d6b4a881cdb832a970d3aa765179cadbd4ea15ee029d"
+    },
+    {
+      "name": "browser/results.json",
+      "bytes": 2206979,
+      "sha256": "66b7811c505cfb856d28729c8946ed9bd74e54021d7be388783efbebbb7c1f09"
+    },
+    {
+      "name": "browser/status.json",
+      "bytes": 84,
+      "sha256": "7367559b441fa5fdbbfb87b5d6281cadd0f90c97d301fba3ea1ebcfcbd1c6035"
+    },
+    {
+      "name": "browser/ground-protection.png",
+      "bytes": 142960,
+      "sha256": "9d2ca315a16eab90b7b96f5599efd0a5866a198550cbbcb8e276fabc9a149879"
+    }
+  ]
+}

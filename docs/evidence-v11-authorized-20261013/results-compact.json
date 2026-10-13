@@ -1,0 +1,6778 @@
+{
+  "status": "passed-browser",
+  "sandboxRequested": false,
+  "actualSandbox": "Chromium沙箱已关闭；用户仅授权当前隔离Work本地一次验收",
+  "checks": [
+    {
+      "name": "V11 loopback HTTP 200, title and exact tested HTML",
+      "status": "PASS"
+    },
+    {
+      "name": "real held basic: standing third lifts, same-key falling contact reverses velocity",
+      "status": "PASS"
+    },
+    {
+      "name": "release: natural gravity landing after queued input settles",
+      "status": "PASS"
+    },
+    {
+      "name": "continuous basic reaches a valid original air, ground or total protection threshold",
+      "status": "PASS"
+    },
+    {
+      "name": "continued public inputs cause no damage or HP change while protected",
+      "status": "PASS"
+    },
+    {
+      "name": "release and queued input: immunity history intact, protection expires",
+      "status": "PASS"
+    },
+    {
+      "name": "after immunity ends a new real button attack can damage again",
+      "status": "PASS"
+    },
+    {
+      "name": "distance miss causes no damage or float",
+      "status": "PASS"
+    },
+    {
+      "name": "lane miss causes no damage or float",
+      "status": "PASS"
+    },
+    {
+      "name": "unreachable height stress case: no basic hit",
+      "status": "PASS"
+    },
+    {
+      "name": "full demo: launch, two air follows, natural drop, three ground hits and ground-limit",
+      "status": "PASS"
+    },
+    {
+      "name": "protection expires into idle",
+      "status": "PASS"
+    },
+    {
+      "name": "no browser JavaScript errors",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "requestFailures": [],
+  "cases": {
+    "manual": {
+      "events": [
+        {
+          "time": 0.18333,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 12,
+          "hp": 588,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 0,
+          "reaction": "light",
+          "hitstun": 0.255,
+          "contact": {
+            "point": {
+              "x": 1.0137259864967287,
+              "y": 1.681149117814386
+            },
+            "blade": {
+              "hand": {
+                "x": 0.7077071424678919,
+                "y": 1.5026220177439535
+              },
+              "tip": {
+                "x": 1.7154261068119805,
+                "y": 2.090511122943556
+              }
+            },
+            "attackBox": {
+              "x0": 0.6521515869123363,
+              "x1": 1.770981662367536,
+              "y0": 1.447066462188398,
+              "y1": 2.1460666784991114
+            },
+            "targetBox": {
+              "x0": 0.8099999999999998,
+              "x1": 1.49,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.15,
+            "y": 0,
+            "vy": 0,
+            "hp": 600
+          },
+          "after": {
+            "state": "idle",
+            "x": 1.15,
+            "y": 0,
+            "vy": 0,
+            "hp": 588,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 1
+          }
+        },
+        {
+          "time": 0.18333,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 0,
+          "attackerStop": 0.045,
+          "victimStop": 0.045,
+          "vy": 0
+        },
+        {
+          "time": 0.18333,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "light",
+          "hitstun": 0.255
+        },
+        {
+          "time": 0.55,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 14,
+          "hp": 574,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 1,
+          "reaction": "reverse",
+          "hitstun": 0.25,
+          "contact": {
+            "point": {
+              "x": 0.9053609898587511,
+              "y": 0.054073650279476304
+            },
+            "blade": {
+              "hand": {
+                "x": 0.5218372148859209,
+                "y": 0.6258915928120086
+              },
+              "tip": {
+                "x": 1.171696852779841,
+                "y": -0.34302200609529027
+              }
+            },
+            "attackBox": {
+              "x0": 0.46628165933036536,
+              "x1": 1.2272524083353966,
+              "y0": -0.3985775616508458,
+              "y1": 0.6814471483675641
+            },
+            "targetBox": {
+              "x0": 0.8690932743164645,
+              "x1": 1.5490932743164647,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.2090932743164646,
+            "y": 0,
+            "vy": 0,
+            "hp": 588
+          },
+          "after": {
+            "state": "idle",
+            "x": 1.2090932743164646,
+            "y": 0,
+            "vy": 0,
+            "hp": 574,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 2
+          }
+        },
+        {
+          "time": 0.55,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 1,
+          "attackerStop": 0.055,
+          "victimStop": 0.055,
+          "vy": 0
+        },
+        {
+          "time": 0.55,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "reverse",
+          "hitstun": 0.25
+        },
+        {
+          "time": 0.99167,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 22,
+          "hp": 552,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 2,
+          "reaction": "launch",
+          "hitstun": 0.33999999999999997,
+          "contact": {
+            "point": {
+              "x": 0.9563044868611602,
+              "y": 0.012736386978682512
+            },
+            "blade": {
+              "hand": {
+                "x": 0.5364691431689225,
+                "y": 0.5904448969030077
+              },
+              "tip": {
+                "x": 1.2223314489638002,
+                "y": -0.353326266356839
+              }
+            },
+            "attackBox": {
+              "x0": 0.4809135876133669,
+              "x1": 1.2778870045193558,
+              "y0": -0.4088818219123945,
+              "y1": 0.6460004524585633
+            },
+            "targetBox": {
+              "x0": 0.9470486332382095,
+              "x1": 1.6270486332382097,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.2870486332382096,
+            "y": 0,
+            "vy": 0,
+            "hp": 574
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.2870486332382096,
+            "y": 0.01,
+            "vy": 4.656666666666666,
+            "hp": 552,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 3
+          }
+        },
+        {
+          "time": 0.99167,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 2,
+          "attackerStop": 0.085,
+          "victimStop": 0.085,
+          "vy": 4.656666666666666
+        },
+        {
+          "time": 0.99167,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "launch",
+          "hitstun": 0.33999999999999997
+        },
+        {
+          "time": 1.475,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 12,
+          "hp": 540,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 0,
+          "reaction": "air",
+          "hitstun": 0.255,
+          "contact": {
+            "point": {
+              "x": 1.2671151011646422,
+              "y": 1.8289727721865137
+            },
+            "blade": {
+              "hand": {
+                "x": 0.7077071424678919,
+                "y": 1.5026220177439535
+              },
+              "tip": {
+                "x": 1.7154261068119805,
+                "y": 2.090511122943556
+              }
+            },
+            "attackBox": {
+              "x0": 0.6521515869123363,
+              "x1": 1.770981662367536,
+              "y0": 1.447066462188398,
+              "y1": 2.1460666784991114
+            },
+            "targetBox": {
+              "x0": 1.1273191344685054,
+              "x1": 1.8073191344685056,
+              "y0": 0.11052777777777809,
+              "y1": 1.910527777777778
+            }
+          },
+          "before": {
+            "state": "airborne",
+            "x": 1.4673191344685055,
+            "y": 0.11052777777777809,
+            "vy": -3.959999999999997,
+            "hp": 552
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.4673191344685055,
+            "y": 0.11052777777777809,
+            "vy": 3.886666666666667,
+            "hp": 540,
+            "airHits": 1,
+            "groundHits": 0,
+            "totalHits": 4
+          }
+        },
+        {
+          "time": 1.475,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 0,
+          "attackerStop": 0.045,
+          "victimStop": 0.045,
+          "vy": 3.886666666666667
+        },
+        {
+          "time": 1.475,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "air",
+          "hitstun": 0.255
+        }
+      ],
+      "bodyEvents": [
+        {
+          "time": 0.18333,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        },
+        {
+          "time": 0.55,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        },
+        {
+          "time": 0.99167,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        },
+        {
+          "time": 1.475,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "airborne"
+        }
+      ],
+      "body": {
+        "time": 1.5583333333333302,
+        "state": "airborne",
+        "enemyX": 1.4898955306487955,
+        "y": 0.2248055555555559,
+        "vy": 3.1533333333333347,
+        "downRemaining": 0,
+        "invulnerabilityRemaining": 0,
+        "hitstopRemaining": 0,
+        "bounceRemaining": 0,
+        "airHits": 1,
+        "groundHits": 0,
+        "totalHits": 4
+      },
+      "hp": 540,
+      "settings": {
+        "gravity": 22,
+        "launchVelocity": 10.5,
+        "airTapVelocity": 5.5,
+        "knockdownSeconds": 0.9,
+        "comboWindowSeconds": 1.6,
+        "airHitLimit": 4,
+        "groundHitLimit": 3,
+        "totalHitLimit": 7,
+        "protectedInvulnerabilitySeconds": 0.6,
+        "fixedStep": 0.008333333333333333,
+        "minHitIntervalSeconds": 0.09,
+        "hitstopSeconds": 0.04,
+        "groundBounceVelocity": 0,
+        "groundBounceCount": 1
+      },
+      "sampleSummary": {
+        "count": 94,
+        "first": {
+          "wall": 152.5,
+          "rafDelta": null,
+          "time": 0.008333333333333333,
+          "a": {
+            "time": 0.008333333333333333,
+            "state": "idle",
+            "enemyX": 0,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "b": {
+            "time": 0.008333333333333333,
+            "state": "idle",
+            "enemyX": 1.15,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "hp": 600,
+          "damage": 0
+        },
+        "last": {
+          "wall": 1702.5,
+          "rafDelta": 16.700000000000045,
+          "time": 1.5583333333333302,
+          "a": {
+            "time": 1.5583333333333302,
+            "state": "idle",
+            "enemyX": 0,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "b": {
+            "time": 1.5583333333333302,
+            "state": "airborne",
+            "enemyX": 1.4898955306487955,
+            "y": 0.2248055555555559,
+            "vy": 3.1533333333333347,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 1,
+            "groundHits": 0,
+            "totalHits": 4
+          },
+          "hp": 540,
+          "damage": 4
+        },
+        "scope": "full samples saved in original evidence archive"
+      }
+    },
+    "settled": {
+      "events": [
+        {
+          "time": 0.18333,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 12,
+          "hp": 588,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 0,
+          "reaction": "light",
+          "hitstun": 0.255,
+          "contact": {
+            "point": {
+              "x": 1.0137259864967287,
+              "y": 1.681149117814386
+            },
+            "blade": {
+              "hand": {
+                "x": 0.7077071424678919,
+                "y": 1.5026220177439535
+              },
+              "tip": {
+                "x": 1.7154261068119805,
+                "y": 2.090511122943556
+              }
+            },
+            "attackBox": {
+              "x0": 0.6521515869123363,
+              "x1": 1.770981662367536,
+              "y0": 1.447066462188398,
+              "y1": 2.1460666784991114
+            },
+            "targetBox": {
+              "x0": 0.8099999999999998,
+              "x1": 1.49,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.15,
+            "y": 0,
+            "vy": 0,
+            "hp": 600
+          },
+          "after": {
+            "state": "idle",
+            "x": 1.15,
+            "y": 0,
+            "vy": 0,
+            "hp": 588,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 1
+          }
+        },
+        {
+          "time": 0.18333,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 0,
+          "attackerStop": 0.045,
+          "victimStop": 0.045,
+          "vy": 0
+        },
+        {
+          "time": 0.18333,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "light",
+          "hitstun": 0.255
+        },
+        {
+          "time": 0.55,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 14,
+          "hp": 574,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 1,
+          "reaction": "reverse",
+          "hitstun": 0.25,
+          "contact": {
+            "point": {
+              "x": 0.9053609898587511,
+              "y": 0.054073650279476304
+            },
+            "blade": {
+              "hand": {
+                "x": 0.5218372148859209,
+                "y": 0.6258915928120086
+              },
+              "tip": {
+                "x": 1.171696852779841,
+                "y": -0.34302200609529027
+              }
+            },
+            "attackBox": {
+              "x0": 0.46628165933036536,
+              "x1": 1.2272524083353966,
+              "y0": -0.3985775616508458,
+              "y1": 0.6814471483675641
+            },
+            "targetBox": {
+              "x0": 0.8690932743164645,
+              "x1": 1.5490932743164647,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.2090932743164646,
+            "y": 0,
+            "vy": 0,
+            "hp": 588
+          },
+          "after": {
+            "state": "idle",
+            "x": 1.2090932743164646,
+            "y": 0,
+            "vy": 0,
+            "hp": 574,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 2
+          }
+        },
+        {
+          "time": 0.55,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 1,
+          "attackerStop": 0.055,
+          "victimStop": 0.055,
+          "vy": 0
+        },
+        {
+          "time": 0.55,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "reverse",
+          "hitstun": 0.25
+        },
+        {
+          "time": 0.99167,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 22,
+          "hp": 552,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 2,
+          "reaction": "launch",
+          "hitstun": 0.33999999999999997,
+          "contact": {
+            "point": {
+              "x": 0.9563044868611602,
+              "y": 0.012736386978682512
+            },
+            "blade": {
+              "hand": {
+                "x": 0.5364691431689225,
+                "y": 0.5904448969030077
+              },
+              "tip": {
+                "x": 1.2223314489638002,
+                "y": -0.353326266356839
+              }
+            },
+            "attackBox": {
+              "x0": 0.4809135876133669,
+              "x1": 1.2778870045193558,
+              "y0": -0.4088818219123945,
+              "y1": 0.6460004524585633
+            },
+            "targetBox": {
+              "x0": 0.9470486332382095,
+              "x1": 1.6270486332382097,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.2870486332382096,
+            "y": 0,
+            "vy": 0,
+            "hp": 574
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.2870486332382096,
+            "y": 0.01,
+            "vy": 4.656666666666666,
+            "hp": 552,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 3
+          }
+        },
+        {
+          "time": 0.99167,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 2,
+          "attackerStop": 0.085,
+          "victimStop": 0.085,
+          "vy": 4.656666666666666
+        },
+        {
+          "time": 0.99167,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "launch",
+          "hitstun": 0.33999999999999997
+        },
+        {
+          "time": 1.475,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 12,
+          "hp": 540,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 0,
+          "reaction": "air",
+          "hitstun": 0.255,
+          "contact": {
+            "point": {
+              "x": 1.2671151011646422,
+              "y": 1.8289727721865137
+            },
+            "blade": {
+              "hand": {
+                "x": 0.7077071424678919,
+                "y": 1.5026220177439535
+              },
+              "tip": {
+                "x": 1.7154261068119805,
+                "y": 2.090511122943556
+              }
+            },
+            "attackBox": {
+              "x0": 0.6521515869123363,
+              "x1": 1.770981662367536,
+              "y0": 1.447066462188398,
+              "y1": 2.1460666784991114
+            },
+            "targetBox": {
+              "x0": 1.1273191344685054,
+              "x1": 1.8073191344685056,
+              "y0": 0.11052777777777809,
+              "y1": 1.910527777777778
+            }
+          },
+          "before": {
+            "state": "airborne",
+            "x": 1.4673191344685055,
+            "y": 0.11052777777777809,
+            "vy": -3.959999999999997,
+            "hp": 552
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.4673191344685055,
+            "y": 0.11052777777777809,
+            "vy": 3.886666666666667,
+            "hp": 540,
+            "airHits": 1,
+            "groundHits": 0,
+            "totalHits": 4
+          }
+        },
+        {
+          "time": 1.475,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 0,
+          "attackerStop": 0.045,
+          "victimStop": 0.045,
+          "vy": 3.886666666666667
+        },
+        {
+          "time": 1.475,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "air",
+          "hitstun": 0.255
+        }
+      ],
+      "bodyEvents": [
+        {
+          "time": 0.18333,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        },
+        {
+          "time": 0.55,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        },
+        {
+          "time": 0.99167,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        },
+        {
+          "time": 1.475,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "airborne"
+        }
+      ],
+      "body": {
+        "time": 1.7583333333333295,
+        "state": "airborne",
+        "enemyX": 1.5255514956971719,
+        "y": 0.3971388888888897,
+        "vy": -1.2466666666666641,
+        "downRemaining": 0,
+        "invulnerabilityRemaining": 0,
+        "hitstopRemaining": 0,
+        "bounceRemaining": 0,
+        "airHits": 1,
+        "groundHits": 0,
+        "totalHits": 4
+      },
+      "hp": 540,
+      "settings": {
+        "gravity": 22,
+        "launchVelocity": 10.5,
+        "airTapVelocity": 5.5,
+        "knockdownSeconds": 0.9,
+        "comboWindowSeconds": 1.6,
+        "airHitLimit": 4,
+        "groundHitLimit": 3,
+        "totalHitLimit": 7,
+        "protectedInvulnerabilitySeconds": 0.6,
+        "fixedStep": 0.008333333333333333,
+        "minHitIntervalSeconds": 0.09,
+        "hitstopSeconds": 0.04,
+        "groundBounceVelocity": 0,
+        "groundBounceCount": 1
+      },
+      "sampleSummary": {
+        "count": 106,
+        "first": {
+          "wall": 152.5,
+          "rafDelta": null,
+          "time": 0.008333333333333333,
+          "a": {
+            "time": 0.008333333333333333,
+            "state": "idle",
+            "enemyX": 0,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "b": {
+            "time": 0.008333333333333333,
+            "state": "idle",
+            "enemyX": 1.15,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "hp": 600,
+          "damage": 0
+        },
+        "last": {
+          "wall": 1902.5,
+          "rafDelta": 16.700000000000045,
+          "time": 1.7583333333333295,
+          "a": {
+            "time": 1.7583333333333295,
+            "state": "idle",
+            "enemyX": 0,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "b": {
+            "time": 1.7583333333333295,
+            "state": "airborne",
+            "enemyX": 1.5255514956971719,
+            "y": 0.3971388888888897,
+            "vy": -1.2466666666666641,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 1,
+            "groundHits": 0,
+            "totalHits": 4
+          },
+          "hp": 540,
+          "damage": 4
+        },
+        "scope": "full samples saved in original evidence archive"
+      }
+    },
+    "natural": {
+      "events": [
+        {
+          "time": 0.18333,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 12,
+          "hp": 588,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 0,
+          "reaction": "light",
+          "hitstun": 0.255,
+          "contact": {
+            "point": {
+              "x": 1.0137259864967287,
+              "y": 1.681149117814386
+            },
+            "blade": {
+              "hand": {
+                "x": 0.7077071424678919,
+                "y": 1.5026220177439535
+              },
+              "tip": {
+                "x": 1.7154261068119805,
+                "y": 2.090511122943556
+              }
+            },
+            "attackBox": {
+              "x0": 0.6521515869123363,
+              "x1": 1.770981662367536,
+              "y0": 1.447066462188398,
+              "y1": 2.1460666784991114
+            },
+            "targetBox": {
+              "x0": 0.8099999999999998,
+              "x1": 1.49,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.15,
+            "y": 0,
+            "vy": 0,
+            "hp": 600
+          },
+          "after": {
+            "state": "idle",
+            "x": 1.15,
+            "y": 0,
+            "vy": 0,
+            "hp": 588,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 1
+          }
+        },
+        {
+          "time": 0.18333,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 0,
+          "attackerStop": 0.045,
+          "victimStop": 0.045,
+          "vy": 0
+        },
+        {
+          "time": 0.18333,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "light",
+          "hitstun": 0.255
+        },
+        {
+          "time": 0.55,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 14,
+          "hp": 574,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 1,
+          "reaction": "reverse",
+          "hitstun": 0.25,
+          "contact": {
+            "point": {
+              "x": 0.9053609898587511,
+              "y": 0.054073650279476304
+            },
+            "blade": {
+              "hand": {
+                "x": 0.5218372148859209,
+                "y": 0.6258915928120086
+              },
+              "tip": {
+                "x": 1.171696852779841,
+                "y": -0.34302200609529027
+              }
+            },
+            "attackBox": {
+              "x0": 0.46628165933036536,
+              "x1": 1.2272524083353966,
+              "y0": -0.3985775616508458,
+              "y1": 0.6814471483675641
+            },
+            "targetBox": {
+              "x0": 0.8690932743164645,
+              "x1": 1.5490932743164647,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.2090932743164646,
+            "y": 0,
+            "vy": 0,
+            "hp": 588
+          },
+          "after": {
+            "state": "idle",
+            "x": 1.2090932743164646,
+            "y": 0,
+            "vy": 0,
+            "hp": 574,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 2
+          }
+        },
+        {
+          "time": 0.55,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 1,
+          "attackerStop": 0.055,
+          "victimStop": 0.055,
+          "vy": 0
+        },
+        {
+          "time": 0.55,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "reverse",
+          "hitstun": 0.25
+        },
+        {
+          "time": 0.99167,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 22,
+          "hp": 552,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 2,
+          "reaction": "launch",
+          "hitstun": 0.33999999999999997,
+          "contact": {
+            "point": {
+              "x": 0.9563044868611602,
+              "y": 0.012736386978682512
+            },
+            "blade": {
+              "hand": {
+                "x": 0.5364691431689225,
+                "y": 0.5904448969030077
+              },
+              "tip": {
+                "x": 1.2223314489638002,
+                "y": -0.353326266356839
+              }
+            },
+            "attackBox": {
+              "x0": 0.4809135876133669,
+              "x1": 1.2778870045193558,
+              "y0": -0.4088818219123945,
+              "y1": 0.6460004524585633
+            },
+            "targetBox": {
+              "x0": 0.9470486332382095,
+              "x1": 1.6270486332382097,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.2870486332382096,
+            "y": 0,
+            "vy": 0,
+            "hp": 574
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.2870486332382096,
+            "y": 0.01,
+            "vy": 4.656666666666666,
+            "hp": 552,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 3
+          }
+        },
+        {
+          "time": 0.99167,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 2,
+          "attackerStop": 0.085,
+          "victimStop": 0.085,
+          "vy": 4.656666666666666
+        },
+        {
+          "time": 0.99167,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "launch",
+          "hitstun": 0.33999999999999997
+        },
+        {
+          "time": 1.475,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 12,
+          "hp": 540,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 0,
+          "reaction": "air",
+          "hitstun": 0.255,
+          "contact": {
+            "point": {
+              "x": 1.2671151011646422,
+              "y": 1.8289727721865137
+            },
+            "blade": {
+              "hand": {
+                "x": 0.7077071424678919,
+                "y": 1.5026220177439535
+              },
+              "tip": {
+                "x": 1.7154261068119805,
+                "y": 2.090511122943556
+              }
+            },
+            "attackBox": {
+              "x0": 0.6521515869123363,
+              "x1": 1.770981662367536,
+              "y0": 1.447066462188398,
+              "y1": 2.1460666784991114
+            },
+            "targetBox": {
+              "x0": 1.1273191344685054,
+              "x1": 1.8073191344685056,
+              "y0": 0.11052777777777809,
+              "y1": 1.910527777777778
+            }
+          },
+          "before": {
+            "state": "airborne",
+            "x": 1.4673191344685055,
+            "y": 0.11052777777777809,
+            "vy": -3.959999999999997,
+            "hp": 552
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.4673191344685055,
+            "y": 0.11052777777777809,
+            "vy": 3.886666666666667,
+            "hp": 540,
+            "airHits": 1,
+            "groundHits": 0,
+            "totalHits": 4
+          }
+        },
+        {
+          "time": 1.475,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 0,
+          "attackerStop": 0.045,
+          "victimStop": 0.045,
+          "vy": 3.886666666666667
+        },
+        {
+          "time": 1.475,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "air",
+          "hitstun": 0.255
+        }
+      ],
+      "bodyEvents": [
+        {
+          "time": 0.18333,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        },
+        {
+          "time": 0.55,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        },
+        {
+          "time": 0.99167,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        },
+        {
+          "time": 1.475,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "airborne"
+        },
+        {
+          "time": 1.9,
+          "type": "landed",
+          "downRemaining": 0.9
+        }
+      ],
+      "body": {
+        "time": 1.908333333333329,
+        "state": "down",
+        "enemyX": 1.5264124087849702,
+        "y": 0,
+        "vy": 0,
+        "downRemaining": 0.8916666666666667,
+        "invulnerabilityRemaining": 0,
+        "hitstopRemaining": 0,
+        "bounceRemaining": 0,
+        "airHits": 1,
+        "groundHits": 0,
+        "totalHits": 4
+      },
+      "hp": 540,
+      "settings": {
+        "gravity": 22,
+        "launchVelocity": 10.5,
+        "airTapVelocity": 5.5,
+        "knockdownSeconds": 0.9,
+        "comboWindowSeconds": 1.6,
+        "airHitLimit": 4,
+        "groundHitLimit": 3,
+        "totalHitLimit": 7,
+        "protectedInvulnerabilitySeconds": 0.6,
+        "fixedStep": 0.008333333333333333,
+        "minHitIntervalSeconds": 0.09,
+        "hitstopSeconds": 0.04,
+        "groundBounceVelocity": 0,
+        "groundBounceCount": 1
+      },
+      "sampleSummary": {
+        "count": 115,
+        "first": {
+          "wall": 152.5,
+          "rafDelta": null,
+          "time": 0.008333333333333333,
+          "a": {
+            "time": 0.008333333333333333,
+            "state": "idle",
+            "enemyX": 0,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "b": {
+            "time": 0.008333333333333333,
+            "state": "idle",
+            "enemyX": 1.15,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "hp": 600,
+          "damage": 0
+        },
+        "last": {
+          "wall": 2052.5,
+          "rafDelta": 16.700000000000045,
+          "time": 1.908333333333329,
+          "a": {
+            "time": 1.908333333333329,
+            "state": "idle",
+            "enemyX": 0,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "b": {
+            "time": 1.908333333333329,
+            "state": "down",
+            "enemyX": 1.5264124087849702,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0.8916666666666667,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 1,
+            "groundHits": 0,
+            "totalHits": 4
+          },
+          "hp": 540,
+          "damage": 4
+        },
+        "scope": "full samples saved in original evidence archive"
+      }
+    },
+    "protectionEntry": {
+      "events": [
+        {
+          "time": 0.16667,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 12,
+          "hp": 588,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 0,
+          "reaction": "light",
+          "hitstun": 0.255,
+          "contact": {
+            "point": {
+              "x": 1.0137259864967287,
+              "y": 1.681149117814386
+            },
+            "blade": {
+              "hand": {
+                "x": 0.7077071424678919,
+                "y": 1.5026220177439535
+              },
+              "tip": {
+                "x": 1.7154261068119805,
+                "y": 2.090511122943556
+              }
+            },
+            "attackBox": {
+              "x0": 0.6521515869123363,
+              "x1": 1.770981662367536,
+              "y0": 1.447066462188398,
+              "y1": 2.1460666784991114
+            },
+            "targetBox": {
+              "x0": 0.8099999999999998,
+              "x1": 1.49,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.15,
+            "y": 0,
+            "vy": 0,
+            "hp": 600
+          },
+          "after": {
+            "state": "idle",
+            "x": 1.15,
+            "y": 0,
+            "vy": 0,
+            "hp": 588,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 1
+          }
+        },
+        {
+          "time": 0.16667,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 0,
+          "attackerStop": 0.045,
+          "victimStop": 0.045,
+          "vy": 0
+        },
+        {
+          "time": 0.16667,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "light",
+          "hitstun": 0.255
+        },
+        {
+          "time": 0.53333,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 14,
+          "hp": 574,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 1,
+          "reaction": "reverse",
+          "hitstun": 0.25,
+          "contact": {
+            "point": {
+              "x": 0.9053609898587511,
+              "y": 0.054073650279476304
+            },
+            "blade": {
+              "hand": {
+                "x": 0.5218372148859209,
+                "y": 0.6258915928120086
+              },
+              "tip": {
+                "x": 1.171696852779841,
+                "y": -0.34302200609529027
+              }
+            },
+            "attackBox": {
+              "x0": 0.46628165933036536,
+              "x1": 1.2272524083353966,
+              "y0": -0.3985775616508458,
+              "y1": 0.6814471483675641
+            },
+            "targetBox": {
+              "x0": 0.8690932743164645,
+              "x1": 1.5490932743164647,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.2090932743164646,
+            "y": 0,
+            "vy": 0,
+            "hp": 588
+          },
+          "after": {
+            "state": "idle",
+            "x": 1.2090932743164646,
+            "y": 0,
+            "vy": 0,
+            "hp": 574,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 2
+          }
+        },
+        {
+          "time": 0.53333,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 1,
+          "attackerStop": 0.055,
+          "victimStop": 0.055,
+          "vy": 0
+        },
+        {
+          "time": 0.53333,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "reverse",
+          "hitstun": 0.25
+        },
+        {
+          "time": 0.98333,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 22,
+          "hp": 552,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 2,
+          "reaction": "launch",
+          "hitstun": 0.33999999999999997,
+          "contact": {
+            "point": {
+              "x": 0.9563044868611602,
+              "y": 0.012736386978682512
+            },
+            "blade": {
+              "hand": {
+                "x": 0.5364691431689225,
+                "y": 0.5904448969030077
+              },
+              "tip": {
+                "x": 1.2223314489638002,
+                "y": -0.353326266356839
+              }
+            },
+            "attackBox": {
+              "x0": 0.4809135876133669,
+              "x1": 1.2778870045193558,
+              "y0": -0.4088818219123945,
+              "y1": 0.6460004524585633
+            },
+            "targetBox": {
+              "x0": 0.9470486332382095,
+              "x1": 1.6270486332382097,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.2870486332382096,
+            "y": 0,
+            "vy": 0,
+            "hp": 574
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.2870486332382096,
+            "y": 0.01,
+            "vy": 4.656666666666666,
+            "hp": 552,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 3
+          }
+        },
+        {
+          "time": 0.98333,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 2,
+          "attackerStop": 0.085,
+          "victimStop": 0.085,
+          "vy": 4.656666666666666
+        },
+        {
+          "time": 0.98333,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "launch",
+          "hitstun": 0.33999999999999997
+        },
+        {
+          "time": 1.45,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 12,
+          "hp": 540,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 0,
+          "reaction": "air",
+          "hitstun": 0.255,
+          "contact": {
+            "point": {
+              "x": 1.3223720198863123,
+              "y": 1.8612088832976248
+            },
+            "blade": {
+              "hand": {
+                "x": 0.7077071424678919,
+                "y": 1.5026220177439535
+              },
+              "tip": {
+                "x": 1.7154261068119805,
+                "y": 2.090511122943556
+              }
+            },
+            "attackBox": {
+              "x0": 0.6521515869123363,
+              "x1": 1.770981662367536,
+              "y0": 1.447066462188398,
+              "y1": 2.1460666784991114
+            },
+            "targetBox": {
+              "x0": 1.1273191344685054,
+              "x1": 1.8073191344685056,
+              "y0": 0.17500000000000027,
+              "y1": 1.9750000000000003
+            }
+          },
+          "before": {
+            "state": "airborne",
+            "x": 1.4673191344685055,
+            "y": 0.17500000000000027,
+            "vy": -3.5933333333333306,
+            "hp": 552
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.4673191344685055,
+            "y": 0.17500000000000027,
+            "vy": 3.886666666666667,
+            "hp": 540,
+            "airHits": 1,
+            "groundHits": 0,
+            "totalHits": 4
+          }
+        },
+        {
+          "time": 1.45,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 0,
+          "attackerStop": 0.045,
+          "victimStop": 0.045,
+          "vy": 3.886666666666667
+        },
+        {
+          "time": 1.45,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "air",
+          "hitstun": 0.255
+        },
+        {
+          "time": 1.75833,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 14,
+          "hp": 526,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 1,
+          "reaction": "air",
+          "hitstun": 0.25,
+          "contact": {
+            "point": {
+              "x": 1.5132076211174748,
+              "y": 0.6879502931368559
+            },
+            "blade": {
+              "hand": {
+                "x": 0.7166687599542105,
+                "y": 0.9108304063821872
+              },
+              "tip": {
+                "x": 1.8401819807902402,
+                "y": 0.596459361726733
+              }
+            },
+            "attackBox": {
+              "x0": 0.661113204398655,
+              "x1": 1.8957375363457958,
+              "y0": 0.5409038061711774,
+              "y1": 0.9663859619377427
+            },
+            "targetBox": {
+              "x0": 1.1862332614447098,
+              "x1": 1.86623326144471,
+              "y0": 0.4212777777777785,
+              "y1": 2.2212777777777784
+            }
+          },
+          "before": {
+            "state": "airborne",
+            "x": 1.5262332614447098,
+            "y": 0.4212777777777785,
+            "vy": -1.7966666666666642,
+            "hp": 540
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.5262332614447098,
+            "y": 0.4212777777777785,
+            "vy": 4.6016666666666675,
+            "hp": 526,
+            "airHits": 2,
+            "groundHits": 0,
+            "totalHits": 5
+          }
+        },
+        {
+          "time": 1.75833,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 1,
+          "attackerStop": 0.055,
+          "victimStop": 0.055,
+          "vy": 4.6016666666666675
+        },
+        {
+          "time": 1.75833,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "air",
+          "hitstun": 0.25
+        },
+        {
+          "time": 2.14167,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 22,
+          "hp": 504,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 2,
+          "reaction": "air",
+          "hitstun": 0.33999999999999997,
+          "contact": {
+            "point": {
+              "x": 1.445948819322893,
+              "y": 0.7718441114537284
+            },
+            "blade": {
+              "hand": {
+                "x": 0.738387914149624,
+                "y": 0.9536053689192299
+              },
+              "tip": {
+                "x": 1.8683667823380374,
+                "y": 0.6633315868466114
+              }
+            },
+            "attackBox": {
+              "x0": 0.6828323585940684,
+              "x1": 1.923922337893593,
+              "y0": 0.6077760312910558,
+              "y1": 1.0091609244747854
+            },
+            "targetBox": {
+              "x0": 1.2641886203664547,
+              "x1": 1.944188620366455,
+              "y0": 0.725152777777779,
+              "y1": 2.525152777777779
+            }
+          },
+          "before": {
+            "state": "airborne",
+            "x": 1.6041886203664548,
+            "y": 0.725152777777779,
+            "vy": -2.5483333333333307,
+            "hp": 526
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.6041886203664548,
+            "y": 0.725152777777779,
+            "vy": 4.656666666666666,
+            "hp": 504,
+            "airHits": 3,
+            "groundHits": 0,
+            "totalHits": 6
+          }
+        },
+        {
+          "time": 2.14167,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 2,
+          "attackerStop": 0.085,
+          "victimStop": 0.085,
+          "vy": 4.656666666666666
+        },
+        {
+          "time": 2.14167,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "air",
+          "hitstun": 0.33999999999999997
+        },
+        {
+          "time": 2.60833,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 12,
+          "hp": 492,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": true,
+          "cut": 0,
+          "contact": {
+            "point": {
+              "x": 1.5799426142043655,
+              "y": 2.011471954230233
+            },
+            "blade": {
+              "hand": {
+                "x": 0.7077071424678919,
+                "y": 1.5026220177439535
+              },
+              "tip": {
+                "x": 1.7154261068119805,
+                "y": 2.090511122943556
+              }
+            },
+            "attackBox": {
+              "x0": 0.6521515869123363,
+              "x1": 1.770981662367536,
+              "y0": 1.447066462188398,
+              "y1": 2.1460666784991114
+            },
+            "targetBox": {
+              "x0": 1.4444591215967506,
+              "x1": 2.1244591215967508,
+              "y0": 0.8901527777777791,
+              "y1": 2.6901527777777794
+            }
+          },
+          "before": {
+            "state": "airborne",
+            "x": 1.7844591215967507,
+            "y": 0.8901527777777791,
+            "vy": -3.5933333333333306,
+            "hp": 504
+          },
+          "after": {
+            "state": "invulnerable",
+            "x": 1.7844591215967507,
+            "y": 0,
+            "vy": 0,
+            "hp": 492,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          }
+        },
+        {
+          "time": 2.60833,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 0,
+          "attackerStop": 0.045,
+          "victimStop": 0,
+          "vy": 0
+        }
+      ],
+      "bodyEvents": [
+        {
+          "time": 0.16667,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        },
+        {
+          "time": 0.53333,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        },
+        {
+          "time": 0.98333,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        },
+        {
+          "time": 1.45,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "airborne"
+        },
+        {
+          "time": 1.75833,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "airborne"
+        },
+        {
+          "time": 2.14167,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "airborne"
+        },
+        {
+          "time": 2.60833,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "airborne"
+        },
+        {
+          "time": 2.60833,
+          "type": "forced-stand",
+          "reason": "air-limit",
+          "airHits": 4,
+          "groundHits": 0,
+          "totalHits": 7
+        }
+      ],
+      "body": {
+        "time": 2.6083333333333267,
+        "state": "invulnerable",
+        "enemyX": 1.7844591215967507,
+        "y": 0,
+        "vy": 0,
+        "downRemaining": 0,
+        "invulnerabilityRemaining": 0.6,
+        "hitstopRemaining": 0,
+        "bounceRemaining": 0,
+        "airHits": 0,
+        "groundHits": 0,
+        "totalHits": 0
+      },
+      "hp": 492,
+      "settings": {
+        "gravity": 22,
+        "launchVelocity": 10.5,
+        "airTapVelocity": 5.5,
+        "knockdownSeconds": 0.9,
+        "comboWindowSeconds": 1.6,
+        "airHitLimit": 4,
+        "groundHitLimit": 3,
+        "totalHitLimit": 7,
+        "protectedInvulnerabilitySeconds": 0.6,
+        "fixedStep": 0.008333333333333333,
+        "minHitIntervalSeconds": 0.09,
+        "hitstopSeconds": 0.04,
+        "groundBounceVelocity": 0,
+        "groundBounceCount": 1
+      },
+      "sampleSummary": {
+        "count": 157,
+        "first": {
+          "wall": 2219.1,
+          "rafDelta": null,
+          "time": 0.016666666666666666,
+          "a": {
+            "time": 0.016666666666666666,
+            "state": "idle",
+            "enemyX": 0,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "b": {
+            "time": 0.016666666666666666,
+            "state": "idle",
+            "enemyX": 1.15,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "hp": 600,
+          "damage": 0
+        },
+        "last": {
+          "wall": 4819,
+          "rafDelta": 16.699999999999818,
+          "time": 2.6083333333333267,
+          "a": {
+            "time": 2.6083333333333267,
+            "state": "idle",
+            "enemyX": 0,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "b": {
+            "time": 2.6083333333333267,
+            "state": "invulnerable",
+            "enemyX": 1.7844591215967507,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0.6,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "hp": 492,
+          "damage": 7
+        },
+        "scope": "full samples saved in original evidence archive"
+      }
+    },
+    "continuous": {
+      "events": [
+        {
+          "time": 0.16667,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 12,
+          "hp": 588,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 0,
+          "reaction": "light",
+          "hitstun": 0.255,
+          "contact": {
+            "point": {
+              "x": 1.0137259864967287,
+              "y": 1.681149117814386
+            },
+            "blade": {
+              "hand": {
+                "x": 0.7077071424678919,
+                "y": 1.5026220177439535
+              },
+              "tip": {
+                "x": 1.7154261068119805,
+                "y": 2.090511122943556
+              }
+            },
+            "attackBox": {
+              "x0": 0.6521515869123363,
+              "x1": 1.770981662367536,
+              "y0": 1.447066462188398,
+              "y1": 2.1460666784991114
+            },
+            "targetBox": {
+              "x0": 0.8099999999999998,
+              "x1": 1.49,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.15,
+            "y": 0,
+            "vy": 0,
+            "hp": 600
+          },
+          "after": {
+            "state": "idle",
+            "x": 1.15,
+            "y": 0,
+            "vy": 0,
+            "hp": 588,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 1
+          }
+        },
+        {
+          "time": 0.16667,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 0,
+          "attackerStop": 0.045,
+          "victimStop": 0.045,
+          "vy": 0
+        },
+        {
+          "time": 0.16667,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "light",
+          "hitstun": 0.255
+        },
+        {
+          "time": 0.53333,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 14,
+          "hp": 574,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 1,
+          "reaction": "reverse",
+          "hitstun": 0.25,
+          "contact": {
+            "point": {
+              "x": 0.9053609898587511,
+              "y": 0.054073650279476304
+            },
+            "blade": {
+              "hand": {
+                "x": 0.5218372148859209,
+                "y": 0.6258915928120086
+              },
+              "tip": {
+                "x": 1.171696852779841,
+                "y": -0.34302200609529027
+              }
+            },
+            "attackBox": {
+              "x0": 0.46628165933036536,
+              "x1": 1.2272524083353966,
+              "y0": -0.3985775616508458,
+              "y1": 0.6814471483675641
+            },
+            "targetBox": {
+              "x0": 0.8690932743164645,
+              "x1": 1.5490932743164647,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.2090932743164646,
+            "y": 0,
+            "vy": 0,
+            "hp": 588
+          },
+          "after": {
+            "state": "idle",
+            "x": 1.2090932743164646,
+            "y": 0,
+            "vy": 0,
+            "hp": 574,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 2
+          }
+        },
+        {
+          "time": 0.53333,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 1,
+          "attackerStop": 0.055,
+          "victimStop": 0.055,
+          "vy": 0
+        },
+        {
+          "time": 0.53333,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "reverse",
+          "hitstun": 0.25
+        },
+        {
+          "time": 0.98333,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 22,
+          "hp": 552,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 2,
+          "reaction": "launch",
+          "hitstun": 0.33999999999999997,
+          "contact": {
+            "point": {
+              "x": 0.9563044868611602,
+              "y": 0.012736386978682512
+            },
+            "blade": {
+              "hand": {
+                "x": 0.5364691431689225,
+                "y": 0.5904448969030077
+              },
+              "tip": {
+                "x": 1.2223314489638002,
+                "y": -0.353326266356839
+              }
+            },
+            "attackBox": {
+              "x0": 0.4809135876133669,
+              "x1": 1.2778870045193558,
+              "y0": -0.4088818219123945,
+              "y1": 0.6460004524585633
+            },
+            "targetBox": {
+              "x0": 0.9470486332382095,
+              "x1": 1.6270486332382097,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.2870486332382096,
+            "y": 0,
+            "vy": 0,
+            "hp": 574
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.2870486332382096,
+            "y": 0.01,
+            "vy": 4.656666666666666,
+            "hp": 552,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 3
+          }
+        },
+        {
+          "time": 0.98333,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 2,
+          "attackerStop": 0.085,
+          "victimStop": 0.085,
+          "vy": 4.656666666666666
+        },
+        {
+          "time": 0.98333,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "launch",
+          "hitstun": 0.33999999999999997
+        },
+        {
+          "time": 1.45,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 12,
+          "hp": 540,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 0,
+          "reaction": "air",
+          "hitstun": 0.255,
+          "contact": {
+            "point": {
+              "x": 1.3223720198863123,
+              "y": 1.8612088832976248
+            },
+            "blade": {
+              "hand": {
+                "x": 0.7077071424678919,
+                "y": 1.5026220177439535
+              },
+              "tip": {
+                "x": 1.7154261068119805,
+                "y": 2.090511122943556
+              }
+            },
+            "attackBox": {
+              "x0": 0.6521515869123363,
+              "x1": 1.770981662367536,
+              "y0": 1.447066462188398,
+              "y1": 2.1460666784991114
+            },
+            "targetBox": {
+              "x0": 1.1273191344685054,
+              "x1": 1.8073191344685056,
+              "y0": 0.17500000000000027,
+              "y1": 1.9750000000000003
+            }
+          },
+          "before": {
+            "state": "airborne",
+            "x": 1.4673191344685055,
+            "y": 0.17500000000000027,
+            "vy": -3.5933333333333306,
+            "hp": 552
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.4673191344685055,
+            "y": 0.17500000000000027,
+            "vy": 3.886666666666667,
+            "hp": 540,
+            "airHits": 1,
+            "groundHits": 0,
+            "totalHits": 4
+          }
+        },
+        {
+          "time": 1.45,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 0,
+          "attackerStop": 0.045,
+          "victimStop": 0.045,
+          "vy": 3.886666666666667
+        },
+        {
+          "time": 1.45,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "air",
+          "hitstun": 0.255
+        },
+        {
+          "time": 1.75833,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 14,
+          "hp": 526,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 1,
+          "reaction": "air",
+          "hitstun": 0.25,
+          "contact": {
+            "point": {
+              "x": 1.5132076211174748,
+              "y": 0.6879502931368559
+            },
+            "blade": {
+              "hand": {
+                "x": 0.7166687599542105,
+                "y": 0.9108304063821872
+              },
+              "tip": {
+                "x": 1.8401819807902402,
+                "y": 0.596459361726733
+              }
+            },
+            "attackBox": {
+              "x0": 0.661113204398655,
+              "x1": 1.8957375363457958,
+              "y0": 0.5409038061711774,
+              "y1": 0.9663859619377427
+            },
+            "targetBox": {
+              "x0": 1.1862332614447098,
+              "x1": 1.86623326144471,
+              "y0": 0.4212777777777785,
+              "y1": 2.2212777777777784
+            }
+          },
+          "before": {
+            "state": "airborne",
+            "x": 1.5262332614447098,
+            "y": 0.4212777777777785,
+            "vy": -1.7966666666666642,
+            "hp": 540
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.5262332614447098,
+            "y": 0.4212777777777785,
+            "vy": 4.6016666666666675,
+            "hp": 526,
+            "airHits": 2,
+            "groundHits": 0,
+            "totalHits": 5
+          }
+        },
+        {
+          "time": 1.75833,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 1,
+          "attackerStop": 0.055,
+          "victimStop": 0.055,
+          "vy": 4.6016666666666675
+        },
+        {
+          "time": 1.75833,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "air",
+          "hitstun": 0.25
+        },
+        {
+          "time": 2.14167,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 22,
+          "hp": 504,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 2,
+          "reaction": "air",
+          "hitstun": 0.33999999999999997,
+          "contact": {
+            "point": {
+              "x": 1.445948819322893,
+              "y": 0.7718441114537284
+            },
+            "blade": {
+              "hand": {
+                "x": 0.738387914149624,
+                "y": 0.9536053689192299
+              },
+              "tip": {
+                "x": 1.8683667823380374,
+                "y": 0.6633315868466114
+              }
+            },
+            "attackBox": {
+              "x0": 0.6828323585940684,
+              "x1": 1.923922337893593,
+              "y0": 0.6077760312910558,
+              "y1": 1.0091609244747854
+            },
+            "targetBox": {
+              "x0": 1.2641886203664547,
+              "x1": 1.944188620366455,
+              "y0": 0.725152777777779,
+              "y1": 2.525152777777779
+            }
+          },
+          "before": {
+            "state": "airborne",
+            "x": 1.6041886203664548,
+            "y": 0.725152777777779,
+            "vy": -2.5483333333333307,
+            "hp": 526
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.6041886203664548,
+            "y": 0.725152777777779,
+            "vy": 4.656666666666666,
+            "hp": 504,
+            "airHits": 3,
+            "groundHits": 0,
+            "totalHits": 6
+          }
+        },
+        {
+          "time": 2.14167,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 2,
+          "attackerStop": 0.085,
+          "victimStop": 0.085,
+          "vy": 4.656666666666666
+        },
+        {
+          "time": 2.14167,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "air",
+          "hitstun": 0.33999999999999997
+        },
+        {
+          "time": 2.60833,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 12,
+          "hp": 492,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": true,
+          "cut": 0,
+          "contact": {
+            "point": {
+              "x": 1.5799426142043655,
+              "y": 2.011471954230233
+            },
+            "blade": {
+              "hand": {
+                "x": 0.7077071424678919,
+                "y": 1.5026220177439535
+              },
+              "tip": {
+                "x": 1.7154261068119805,
+                "y": 2.090511122943556
+              }
+            },
+            "attackBox": {
+              "x0": 0.6521515869123363,
+              "x1": 1.770981662367536,
+              "y0": 1.447066462188398,
+              "y1": 2.1460666784991114
+            },
+            "targetBox": {
+              "x0": 1.4444591215967506,
+              "x1": 2.1244591215967508,
+              "y0": 0.8901527777777791,
+              "y1": 2.6901527777777794
+            }
+          },
+          "before": {
+            "state": "airborne",
+            "x": 1.7844591215967507,
+            "y": 0.8901527777777791,
+            "vy": -3.5933333333333306,
+            "hp": 504
+          },
+          "after": {
+            "state": "invulnerable",
+            "x": 1.7844591215967507,
+            "y": 0,
+            "vy": 0,
+            "hp": 492,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          }
+        },
+        {
+          "time": 2.60833,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 0,
+          "attackerStop": 0.045,
+          "victimStop": 0,
+          "vy": 0
+        }
+      ],
+      "bodyEvents": [
+        {
+          "time": 0.16667,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        },
+        {
+          "time": 0.53333,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        },
+        {
+          "time": 0.98333,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        },
+        {
+          "time": 1.45,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "airborne"
+        },
+        {
+          "time": 1.75833,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "airborne"
+        },
+        {
+          "time": 2.14167,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "airborne"
+        },
+        {
+          "time": 2.60833,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "airborne"
+        },
+        {
+          "time": 2.60833,
+          "type": "forced-stand",
+          "reason": "air-limit",
+          "airHits": 4,
+          "groundHits": 0,
+          "totalHits": 7
+        }
+      ],
+      "body": {
+        "time": 2.8749999999999925,
+        "state": "invulnerable",
+        "enemyX": 1.7844591215967507,
+        "y": 0,
+        "vy": 0,
+        "downRemaining": 0,
+        "invulnerabilityRemaining": 0.33333333333333315,
+        "hitstopRemaining": 0,
+        "bounceRemaining": 0,
+        "airHits": 0,
+        "groundHits": 0,
+        "totalHits": 0
+      },
+      "hp": 492,
+      "settings": {
+        "gravity": 22,
+        "launchVelocity": 10.5,
+        "airTapVelocity": 5.5,
+        "knockdownSeconds": 0.9,
+        "comboWindowSeconds": 1.6,
+        "airHitLimit": 4,
+        "groundHitLimit": 3,
+        "totalHitLimit": 7,
+        "protectedInvulnerabilitySeconds": 0.6,
+        "fixedStep": 0.008333333333333333,
+        "minHitIntervalSeconds": 0.09,
+        "hitstopSeconds": 0.04,
+        "groundBounceVelocity": 0,
+        "groundBounceCount": 1
+      },
+      "sampleSummary": {
+        "count": 173,
+        "first": {
+          "wall": 2219.1,
+          "rafDelta": null,
+          "time": 0.016666666666666666,
+          "a": {
+            "time": 0.016666666666666666,
+            "state": "idle",
+            "enemyX": 0,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "b": {
+            "time": 0.016666666666666666,
+            "state": "idle",
+            "enemyX": 1.15,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "hp": 600,
+          "damage": 0
+        },
+        "last": {
+          "wall": 5085.7,
+          "rafDelta": 16.699999999999818,
+          "time": 2.8749999999999925,
+          "a": {
+            "time": 2.8749999999999925,
+            "state": "idle",
+            "enemyX": 0,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "b": {
+            "time": 2.8749999999999925,
+            "state": "invulnerable",
+            "enemyX": 1.7844591215967507,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0.33333333333333315,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "hp": 492,
+          "damage": 7
+        },
+        "scope": "full samples saved in original evidence archive"
+      }
+    },
+    "afterProtection": {
+      "events": [
+        {
+          "time": 0.16667,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 12,
+          "hp": 588,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 0,
+          "reaction": "light",
+          "hitstun": 0.255,
+          "contact": {
+            "point": {
+              "x": 1.0137259864967287,
+              "y": 1.681149117814386
+            },
+            "blade": {
+              "hand": {
+                "x": 0.7077071424678919,
+                "y": 1.5026220177439535
+              },
+              "tip": {
+                "x": 1.7154261068119805,
+                "y": 2.090511122943556
+              }
+            },
+            "attackBox": {
+              "x0": 0.6521515869123363,
+              "x1": 1.770981662367536,
+              "y0": 1.447066462188398,
+              "y1": 2.1460666784991114
+            },
+            "targetBox": {
+              "x0": 0.8099999999999998,
+              "x1": 1.49,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.15,
+            "y": 0,
+            "vy": 0,
+            "hp": 600
+          },
+          "after": {
+            "state": "idle",
+            "x": 1.15,
+            "y": 0,
+            "vy": 0,
+            "hp": 588,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 1
+          }
+        },
+        {
+          "time": 0.16667,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 0,
+          "attackerStop": 0.045,
+          "victimStop": 0.045,
+          "vy": 0
+        },
+        {
+          "time": 0.16667,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "light",
+          "hitstun": 0.255
+        },
+        {
+          "time": 0.53333,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 14,
+          "hp": 574,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 1,
+          "reaction": "reverse",
+          "hitstun": 0.25,
+          "contact": {
+            "point": {
+              "x": 0.9053609898587511,
+              "y": 0.054073650279476304
+            },
+            "blade": {
+              "hand": {
+                "x": 0.5218372148859209,
+                "y": 0.6258915928120086
+              },
+              "tip": {
+                "x": 1.171696852779841,
+                "y": -0.34302200609529027
+              }
+            },
+            "attackBox": {
+              "x0": 0.46628165933036536,
+              "x1": 1.2272524083353966,
+              "y0": -0.3985775616508458,
+              "y1": 0.6814471483675641
+            },
+            "targetBox": {
+              "x0": 0.8690932743164645,
+              "x1": 1.5490932743164647,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.2090932743164646,
+            "y": 0,
+            "vy": 0,
+            "hp": 588
+          },
+          "after": {
+            "state": "idle",
+            "x": 1.2090932743164646,
+            "y": 0,
+            "vy": 0,
+            "hp": 574,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 2
+          }
+        },
+        {
+          "time": 0.53333,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 1,
+          "attackerStop": 0.055,
+          "victimStop": 0.055,
+          "vy": 0
+        },
+        {
+          "time": 0.53333,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "reverse",
+          "hitstun": 0.25
+        },
+        {
+          "time": 0.98333,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 22,
+          "hp": 552,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 2,
+          "reaction": "launch",
+          "hitstun": 0.33999999999999997,
+          "contact": {
+            "point": {
+              "x": 0.9563044868611602,
+              "y": 0.012736386978682512
+            },
+            "blade": {
+              "hand": {
+                "x": 0.5364691431689225,
+                "y": 0.5904448969030077
+              },
+              "tip": {
+                "x": 1.2223314489638002,
+                "y": -0.353326266356839
+              }
+            },
+            "attackBox": {
+              "x0": 0.4809135876133669,
+              "x1": 1.2778870045193558,
+              "y0": -0.4088818219123945,
+              "y1": 0.6460004524585633
+            },
+            "targetBox": {
+              "x0": 0.9470486332382095,
+              "x1": 1.6270486332382097,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.2870486332382096,
+            "y": 0,
+            "vy": 0,
+            "hp": 574
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.2870486332382096,
+            "y": 0.01,
+            "vy": 4.656666666666666,
+            "hp": 552,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 3
+          }
+        },
+        {
+          "time": 0.98333,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 2,
+          "attackerStop": 0.085,
+          "victimStop": 0.085,
+          "vy": 4.656666666666666
+        },
+        {
+          "time": 0.98333,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "launch",
+          "hitstun": 0.33999999999999997
+        },
+        {
+          "time": 1.45,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 12,
+          "hp": 540,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 0,
+          "reaction": "air",
+          "hitstun": 0.255,
+          "contact": {
+            "point": {
+              "x": 1.3223720198863123,
+              "y": 1.8612088832976248
+            },
+            "blade": {
+              "hand": {
+                "x": 0.7077071424678919,
+                "y": 1.5026220177439535
+              },
+              "tip": {
+                "x": 1.7154261068119805,
+                "y": 2.090511122943556
+              }
+            },
+            "attackBox": {
+              "x0": 0.6521515869123363,
+              "x1": 1.770981662367536,
+              "y0": 1.447066462188398,
+              "y1": 2.1460666784991114
+            },
+            "targetBox": {
+              "x0": 1.1273191344685054,
+              "x1": 1.8073191344685056,
+              "y0": 0.17500000000000027,
+              "y1": 1.9750000000000003
+            }
+          },
+          "before": {
+            "state": "airborne",
+            "x": 1.4673191344685055,
+            "y": 0.17500000000000027,
+            "vy": -3.5933333333333306,
+            "hp": 552
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.4673191344685055,
+            "y": 0.17500000000000027,
+            "vy": 3.886666666666667,
+            "hp": 540,
+            "airHits": 1,
+            "groundHits": 0,
+            "totalHits": 4
+          }
+        },
+        {
+          "time": 1.45,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 0,
+          "attackerStop": 0.045,
+          "victimStop": 0.045,
+          "vy": 3.886666666666667
+        },
+        {
+          "time": 1.45,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "air",
+          "hitstun": 0.255
+        },
+        {
+          "time": 1.75833,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 14,
+          "hp": 526,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 1,
+          "reaction": "air",
+          "hitstun": 0.25,
+          "contact": {
+            "point": {
+              "x": 1.5132076211174748,
+              "y": 0.6879502931368559
+            },
+            "blade": {
+              "hand": {
+                "x": 0.7166687599542105,
+                "y": 0.9108304063821872
+              },
+              "tip": {
+                "x": 1.8401819807902402,
+                "y": 0.596459361726733
+              }
+            },
+            "attackBox": {
+              "x0": 0.661113204398655,
+              "x1": 1.8957375363457958,
+              "y0": 0.5409038061711774,
+              "y1": 0.9663859619377427
+            },
+            "targetBox": {
+              "x0": 1.1862332614447098,
+              "x1": 1.86623326144471,
+              "y0": 0.4212777777777785,
+              "y1": 2.2212777777777784
+            }
+          },
+          "before": {
+            "state": "airborne",
+            "x": 1.5262332614447098,
+            "y": 0.4212777777777785,
+            "vy": -1.7966666666666642,
+            "hp": 540
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.5262332614447098,
+            "y": 0.4212777777777785,
+            "vy": 4.6016666666666675,
+            "hp": 526,
+            "airHits": 2,
+            "groundHits": 0,
+            "totalHits": 5
+          }
+        },
+        {
+          "time": 1.75833,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 1,
+          "attackerStop": 0.055,
+          "victimStop": 0.055,
+          "vy": 4.6016666666666675
+        },
+        {
+          "time": 1.75833,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "air",
+          "hitstun": 0.25
+        },
+        {
+          "time": 2.14167,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 22,
+          "hp": 504,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 2,
+          "reaction": "air",
+          "hitstun": 0.33999999999999997,
+          "contact": {
+            "point": {
+              "x": 1.445948819322893,
+              "y": 0.7718441114537284
+            },
+            "blade": {
+              "hand": {
+                "x": 0.738387914149624,
+                "y": 0.9536053689192299
+              },
+              "tip": {
+                "x": 1.8683667823380374,
+                "y": 0.6633315868466114
+              }
+            },
+            "attackBox": {
+              "x0": 0.6828323585940684,
+              "x1": 1.923922337893593,
+              "y0": 0.6077760312910558,
+              "y1": 1.0091609244747854
+            },
+            "targetBox": {
+              "x0": 1.2641886203664547,
+              "x1": 1.944188620366455,
+              "y0": 0.725152777777779,
+              "y1": 2.525152777777779
+            }
+          },
+          "before": {
+            "state": "airborne",
+            "x": 1.6041886203664548,
+            "y": 0.725152777777779,
+            "vy": -2.5483333333333307,
+            "hp": 526
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.6041886203664548,
+            "y": 0.725152777777779,
+            "vy": 4.656666666666666,
+            "hp": 504,
+            "airHits": 3,
+            "groundHits": 0,
+            "totalHits": 6
+          }
+        },
+        {
+          "time": 2.14167,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 2,
+          "attackerStop": 0.085,
+          "victimStop": 0.085,
+          "vy": 4.656666666666666
+        },
+        {
+          "time": 2.14167,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "air",
+          "hitstun": 0.33999999999999997
+        },
+        {
+          "time": 2.60833,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 12,
+          "hp": 492,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": true,
+          "cut": 0,
+          "contact": {
+            "point": {
+              "x": 1.5799426142043655,
+              "y": 2.011471954230233
+            },
+            "blade": {
+              "hand": {
+                "x": 0.7077071424678919,
+                "y": 1.5026220177439535
+              },
+              "tip": {
+                "x": 1.7154261068119805,
+                "y": 2.090511122943556
+              }
+            },
+            "attackBox": {
+              "x0": 0.6521515869123363,
+              "x1": 1.770981662367536,
+              "y0": 1.447066462188398,
+              "y1": 2.1460666784991114
+            },
+            "targetBox": {
+              "x0": 1.4444591215967506,
+              "x1": 2.1244591215967508,
+              "y0": 0.8901527777777791,
+              "y1": 2.6901527777777794
+            }
+          },
+          "before": {
+            "state": "airborne",
+            "x": 1.7844591215967507,
+            "y": 0.8901527777777791,
+            "vy": -3.5933333333333306,
+            "hp": 504
+          },
+          "after": {
+            "state": "invulnerable",
+            "x": 1.7844591215967507,
+            "y": 0,
+            "vy": 0,
+            "hp": 492,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          }
+        },
+        {
+          "time": 2.60833,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 0,
+          "attackerStop": 0.045,
+          "victimStop": 0,
+          "vy": 0
+        }
+      ],
+      "bodyEvents": [
+        {
+          "time": 0.16667,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        },
+        {
+          "time": 0.53333,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        },
+        {
+          "time": 0.98333,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        },
+        {
+          "time": 1.45,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "airborne"
+        },
+        {
+          "time": 1.75833,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "airborne"
+        },
+        {
+          "time": 2.14167,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "airborne"
+        },
+        {
+          "time": 2.60833,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "airborne"
+        },
+        {
+          "time": 2.60833,
+          "type": "forced-stand",
+          "reason": "air-limit",
+          "airHits": 4,
+          "groundHits": 0,
+          "totalHits": 7
+        },
+        {
+          "time": 3.20833,
+          "type": "protection-ended"
+        }
+      ],
+      "body": {
+        "time": 3.2083333333333246,
+        "state": "idle",
+        "enemyX": 1.7844591215967507,
+        "y": 0,
+        "vy": 0,
+        "downRemaining": 0,
+        "invulnerabilityRemaining": 0,
+        "hitstopRemaining": 0,
+        "bounceRemaining": 0,
+        "airHits": 0,
+        "groundHits": 0,
+        "totalHits": 0
+      },
+      "hp": 492,
+      "settings": {
+        "gravity": 22,
+        "launchVelocity": 10.5,
+        "airTapVelocity": 5.5,
+        "knockdownSeconds": 0.9,
+        "comboWindowSeconds": 1.6,
+        "airHitLimit": 4,
+        "groundHitLimit": 3,
+        "totalHitLimit": 7,
+        "protectedInvulnerabilitySeconds": 0.6,
+        "fixedStep": 0.008333333333333333,
+        "minHitIntervalSeconds": 0.09,
+        "hitstopSeconds": 0.04,
+        "groundBounceVelocity": 0,
+        "groundBounceCount": 1
+      },
+      "sampleSummary": {
+        "count": 193,
+        "first": {
+          "wall": 2219.1,
+          "rafDelta": null,
+          "time": 0.016666666666666666,
+          "a": {
+            "time": 0.016666666666666666,
+            "state": "idle",
+            "enemyX": 0,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "b": {
+            "time": 0.016666666666666666,
+            "state": "idle",
+            "enemyX": 1.15,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "hp": 600,
+          "damage": 0
+        },
+        "last": {
+          "wall": 5419,
+          "rafDelta": 16.699999999999818,
+          "time": 3.2083333333333246,
+          "a": {
+            "time": 3.2083333333333246,
+            "state": "idle",
+            "enemyX": 0,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "b": {
+            "time": 3.2083333333333246,
+            "state": "idle",
+            "enemyX": 1.7844591215967507,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "hp": 492,
+          "damage": 7
+        },
+        "scope": "full samples saved in original evidence archive"
+      }
+    },
+    "resumed": {
+      "events": [
+        {
+          "time": 0.16667,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 12,
+          "hp": 588,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 0,
+          "reaction": "light",
+          "hitstun": 0.255,
+          "contact": {
+            "point": {
+              "x": 1.0137259864967287,
+              "y": 1.681149117814386
+            },
+            "blade": {
+              "hand": {
+                "x": 0.7077071424678919,
+                "y": 1.5026220177439535
+              },
+              "tip": {
+                "x": 1.7154261068119805,
+                "y": 2.090511122943556
+              }
+            },
+            "attackBox": {
+              "x0": 0.6521515869123363,
+              "x1": 1.770981662367536,
+              "y0": 1.447066462188398,
+              "y1": 2.1460666784991114
+            },
+            "targetBox": {
+              "x0": 0.8099999999999998,
+              "x1": 1.49,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.15,
+            "y": 0,
+            "vy": 0,
+            "hp": 600
+          },
+          "after": {
+            "state": "idle",
+            "x": 1.15,
+            "y": 0,
+            "vy": 0,
+            "hp": 588,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 1
+          }
+        },
+        {
+          "time": 0.16667,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 0,
+          "attackerStop": 0.045,
+          "victimStop": 0.045,
+          "vy": 0
+        },
+        {
+          "time": 0.16667,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "light",
+          "hitstun": 0.255
+        },
+        {
+          "time": 0.53333,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 14,
+          "hp": 574,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 1,
+          "reaction": "reverse",
+          "hitstun": 0.25,
+          "contact": {
+            "point": {
+              "x": 0.9053609898587511,
+              "y": 0.054073650279476304
+            },
+            "blade": {
+              "hand": {
+                "x": 0.5218372148859209,
+                "y": 0.6258915928120086
+              },
+              "tip": {
+                "x": 1.171696852779841,
+                "y": -0.34302200609529027
+              }
+            },
+            "attackBox": {
+              "x0": 0.46628165933036536,
+              "x1": 1.2272524083353966,
+              "y0": -0.3985775616508458,
+              "y1": 0.6814471483675641
+            },
+            "targetBox": {
+              "x0": 0.8690932743164645,
+              "x1": 1.5490932743164647,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.2090932743164646,
+            "y": 0,
+            "vy": 0,
+            "hp": 588
+          },
+          "after": {
+            "state": "idle",
+            "x": 1.2090932743164646,
+            "y": 0,
+            "vy": 0,
+            "hp": 574,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 2
+          }
+        },
+        {
+          "time": 0.53333,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 1,
+          "attackerStop": 0.055,
+          "victimStop": 0.055,
+          "vy": 0
+        },
+        {
+          "time": 0.53333,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "reverse",
+          "hitstun": 0.25
+        },
+        {
+          "time": 0.98333,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 22,
+          "hp": 552,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 2,
+          "reaction": "launch",
+          "hitstun": 0.33999999999999997,
+          "contact": {
+            "point": {
+              "x": 0.9563044868611602,
+              "y": 0.012736386978682512
+            },
+            "blade": {
+              "hand": {
+                "x": 0.5364691431689225,
+                "y": 0.5904448969030077
+              },
+              "tip": {
+                "x": 1.2223314489638002,
+                "y": -0.353326266356839
+              }
+            },
+            "attackBox": {
+              "x0": 0.4809135876133669,
+              "x1": 1.2778870045193558,
+              "y0": -0.4088818219123945,
+              "y1": 0.6460004524585633
+            },
+            "targetBox": {
+              "x0": 0.9470486332382095,
+              "x1": 1.6270486332382097,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.2870486332382096,
+            "y": 0,
+            "vy": 0,
+            "hp": 574
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.2870486332382096,
+            "y": 0.01,
+            "vy": 4.656666666666666,
+            "hp": 552,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 3
+          }
+        },
+        {
+          "time": 0.98333,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 2,
+          "attackerStop": 0.085,
+          "victimStop": 0.085,
+          "vy": 4.656666666666666
+        },
+        {
+          "time": 0.98333,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "launch",
+          "hitstun": 0.33999999999999997
+        },
+        {
+          "time": 1.45,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 12,
+          "hp": 540,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 0,
+          "reaction": "air",
+          "hitstun": 0.255,
+          "contact": {
+            "point": {
+              "x": 1.3223720198863123,
+              "y": 1.8612088832976248
+            },
+            "blade": {
+              "hand": {
+                "x": 0.7077071424678919,
+                "y": 1.5026220177439535
+              },
+              "tip": {
+                "x": 1.7154261068119805,
+                "y": 2.090511122943556
+              }
+            },
+            "attackBox": {
+              "x0": 0.6521515869123363,
+              "x1": 1.770981662367536,
+              "y0": 1.447066462188398,
+              "y1": 2.1460666784991114
+            },
+            "targetBox": {
+              "x0": 1.1273191344685054,
+              "x1": 1.8073191344685056,
+              "y0": 0.17500000000000027,
+              "y1": 1.9750000000000003
+            }
+          },
+          "before": {
+            "state": "airborne",
+            "x": 1.4673191344685055,
+            "y": 0.17500000000000027,
+            "vy": -3.5933333333333306,
+            "hp": 552
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.4673191344685055,
+            "y": 0.17500000000000027,
+            "vy": 3.886666666666667,
+            "hp": 540,
+            "airHits": 1,
+            "groundHits": 0,
+            "totalHits": 4
+          }
+        },
+        {
+          "time": 1.45,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 0,
+          "attackerStop": 0.045,
+          "victimStop": 0.045,
+          "vy": 3.886666666666667
+        },
+        {
+          "time": 1.45,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "air",
+          "hitstun": 0.255
+        },
+        {
+          "time": 1.75833,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 14,
+          "hp": 526,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 1,
+          "reaction": "air",
+          "hitstun": 0.25,
+          "contact": {
+            "point": {
+              "x": 1.5132076211174748,
+              "y": 0.6879502931368559
+            },
+            "blade": {
+              "hand": {
+                "x": 0.7166687599542105,
+                "y": 0.9108304063821872
+              },
+              "tip": {
+                "x": 1.8401819807902402,
+                "y": 0.596459361726733
+              }
+            },
+            "attackBox": {
+              "x0": 0.661113204398655,
+              "x1": 1.8957375363457958,
+              "y0": 0.5409038061711774,
+              "y1": 0.9663859619377427
+            },
+            "targetBox": {
+              "x0": 1.1862332614447098,
+              "x1": 1.86623326144471,
+              "y0": 0.4212777777777785,
+              "y1": 2.2212777777777784
+            }
+          },
+          "before": {
+            "state": "airborne",
+            "x": 1.5262332614447098,
+            "y": 0.4212777777777785,
+            "vy": -1.7966666666666642,
+            "hp": 540
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.5262332614447098,
+            "y": 0.4212777777777785,
+            "vy": 4.6016666666666675,
+            "hp": 526,
+            "airHits": 2,
+            "groundHits": 0,
+            "totalHits": 5
+          }
+        },
+        {
+          "time": 1.75833,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 1,
+          "attackerStop": 0.055,
+          "victimStop": 0.055,
+          "vy": 4.6016666666666675
+        },
+        {
+          "time": 1.75833,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "air",
+          "hitstun": 0.25
+        },
+        {
+          "time": 2.14167,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 22,
+          "hp": 504,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 2,
+          "reaction": "air",
+          "hitstun": 0.33999999999999997,
+          "contact": {
+            "point": {
+              "x": 1.445948819322893,
+              "y": 0.7718441114537284
+            },
+            "blade": {
+              "hand": {
+                "x": 0.738387914149624,
+                "y": 0.9536053689192299
+              },
+              "tip": {
+                "x": 1.8683667823380374,
+                "y": 0.6633315868466114
+              }
+            },
+            "attackBox": {
+              "x0": 0.6828323585940684,
+              "x1": 1.923922337893593,
+              "y0": 0.6077760312910558,
+              "y1": 1.0091609244747854
+            },
+            "targetBox": {
+              "x0": 1.2641886203664547,
+              "x1": 1.944188620366455,
+              "y0": 0.725152777777779,
+              "y1": 2.525152777777779
+            }
+          },
+          "before": {
+            "state": "airborne",
+            "x": 1.6041886203664548,
+            "y": 0.725152777777779,
+            "vy": -2.5483333333333307,
+            "hp": 526
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.6041886203664548,
+            "y": 0.725152777777779,
+            "vy": 4.656666666666666,
+            "hp": 504,
+            "airHits": 3,
+            "groundHits": 0,
+            "totalHits": 6
+          }
+        },
+        {
+          "time": 2.14167,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 2,
+          "attackerStop": 0.085,
+          "victimStop": 0.085,
+          "vy": 4.656666666666666
+        },
+        {
+          "time": 2.14167,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "air",
+          "hitstun": 0.33999999999999997
+        },
+        {
+          "time": 2.60833,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 12,
+          "hp": 492,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": true,
+          "cut": 0,
+          "contact": {
+            "point": {
+              "x": 1.5799426142043655,
+              "y": 2.011471954230233
+            },
+            "blade": {
+              "hand": {
+                "x": 0.7077071424678919,
+                "y": 1.5026220177439535
+              },
+              "tip": {
+                "x": 1.7154261068119805,
+                "y": 2.090511122943556
+              }
+            },
+            "attackBox": {
+              "x0": 0.6521515869123363,
+              "x1": 1.770981662367536,
+              "y0": 1.447066462188398,
+              "y1": 2.1460666784991114
+            },
+            "targetBox": {
+              "x0": 1.4444591215967506,
+              "x1": 2.1244591215967508,
+              "y0": 0.8901527777777791,
+              "y1": 2.6901527777777794
+            }
+          },
+          "before": {
+            "state": "airborne",
+            "x": 1.7844591215967507,
+            "y": 0.8901527777777791,
+            "vy": -3.5933333333333306,
+            "hp": 504
+          },
+          "after": {
+            "state": "invulnerable",
+            "x": 1.7844591215967507,
+            "y": 0,
+            "vy": 0,
+            "hp": 492,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          }
+        },
+        {
+          "time": 2.60833,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 0,
+          "attackerStop": 0.045,
+          "victimStop": 0,
+          "vy": 0
+        },
+        {
+          "time": 3.45,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 22,
+          "hp": 470,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 2,
+          "reaction": "launch",
+          "hitstun": 0.33999999999999997,
+          "contact": {
+            "point": {
+              "x": 1.5375845980866074,
+              "y": 0.1685339001496542
+            },
+            "blade": {
+              "hand": {
+                "x": 0.6618221391375164,
+                "y": 0.7559663179194385
+              },
+              "tip": {
+                "x": 1.6307100745764642,
+                "y": 0.10606841849833369
+              }
+            },
+            "attackBox": {
+              "x0": 0.6062665835819608,
+              "x1": 1.6862656301320198,
+              "y0": 0.05051286294277814,
+              "y1": 0.811521873474994
+            },
+            "targetBox": {
+              "x0": 1.4444591215967506,
+              "x1": 2.1244591215967508,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.7844591215967507,
+            "y": 0,
+            "vy": 0,
+            "hp": 492
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.7844591215967507,
+            "y": 0.01,
+            "vy": 4.656666666666666,
+            "hp": 470,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 1
+          }
+        },
+        {
+          "time": 3.45,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 2,
+          "attackerStop": 0.085,
+          "victimStop": 0.085,
+          "vy": 4.656666666666666
+        },
+        {
+          "time": 3.45,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "launch",
+          "hitstun": 0.33999999999999997
+        }
+      ],
+      "bodyEvents": [
+        {
+          "time": 0.16667,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        },
+        {
+          "time": 0.53333,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        },
+        {
+          "time": 0.98333,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        },
+        {
+          "time": 1.45,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "airborne"
+        },
+        {
+          "time": 1.75833,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "airborne"
+        },
+        {
+          "time": 2.14167,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "airborne"
+        },
+        {
+          "time": 2.60833,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "airborne"
+        },
+        {
+          "time": 2.60833,
+          "type": "forced-stand",
+          "reason": "air-limit",
+          "airHits": 4,
+          "groundHits": 0,
+          "totalHits": 7
+        },
+        {
+          "time": 3.20833,
+          "type": "protection-ended"
+        },
+        {
+          "time": 3.45,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        }
+      ],
+      "body": {
+        "time": 3.4583333333333237,
+        "state": "airborne",
+        "enemyX": 1.7844591215967507,
+        "y": 0.01,
+        "vy": 4.656666666666666,
+        "downRemaining": 0,
+        "invulnerabilityRemaining": 0,
+        "hitstopRemaining": 0.07666666666666667,
+        "bounceRemaining": 0,
+        "airHits": 0,
+        "groundHits": 0,
+        "totalHits": 1
+      },
+      "hp": 470,
+      "settings": {
+        "gravity": 22,
+        "launchVelocity": 10.5,
+        "airTapVelocity": 5.5,
+        "knockdownSeconds": 0.9,
+        "comboWindowSeconds": 1.6,
+        "airHitLimit": 4,
+        "groundHitLimit": 3,
+        "totalHitLimit": 7,
+        "protectedInvulnerabilitySeconds": 0.6,
+        "fixedStep": 0.008333333333333333,
+        "minHitIntervalSeconds": 0.09,
+        "hitstopSeconds": 0.04,
+        "groundBounceVelocity": 0,
+        "groundBounceCount": 1
+      },
+      "sampleSummary": {
+        "count": 208,
+        "first": {
+          "wall": 2219.1,
+          "rafDelta": null,
+          "time": 0.016666666666666666,
+          "a": {
+            "time": 0.016666666666666666,
+            "state": "idle",
+            "enemyX": 0,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "b": {
+            "time": 0.016666666666666666,
+            "state": "idle",
+            "enemyX": 1.15,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "hp": 600,
+          "damage": 0
+        },
+        "last": {
+          "wall": 5669,
+          "rafDelta": 16.699999999999818,
+          "time": 3.4583333333333237,
+          "a": {
+            "time": 3.4583333333333237,
+            "state": "idle",
+            "enemyX": 0,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "b": {
+            "time": 3.4583333333333237,
+            "state": "airborne",
+            "enemyX": 1.7844591215967507,
+            "y": 0.01,
+            "vy": 4.656666666666666,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0.07666666666666667,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 1
+          },
+          "hp": 470,
+          "damage": 8
+        },
+        "scope": "full samples saved in original evidence archive"
+      }
+    },
+    "distance": {
+      "events": [],
+      "bodyEvents": [],
+      "body": {
+        "time": 1.3083333333333311,
+        "state": "idle",
+        "enemyX": 1.15,
+        "y": 0,
+        "vy": 0,
+        "downRemaining": 0,
+        "invulnerabilityRemaining": 0,
+        "hitstopRemaining": 0,
+        "bounceRemaining": 0,
+        "airHits": 0,
+        "groundHits": 0,
+        "totalHits": 0
+      },
+      "hp": 600,
+      "settings": {
+        "gravity": 22,
+        "launchVelocity": 10.5,
+        "airTapVelocity": 5.5,
+        "knockdownSeconds": 0.9,
+        "comboWindowSeconds": 1.6,
+        "airHitLimit": 4,
+        "groundHitLimit": 3,
+        "totalHitLimit": 7,
+        "protectedInvulnerabilitySeconds": 0.6,
+        "fixedStep": 0.008333333333333333,
+        "minHitIntervalSeconds": 0.09,
+        "hitstopSeconds": 0.04,
+        "groundBounceVelocity": 0,
+        "groundBounceCount": 1
+      },
+      "sampleSummary": {
+        "count": 79,
+        "first": {
+          "wall": 5785.7,
+          "rafDelta": null,
+          "time": 0.016666666666666666,
+          "a": {
+            "time": 0.016666666666666666,
+            "state": "idle",
+            "enemyX": 0,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "b": {
+            "time": 0.016666666666666666,
+            "state": "idle",
+            "enemyX": 1.15,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "hp": 600,
+          "damage": 0
+        },
+        "last": {
+          "wall": 7085.6,
+          "rafDelta": 16.600000000000364,
+          "time": 1.3083333333333311,
+          "a": {
+            "time": 1.3083333333333311,
+            "state": "idle",
+            "enemyX": -2.3099999999999996,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "b": {
+            "time": 1.3083333333333311,
+            "state": "idle",
+            "enemyX": 1.15,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "hp": 600,
+          "damage": 0
+        },
+        "scope": "full samples saved in original evidence archive"
+      }
+    },
+    "lane": {
+      "events": [],
+      "bodyEvents": [],
+      "body": {
+        "time": 1.2416666666666647,
+        "state": "idle",
+        "enemyX": 1.15,
+        "y": 0,
+        "vy": 0,
+        "downRemaining": 0,
+        "invulnerabilityRemaining": 0,
+        "hitstopRemaining": 0,
+        "bounceRemaining": 0,
+        "airHits": 0,
+        "groundHits": 0,
+        "totalHits": 0
+      },
+      "hp": 600,
+      "settings": {
+        "gravity": 22,
+        "launchVelocity": 10.5,
+        "airTapVelocity": 5.5,
+        "knockdownSeconds": 0.9,
+        "comboWindowSeconds": 1.6,
+        "airHitLimit": 4,
+        "groundHitLimit": 3,
+        "totalHitLimit": 7,
+        "protectedInvulnerabilitySeconds": 0.6,
+        "fixedStep": 0.008333333333333333,
+        "minHitIntervalSeconds": 0.09,
+        "hitstopSeconds": 0.04,
+        "groundBounceVelocity": 0,
+        "groundBounceCount": 1
+      },
+      "sampleSummary": {
+        "count": 75,
+        "first": {
+          "wall": 7168.9,
+          "rafDelta": null,
+          "time": 0.008333333333333333,
+          "a": {
+            "time": 0.008333333333333333,
+            "state": "idle",
+            "enemyX": 0,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "b": {
+            "time": 0.008333333333333333,
+            "state": "idle",
+            "enemyX": 1.15,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "hp": 600,
+          "damage": 0
+        },
+        "last": {
+          "wall": 8402.2,
+          "rafDelta": 16.700000000000728,
+          "time": 1.2416666666666647,
+          "a": {
+            "time": 1.2416666666666647,
+            "state": "idle",
+            "enemyX": 0,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "b": {
+            "time": 1.2416666666666647,
+            "state": "idle",
+            "enemyX": 1.15,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "hp": 600,
+          "damage": 0
+        },
+        "scope": "full samples saved in original evidence archive"
+      }
+    },
+    "height": {
+      "events": [
+        {
+          "time": 0.13333,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "launcher",
+          "damage": 18,
+          "hp": 582,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": null,
+          "reaction": "launch",
+          "hitstun": 0.18,
+          "contact": {
+            "point": {
+              "x": 1.0452972277821218,
+              "y": 0.23775905047746776
+            },
+            "blade": {
+              "hand": {
+                "x": 0.5954720536552516,
+                "y": 0.6922905691415919
+              },
+              "tip": {
+                "x": 1.4161257055293228,
+                "y": -0.136949260326857
+              }
+            },
+            "attackBox": {
+              "x0": 0.539916498099696,
+              "x1": 1.4716812610848784,
+              "y0": -0.19250481588241256,
+              "y1": 0.7478461246971475
+            },
+            "targetBox": {
+              "x0": 0.8099999999999998,
+              "x1": 1.49,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.15,
+            "y": 0,
+            "vy": 0,
+            "hp": 600
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.15,
+            "y": 0.01,
+            "vy": 10.5,
+            "hp": 582,
+            "airHits": 1,
+            "groundHits": 0,
+            "totalHits": 1
+          }
+        },
+        {
+          "time": 0.13333,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": null,
+          "attackerStop": 0.07,
+          "victimStop": 0.07,
+          "vy": 10.5
+        },
+        {
+          "time": 0.13333,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "launch",
+          "hitstun": 0.18
+        }
+      ],
+      "bodyEvents": [
+        {
+          "time": 0.13333,
+          "type": "hit",
+          "attack": "launcher",
+          "state": "airborne"
+        }
+      ],
+      "body": {
+        "time": 1.0083333333333322,
+        "state": "airborne",
+        "enemyX": 1.1902095260913812,
+        "y": 4.530000000000013,
+        "vy": 0.9000000000000205,
+        "downRemaining": 0,
+        "invulnerabilityRemaining": 0,
+        "hitstopRemaining": 0,
+        "bounceRemaining": 1,
+        "airHits": 1,
+        "groundHits": 0,
+        "totalHits": 1
+      },
+      "hp": 582,
+      "settings": {
+        "gravity": 12,
+        "launchVelocity": 10.5,
+        "airTapVelocity": 5.5,
+        "knockdownSeconds": 0.9,
+        "comboWindowSeconds": 1.6,
+        "airHitLimit": 4,
+        "groundHitLimit": 3,
+        "totalHitLimit": 7,
+        "protectedInvulnerabilitySeconds": 0.6,
+        "fixedStep": 0.008333333333333333,
+        "minHitIntervalSeconds": 0.09,
+        "hitstopSeconds": 0.04,
+        "groundBounceVelocity": 0,
+        "groundBounceCount": 1
+      },
+      "sampleSummary": {
+        "count": 61,
+        "first": {
+          "wall": 8535.6,
+          "rafDelta": null,
+          "time": 0.016666666666666666,
+          "a": {
+            "time": 0.016666666666666666,
+            "state": "idle",
+            "enemyX": 0,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "b": {
+            "time": 0.016666666666666666,
+            "state": "idle",
+            "enemyX": 1.15,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "hp": 600,
+          "damage": 0
+        },
+        "last": {
+          "wall": 9535.5,
+          "rafDelta": 16.700000000000728,
+          "time": 1.0083333333333322,
+          "a": {
+            "time": 1.0083333333333322,
+            "state": "idle",
+            "enemyX": 0,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "b": {
+            "time": 1.0083333333333322,
+            "state": "airborne",
+            "enemyX": 1.1902095260913812,
+            "y": 4.530000000000013,
+            "vy": 0.9000000000000205,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 1,
+            "airHits": 1,
+            "groundHits": 0,
+            "totalHits": 1
+          },
+          "hp": 582,
+          "damage": 1
+        },
+        "scope": "full samples saved in original evidence archive"
+      }
+    },
+    "demo": {
+      "events": [
+        {
+          "time": 0.19167,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 12,
+          "hp": 588,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 0,
+          "reaction": "light",
+          "hitstun": 0.255,
+          "contact": {
+            "point": {
+              "x": 1.0137259864967287,
+              "y": 1.681149117814386
+            },
+            "blade": {
+              "hand": {
+                "x": 0.7077071424678919,
+                "y": 1.5026220177439535
+              },
+              "tip": {
+                "x": 1.7154261068119805,
+                "y": 2.090511122943556
+              }
+            },
+            "attackBox": {
+              "x0": 0.6521515869123363,
+              "x1": 1.770981662367536,
+              "y0": 1.447066462188398,
+              "y1": 2.1460666784991114
+            },
+            "targetBox": {
+              "x0": 0.8099999999999998,
+              "x1": 1.49,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.15,
+            "y": 0,
+            "vy": 0,
+            "hp": 600
+          },
+          "after": {
+            "state": "idle",
+            "x": 1.15,
+            "y": 0,
+            "vy": 0,
+            "hp": 588,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 1
+          }
+        },
+        {
+          "time": 0.19167,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 0,
+          "attackerStop": 0.045,
+          "victimStop": 0.045,
+          "vy": 0
+        },
+        {
+          "time": 0.19167,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "light",
+          "hitstun": 0.255
+        },
+        {
+          "time": 0.49167,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 14,
+          "hp": 574,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 1,
+          "reaction": "reverse",
+          "hitstun": 0.25,
+          "contact": {
+            "point": {
+              "x": 0.9051707582438798,
+              "y": 0.05435727767813758
+            },
+            "blade": {
+              "hand": {
+                "x": 0.5218372148859209,
+                "y": 0.6258915928120086
+              },
+              "tip": {
+                "x": 1.171696852779841,
+                "y": -0.34302200609529027
+              }
+            },
+            "attackBox": {
+              "x0": 0.46628165933036536,
+              "x1": 1.2272524083353966,
+              "y0": -0.3985775616508458,
+              "y1": 0.6814471483675641
+            },
+            "targetBox": {
+              "x0": 0.8687128110867222,
+              "x1": 1.5487128110867223,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.2087128110867222,
+            "y": 0,
+            "vy": 0,
+            "hp": 588
+          },
+          "after": {
+            "state": "idle",
+            "x": 1.2087128110867222,
+            "y": 0,
+            "vy": 0,
+            "hp": 574,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 2
+          }
+        },
+        {
+          "time": 0.49167,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 1,
+          "attackerStop": 0.055,
+          "victimStop": 0.055,
+          "vy": 0
+        },
+        {
+          "time": 0.49167,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "reverse",
+          "hitstun": 0.25
+        },
+        {
+          "time": 0.9,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 22,
+          "hp": 552,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 2,
+          "reaction": "launch",
+          "hitstun": 0.33999999999999997,
+          "contact": {
+            "point": {
+              "x": 0.9561142552462891,
+              "y": 0.012998152512287087
+            },
+            "blade": {
+              "hand": {
+                "x": 0.5364691431689225,
+                "y": 0.5904448969030077
+              },
+              "tip": {
+                "x": 1.2223314489638002,
+                "y": -0.353326266356839
+              }
+            },
+            "attackBox": {
+              "x0": 0.4809135876133669,
+              "x1": 1.2778870045193558,
+              "y0": -0.4088818219123945,
+              "y1": 0.6460004524585633
+            },
+            "targetBox": {
+              "x0": 0.9466681700084671,
+              "x1": 1.6266681700084673,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.2866681700084672,
+            "y": 0,
+            "vy": 0,
+            "hp": 574
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.2866681700084672,
+            "y": 0.01,
+            "vy": 4.656666666666666,
+            "hp": 552,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 3
+          }
+        },
+        {
+          "time": 0.9,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 2,
+          "attackerStop": 0.085,
+          "victimStop": 0.085,
+          "vy": 4.656666666666666
+        },
+        {
+          "time": 0.9,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "launch",
+          "hitstun": 0.33999999999999997
+        },
+        {
+          "time": 3.35,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "launcher",
+          "damage": 18,
+          "hp": 534,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": null,
+          "reaction": "launch",
+          "hitstun": 0.18,
+          "contact": {
+            "point": {
+              "x": 1.4137665634015033,
+              "y": 0.28982886000770913
+            },
+            "blade": {
+              "hand": {
+                "x": 1.0154720536552517,
+                "y": 0.6922905691415919
+              },
+              "tip": {
+                "x": 1.836125705529323,
+                "y": -0.136949260326857
+              }
+            },
+            "attackBox": {
+              "x0": 0.9599164980996961,
+              "x1": 1.8916812610848786,
+              "y0": -0.19250481588241256,
+              "y1": 0.7478461246971475
+            },
+            "targetBox": {
+              "x0": 1.126938671238763,
+              "x1": 1.8069386712387632,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.466938671238763,
+            "y": 0,
+            "vy": 0,
+            "hp": 552
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.466938671238763,
+            "y": 0.01,
+            "vy": 10.5,
+            "hp": 534,
+            "airHits": 1,
+            "groundHits": 0,
+            "totalHits": 1
+          }
+        },
+        {
+          "time": 3.35,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": null,
+          "attackerStop": 0.07,
+          "victimStop": 0.07,
+          "vy": 10.5
+        },
+        {
+          "time": 3.35,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "launch",
+          "hitstun": 0.18
+        },
+        {
+          "time": 4.28333,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 12,
+          "hp": 522,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 0,
+          "reaction": "air",
+          "hitstun": 0.255,
+          "contact": {
+            "point": {
+              "x": 1.3247335097034463,
+              "y": 2.3617907704416736
+            },
+            "blade": {
+              "hand": {
+                "x": 0.9449145079543438,
+                "y": 1.691908247888451
+              },
+              "tip": {
+                "x": 1.5203468598659058,
+                "y": 2.706791846871428
+              }
+            },
+            "attackBox": {
+              "x0": 0.8893589523987883,
+              "x1": 1.5759024154214614,
+              "y0": 1.6363526923328955,
+              "y1": 2.7623474024269834
+            },
+            "targetBox": {
+              "x0": 1.1671481973301443,
+              "x1": 1.8471481973301445,
+              "y0": 0.8397222222222178,
+              "y1": 2.639722222222218
+            }
+          },
+          "before": {
+            "state": "airborne",
+            "x": 1.5071481973301444,
+            "y": 0.8397222222222178,
+            "vy": -8.383333333333342,
+            "hp": 534
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.5071481973301444,
+            "y": 0.8397222222222178,
+            "vy": 3.886666666666667,
+            "hp": 522,
+            "airHits": 2,
+            "groundHits": 0,
+            "totalHits": 2
+          }
+        },
+        {
+          "time": 4.28333,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 0,
+          "attackerStop": 0.045,
+          "victimStop": 0.045,
+          "vy": 3.886666666666667
+        },
+        {
+          "time": 4.28333,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "air",
+          "hitstun": 0.255
+        },
+        {
+          "time": 4.68333,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 14,
+          "hp": 508,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 1,
+          "reaction": "air",
+          "hitstun": 0.25,
+          "contact": {
+            "point": {
+              "x": 1.3429181643863957,
+              "y": 0.853119611770742
+            },
+            "blade": {
+              "hand": {
+                "x": 1.1366687599542107,
+                "y": 0.9108304063821872
+              },
+              "tip": {
+                "x": 2.2601819807902404,
+                "y": 0.596459361726733
+              }
+            },
+            "attackBox": {
+              "x0": 1.081113204398655,
+              "x1": 2.3157375363457957,
+              "y0": 0.5409038061711774,
+              "y1": 0.9663859619377427
+            },
+            "targetBox": {
+              "x0": 1.226241471646609,
+              "x1": 1.9062414716466092,
+              "y0": 0.8204722222222185,
+              "y1": 2.6204722222222188
+            }
+          },
+          "before": {
+            "state": "airborne",
+            "x": 1.566241471646609,
+            "y": 0.8204722222222185,
+            "vy": -3.813333333333329,
+            "hp": 522
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.566241471646609,
+            "y": 0.8204722222222185,
+            "vy": 4.6016666666666675,
+            "hp": 508,
+            "airHits": 3,
+            "groundHits": 0,
+            "totalHits": 3
+          }
+        },
+        {
+          "time": 4.68333,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 1,
+          "attackerStop": 0.055,
+          "victimStop": 0.055,
+          "vy": 4.6016666666666675
+        },
+        {
+          "time": 4.68333,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "air",
+          "hitstun": 0.25
+        },
+        {
+          "time": 5.475,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 22,
+          "hp": 486,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 2,
+          "reaction": "ground",
+          "hitstun": 0.33999999999999997,
+          "contact": {
+            "point": {
+              "x": 1.329284305361213,
+              "y": 0.15999999999999998
+            },
+            "blade": {
+              "hand": {
+                "x": 1.0164691431689228,
+                "y": 0.5904448969030077
+              },
+              "tip": {
+                "x": 1.7023314489638004,
+                "y": -0.353326266356839
+              }
+            },
+            "attackBox": {
+              "x0": 0.9609135876133672,
+              "x1": 1.757887004519356,
+              "y0": -0.4088818219123945,
+              "y1": 0.6460004524585633
+            },
+            "targetBox": {
+              "x0": 1.104196830568354,
+              "x1": 2.184196830568354,
+              "y0": 0,
+              "y1": 0.32
+            }
+          },
+          "before": {
+            "state": "down",
+            "x": 1.644196830568354,
+            "y": 0,
+            "vy": 0,
+            "hp": 508
+          },
+          "after": {
+            "state": "down",
+            "x": 1.644196830568354,
+            "y": 0,
+            "vy": 0,
+            "hp": 486,
+            "airHits": 3,
+            "groundHits": 1,
+            "totalHits": 4
+          }
+        },
+        {
+          "time": 5.475,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 2,
+          "attackerStop": 0.085,
+          "victimStop": 0.085,
+          "vy": 0
+        },
+        {
+          "time": 5.475,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "ground",
+          "hitstun": 0.33999999999999997
+        },
+        {
+          "time": 6.10833,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 12,
+          "hp": 474,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 0,
+          "reaction": "ground",
+          "hitstun": 0.255,
+          "contact": {
+            "point": {
+              "x": 2.2217566061170064,
+              "y": 0.2339896200289041
+            },
+            "blade": {
+              "hand": {
+                "x": 1.4508101039982928,
+                "y": 0.9294136121588514
+              },
+              "tip": {
+                "x": 2.3171076471150673,
+                "y": 0.1479792400578082
+              }
+            },
+            "attackBox": {
+              "x0": 1.3952545484427372,
+              "x1": 2.3726632026706227,
+              "y0": 0.09242368450225263,
+              "y1": 0.984969167714407
+            },
+            "targetBox": {
+              "x0": 1.28446733179865,
+              "x1": 2.36446733179865,
+              "y0": 0,
+              "y1": 0.32
+            }
+          },
+          "before": {
+            "state": "down",
+            "x": 1.82446733179865,
+            "y": 0,
+            "vy": 0,
+            "hp": 486
+          },
+          "after": {
+            "state": "down",
+            "x": 1.82446733179865,
+            "y": 0,
+            "vy": 0,
+            "hp": 474,
+            "airHits": 3,
+            "groundHits": 2,
+            "totalHits": 5
+          }
+        },
+        {
+          "time": 6.10833,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 0,
+          "attackerStop": 0.045,
+          "victimStop": 0.045,
+          "vy": 0
+        },
+        {
+          "time": 6.10833,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "ground",
+          "hitstun": 0.255
+        },
+        {
+          "time": 6.46667,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 14,
+          "hp": 460,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": true,
+          "cut": 1,
+          "contact": {
+            "point": {
+              "x": 1.554315171789487,
+              "y": 0.15999999999999998
+            },
+            "blade": {
+              "hand": {
+                "x": 1.2418372148859214,
+                "y": 0.6258915928120086
+              },
+              "tip": {
+                "x": 1.8916968527798415,
+                "y": -0.34302200609529027
+              }
+            },
+            "attackBox": {
+              "x0": 1.1862816593303658,
+              "x1": 1.947252408335397,
+              "y0": -0.3985775616508458,
+              "y1": 0.6814471483675641
+            },
+            "targetBox": {
+              "x0": 1.3435606061151146,
+              "x1": 2.4235606061151147,
+              "y0": 0,
+              "y1": 0.32
+            }
+          },
+          "before": {
+            "state": "down",
+            "x": 1.8835606061151147,
+            "y": 0,
+            "vy": 0,
+            "hp": 474
+          },
+          "after": {
+            "state": "invulnerable",
+            "x": 1.8835606061151147,
+            "y": 0,
+            "vy": 0,
+            "hp": 460,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          }
+        },
+        {
+          "time": 6.46667,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 1,
+          "attackerStop": 0.055,
+          "victimStop": 0,
+          "vy": 0
+        }
+      ],
+      "bodyEvents": [
+        {
+          "time": 0.19167,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        },
+        {
+          "time": 0.49167,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        },
+        {
+          "time": 0.9,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        },
+        {
+          "time": 1.41667,
+          "type": "landed",
+          "downRemaining": 0.9
+        },
+        {
+          "time": 2.325,
+          "type": "ordinary-stand"
+        },
+        {
+          "time": 3.35,
+          "type": "hit",
+          "attack": "launcher",
+          "state": "airborne"
+        },
+        {
+          "time": 4.28333,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "airborne"
+        },
+        {
+          "time": 4.68333,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "airborne"
+        },
+        {
+          "time": 5.29167,
+          "type": "landed",
+          "downRemaining": 0.9
+        },
+        {
+          "time": 5.475,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "down"
+        },
+        {
+          "time": 6.10833,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "down"
+        },
+        {
+          "time": 6.46667,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "down"
+        },
+        {
+          "time": 6.46667,
+          "type": "forced-stand",
+          "reason": "ground-limit",
+          "airHits": 3,
+          "groundHits": 3,
+          "totalHits": 6
+        }
+      ],
+      "body": {
+        "time": 6.491666666666779,
+        "state": "invulnerable",
+        "enemyX": 1.8835606061151147,
+        "y": 0,
+        "vy": 0,
+        "downRemaining": 0,
+        "invulnerabilityRemaining": 0.5750000000000001,
+        "hitstopRemaining": 0,
+        "bounceRemaining": 0,
+        "airHits": 0,
+        "groundHits": 0,
+        "totalHits": 0
+      },
+      "hp": 460,
+      "settings": {
+        "gravity": 22,
+        "launchVelocity": 10.5,
+        "airTapVelocity": 5.5,
+        "knockdownSeconds": 0.9,
+        "comboWindowSeconds": 1.6,
+        "airHitLimit": 4,
+        "groundHitLimit": 3,
+        "totalHitLimit": 7,
+        "protectedInvulnerabilitySeconds": 0.6,
+        "fixedStep": 0.008333333333333333,
+        "minHitIntervalSeconds": 0.09,
+        "hitstopSeconds": 0.04,
+        "groundBounceVelocity": 0,
+        "groundBounceCount": 1
+      },
+      "sampleSummary": {
+        "count": 390,
+        "first": {
+          "wall": 9752.2,
+          "rafDelta": null,
+          "time": 0.016666666666666666,
+          "a": {
+            "time": 0.016666666666666666,
+            "state": "idle",
+            "enemyX": 0,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "b": {
+            "time": 0.016666666666666666,
+            "state": "idle",
+            "enemyX": 1.15,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "hp": 600,
+          "damage": 0
+        },
+        "last": {
+          "wall": 16235.3,
+          "rafDelta": 16.799999999999272,
+          "time": 6.491666666666779,
+          "a": {
+            "time": 6.491666666666779,
+            "state": "idle",
+            "enemyX": 0.7200000000000004,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "b": {
+            "time": 6.491666666666779,
+            "state": "invulnerable",
+            "enemyX": 1.8835606061151147,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0.5750000000000001,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "hp": 460,
+          "damage": 9
+        },
+        "scope": "full samples saved in original evidence archive"
+      }
+    },
+    "recovered": {
+      "events": [
+        {
+          "time": 0.19167,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 12,
+          "hp": 588,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 0,
+          "reaction": "light",
+          "hitstun": 0.255,
+          "contact": {
+            "point": {
+              "x": 1.0137259864967287,
+              "y": 1.681149117814386
+            },
+            "blade": {
+              "hand": {
+                "x": 0.7077071424678919,
+                "y": 1.5026220177439535
+              },
+              "tip": {
+                "x": 1.7154261068119805,
+                "y": 2.090511122943556
+              }
+            },
+            "attackBox": {
+              "x0": 0.6521515869123363,
+              "x1": 1.770981662367536,
+              "y0": 1.447066462188398,
+              "y1": 2.1460666784991114
+            },
+            "targetBox": {
+              "x0": 0.8099999999999998,
+              "x1": 1.49,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.15,
+            "y": 0,
+            "vy": 0,
+            "hp": 600
+          },
+          "after": {
+            "state": "idle",
+            "x": 1.15,
+            "y": 0,
+            "vy": 0,
+            "hp": 588,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 1
+          }
+        },
+        {
+          "time": 0.19167,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 0,
+          "attackerStop": 0.045,
+          "victimStop": 0.045,
+          "vy": 0
+        },
+        {
+          "time": 0.19167,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "light",
+          "hitstun": 0.255
+        },
+        {
+          "time": 0.49167,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 14,
+          "hp": 574,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 1,
+          "reaction": "reverse",
+          "hitstun": 0.25,
+          "contact": {
+            "point": {
+              "x": 0.9051707582438798,
+              "y": 0.05435727767813758
+            },
+            "blade": {
+              "hand": {
+                "x": 0.5218372148859209,
+                "y": 0.6258915928120086
+              },
+              "tip": {
+                "x": 1.171696852779841,
+                "y": -0.34302200609529027
+              }
+            },
+            "attackBox": {
+              "x0": 0.46628165933036536,
+              "x1": 1.2272524083353966,
+              "y0": -0.3985775616508458,
+              "y1": 0.6814471483675641
+            },
+            "targetBox": {
+              "x0": 0.8687128110867222,
+              "x1": 1.5487128110867223,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.2087128110867222,
+            "y": 0,
+            "vy": 0,
+            "hp": 588
+          },
+          "after": {
+            "state": "idle",
+            "x": 1.2087128110867222,
+            "y": 0,
+            "vy": 0,
+            "hp": 574,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 2
+          }
+        },
+        {
+          "time": 0.49167,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 1,
+          "attackerStop": 0.055,
+          "victimStop": 0.055,
+          "vy": 0
+        },
+        {
+          "time": 0.49167,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "reverse",
+          "hitstun": 0.25
+        },
+        {
+          "time": 0.9,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 22,
+          "hp": 552,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 2,
+          "reaction": "launch",
+          "hitstun": 0.33999999999999997,
+          "contact": {
+            "point": {
+              "x": 0.9561142552462891,
+              "y": 0.012998152512287087
+            },
+            "blade": {
+              "hand": {
+                "x": 0.5364691431689225,
+                "y": 0.5904448969030077
+              },
+              "tip": {
+                "x": 1.2223314489638002,
+                "y": -0.353326266356839
+              }
+            },
+            "attackBox": {
+              "x0": 0.4809135876133669,
+              "x1": 1.2778870045193558,
+              "y0": -0.4088818219123945,
+              "y1": 0.6460004524585633
+            },
+            "targetBox": {
+              "x0": 0.9466681700084671,
+              "x1": 1.6266681700084673,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.2866681700084672,
+            "y": 0,
+            "vy": 0,
+            "hp": 574
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.2866681700084672,
+            "y": 0.01,
+            "vy": 4.656666666666666,
+            "hp": 552,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 3
+          }
+        },
+        {
+          "time": 0.9,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 2,
+          "attackerStop": 0.085,
+          "victimStop": 0.085,
+          "vy": 4.656666666666666
+        },
+        {
+          "time": 0.9,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "launch",
+          "hitstun": 0.33999999999999997
+        },
+        {
+          "time": 3.35,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "launcher",
+          "damage": 18,
+          "hp": 534,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": null,
+          "reaction": "launch",
+          "hitstun": 0.18,
+          "contact": {
+            "point": {
+              "x": 1.4137665634015033,
+              "y": 0.28982886000770913
+            },
+            "blade": {
+              "hand": {
+                "x": 1.0154720536552517,
+                "y": 0.6922905691415919
+              },
+              "tip": {
+                "x": 1.836125705529323,
+                "y": -0.136949260326857
+              }
+            },
+            "attackBox": {
+              "x0": 0.9599164980996961,
+              "x1": 1.8916812610848786,
+              "y0": -0.19250481588241256,
+              "y1": 0.7478461246971475
+            },
+            "targetBox": {
+              "x0": 1.126938671238763,
+              "x1": 1.8069386712387632,
+              "y0": 0,
+              "y1": 1.8
+            }
+          },
+          "before": {
+            "state": "idle",
+            "x": 1.466938671238763,
+            "y": 0,
+            "vy": 0,
+            "hp": 552
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.466938671238763,
+            "y": 0.01,
+            "vy": 10.5,
+            "hp": 534,
+            "airHits": 1,
+            "groundHits": 0,
+            "totalHits": 1
+          }
+        },
+        {
+          "time": 3.35,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": null,
+          "attackerStop": 0.07,
+          "victimStop": 0.07,
+          "vy": 10.5
+        },
+        {
+          "time": 3.35,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "launch",
+          "hitstun": 0.18
+        },
+        {
+          "time": 4.28333,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 12,
+          "hp": 522,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 0,
+          "reaction": "air",
+          "hitstun": 0.255,
+          "contact": {
+            "point": {
+              "x": 1.3247335097034463,
+              "y": 2.3617907704416736
+            },
+            "blade": {
+              "hand": {
+                "x": 0.9449145079543438,
+                "y": 1.691908247888451
+              },
+              "tip": {
+                "x": 1.5203468598659058,
+                "y": 2.706791846871428
+              }
+            },
+            "attackBox": {
+              "x0": 0.8893589523987883,
+              "x1": 1.5759024154214614,
+              "y0": 1.6363526923328955,
+              "y1": 2.7623474024269834
+            },
+            "targetBox": {
+              "x0": 1.1671481973301443,
+              "x1": 1.8471481973301445,
+              "y0": 0.8397222222222178,
+              "y1": 2.639722222222218
+            }
+          },
+          "before": {
+            "state": "airborne",
+            "x": 1.5071481973301444,
+            "y": 0.8397222222222178,
+            "vy": -8.383333333333342,
+            "hp": 534
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.5071481973301444,
+            "y": 0.8397222222222178,
+            "vy": 3.886666666666667,
+            "hp": 522,
+            "airHits": 2,
+            "groundHits": 0,
+            "totalHits": 2
+          }
+        },
+        {
+          "time": 4.28333,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 0,
+          "attackerStop": 0.045,
+          "victimStop": 0.045,
+          "vy": 3.886666666666667
+        },
+        {
+          "time": 4.28333,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "air",
+          "hitstun": 0.255
+        },
+        {
+          "time": 4.68333,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 14,
+          "hp": 508,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 1,
+          "reaction": "air",
+          "hitstun": 0.25,
+          "contact": {
+            "point": {
+              "x": 1.3429181643863957,
+              "y": 0.853119611770742
+            },
+            "blade": {
+              "hand": {
+                "x": 1.1366687599542107,
+                "y": 0.9108304063821872
+              },
+              "tip": {
+                "x": 2.2601819807902404,
+                "y": 0.596459361726733
+              }
+            },
+            "attackBox": {
+              "x0": 1.081113204398655,
+              "x1": 2.3157375363457957,
+              "y0": 0.5409038061711774,
+              "y1": 0.9663859619377427
+            },
+            "targetBox": {
+              "x0": 1.226241471646609,
+              "x1": 1.9062414716466092,
+              "y0": 0.8204722222222185,
+              "y1": 2.6204722222222188
+            }
+          },
+          "before": {
+            "state": "airborne",
+            "x": 1.566241471646609,
+            "y": 0.8204722222222185,
+            "vy": -3.813333333333329,
+            "hp": 522
+          },
+          "after": {
+            "state": "airborne",
+            "x": 1.566241471646609,
+            "y": 0.8204722222222185,
+            "vy": 4.6016666666666675,
+            "hp": 508,
+            "airHits": 3,
+            "groundHits": 0,
+            "totalHits": 3
+          }
+        },
+        {
+          "time": 4.68333,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 1,
+          "attackerStop": 0.055,
+          "victimStop": 0.055,
+          "vy": 4.6016666666666675
+        },
+        {
+          "time": 4.68333,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "air",
+          "hitstun": 0.25
+        },
+        {
+          "time": 5.475,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 22,
+          "hp": 486,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 2,
+          "reaction": "ground",
+          "hitstun": 0.33999999999999997,
+          "contact": {
+            "point": {
+              "x": 1.329284305361213,
+              "y": 0.15999999999999998
+            },
+            "blade": {
+              "hand": {
+                "x": 1.0164691431689228,
+                "y": 0.5904448969030077
+              },
+              "tip": {
+                "x": 1.7023314489638004,
+                "y": -0.353326266356839
+              }
+            },
+            "attackBox": {
+              "x0": 0.9609135876133672,
+              "x1": 1.757887004519356,
+              "y0": -0.4088818219123945,
+              "y1": 0.6460004524585633
+            },
+            "targetBox": {
+              "x0": 1.104196830568354,
+              "x1": 2.184196830568354,
+              "y0": 0,
+              "y1": 0.32
+            }
+          },
+          "before": {
+            "state": "down",
+            "x": 1.644196830568354,
+            "y": 0,
+            "vy": 0,
+            "hp": 508
+          },
+          "after": {
+            "state": "down",
+            "x": 1.644196830568354,
+            "y": 0,
+            "vy": 0,
+            "hp": 486,
+            "airHits": 3,
+            "groundHits": 1,
+            "totalHits": 4
+          }
+        },
+        {
+          "time": 5.475,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 2,
+          "attackerStop": 0.085,
+          "victimStop": 0.085,
+          "vy": 0
+        },
+        {
+          "time": 5.475,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "ground",
+          "hitstun": 0.33999999999999997
+        },
+        {
+          "time": 6.10833,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 12,
+          "hp": 474,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 0,
+          "reaction": "ground",
+          "hitstun": 0.255,
+          "contact": {
+            "point": {
+              "x": 2.2217566061170064,
+              "y": 0.2339896200289041
+            },
+            "blade": {
+              "hand": {
+                "x": 1.4508101039982928,
+                "y": 0.9294136121588514
+              },
+              "tip": {
+                "x": 2.3171076471150673,
+                "y": 0.1479792400578082
+              }
+            },
+            "attackBox": {
+              "x0": 1.3952545484427372,
+              "x1": 2.3726632026706227,
+              "y0": 0.09242368450225263,
+              "y1": 0.984969167714407
+            },
+            "targetBox": {
+              "x0": 1.28446733179865,
+              "x1": 2.36446733179865,
+              "y0": 0,
+              "y1": 0.32
+            }
+          },
+          "before": {
+            "state": "down",
+            "x": 1.82446733179865,
+            "y": 0,
+            "vy": 0,
+            "hp": 486
+          },
+          "after": {
+            "state": "down",
+            "x": 1.82446733179865,
+            "y": 0,
+            "vy": 0,
+            "hp": 474,
+            "airHits": 3,
+            "groundHits": 2,
+            "totalHits": 5
+          }
+        },
+        {
+          "time": 6.10833,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 0,
+          "attackerStop": 0.045,
+          "victimStop": 0.045,
+          "vy": 0
+        },
+        {
+          "time": 6.10833,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "ground",
+          "hitstun": 0.255
+        },
+        {
+          "time": 6.46667,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 14,
+          "hp": 460,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": true,
+          "cut": 1,
+          "contact": {
+            "point": {
+              "x": 1.554315171789487,
+              "y": 0.15999999999999998
+            },
+            "blade": {
+              "hand": {
+                "x": 1.2418372148859214,
+                "y": 0.6258915928120086
+              },
+              "tip": {
+                "x": 1.8916968527798415,
+                "y": -0.34302200609529027
+              }
+            },
+            "attackBox": {
+              "x0": 1.1862816593303658,
+              "x1": 1.947252408335397,
+              "y0": -0.3985775616508458,
+              "y1": 0.6814471483675641
+            },
+            "targetBox": {
+              "x0": 1.3435606061151146,
+              "x1": 2.4235606061151147,
+              "y0": 0,
+              "y1": 0.32
+            }
+          },
+          "before": {
+            "state": "down",
+            "x": 1.8835606061151147,
+            "y": 0,
+            "vy": 0,
+            "hp": 474
+          },
+          "after": {
+            "state": "invulnerable",
+            "x": 1.8835606061151147,
+            "y": 0,
+            "vy": 0,
+            "hp": 460,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          }
+        },
+        {
+          "time": 6.46667,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 1,
+          "attackerStop": 0.055,
+          "victimStop": 0,
+          "vy": 0
+        }
+      ],
+      "bodyEvents": [
+        {
+          "time": 0.19167,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        },
+        {
+          "time": 0.49167,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        },
+        {
+          "time": 0.9,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        },
+        {
+          "time": 1.41667,
+          "type": "landed",
+          "downRemaining": 0.9
+        },
+        {
+          "time": 2.325,
+          "type": "ordinary-stand"
+        },
+        {
+          "time": 3.35,
+          "type": "hit",
+          "attack": "launcher",
+          "state": "airborne"
+        },
+        {
+          "time": 4.28333,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "airborne"
+        },
+        {
+          "time": 4.68333,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "airborne"
+        },
+        {
+          "time": 5.29167,
+          "type": "landed",
+          "downRemaining": 0.9
+        },
+        {
+          "time": 5.475,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "down"
+        },
+        {
+          "time": 6.10833,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "down"
+        },
+        {
+          "time": 6.46667,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "down"
+        },
+        {
+          "time": 6.46667,
+          "type": "forced-stand",
+          "reason": "ground-limit",
+          "airHits": 3,
+          "groundHits": 3,
+          "totalHits": 6
+        },
+        {
+          "time": 7.06667,
+          "type": "protection-ended"
+        }
+      ],
+      "body": {
+        "time": 7.075000000000141,
+        "state": "idle",
+        "enemyX": 1.8835606061151147,
+        "y": 0,
+        "vy": 0,
+        "downRemaining": 0,
+        "invulnerabilityRemaining": 0,
+        "hitstopRemaining": 0,
+        "bounceRemaining": 0,
+        "airHits": 0,
+        "groundHits": 0,
+        "totalHits": 0
+      },
+      "hp": 460,
+      "settings": {
+        "gravity": 22,
+        "launchVelocity": 10.5,
+        "airTapVelocity": 5.5,
+        "knockdownSeconds": 0.9,
+        "comboWindowSeconds": 1.6,
+        "airHitLimit": 4,
+        "groundHitLimit": 3,
+        "totalHitLimit": 7,
+        "protectedInvulnerabilitySeconds": 0.6,
+        "fixedStep": 0.008333333333333333,
+        "minHitIntervalSeconds": 0.09,
+        "hitstopSeconds": 0.04,
+        "groundBounceVelocity": 0,
+        "groundBounceCount": 1
+      },
+      "sampleSummary": {
+        "count": 424,
+        "first": {
+          "wall": 9752.2,
+          "rafDelta": null,
+          "time": 0.016666666666666666,
+          "a": {
+            "time": 0.016666666666666666,
+            "state": "idle",
+            "enemyX": 0,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "b": {
+            "time": 0.016666666666666666,
+            "state": "idle",
+            "enemyX": 1.15,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "hp": 600,
+          "damage": 0
+        },
+        "last": {
+          "wall": 16818.6,
+          "rafDelta": 16.69999999999709,
+          "time": 7.075000000000141,
+          "a": {
+            "time": 7.075000000000141,
+            "state": "idle",
+            "enemyX": 0.7200000000000004,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "b": {
+            "time": 7.075000000000141,
+            "state": "idle",
+            "enemyX": 1.8835606061151147,
+            "y": 0,
+            "vy": 0,
+            "downRemaining": 0,
+            "invulnerabilityRemaining": 0,
+            "hitstopRemaining": 0,
+            "bounceRemaining": 0,
+            "airHits": 0,
+            "groundHits": 0,
+            "totalHits": 0
+          },
+          "hp": 460,
+          "damage": 9
+        },
+        "scope": "full samples saved in original evidence archive"
+      }
+    }
+  },
+  "videos": [
+    {
+      "file": "v10-browser-canvas.webm",
+      "source": "real browser Canvas.captureStream + UI MediaRecorder; excludes DOM controls/audio",
+      "bytes": 1512763,
+      "sha256": "1b165b64ac0654aac8c33b5c0f0343bf980eb42c281504fdc80e48396de30998"
+    },
+    {
+      "file": "v11-browser-canvas.webm",
+      "source": "real browser Canvas.captureStream + UI MediaRecorder; excludes DOM controls/audio",
+      "bytes": 3533337,
+      "sha256": "820a643c234a4fafc7b501d716fb3a67ccb49db1addc200f260808fd24eccf6d"
+    }
+  ],
+  "androidHandFeel": "NOT COVERED",
+  "visualSimilarity": "NOT COVERED",
+  "authorization": {
+    "userResponse": "授权",
+    "userMessageShanghai": "2026-10-13T09:59:15+08:00",
+    "scope": "current-isolated-Work-loopback-only",
+    "browserSandbox": false,
+    "runs": 1,
+    "tests": "local V10 original five + shared V11 thirteen",
+    "notAuthorized": [
+      "production deployment",
+      "host sandbox changes",
+      "other devices",
+      "CI trigger",
+      "automatic reruns"
+    ],
+    "recordedUTC": "2026-10-13T02:02:12.122165+00:00"
+  },
+  "binding": {
+    "address": "127.0.0.1",
+    "family": "IPv4",
+    "port": 43667
+  },
+  "browserVersion": "151.0.7922.34",
+  "v10": {
+    "assertions": 5,
+    "status": "passed-browser",
+    "result": {
+      "phase": "保护起身",
+      "events": [
+        {
+          "time": 0.19167,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 12,
+          "hp": 588,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 0,
+          "reaction": "light",
+          "hitstun": 0.255
+        },
+        {
+          "time": 0.19167,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 0,
+          "attackerStop": 0.045,
+          "victimStop": 0.045,
+          "vy": 0
+        },
+        {
+          "time": 0.19167,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "light",
+          "hitstun": 0.255
+        },
+        {
+          "time": 0.48333,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 14,
+          "hp": 574,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 1,
+          "reaction": "reverse",
+          "hitstun": 0.25
+        },
+        {
+          "time": 0.48333,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 1,
+          "attackerStop": 0.055,
+          "victimStop": 0.055,
+          "vy": 0
+        },
+        {
+          "time": 0.48333,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "reverse",
+          "hitstun": 0.25
+        },
+        {
+          "time": 0.91667,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 22,
+          "hp": 552,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 2,
+          "reaction": "heavy",
+          "hitstun": 0.33999999999999997
+        },
+        {
+          "time": 0.91667,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 2,
+          "attackerStop": 0.085,
+          "victimStop": 0.085,
+          "vy": 3.6
+        },
+        {
+          "time": 0.91667,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "heavy",
+          "hitstun": 0.33999999999999997
+        },
+        {
+          "time": 3.35,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "launcher",
+          "damage": 18,
+          "hp": 534,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": null,
+          "reaction": "launch",
+          "hitstun": 0.18
+        },
+        {
+          "time": 3.35,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": null,
+          "attackerStop": 0.07,
+          "victimStop": 0.07,
+          "vy": 10.5
+        },
+        {
+          "time": 3.35,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "launch",
+          "hitstun": 0.18
+        },
+        {
+          "time": 4.28333,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 12,
+          "hp": 522,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 0,
+          "reaction": "air",
+          "hitstun": 0.255
+        },
+        {
+          "time": 4.28333,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 0,
+          "attackerStop": 0.045,
+          "victimStop": 0.045,
+          "vy": -7.283333333333342
+        },
+        {
+          "time": 4.28333,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "air",
+          "hitstun": 0.255
+        },
+        {
+          "time": 4.66667,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 14,
+          "hp": 508,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 1,
+          "reaction": "ground",
+          "hitstun": 0.25
+        },
+        {
+          "time": 4.66667,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 1,
+          "attackerStop": 0.055,
+          "victimStop": 0.055,
+          "vy": 0
+        },
+        {
+          "time": 4.66667,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "ground",
+          "hitstun": 0.25
+        },
+        {
+          "time": 5.2,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 22,
+          "hp": 486,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": false,
+          "cut": 2,
+          "reaction": "ground",
+          "hitstun": 0.33999999999999997
+        },
+        {
+          "time": 5.2,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 2,
+          "attackerStop": 0.085,
+          "victimStop": 0.085,
+          "vy": 0
+        },
+        {
+          "time": 5.2,
+          "type": "reaction-start",
+          "target": "B",
+          "kind": "ground",
+          "hitstun": 0.33999999999999997
+        },
+        {
+          "time": 5.775,
+          "type": "damage",
+          "attacker": "A",
+          "target": "B",
+          "skill": "highSlash",
+          "damage": 12,
+          "hp": 474,
+          "armored": false,
+          "interrupted": false,
+          "protectedStand": true,
+          "cut": 0
+        },
+        {
+          "time": 5.775,
+          "type": "impact-feedback",
+          "attacker": "A",
+          "target": "B",
+          "cut": 0,
+          "attackerStop": 0.045,
+          "victimStop": 0,
+          "vy": 0
+        }
+      ],
+      "bodyEvents": [
+        {
+          "time": 0.19167,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        },
+        {
+          "time": 0.48333,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        },
+        {
+          "time": 0.91667,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "idle"
+        },
+        {
+          "time": 1.33333,
+          "type": "landed",
+          "downRemaining": 0.9
+        },
+        {
+          "time": 2.24167,
+          "type": "ordinary-stand"
+        },
+        {
+          "time": 3.35,
+          "type": "hit",
+          "attack": "launcher",
+          "state": "airborne"
+        },
+        {
+          "time": 4.28333,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "airborne"
+        },
+        {
+          "time": 4.43333,
+          "type": "landed",
+          "downRemaining": 0.9
+        },
+        {
+          "time": 4.66667,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "down"
+        },
+        {
+          "time": 5.2,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "down"
+        },
+        {
+          "time": 5.775,
+          "type": "hit",
+          "attack": "highSlash",
+          "state": "down"
+        },
+        {
+          "time": 5.775,
+          "type": "forced-stand",
+          "reason": "ground-limit",
+          "airHits": 2,
+          "groundHits": 3,
+          "totalHits": 5
+        }
+      ]
+    }
+  },
+  "exitCode": 0
+}
