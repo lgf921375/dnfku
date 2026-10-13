@@ -1,0 +1,10 @@
+{
+  "file": "summoner-s5-browser-canvas.webm",
+  "bytes": 6561251,
+  "sha256": "de29d4a55d4435e89310d674ddc57f07e297f8d7f9d7371bcb28f57ef8d7b24e",
+  "ffmpegExit": 0,
+  "ffmpegStderr": "",
+  "ffmpegWarningCount": 0,
+  "contains": "Original Canvas capture; no DOM/audio",
+  "stableFPS": "NOT COVERED"
+}

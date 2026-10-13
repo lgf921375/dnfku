@@ -1,0 +1,533 @@
+{
+  "parentCommit": "7fbff49e20f6971c6ff5f972ad130d03663ff43f",
+  "node": {
+    "status": "PASS",
+    "pass": 233,
+    "fail": 0,
+    "old": 215,
+    "new": 18,
+    "exitCode": 0,
+    "initialFailure": "17/18; lethal-hit path tried to render inherited S3 reaction without S5 peak; fixed before final tests",
+    "tapSHA256": "ff7120d7a1dfdce794caea23c927005e1b5dfba01cb27ba46014617da971a9ab"
+  },
+  "browser": {
+    "status": "passed-browser",
+    "exitCode": 0,
+    "uniqueChecks": 44,
+    "runs": [
+      {
+        "directory": "s5-browser-initial",
+        "pass": 44,
+        "exitCode": 0,
+        "scope": "before neck visual fix"
+      },
+      {
+        "directory": "s5-browser-final",
+        "pass": 44,
+        "exitCode": 0,
+        "artifactIntegrity": "FAIL: side running11 vs main passed13"
+      },
+      {
+        "directory": "s5-browser-verified",
+        "pass": 44,
+        "exitCode": 0,
+        "artifactIntegrity": "PASS: final result published once; all sidecars equal main"
+      }
+    ],
+    "sections": {
+      "summoner": {
+        "status": "passed-browser",
+        "checks": [
+          {
+            "name": "S5 loopback HTML bytes and title",
+            "status": "PASS"
+          },
+          {
+            "name": "offline Chinese UI font actually loaded",
+            "status": "PASS"
+          },
+          {
+            "name": "real pointer click runs exactly the first motion",
+            "status": "PASS"
+          },
+          {
+            "name": "full replay starts three observed segments, completes at 1.000s",
+            "status": "PASS"
+          },
+          {
+            "name": "real held pointer chains; release settles without another first stage",
+            "status": "PASS"
+          },
+          {
+            "name": "S2 public preview: both feet elevated in second/third poses",
+            "status": "PASS"
+          },
+          {
+            "name": "frame preview freezes motion clock",
+            "status": "PASS"
+          },
+          {
+            "name": "real turn button mirrors staff geometry",
+            "status": "PASS"
+          },
+          {
+            "name": "real keyboard moves idle owner left",
+            "status": "PASS"
+          },
+          {
+            "name": "real X keyboard press starts a staff motion",
+            "status": "PASS"
+          },
+          {
+            "name": "owner-only candidate does not assert damage or lift",
+            "status": "PASS"
+          },
+          {
+            "name": "no browser errors",
+            "status": "PASS"
+          }
+        ]
+      },
+      "feedback": {
+        "status": "passed-feedback-browser",
+        "checks": [
+          {
+            "name": "target replay: three contacts, unique actions, HP88",
+            "status": "PASS"
+          },
+          {
+            "name": "rendered frame samples: owner and victim stay fixed together during hitstop",
+            "status": "PASS"
+          },
+          {
+            "name": "confirmed contact coordinates drive the live effect",
+            "status": "PASS"
+          },
+          {
+            "name": "empty swing: no impact, HP loss or feedback",
+            "status": "PASS"
+          },
+          {
+            "name": "depth offset: visible target but no hit",
+            "status": "PASS"
+          },
+          {
+            "name": "public movement out of range: no remote hit",
+            "status": "PASS"
+          },
+          {
+            "name": "turn and held X: left-facing contact and recoil mirror",
+            "status": "PASS"
+          },
+          {
+            "name": "feedback switch: same damage, no stop/effect/reaction",
+            "status": "PASS"
+          },
+          {
+            "name": "sound enabled by gesture: running AudioContext, one original buffer per hit",
+            "status": "PASS"
+          },
+          {
+            "name": "sound enabled with an empty swing: no impact buffers",
+            "status": "PASS"
+          },
+          {
+            "name": "single pointer click: one hit and settle",
+            "status": "PASS"
+          },
+          {
+            "name": "reset after a hit clears HP/recoil/effect/input and stops the loop",
+            "status": "PASS"
+          },
+          {
+            "name": "no page/console/network errors",
+            "status": "PASS"
+          }
+        ]
+      },
+      "victim": {
+        "status": "passed-victim-browser",
+        "checks": [
+          {
+            "name": "ordinary monster: three standing hits, HP88, no fabricated launch",
+            "status": "PASS"
+          },
+          {
+            "name": "PK player: three standing hits, HP88, no fabricated launch",
+            "status": "PASS"
+          },
+          {
+            "name": "actual hitstop renders changed hurt pose immediately and freezes that pose",
+            "status": "PASS"
+          },
+          {
+            "name": "live confirmed contacts choose body/head/body responses by contact height",
+            "status": "PASS"
+          },
+          {
+            "name": "public air fixture: true contact, floor landing, down and smooth get-up",
+            "status": "PASS"
+          },
+          {
+            "name": "public down fixture: high swings miss, low third hit uses flat victim boxes",
+            "status": "PASS"
+          },
+          {
+            "name": "optional PK ground chase: second genuine low hit triggers protected rise",
+            "status": "PASS"
+          },
+          {
+            "name": "PVE ground chase never inherits enabled PK trial protection",
+            "status": "PASS"
+          },
+          {
+            "name": "public super armor takes damage without recoil or standing protection accumulation",
+            "status": "PASS"
+          },
+          {
+            "name": "public frame pause freezes victim altitude, velocity, pose and state timers",
+            "status": "PASS"
+          },
+          {
+            "name": "live renderer after public movement keeps staff drawing aligned with collision coordinates",
+            "status": "PASS"
+          },
+          {
+            "name": "public reset clears stale physics and retains the selected down fixture",
+            "status": "PASS"
+          },
+          {
+            "name": "no page, console or network errors",
+            "status": "PASS"
+          }
+        ]
+      },
+      "mobile": {
+        "status": "passed-mobile-viewport",
+        "checks": [
+          {
+            "name": "portrait390x844: no horizontal overflow and readable-sized DOM buttons",
+            "status": "PASS"
+          },
+          {
+            "name": "real touch tap: only first owner motion starts",
+            "status": "PASS"
+          },
+          {
+            "name": "real touch hold/release: three owner motions then settle",
+            "status": "PASS"
+          },
+          {
+            "name": "touch cancellation: no stuck held attack or continuing loop",
+            "status": "PASS"
+          },
+          {
+            "name": "landscape844x390: full Canvas and primary attack button visible together",
+            "status": "PASS"
+          },
+          {
+            "name": "landscape: touch replay completes all three motions",
+            "status": "PASS"
+          }
+        ]
+      }
+    },
+    "sidecarsMatchMain": {
+      "feedback": true,
+      "victim": true,
+      "mobile": true
+    },
+    "errors": [],
+    "consoleErrors": [],
+    "requestFailures": [],
+    "historicalV10V11": "NOT RUN this turn",
+    "sandbox": "Chromium沙箱已关闭；用户长期授权隔离Work本地测试",
+    "binding": {
+      "address": "127.0.0.1",
+      "family": "IPv4",
+      "port": 45541
+    },
+    "Android": "NOT COVERED",
+    "mobile": "default monster touch viewport only; PK desktop pointer"
+  },
+  "testedFiles": {
+    "prototype/summoner-victim-s5.mjs": "c3e1515c57357b0c5755ea9e8774ddd3aede12f0ee6fdd456e901239071caa32",
+    "prototype/summoner-renderer-s5.mjs": "a3e2bc293b4edcf734d8ac34746c1c5c02ff8a7355888d1f7b6de4e681b88832",
+    "prototype/summoner-lab-s5.template.html": "bffb1af3addf951babda374ed97969239538648735700df6e093eb18aa82aedf",
+    "prototype/build-summoner-lab-s5.mjs": "9747d78b9c8268b7b3bd1a6586609b91aeebf47669ea079fee04232837d93991",
+    "prototype/summoner-lab-s5.html": "fac2f5cf857bd095c7133c8a99e004da60fb4c9a36f6cefd8a6c4de88bf9a91d",
+    "prototype/fonts/summoner-s5-ui.woff": "c3ebff2a6ebfe33909ea390639221aea3681375f50c975e7f3983d9ba1c46346",
+    "tests/summoner-victim-s5.test.mjs": "11bde8dd8fa8017b1b163da9266b964c18da3be09f9153d840f33e9086702ea9",
+    "tests/summoner-victim-s5-acceptance.cjs": "31ded172e2c66208518e3a7b73a859f22ba672fe3ef56e8a6a439216c7ac32a0",
+    "tests/summoner-feedback-acceptance.cjs": "fa1272fa291e459fcbb4a5e8bb4f5bd544a0cde381642b16b6066ff410b68699",
+    "tests/juggle-lab-local.cjs": "8f1361db5fe3afc287f945698bd686fb37baeb9a326b7eb3bdaac8b858002f3d"
+  },
+  "priorFilesUnchanged": {
+    "prototype/summoner-victim-s4.mjs": true,
+    "prototype/summoner-renderer-s4.mjs": true,
+    "prototype/summoner-lab-s4.html": true,
+    "prototype/summoner-motion.mjs": true,
+    "prototype/summoner-motion-s2.mjs": true,
+    "prototype/summoner-feedback-s3.mjs": true,
+    "prototype/summoner-impact-audio.mjs": true,
+    "prototype/combat-juggle.mjs": true,
+    "prototype/combat-feedback.mjs": true,
+    "prototype/summoner-lab-s1.html": true,
+    "prototype/summoner-lab-s2.html": true,
+    "prototype/summoner-lab-s3.html": true
+  },
+  "font": {
+    "ChineseChars": 131,
+    "missing": [],
+    "license": "OFL-1.1"
+  },
+  "evidenceScope": "original candidate only; no new DNF victim video frames viewed",
+  "regression": {
+    "scope": "controlled local model regression, not original DNF footage",
+    "S4": {
+      "before": {
+        "x": 45,
+        "lean": 0,
+        "compress": 0,
+        "phase": "idle",
+        "head": {
+          "x": 45,
+          "y": 80
+        },
+        "shoulder": {
+          "x": 45,
+          "y": 66
+        },
+        "hip": {
+          "x": 45,
+          "y": 35
+        },
+        "backKnee": {
+          "x": 37,
+          "y": 19
+        },
+        "frontKnee": {
+          "x": 53,
+          "y": 19
+        },
+        "backFoot": {
+          "x": 34,
+          "y": 2
+        },
+        "frontFoot": {
+          "x": 57,
+          "y": 2
+        },
+        "backElbow": {
+          "x": 33,
+          "y": 48
+        },
+        "frontElbow": {
+          "x": 57,
+          "y": 47
+        },
+        "backHand": {
+          "x": 31,
+          "y": 41
+        },
+        "frontHand": {
+          "x": 59,
+          "y": 41
+        }
+      },
+      "contact": {
+        "time": 0.133333,
+        "type": "impact",
+        "wall": 0.133333,
+        "stage": 0,
+        "attackId": 1,
+        "point": {
+          "x": 45.00000000000001,
+          "y": 48.72153994237265
+        },
+        "damage": 8,
+        "targetHP": 112,
+        "stopSeconds": 0.041666666666666664,
+        "feedbackEnabled": true,
+        "targetKind": "monster"
+      },
+      "frozenPose": {
+        "x": 45,
+        "lean": 0,
+        "compress": 0,
+        "phase": "impact",
+        "head": {
+          "x": 45,
+          "y": 80
+        },
+        "shoulder": {
+          "x": 45,
+          "y": 66
+        },
+        "hip": {
+          "x": 45,
+          "y": 35
+        },
+        "backKnee": {
+          "x": 37,
+          "y": 19
+        },
+        "frontKnee": {
+          "x": 53,
+          "y": 19
+        },
+        "backFoot": {
+          "x": 34,
+          "y": 2
+        },
+        "frontFoot": {
+          "x": 57,
+          "y": 2
+        },
+        "backElbow": {
+          "x": 33,
+          "y": 48
+        },
+        "frontElbow": {
+          "x": 57,
+          "y": 47
+        },
+        "backHand": {
+          "x": 31,
+          "y": 41
+        },
+        "frontHand": {
+          "x": 59,
+          "y": 41
+        }
+      },
+      "stop": 0.041666666666666664
+    },
+    "S5": {
+      "before": {
+        "x": 45,
+        "y": 0,
+        "lean": 0,
+        "compress": 0,
+        "phase": "idle",
+        "state": "standing",
+        "head": {
+          "x": 45,
+          "y": 80
+        },
+        "shoulder": {
+          "x": 45,
+          "y": 66
+        },
+        "hip": {
+          "x": 45,
+          "y": 35
+        },
+        "backKnee": {
+          "x": 37,
+          "y": 19
+        },
+        "frontKnee": {
+          "x": 53,
+          "y": 19
+        },
+        "backFoot": {
+          "x": 34,
+          "y": 2
+        },
+        "frontFoot": {
+          "x": 57,
+          "y": 2
+        },
+        "backElbow": {
+          "x": 33,
+          "y": 48
+        },
+        "frontElbow": {
+          "x": 57,
+          "y": 47
+        },
+        "backHand": {
+          "x": 31,
+          "y": 41
+        },
+        "frontHand": {
+          "x": 59,
+          "y": 41
+        }
+      },
+      "contact": {
+        "time": 0.133333,
+        "type": "impact",
+        "wall": 0.133333,
+        "stage": 0,
+        "attackId": 1,
+        "point": {
+          "x": 45.00000000000001,
+          "y": 48.72153994237265
+        },
+        "damage": 8,
+        "targetHP": 112,
+        "stopSeconds": 0.041666666666666664,
+        "feedbackEnabled": true,
+        "targetKind": "monster",
+        "victimState": "standing",
+        "region": "body",
+        "armored": false
+      },
+      "frozenPose": {
+        "x": 45,
+        "y": 0,
+        "lean": 5.780000000000001,
+        "compress": 5.099999999999994,
+        "phase": "impact",
+        "state": "standing",
+        "head": {
+          "x": 50.78,
+          "y": 74.9
+        },
+        "shoulder": {
+          "x": 49.335,
+          "y": 59.2
+        },
+        "hip": {
+          "x": 45.7225,
+          "y": 33.3
+        },
+        "backKnee": {
+          "x": 35.8525,
+          "y": 16.45
+        },
+        "frontKnee": {
+          "x": 53.425,
+          "y": 16.45
+        },
+        "backFoot": {
+          "x": 34,
+          "y": 2
+        },
+        "frontFoot": {
+          "x": 57,
+          "y": 2
+        },
+        "backElbow": {
+          "x": 35.2525,
+          "y": 51.4
+        },
+        "frontElbow": {
+          "x": 56.192499999999995,
+          "y": 48.7
+        },
+        "backHand": {
+          "x": 41.455,
+          "y": 47.8
+        },
+        "frontHand": {
+          "x": 49.99,
+          "y": 44.4
+        }
+      },
+      "stop": 0.041666666666666664
+    }
+  }
+}

@@ -5,3 +5,5 @@ License: SIL OFL 1.1, see OFL.txt (retrieved from upstream Sans/LICENSE).
 Only glyphs used by summoner-lab.template.html, summoner-motion.mjs and summoner-renderer.mjs.
 Subset uses standard WOFF compression because this runtime lacks the WOFF2 Brotli extension.
 The font is embedded in the standalone generated HTML; no host font installation.
+
+S5 offline UI subset: summoner-s5-ui.woff, 131 Chinese UI characters covered; same Noto Sans CJK SC source and OFL-1.1 license.

@@ -2,7 +2,10 @@
 const fs=require('node:fs'),path=require('node:path');
 async function runSummonerFeedbackAcceptance({page,dir,result}){
  const f=result.feedback={status:'running',checks:[],cases:{},scope:'S3 original feedback behavior; exact DNF Summoner combat/audio/Android parity NOT COVERED'};
- const check=async(name,fn)=>{try{const ok=await fn();f.checks.push({name,status:ok?'PASS':'FAIL'});}catch(e){f.checks.push({name,status:'FAIL',error:e.stack});}fs.writeFileSync(path.join(dir,'feedback-results.json'),JSON.stringify(f,null,2)+'\n');};
+ // Publish the final destination only once. Progress writes use a separate
+ // path so delayed filesystem events cannot replace the final result with an
+ // earlier "running" snapshot after the final rename.
+ const check=async(name,fn)=>{try{const ok=await fn();f.checks.push({name,status:ok?'PASS':'FAIL'});}catch(e){f.checks.push({name,status:'FAIL',error:e.stack});}fs.writeFileSync(path.join(dir,'feedback-progress.json'),JSON.stringify(f,null,2)+'\n');};
  const state=()=>page.evaluate(()=>({snapshot:summonerLab.motion.snapshot(),events:summonerLab.motion.events,samples:summonerLab.samples.slice(-500),audio:summonerLab.audio}));
  const wait=fn=>page.waitForFunction(fn,null,{timeout:4000,polling:'raf'});
  const mode=async({empty=false,feedback=true,lane=false,sound=false}={})=>{for(const [id,value] of Object.entries({empty,feedback,lane,sound}))await page.locator('#'+id).setChecked(value);await page.getByRole('button',{name:'重来',exact:true}).click();};
