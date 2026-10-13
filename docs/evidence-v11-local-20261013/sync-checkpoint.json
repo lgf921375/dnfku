@@ -1,0 +1,21 @@
+{
+  "utc": "2026-10-13T01:24:34.732359+00:00",
+  "branch": "work/v11-local-20261013",
+  "initialMain": "d4e6acfaeddfcb9e953b473f2fcebc5fecc6dec5",
+  "localInitialCommit": "34deafb8569c62e8707e92b10c431822eeab485a",
+  "cliGitPush": {
+    "status": "FAILED",
+    "exitCode": 128,
+    "error": "fatal: could not read Username for 'https://github.com': No such device or address"
+  },
+  "connectedGitHubWrite": {
+    "status": "VERIFIED",
+    "checkpointCommit": "7dabdaafe0159c1a54c3c49c6544283731416a98",
+    "checkpointTree": "ebdccad3cc0a55d7e2bc65f698ce5bd6d6ae365d",
+    "leaseExpectedSHA": "d4e6acfaeddfcb9e953b473f2fcebc5fecc6dec5",
+    "localTreeMatchesRemote": true,
+    "fetchedRemoteIntoLocal": true
+  },
+  "mainReadback": "d4e6acfaeddfcb9e953b473f2fcebc5fecc6dec5",
+  "note": "Final documentation/stronger fresh-input browser assertion follow-up is a later commit; final SHA must be read back from GitHub."
+}

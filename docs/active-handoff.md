@@ -10,6 +10,7 @@
 - **未覆盖**：新浏览器断言/本地V10五项、实际sandbox内部诊断、录像/超时回收运行、Android/APK/帧率/主观手感。历史PNG中文方框/追击火花与绘制人物间距是待验视觉差距，不称打击感达标。
 - [完整报告](v11-protection-local-20261013.md)、[真实证据](evidence-v11-local-20261013/)。普通用户原生入口是下一步环境要求；当前工具无user/uid/gid参数。先复核匹配Shell及PW录像依赖再跑 `DNFKU_CHROME_EXECUTABLE=/absolute/path/to/chrome-headless-shell DNFKU_EVIDENCE_DIR=/absolute/path/to/evidence node tests/juggle-lab-local.cjs`。当前环境已实测阻塞，不原地无限重试。
 - 分支为WIP，未合main/未部署；最终提交SHA以GitHub回读为准。两窗口仍由用户转发结果；不触碰《皓石传奇三》。
+- **同步通过（真实回读）**：命令行git push缺凭据exit128；改用已连接GitHub API创建树/提交/租约更新ref，远端检查点=`7dabdaafe0159c1a54c3c49c6544283731416a98`。树`ebdccad3cc0a55d7e2bc65f698ce5bd6d6ae365d`与本地检查点一致，已fetch回本地；main仍d4e6acfa。后续交接/新输入断言小修另提交，最终SHA再回读；不能把API同步说成命令行push成功。
 
 ## 当前优先交接：自主研究与V11候选已实现，待真实浏览器对照（2026-10-12）
 

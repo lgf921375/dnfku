@@ -40,9 +40,9 @@ async function runJuggleAcceptance({page,dir,url,exactHtml,transport,result,onPr
  cases.afterProtection=await observe();
  check('release and queued input: immunity history intact, protection expires',protectionHistoryUnchanged(cases.protectionEntry,cases.afterProtection));
  await page.getByRole('button',{name:'攻击',exact:true}).click();
- await page.waitForFunction(hp=>rhythmLab.game.fighter('B').hp<hp,cases.protectionEntry.hp,{timeout:12000,polling:'raf'});
+ await page.waitForFunction(hp=>rhythmLab.game.fighter('B').hp<hp,cases.afterProtection.hp,{timeout:12000,polling:'raf'});
  cases.resumed=await observe();
- check('after immunity ends a new real button attack can damage again',cases.resumed.hp<cases.protectionEntry.hp);
+ check('after immunity ends a new real button attack can damage again',cases.resumed.hp<cases.afterProtection.hp&&cases.resumed.events.slice(cases.afterProtection.events.length).some(e=>e.type==='damage'));
  await reset();await page.keyboard.down('a');await page.waitForTimeout(700);await page.keyboard.up('a');await page.keyboard.down('d');await page.waitForTimeout(50);await page.keyboard.up('d');
  await page.getByRole('button',{name:'攻击',exact:true}).click();await page.waitForTimeout(500);cases.distance=await observe();
  check('distance miss causes no damage or float',cases.distance.events.every(e=>e.type!=='damage')&&cases.distance.body.state==='idle');

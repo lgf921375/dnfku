@@ -64,6 +64,8 @@ node tests/juggle-lab-local.cjs
 
 ## 证据与恢复
 
+**GitHub同步已经核实**：本地检查点commit34deafb8569c62e8707e92b10c431822eeab485a；命令行git push缺凭据exit128。已通过连接GitHub的Git data API写入独立分支并回读commit7dabdaafe0159c1a54c3c49c6544283731416a98，本地/远端tree均ebdccad3cc0a55d7e2bc65f698ce5bd6d6ae365d，已fetch回本地；main仍d4e6acfa。不能声称CLI push成功。此次记录与“新按钮攻击”断言改以缓冲结束时的HP/事件为基线（防旧缓冲造成假通过）会再提交，最终HEAD由远端回读。
+
 [本轮证据目录](evidence-v11-local-20261013/):
 - `historical-replay.json`：原RAF间隔与摘要；输入延迟2/120秒是**明确声明的复现选择**，原鼠标时间戳未保存，不称精确全输入重放。
 - `node-protection-trajectory.json`：实际Node保护前后轨迹；Node结果不冒充新浏览器轨迹。
