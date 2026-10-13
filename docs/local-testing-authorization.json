@@ -1,0 +1,16 @@
+{
+  "userResponse": "永久授权本地测试",
+  "userMessageShanghai": "2026-10-13T10:29:09+08:00",
+  "project": "lgf921375/dnfku",
+  "scope": "isolated-Work-local-loopback-only",
+  "browserSandbox": false,
+  "policy": "persistent-local-only",
+  "runs": "ongoing",
+  "limits": [
+    "Only isolated Work local tests; bind HTTP to 127.0.0.1",
+    "Report Chromium sandbox disabled honestly",
+    "Do not change host sandbox, proxy or system permissions",
+    "No production deployment/restart or other project changes",
+    "No automatic GitHub Actions triggers from this local authorization"
+  ]
+}

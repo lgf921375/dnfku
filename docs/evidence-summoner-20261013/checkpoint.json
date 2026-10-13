@@ -1,0 +1,14 @@
+{
+  "utc": "2026-10-13T02:41:17.604165+00:00",
+  "phase": "reference research checkpoint",
+  "basis": "3239a9caa0405813d277e770be123e1f26c4680f",
+  "longTermLocalAuthorization": "explicit user 2026-10-13T10:29:09+08:00",
+  "Node": "171/171 PASS",
+  "V10": "5/5 PASS",
+  "V11": "13/13 PASS",
+  "browserExit": 0,
+  "sandbox": "Chromium沙箱已关闭；用户长期授权隔离Work本地测试",
+  "summonerImplementation": "NOT IMPLEMENTED",
+  "summonerMotionReference": "NOT YET VIEWED",
+  "candidateSimilarity": "NOT COVERED"
+}
