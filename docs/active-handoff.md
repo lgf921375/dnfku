@@ -1,5 +1,13 @@
 # dnfku 当前研究交接
 
+## 当前优先交接：用户显式true开启沙箱，实际探测失败（2026-10-13 13:28 上海）
+
+- 起点local/remote881da77，已读真实约定/交接/报告，工作区干净，可见旧Chrome0；仅独立启动一次，明确 `chromiumSandbox:true`，没有自动回退关闭。
+- **失败**：真实PID18创建后SIGSEGV，Playwright无可用Browser，Nodeexit1。更小的 `--version` 也SIGSEGV/返回-11、stdout/stderr空；当前SHA72ed668d与上轮成功e11fc9ce不同，原因未确认。因此不能将本轮失败定性为root或沙箱拒绝；当前实际浏览器版本未取得。
+- **通过（证据核查）**：launch日志无 `--no-sandbox`/`--disable-setuid-sandbox`；结束可见Chrome0。产品/既有测试包装/授权/workflow未改，无HTTP/外部页面、断言0，无系统策略/权限/身份/依赖/部署/Actions操作。
+- **未覆盖**：沙箱实际启用、当前浏览器版本匹配、游戏/Android测试。上一轮S2/S1通过保留为历史结果。
+- [探测报告](chromium-sandbox-enable-20261013-1327.md)、[原始证据](evidence-sandbox-enable-20261013-1327/)。下一步先验证可信可运行的二进制，再在非root+沙箱支持环境开启；此处不原地重复启动。最终提交以远端实际回读为准。
+
 ## 当前优先交接：S2本人抬脚姿势校正（2026-10-13）
 
 - 用户“继续复刻”，目标仍暂按端游召唤师本人。起点local/remote fa78063，main仍d4e6acfa，已读真实约定/交接，可见旧Chrome/测试0；永久本地授权继续有效。

@@ -1,0 +1,20 @@
+{
+  "executableSHA256": "72ed668d9052411c6095e98b680795d0d3d8c82bed79e7c1c83797dedd83896d",
+  "versionExitCode": -11,
+  "versionStdout": "",
+  "versionStderr": "",
+  "processStatus": [
+    "Uid:\t0\t0\t0\t0",
+    "Gid:\t0\t0\t0\t0",
+    "NoNewPrivs:\t1",
+    "Seccomp:\t2",
+    "Seccomp_filters:\t1"
+  ],
+  "executableBytes": 143065088,
+  "executableMode": "0o700",
+  "executableModifiedUTC": "2026-10-13T05:20:49.639472+00:00",
+  "first16BytesHex": "7f454c46020101000000000000000000",
+  "historicalS2ExecutableSHA256": "e11fc9ce65c96313476f7ee9844b6fb6a9220fb048693cfe9eee00acf4170a9f",
+  "binaryMatchesHistoricalS2": false,
+  "rootCause": "NOT ESTABLISHED; browser --version also terminates with SIGSEGV"
+}
