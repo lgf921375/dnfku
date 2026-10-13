@@ -1,9 +1,9 @@
 const fs=require('node:fs'),path=require('node:path');
 const {runSummonerVictimS5Acceptance}=require('./summoner-victim-s5-acceptance.cjs');
-async function runSummonerVictimS6Acceptance({page,dir,result}){
+async function runSummonerVictimS6Acceptance({page,dir,result,publish=true,version='S6'}){
  // One complete victim suite and one final publication, not two overwrites of
  // the final sidecar. Existing healthy-state checks run against the new page.
- const v=await runSummonerVictimS5Acceptance({page,dir,result,publish:false,version:'S6'});v.status='running';
+ const v=await runSummonerVictimS5Acceptance({page,dir,result,publish:false,version});v.status='running';
  const check=async(name,fn)=>{try{v.checks.push({name,status:await fn()?'PASS':'FAIL'});}catch(e){v.checks.push({name,status:'FAIL',error:e.stack});}};
  const wait=fn=>page.waitForFunction(fn,null,{timeout:4500,polling:'raf'});
  const state=()=>page.evaluate(()=>({snapshot:summonerLab.motion.snapshot(),events:summonerLab.motion.events}));
@@ -19,6 +19,6 @@ async function runSummonerVictimS6Acceptance({page,dir,result}){
  await check('public armored get-up takes damage without ordinary interruption',async()=>{await reset({scene:'rise',armor:true,slow:true});await page.getByRole('button',{name:'普通攻击 · X',exact:true}).click();await wait(()=>summonerLab.motion.hitCount===1&&summonerLab.motion.target.stop>0);const c=v.cases.armoredRise=await state();return c.snapshot.target.hp===112&&c.snapshot.target.state==='rise'&&c.snapshot.target.reaction===null&&!c.events.some(e=>e.type==='rise-interrupted');});
  await check('continued real held attacks after death do not create extra damage or defeat events',async()=>{await reset({scene:'air',low:true});const b=await page.locator('#attack').boundingBox();await page.mouse.move(b.x+b.width/2,b.y+b.height/2);await page.mouse.down();try{await wait(()=>summonerLab.motion.target.hp===0);await page.waitForTimeout(1200);v.cases.deadHeld=await state();}finally{await page.mouse.up();}const c=v.cases.deadHeld;return c.snapshot.hitCount===1&&c.snapshot.target.hp===0&&c.events.filter(e=>e.type==='victim-defeat').length===1&&c.events.filter(e=>e.type==='motion-start').length>=3;});
  await check('public low-HP switch/reset restores a live selected fixture without orphan timers',async()=>{await reset({scene:'air',low:true});await page.getByRole('button',{name:'普通攻击 · X',exact:true}).click();await wait(()=>summonerLab.motion.target.hp===0);await page.locator('#fragile').uncheck();const c=v.cases.lowReset=await state();return !c.snapshot.fragile&&c.snapshot.scenario==='air'&&c.snapshot.target.hp===120&&c.snapshot.target.state==='air'&&c.snapshot.target.y>0&&c.snapshot.hitCount===0&&c.snapshot.target.stop===0&&!c.snapshot.target.reaction&&!c.snapshot.recoilCurve&&!c.snapshot.held;});
- v.status=v.checks.every(c=>c.status==='PASS')?'passed-victim-browser':'failed-victim-browser';const tmp=path.join(dir,'victim-results.pending.json');fs.writeFileSync(tmp,JSON.stringify(v,null,2)+'\n');fs.renameSync(tmp,path.join(dir,'victim-results.json'));return v;
+ v.status=v.checks.every(c=>c.status==='PASS')?'passed-victim-browser':'failed-victim-browser';if(publish){const tmp=path.join(dir,'victim-results.pending.json');fs.writeFileSync(tmp,JSON.stringify(v,null,2)+'\n');fs.renameSync(tmp,path.join(dir,'victim-results.json'));}return v;
 }
 module.exports={runSummonerVictimS6Acceptance};

@@ -1,0 +1,8 @@
+{
+  "file": "summoner-s7-browser-canvas.webm",
+  "bytes": 9044758,
+  "sha256": "19a9dbb283d0a89e6caaf5aeb6e3e6cdf29e4f075c48c79b47c0644f094ed307",
+  "ffmpegExit": 0,
+  "ffmpegStderr": "",
+  "scope": "Real original Canvas recording; no DOM/audio; stable FPS NOT COVERED"
+}

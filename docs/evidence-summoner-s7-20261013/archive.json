@@ -1,0 +1,8 @@
+{
+  "file": "dnfku_summoner_S7_evidence_20261013.zip",
+  "bytes": 616237,
+  "sha256": "be54ae738d14119cb8f2d9274b1ff1d3eda247b1372e4870e8ca54565a2649f8",
+  "entries": 28,
+  "CRC": "PASS",
+  "scope": "Own raw failures/passes and geometric fixtures; no browser screenshots, DNF media, signed URLs or repo-backed code/report duplication"
+}

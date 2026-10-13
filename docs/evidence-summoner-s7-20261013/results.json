@@ -1,0 +1,961 @@
+{
+  "parentCommit": "7cfc7f35fe7ace7acba667f40e2c6f4b0ac5065d",
+  "node": {
+    "initial": {
+      "newPass": 15,
+      "exitCode": 0
+    },
+    "initialFull": {
+      "pass": 261,
+      "exitCode": 0
+    },
+    "correctedNew": {
+      "pass": 18,
+      "exitCode": 0
+    },
+    "final": {
+      "pass": 264,
+      "old": 246,
+      "new": 18,
+      "fail": 0,
+      "exitCode": 0
+    },
+    "exploratoryCommand": "FAIL wrong heredoc terminator; corrected diagnostic command exit0; not a Node test failure",
+    "finalTapSHA256": "175e2b7ab34fb47ef0db1c3264d3f16f2c69eaae2482ec2799343cba8cd1e6ea"
+  },
+  "browser": {
+    "initial": {
+      "status": "failed-or-blocked",
+      "executed": 49,
+      "pass": 47,
+      "fail": 2,
+      "exitCode": 1,
+      "failed": [
+        {
+          "name": "optional PK ground chase: second genuine low hit triggers protected rise",
+          "status": "FAIL",
+          "error": "page.waitForFunction: Timeout 4500ms exceeded.\n    at wait (/workspace/scratch/fddb459d7ec2/dnfku/tests/summoner-victim-s5-acceptance.cjs:5:22)\n    at holdUntil (/workspace/scratch/fddb459d7ec2/dnfku/tests/summoner-victim-s5-acceptance.cjs:13:167)\n    at async /workspace/scratch/fddb459d7ec2/dnfku/tests/summoner-victim-s5-acceptance.cjs:19:152\n    at async check (/workspace/scratch/fddb459d7ec2/dnfku/tests/summoner-victim-s5-acceptance.cjs:4:62)\n    at async runSummonerVictimS5Acceptance (/workspace/scratch/fddb459d7ec2/dnfku/tests/summoner-victim-s5-acceptance.cjs:19:2)\n    at async runSummonerVictimS6Acceptance (/workspace/scratch/fddb459d7ec2/dnfku/tests/summoner-victim-s6-acceptance.cjs:6:10)\n    at async runSummonerContactS7Acceptance (/workspace/scratch/fddb459d7ec2/dnfku/tests/summoner-contact-s7-acceptance.cjs:4:10)\n    at async worker (/workspace/scratch/fddb459d7ec2/dnfku/tests/juggle-lab-local.cjs:144:7)"
+        },
+        {
+          "name": "PVE ground chase never inherits enabled PK trial protection",
+          "status": "FAIL"
+        }
+      ],
+      "mobile": "NOT RUN"
+    },
+    "final": {
+      "status": "passed-browser",
+      "checks": 57,
+      "exitCode": 0,
+      "sections": {
+        "summoner": {
+          "status": "passed-browser",
+          "checks": [
+            {
+              "name": "S7 loopback HTML bytes and title",
+              "status": "PASS"
+            },
+            {
+              "name": "offline Chinese UI font actually loaded",
+              "status": "PASS"
+            },
+            {
+              "name": "real pointer click runs exactly the first motion",
+              "status": "PASS"
+            },
+            {
+              "name": "full replay starts three observed segments, completes at 1.000s",
+              "status": "PASS"
+            },
+            {
+              "name": "real held pointer chains; release settles without another first stage",
+              "status": "PASS"
+            },
+            {
+              "name": "S2 public preview: both feet elevated in second/third poses",
+              "status": "PASS"
+            },
+            {
+              "name": "frame preview freezes motion clock",
+              "status": "PASS"
+            },
+            {
+              "name": "real turn button mirrors staff geometry",
+              "status": "PASS"
+            },
+            {
+              "name": "real keyboard moves idle owner left",
+              "status": "PASS"
+            },
+            {
+              "name": "real X keyboard press starts a staff motion",
+              "status": "PASS"
+            },
+            {
+              "name": "owner-only candidate does not assert damage or lift",
+              "status": "PASS"
+            },
+            {
+              "name": "no browser errors",
+              "status": "PASS"
+            }
+          ]
+        },
+        "feedback": {
+          "status": "passed-feedback-browser",
+          "checks": [
+            {
+              "name": "target replay: three contacts, unique actions, HP88",
+              "status": "PASS"
+            },
+            {
+              "name": "rendered frame samples: owner and victim stay fixed together during hitstop",
+              "status": "PASS"
+            },
+            {
+              "name": "confirmed contact coordinates drive the live effect",
+              "status": "PASS"
+            },
+            {
+              "name": "empty swing: no impact, HP loss or feedback",
+              "status": "PASS"
+            },
+            {
+              "name": "depth offset: visible target but no hit",
+              "status": "PASS"
+            },
+            {
+              "name": "public movement out of range: no remote hit",
+              "status": "PASS"
+            },
+            {
+              "name": "turn and held X: left-facing contact and recoil mirror",
+              "status": "PASS"
+            },
+            {
+              "name": "feedback switch: same damage, no stop/effect/reaction",
+              "status": "PASS"
+            },
+            {
+              "name": "sound enabled by gesture: running AudioContext, one original buffer per hit",
+              "status": "PASS"
+            },
+            {
+              "name": "sound enabled with an empty swing: no impact buffers",
+              "status": "PASS"
+            },
+            {
+              "name": "single pointer click: one hit and settle",
+              "status": "PASS"
+            },
+            {
+              "name": "reset after a hit clears HP/recoil/effect/input and stops the loop",
+              "status": "PASS"
+            },
+            {
+              "name": "no page/console/network errors",
+              "status": "PASS"
+            }
+          ]
+        },
+        "victim": {
+          "status": "passed-victim-browser",
+          "checks": [
+            {
+              "name": "ordinary monster: three standing hits, HP88, no fabricated launch",
+              "status": "PASS"
+            },
+            {
+              "name": "PK player: three standing hits, HP88, no fabricated launch",
+              "status": "PASS"
+            },
+            {
+              "name": "actual hitstop renders changed hurt pose immediately and freezes that pose",
+              "status": "PASS"
+            },
+            {
+              "name": "live confirmed contacts choose body/head/body responses by contact height",
+              "status": "PASS"
+            },
+            {
+              "name": "public air fixture: true contact, floor landing, down and smooth get-up",
+              "status": "PASS"
+            },
+            {
+              "name": "public down fixture: high swings miss, low third hit uses flat victim boxes",
+              "status": "PASS"
+            },
+            {
+              "name": "optional PK ground chase: second genuine low hit triggers protected rise",
+              "status": "PASS"
+            },
+            {
+              "name": "PVE ground chase never inherits enabled PK trial protection",
+              "status": "PASS"
+            },
+            {
+              "name": "public super armor takes damage without recoil or standing protection accumulation",
+              "status": "PASS"
+            },
+            {
+              "name": "public frame pause freezes victim altitude, velocity, pose and state timers",
+              "status": "PASS"
+            },
+            {
+              "name": "live renderer after public movement keeps staff drawing aligned with collision coordinates",
+              "status": "PASS"
+            },
+            {
+              "name": "public reset clears stale physics and retains the selected down fixture",
+              "status": "PASS"
+            },
+            {
+              "name": "no page, console or network errors",
+              "status": "PASS"
+            },
+            {
+              "name": "public low-HP air contact preserves altitude during lethal hitstop and then falls",
+              "status": "PASS"
+            },
+            {
+              "name": "public downed lethal hit remains low instead of switching to standing hurt",
+              "status": "PASS"
+            },
+            {
+              "name": "public pre-positioned ordinary get-up is interrupted by a genuine staff contact",
+              "status": "PASS"
+            },
+            {
+              "name": "public armored get-up takes damage without ordinary interruption",
+              "status": "PASS"
+            },
+            {
+              "name": "continued real held attacks after death do not create extra damage or defeat events",
+              "status": "PASS"
+            },
+            {
+              "name": "public low-HP switch/reset restores a live selected fixture without orphan timers",
+              "status": "PASS"
+            },
+            {
+              "name": "public paused geometric edge comparison: capsule candidate misses, legacy rectangle hits",
+              "status": "PASS"
+            },
+            {
+              "name": "public rectangle depth 9: confirmed body point and actual rendered spark share projection",
+              "status": "PASS"
+            },
+            {
+              "name": "public rectangle depth -9: confirmed body point and actual rendered spark share projection",
+              "status": "PASS"
+            },
+            {
+              "name": "public outline depth 9: confirmed body point and actual rendered spark share projection",
+              "status": "PASS"
+            },
+            {
+              "name": "public outline depth -9: confirmed body point and actual rendered spark share projection",
+              "status": "PASS"
+            },
+            {
+              "name": "live candidate records selected body part and projected contact per genuine action",
+              "status": "PASS"
+            },
+            {
+              "name": "public reset clears edge freeze/contact state and all browser errors stay absent",
+              "status": "PASS"
+            }
+          ]
+        },
+        "mobile": {
+          "status": "passed-mobile-viewport",
+          "checks": [
+            {
+              "name": "portrait390x844: no horizontal overflow and readable-sized DOM buttons",
+              "status": "PASS"
+            },
+            {
+              "name": "real touch tap: only first owner motion starts",
+              "status": "PASS"
+            },
+            {
+              "name": "real touch hold/release: three owner motions then settle",
+              "status": "PASS"
+            },
+            {
+              "name": "touch cancellation: no stuck held attack or continuing loop",
+              "status": "PASS"
+            },
+            {
+              "name": "landscape844x390: full Canvas and primary attack button visible together",
+              "status": "PASS"
+            },
+            {
+              "name": "landscape: touch replay completes all three motions",
+              "status": "PASS"
+            }
+          ]
+        }
+      },
+      "sidecarsMatchMain": {
+        "feedback": true,
+        "victim": true,
+        "mobile": true
+      },
+      "errors": [],
+      "consoleErrors": [],
+      "requestFailures": [],
+      "sandbox": "Chromium沙箱已关闭；用户长期授权隔离Work本地测试",
+      "binding": {
+        "address": "127.0.0.1",
+        "family": "IPv4",
+        "port": 45127
+      },
+      "oldV10V11andS6Browser": "NOT RUN separately; reused healthy checks execute against S7",
+      "mobile": "default rectangle monster viewport touch; PK desktop pointer; Android NOT COVERED"
+    }
+  },
+  "testedFiles": {
+    "prototype/summoner-contact-s7.mjs": "3d711465344dffaa90092a4ea7d8b76303fd831ef47e1b370183cce0c0d051c9",
+    "prototype/summoner-victim-s7.mjs": "531891eb16b9ff6b44c588e1f641746e4b618317ea5c4ca7d7ab565d02ee296d",
+    "prototype/summoner-renderer-s7.mjs": "40fef7956633d6f5c4ecbd3899dff451e049eeff6b40c7a4d3db8737fa831803",
+    "prototype/summoner-lab-s7.template.html": "c8136bd150db8a37c16ce3044d99b7d214691f14c28647d7870f70a4b2974575",
+    "prototype/build-summoner-lab-s7.mjs": "857601d691f90c3c637b5719295a38a8aafed5cc648cdef96080ac6252cfd206",
+    "prototype/summoner-lab-s7.html": "c63db0a855f280094d787986c3f266e179440ffbd19fa1e1fb61f2312b262ba1",
+    "prototype/fonts/summoner-s7-ui.woff": "fc36d7236e46da0fe0b4975cacb98634d7d3acd0d839aa7ec705851859d6c712",
+    "tests/summoner-contact-s7.test.mjs": "0b37b7265f546f338f28283ac3e51053ab63f5883143a3eee4f8e9c4c10d0620",
+    "tests/summoner-contact-s7-acceptance.cjs": "18d22bd09121fbbd0b0be6b523cf974c2bfa98274fceb2aba9b8e0ba83076ee6",
+    "tests/summoner-victim-s6-acceptance.cjs": "7e0e55c1d8e400a9945f3991e36800c3d60e38314ff5c0d53e5f85ce0b5bc2f8",
+    "tests/juggle-lab-local.cjs": "1a7790aa37ca319d559d5252d304ad26f00580863b2f4a49e2087fa45d43289b"
+  },
+  "previousFilesUnchanged": {
+    "prototype/summoner-victim-s6.mjs": true,
+    "prototype/summoner-renderer-s6.mjs": true,
+    "prototype/summoner-lab-s6.html": true,
+    "prototype/summoner-motion.mjs": true,
+    "prototype/summoner-motion-s2.mjs": true,
+    "prototype/summoner-feedback-s3.mjs": true,
+    "prototype/summoner-impact-audio.mjs": true,
+    "prototype/combat-juggle.mjs": true,
+    "prototype/combat-feedback.mjs": true,
+    "tests/summoner-feedback-acceptance.cjs": true,
+    "tests/summoner-victim-s5-acceptance.cjs": true
+  },
+  "font": {
+    "ChineseChars": 149,
+    "missing": [],
+    "license": "OFL-1.1"
+  },
+  "source": {
+    "repository": "v-star0719/U3D_MiniDNF",
+    "commit": "543839751adbe09eecc896da949945080782b45e",
+    "path": "Project/Assets/Scripts/ColliderManager.cs",
+    "blob": "914bda4eeaad5bccfaa6fceaeb01c5ec998c3898",
+    "scope": "full static read, boxes and sphere-as-box; not current official DNF hurtboxes"
+  },
+  "candidateLimit": "capsule contour may miss consecutive ground contact after recoil; optional only, rectangle stays default; decorative staff gem/head ellipse not exact collision shapes",
+  "regression": {
+    "scope": "Original controlled geometric fixtures; not DNF footage",
+    "edge": [
+      {
+        "legacy": true,
+        "fixture": {
+          "before": {
+            "x": 60,
+            "y": 0,
+            "lean": 0,
+            "compress": 0,
+            "phase": "idle",
+            "state": "standing",
+            "head": {
+              "x": 60,
+              "y": 80
+            },
+            "shoulder": {
+              "x": 60,
+              "y": 66
+            },
+            "hip": {
+              "x": 60,
+              "y": 35
+            },
+            "backKnee": {
+              "x": 52,
+              "y": 19
+            },
+            "frontKnee": {
+              "x": 68,
+              "y": 19
+            },
+            "backFoot": {
+              "x": 49,
+              "y": 2
+            },
+            "frontFoot": {
+              "x": 72,
+              "y": 2
+            },
+            "backElbow": {
+              "x": 48,
+              "y": 48
+            },
+            "frontElbow": {
+              "x": 72,
+              "y": 47
+            },
+            "backHand": {
+              "x": 46,
+              "y": 41
+            },
+            "frontHand": {
+              "x": 74,
+              "y": 41
+            }
+          },
+          "staff": {
+            "grip": {
+              "x": 18.658536585365855,
+              "y": 81.21951219512195
+            },
+            "butt": {
+              "x": -9.439923644242842,
+              "y": 74.04479737674079
+            },
+            "tip": {
+              "x": 56.446121032080995,
+              "y": 90.86826660604835
+            }
+          },
+          "point": {
+            "x": 52,
+            "y": 88
+          },
+          "legacy": true,
+          "scope": "Public paused geometric fixture; not a complete normal second attack or original DNF footage"
+        },
+        "hits": 1,
+        "hp": 110
+      },
+      {
+        "legacy": false,
+        "fixture": {
+          "before": {
+            "x": 60,
+            "y": 0,
+            "lean": 0,
+            "compress": 0,
+            "phase": "idle",
+            "state": "standing",
+            "head": {
+              "x": 60,
+              "y": 80
+            },
+            "shoulder": {
+              "x": 60,
+              "y": 66
+            },
+            "hip": {
+              "x": 60,
+              "y": 35
+            },
+            "backKnee": {
+              "x": 52,
+              "y": 19
+            },
+            "frontKnee": {
+              "x": 68,
+              "y": 19
+            },
+            "backFoot": {
+              "x": 49,
+              "y": 2
+            },
+            "frontFoot": {
+              "x": 72,
+              "y": 2
+            },
+            "backElbow": {
+              "x": 48,
+              "y": 48
+            },
+            "frontElbow": {
+              "x": 72,
+              "y": 47
+            },
+            "backHand": {
+              "x": 46,
+              "y": 41
+            },
+            "frontHand": {
+              "x": 74,
+              "y": 41
+            }
+          },
+          "staff": {
+            "grip": {
+              "x": 18.658536585365855,
+              "y": 81.21951219512195
+            },
+            "butt": {
+              "x": -9.439923644242842,
+              "y": 74.04479737674079
+            },
+            "tip": {
+              "x": 56.446121032080995,
+              "y": 90.86826660604835
+            }
+          },
+          "point": null,
+          "legacy": false,
+          "scope": "Public paused geometric fixture; not a complete normal second attack or original DNF footage"
+        },
+        "hits": 0,
+        "hp": 120
+      }
+    ],
+    "groundChase": [
+      {
+        "legacy": true,
+        "events": [
+          {
+            "time": 0.733333,
+            "type": "impact",
+            "wall": 0.733333,
+            "stage": 2,
+            "attackId": 3,
+            "point": {
+              "x": 0.8806423898096369,
+              "y": 19.21897202422528
+            },
+            "damage": 14,
+            "targetHP": 106,
+            "stopSeconds": 0.06666666666666667,
+            "feedbackEnabled": true,
+            "targetKind": "player",
+            "victimState": "down",
+            "region": "head",
+            "armored": false,
+            "contactModel": "S6 rectangle + S7 projection",
+            "lane": 0,
+            "projectedPoint": {
+              "x": 0.8806423898096369,
+              "y": 19.21897202422528
+            }
+          },
+          {
+            "time": 1.733333,
+            "type": "impact",
+            "wall": 1.8,
+            "stage": 2,
+            "attackId": 6,
+            "point": {
+              "x": 2.3999999999999844,
+              "y": 21
+            },
+            "damage": 14,
+            "targetHP": 92,
+            "stopSeconds": 0.06666666666666667,
+            "feedbackEnabled": true,
+            "targetKind": "player",
+            "victimState": "down",
+            "region": "head",
+            "armored": false,
+            "contactModel": "S6 rectangle + S7 projection",
+            "lane": 0,
+            "projectedPoint": {
+              "x": 2.3999999999999844,
+              "y": 21
+            }
+          },
+          {
+            "time": 1.733333,
+            "type": "forced-stand",
+            "candidate": true,
+            "invulnerable": 0.55
+          },
+          {
+            "time": 2.366667,
+            "type": "impact",
+            "wall": 2.5,
+            "stage": 1,
+            "attackId": 8,
+            "point": {
+              "x": 34.39999999999999,
+              "y": 85.23896770624529
+            },
+            "damage": 10,
+            "targetHP": 82,
+            "stopSeconds": 0.041666666666666664,
+            "feedbackEnabled": true,
+            "targetKind": "player",
+            "victimState": "standing",
+            "region": "head",
+            "armored": false,
+            "contactModel": "S6 rectangle + S7 projection",
+            "lane": 0,
+            "projectedPoint": {
+              "x": 34.39999999999999,
+              "y": 85.23896770624529
+            }
+          },
+          {
+            "time": 2.666667,
+            "type": "impact",
+            "wall": 2.841667,
+            "stage": 2,
+            "attackId": 9,
+            "point": {
+              "x": 37.862223939695525,
+              "y": 59.58285703485092
+            },
+            "damage": 14,
+            "targetHP": 68,
+            "stopSeconds": 0.06666666666666667,
+            "feedbackEnabled": true,
+            "targetKind": "player",
+            "victimState": "standing",
+            "region": "body",
+            "armored": false,
+            "contactModel": "S6 rectangle + S7 projection",
+            "lane": 0,
+            "projectedPoint": {
+              "x": 37.862223939695525,
+              "y": 59.58285703485092
+            }
+          }
+        ]
+      },
+      {
+        "legacy": false,
+        "events": [
+          {
+            "time": 0.733333,
+            "type": "impact",
+            "wall": 0.733333,
+            "stage": 2,
+            "attackId": 3,
+            "point": {
+              "x": 3.0216894700024586,
+              "y": 19.262301834542598
+            },
+            "damage": 14,
+            "targetHP": 106,
+            "stopSeconds": 0.06666666666666667,
+            "feedbackEnabled": true,
+            "targetKind": "player",
+            "victimState": "down",
+            "region": "head",
+            "armored": false,
+            "contactModel": "S7 body capsule candidate",
+            "lane": 0,
+            "projectedPoint": {
+              "x": 3.0216894700024586,
+              "y": 19.262301834542598
+            },
+            "contact": {
+              "part": "head",
+              "t": 0.5516507275774548,
+              "point": {
+                "x": 3.0216894700024586,
+                "y": 19.262301834542598
+              },
+              "staffPoint": {
+                "x": 1.7148829558780996,
+                "y": 20.906156066110036
+              }
+            }
+          },
+          {
+            "time": 2.133333,
+            "type": "impact",
+            "wall": 2.2,
+            "stage": 0,
+            "attackId": 7,
+            "point": {
+              "x": 14.515410450180042,
+              "y": 44.51670872996478
+            },
+            "damage": 8,
+            "targetHP": 98,
+            "stopSeconds": 0.041666666666666664,
+            "feedbackEnabled": true,
+            "targetKind": "player",
+            "victimState": "rise",
+            "region": "head",
+            "armored": false,
+            "contactModel": "S7 body capsule candidate",
+            "lane": 0,
+            "projectedPoint": {
+              "x": 14.515410450180042,
+              "y": 44.51670872996478
+            },
+            "contact": {
+              "part": "head",
+              "t": 0.09048297214101296,
+              "point": {
+                "x": 14.515410450180042,
+                "y": 44.51670872996478
+              },
+              "staffPoint": {
+                "x": 13.22591402668564,
+                "y": 46.17417636880276
+              }
+            }
+          },
+          {
+            "time": 2.375,
+            "type": "impact",
+            "wall": 2.483333,
+            "stage": 1,
+            "attackId": 8,
+            "point": {
+              "x": 33.474385325737146,
+              "y": 83.07808882514429
+            },
+            "damage": 10,
+            "targetHP": 88,
+            "stopSeconds": 0.041666666666666664,
+            "feedbackEnabled": true,
+            "targetKind": "player",
+            "victimState": "standing",
+            "region": "head",
+            "armored": false,
+            "contactModel": "S7 body capsule candidate",
+            "lane": 0,
+            "projectedPoint": {
+              "x": 33.474385325737146,
+              "y": 83.07808882514429
+            },
+            "contact": {
+              "part": "head",
+              "t": 0.6301355582462778,
+              "point": {
+                "x": 33.474385325737146,
+                "y": 83.07808882514429
+              },
+              "staffPoint": {
+                "x": 32.07721589851167,
+                "y": 84.64586355118959
+              }
+            }
+          },
+          {
+            "time": 2.666667,
+            "type": "impact",
+            "wall": 2.816667,
+            "stage": 2,
+            "attackId": 9,
+            "point": {
+              "x": 44.32444787939109,
+              "y": 57.285343645478754
+            },
+            "damage": 14,
+            "targetHP": 74,
+            "stopSeconds": 0.06666666666666667,
+            "feedbackEnabled": true,
+            "targetKind": "player",
+            "victimState": "standing",
+            "region": "body",
+            "armored": false,
+            "contactModel": "S7 body capsule candidate",
+            "lane": 0,
+            "projectedPoint": {
+              "x": 44.32444787939109,
+              "y": 57.285343645478754
+            },
+            "contact": {
+              "part": "body",
+              "t": 0,
+              "point": {
+                "x": 44.32444787939109,
+                "y": 57.285343645478754
+              },
+              "staffPoint": {
+                "x": 44.32444787939109,
+                "y": 57.285343645478754
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "depth": [
+      {
+        "legacy": true,
+        "lane": -9,
+        "impact": {
+          "time": 0.133333,
+          "type": "impact",
+          "wall": 0.133333,
+          "stage": 0,
+          "attackId": 1,
+          "point": {
+            "x": 45.00000000000001,
+            "y": 39.72153994237265
+          },
+          "damage": 8,
+          "targetHP": 112,
+          "stopSeconds": 0.041666666666666664,
+          "feedbackEnabled": true,
+          "targetKind": "monster",
+          "victimState": "standing",
+          "region": "legs",
+          "armored": false,
+          "contactModel": "S6 rectangle + S7 projection",
+          "lane": -9,
+          "projectedPoint": {
+            "x": 45.00000000000001,
+            "y": 48.72153994237265
+          }
+        },
+        "effect": {
+          "x": 45.00000000000001,
+          "y": 39.72153994237265,
+          "age": 0,
+          "stage": 0,
+          "direction": 1,
+          "attackId": 1,
+          "lane": -9
+        }
+      },
+      {
+        "legacy": true,
+        "lane": 9,
+        "impact": {
+          "time": 0.133333,
+          "type": "impact",
+          "wall": 0.133333,
+          "stage": 0,
+          "attackId": 1,
+          "point": {
+            "x": 45.00000000000001,
+            "y": 57.72153994237265
+          },
+          "damage": 8,
+          "targetHP": 112,
+          "stopSeconds": 0.041666666666666664,
+          "feedbackEnabled": true,
+          "targetKind": "monster",
+          "victimState": "standing",
+          "region": "body",
+          "armored": false,
+          "contactModel": "S6 rectangle + S7 projection",
+          "lane": 9,
+          "projectedPoint": {
+            "x": 45.00000000000001,
+            "y": 48.72153994237265
+          }
+        },
+        "effect": {
+          "x": 45.00000000000001,
+          "y": 57.72153994237265,
+          "age": 0,
+          "stage": 0,
+          "direction": 1,
+          "attackId": 1,
+          "lane": 9
+        }
+      },
+      {
+        "legacy": false,
+        "lane": -9,
+        "impact": {
+          "time": 0.133333,
+          "type": "impact",
+          "wall": 0.133333,
+          "stage": 0,
+          "attackId": 1,
+          "point": {
+            "x": 38,
+            "y": 38.99198288952919
+          },
+          "damage": 8,
+          "targetHP": 112,
+          "stopSeconds": 0.041666666666666664,
+          "feedbackEnabled": true,
+          "targetKind": "monster",
+          "victimState": "standing",
+          "region": "legs",
+          "armored": false,
+          "contactModel": "S7 body capsule candidate",
+          "lane": -9,
+          "projectedPoint": {
+            "x": 38,
+            "y": 47.99198288952919
+          },
+          "contact": {
+            "part": "body",
+            "t": 0.42499528153588145,
+            "point": {
+              "x": 38,
+              "y": 47.99198288952919
+            },
+            "staffPoint": {
+              "x": 35.9,
+              "y": 47.99198288952919
+            }
+          }
+        },
+        "effect": {
+          "x": 38,
+          "y": 38.99198288952919,
+          "age": 0,
+          "stage": 0,
+          "direction": 1,
+          "attackId": 1,
+          "lane": -9
+        }
+      },
+      {
+        "legacy": false,
+        "lane": 9,
+        "impact": {
+          "time": 0.133333,
+          "type": "impact",
+          "wall": 0.133333,
+          "stage": 0,
+          "attackId": 1,
+          "point": {
+            "x": 38,
+            "y": 56.99198288952919
+          },
+          "damage": 8,
+          "targetHP": 112,
+          "stopSeconds": 0.041666666666666664,
+          "feedbackEnabled": true,
+          "targetKind": "monster",
+          "victimState": "standing",
+          "region": "body",
+          "armored": false,
+          "contactModel": "S7 body capsule candidate",
+          "lane": 9,
+          "projectedPoint": {
+            "x": 38,
+            "y": 47.99198288952919
+          },
+          "contact": {
+            "part": "body",
+            "t": 0.42499528153588145,
+            "point": {
+              "x": 38,
+              "y": 47.99198288952919
+            },
+            "staffPoint": {
+              "x": 35.9,
+              "y": 47.99198288952919
+            }
+          }
+        },
+        "effect": {
+          "x": 38,
+          "y": 56.99198288952919,
+          "age": 0,
+          "stage": 0,
+          "direction": 1,
+          "attackId": 1,
+          "lane": 9
+        }
+      }
+    ]
+  }
+}
