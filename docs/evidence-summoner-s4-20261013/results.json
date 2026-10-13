@@ -1,0 +1,977 @@
+{
+  "testedBaseCommit": "86ca6a4bd2dcabf926b42396e8702ab6b675381f",
+  "sourceSHA256": {
+    "prototype/summoner-victim-s4.mjs": "6e8283b319d8d7c7dfe0ff6df79751a3c668ee5d7c69f1f61cd6d45c22b9b937",
+    "prototype/summoner-renderer-s4.mjs": "444d5420a134f51fa0419cf0cccfc6bfd1c203344abc1c1a1e96c11b9150c86e",
+    "prototype/summoner-lab-s4.template.html": "9ac5bb18a79a199e87deda096ff3ac9f6073550a19e7756302c8a3fc3a1a9b72",
+    "prototype/build-summoner-lab-s4.mjs": "94c0b0d1328986ad67f8936281f1a0cd0def98a9ebd06016cefcc90ce04a8e53",
+    "prototype/summoner-lab-s4.html": "c01312a87a9e6dcf778ede83ced3e43a913b6e82e27c750426aa8fbb229bb314",
+    "prototype/fonts/summoner-s4-ui.woff": "588bc20bd62c768356da1ede8205e8afa6198d6ee80510953b7182a150c068ea",
+    "tests/summoner-victim-s4.test.mjs": "4ac2180bb4e8af46d8b2c82b2fe46c15c7d342b904128ec81c2a1894879895c1",
+    "tests/summoner-victim-acceptance.cjs": "764af2f447d9640c2e73034221c687a2e007837187e664d9ba9141b20fde9dfe",
+    "tests/summoner-feedback-acceptance.cjs": "f14eae512c4c2f01b71012472fb8af33374077dfcc1f46767ec9bf0e050e8646",
+    "tests/juggle-lab-local.cjs": "8b918a0313b7e03e286ae1de56044330b08e159efc2d079b9c54e042541f6351"
+  },
+  "node": {
+    "tests": 215,
+    "pass": 215,
+    "fail": 0,
+    "exitCode": 0
+  },
+  "browserFinal": {
+    "status": "passed-browser",
+    "exitCode": 0,
+    "scope": "S4-only final run; V10/V11 NOT RUN here",
+    "checks": {
+      "summoner": [
+        {
+          "name": "S4 loopback HTML bytes and title",
+          "status": "PASS"
+        },
+        {
+          "name": "offline Chinese UI font actually loaded",
+          "status": "PASS"
+        },
+        {
+          "name": "real pointer click runs exactly the first motion",
+          "status": "PASS"
+        },
+        {
+          "name": "full replay starts three observed segments, completes at 1.000s",
+          "status": "PASS"
+        },
+        {
+          "name": "real held pointer chains; release settles without another first stage",
+          "status": "PASS"
+        },
+        {
+          "name": "S2 public preview: both feet elevated in second/third poses",
+          "status": "PASS"
+        },
+        {
+          "name": "frame preview freezes motion clock",
+          "status": "PASS"
+        },
+        {
+          "name": "real turn button mirrors staff geometry",
+          "status": "PASS"
+        },
+        {
+          "name": "real keyboard moves idle owner left",
+          "status": "PASS"
+        },
+        {
+          "name": "real X keyboard press starts a staff motion",
+          "status": "PASS"
+        },
+        {
+          "name": "owner-only candidate does not assert damage or lift",
+          "status": "PASS"
+        },
+        {
+          "name": "no browser errors",
+          "status": "PASS"
+        }
+      ],
+      "feedback": [
+        {
+          "name": "target replay: three contacts, unique actions, HP88",
+          "status": "PASS"
+        },
+        {
+          "name": "rendered frame samples: owner and victim stay fixed together during hitstop",
+          "status": "PASS"
+        },
+        {
+          "name": "confirmed contact coordinates drive the live effect",
+          "status": "PASS"
+        },
+        {
+          "name": "empty swing: no impact, HP loss or feedback",
+          "status": "PASS"
+        },
+        {
+          "name": "depth offset: visible target but no hit",
+          "status": "PASS"
+        },
+        {
+          "name": "public movement out of range: no remote hit",
+          "status": "PASS"
+        },
+        {
+          "name": "turn and held X: left-facing contact and recoil mirror",
+          "status": "PASS"
+        },
+        {
+          "name": "feedback switch: same damage, no stop/effect/reaction",
+          "status": "PASS"
+        },
+        {
+          "name": "sound enabled by gesture: running AudioContext, one original buffer per hit",
+          "status": "PASS"
+        },
+        {
+          "name": "sound enabled with an empty swing: no impact buffers",
+          "status": "PASS"
+        },
+        {
+          "name": "single pointer click: one hit and settle",
+          "status": "PASS"
+        },
+        {
+          "name": "reset after a hit clears HP/recoil/effect/input and stops the loop",
+          "status": "PASS"
+        },
+        {
+          "name": "no page/console/network errors",
+          "status": "PASS"
+        }
+      ],
+      "victim": [
+        {
+          "name": "ordinary monster: three contacts, correct kind and smooth recovery",
+          "status": "PASS"
+        },
+        {
+          "name": "PK appearance: three contacts, correct kind and smooth recovery",
+          "status": "PASS"
+        },
+        {
+          "name": "actual rendered pose progresses through impact, hold, recovery and idle",
+          "status": "PASS"
+        },
+        {
+          "name": "articulated arms, knees and head visibly change beyond torso lean",
+          "status": "PASS"
+        },
+        {
+          "name": "real long press: consecutive hits and release settle without stale recovery",
+          "status": "PASS"
+        },
+        {
+          "name": "public pause controls freeze the complete victim pose and recovery clock",
+          "status": "PASS"
+        },
+        {
+          "name": "no fabricated launch/protection and no browser error",
+          "status": "PASS"
+        }
+      ],
+      "mobile": [
+        {
+          "name": "portrait390x844: no horizontal overflow and readable-sized DOM buttons",
+          "status": "PASS"
+        },
+        {
+          "name": "real touch tap: only first owner motion starts",
+          "status": "PASS"
+        },
+        {
+          "name": "real touch hold/release: three owner motions then settle",
+          "status": "PASS"
+        },
+        {
+          "name": "touch cancellation: no stuck held attack or continuing loop",
+          "status": "PASS"
+        },
+        {
+          "name": "landscape844x390: full Canvas and primary attack button visible together",
+          "status": "PASS"
+        },
+        {
+          "name": "landscape: touch replay completes all three motions",
+          "status": "PASS"
+        }
+      ]
+    },
+    "totalChecks": 38,
+    "errors": [],
+    "consoleErrors": [],
+    "requestFailures": [],
+    "actualSandbox": "Chromium沙箱已关闭；用户长期授权隔离Work本地测试",
+    "victimSamples": {
+      "idle": {
+        "phase": "idle",
+        "pose": {
+          "x": 45,
+          "lean": 0,
+          "compress": 0,
+          "phase": "idle",
+          "head": {
+            "x": 45,
+            "y": 80
+          },
+          "shoulder": {
+            "x": 45,
+            "y": 66
+          },
+          "hip": {
+            "x": 45,
+            "y": 35
+          },
+          "backKnee": {
+            "x": 37,
+            "y": 19
+          },
+          "frontKnee": {
+            "x": 53,
+            "y": 19
+          },
+          "backFoot": {
+            "x": 34,
+            "y": 2
+          },
+          "frontFoot": {
+            "x": 57,
+            "y": 2
+          },
+          "backElbow": {
+            "x": 33,
+            "y": 48
+          },
+          "frontElbow": {
+            "x": 57,
+            "y": 47
+          },
+          "backHand": {
+            "x": 31,
+            "y": 41
+          },
+          "frontHand": {
+            "x": 59,
+            "y": 41
+          }
+        },
+        "stop": 0,
+        "time": 0.008333333333333333
+      },
+      "impact": {
+        "phase": "impact",
+        "pose": {
+          "x": 45,
+          "lean": 0,
+          "compress": 0,
+          "phase": "impact",
+          "head": {
+            "x": 45,
+            "y": 80
+          },
+          "shoulder": {
+            "x": 45,
+            "y": 66
+          },
+          "hip": {
+            "x": 45,
+            "y": 35
+          },
+          "backKnee": {
+            "x": 37,
+            "y": 19
+          },
+          "frontKnee": {
+            "x": 53,
+            "y": 19
+          },
+          "backFoot": {
+            "x": 34,
+            "y": 2
+          },
+          "frontFoot": {
+            "x": 57,
+            "y": 2
+          },
+          "backElbow": {
+            "x": 33,
+            "y": 48
+          },
+          "frontElbow": {
+            "x": 57,
+            "y": 47
+          },
+          "backHand": {
+            "x": 31,
+            "y": 41
+          },
+          "frontHand": {
+            "x": 59,
+            "y": 41
+          }
+        },
+        "stop": 0.041666666666666664,
+        "time": 0.15833333333333333
+      },
+      "hold": {
+        "phase": "hold",
+        "pose": {
+          "x": 46.9604642452219,
+          "lean": 7,
+          "compress": 3,
+          "phase": "hold",
+          "head": {
+            "x": 53.9604642452219,
+            "y": 77
+          },
+          "shoulder": {
+            "x": 49.9604642452219,
+            "y": 64
+          },
+          "hip": {
+            "x": 47.4604642452219,
+            "y": 34
+          },
+          "backKnee": {
+            "x": 36.9604642452219,
+            "y": 18
+          },
+          "frontKnee": {
+            "x": 55.9604642452219,
+            "y": 18
+          },
+          "backFoot": {
+            "x": 35.9604642452219,
+            "y": 2
+          },
+          "frontFoot": {
+            "x": 58.9604642452219,
+            "y": 2
+          },
+          "backElbow": {
+            "x": 33.9604642452219,
+            "y": 54
+          },
+          "frontElbow": {
+            "x": 58.9604642452219,
+            "y": 49
+          },
+          "backHand": {
+            "x": 42.9604642452219,
+            "y": 51
+          },
+          "frontHand": {
+            "x": 51.9604642452219,
+            "y": 46
+          }
+        },
+        "stop": 0,
+        "time": 0.24166666666666664
+      },
+      "recover": {
+        "phase": "recover",
+        "pose": {
+          "x": 48.00000000000001,
+          "lean": 6.814370070301784,
+          "compress": 2.920444315843625,
+          "phase": "recover",
+          "head": {
+            "x": 54.81437007030179,
+            "y": 77.07955568415638
+          },
+          "shoulder": {
+            "x": 50.920444315843625,
+            "y": 64.05303712277092
+          },
+          "hip": {
+            "x": 48.48674071930728,
+            "y": 34.02651856138546
+          },
+          "backKnee": {
+            "x": 38.053037122770924,
+            "y": 18.02651856138546
+          },
+          "frontKnee": {
+            "x": 56.97348143861455,
+            "y": 18.02651856138546
+          },
+          "backFoot": {
+            "x": 37.00000000000001,
+            "y": 2
+          },
+          "frontFoot": {
+            "x": 60.00000000000001,
+            "y": 2
+          },
+          "backElbow": {
+            "x": 35.026518561385465,
+            "y": 53.84088863168724
+          },
+          "frontElbow": {
+            "x": 60.00000000000001,
+            "y": 48.94696287722908
+          },
+          "backHand": {
+            "x": 43.73481438614541,
+            "y": 50.7348143861454
+          },
+          "frontHand": {
+            "x": 53.23866705246914,
+            "y": 45.8674071930727
+          }
+        },
+        "stop": 0,
+        "time": 0.39166666666666705
+      }
+    },
+    "monster": {
+      "snapshot": {
+        "time": 1.0749999999999986,
+        "action": null,
+        "queued": false,
+        "held": false,
+        "replay": false,
+        "paused": false,
+        "facing": 1,
+        "x": 0,
+        "pose": {
+          "frame": 30,
+          "hip": [
+            0,
+            38
+          ],
+          "shoulder": [
+            0,
+            65
+          ],
+          "head": [
+            2,
+            78
+          ],
+          "hand": [
+            -10,
+            58
+          ],
+          "staffAngle": -4.903185307179586,
+          "backKnee": [
+            -9,
+            20
+          ],
+          "backFoot": [
+            -12,
+            1
+          ],
+          "frontKnee": [
+            7,
+            19
+          ],
+          "frontFoot": [
+            10,
+            1
+          ],
+          "freeHand": [
+            14,
+            49
+          ]
+        },
+        "staff": {
+          "grip": {
+            "x": -10,
+            "y": 58
+          },
+          "butt": {
+            "x": -15.499584107637194,
+            "y": 29.526247619201566
+          },
+          "tip": {
+            "x": -2.604007579384465,
+            "y": 96.29228768452202
+          }
+        },
+        "combatStatus": "ORIGINAL CANDIDATE: active frames, damage, stop, recoil and sound are not official DNF values; DNF parity NOT COVERED",
+        "poseModel": "S2 body calibration; elevated feet are animation landmarks, no air physics",
+        "feedbackTime": 1.224999999999998,
+        "attackerStop": 0,
+        "target": {
+          "x": 60,
+          "lane": 0,
+          "present": true,
+          "hp": 88,
+          "stop": 0,
+          "stun": 0,
+          "reaction": null,
+          "pushRemaining": 0,
+          "pushSpeed": 57.14285714285714
+        },
+        "targetPose": {
+          "x": 60,
+          "lean": 0,
+          "compress": 0,
+          "phase": "idle",
+          "head": {
+            "x": 60,
+            "y": 80
+          },
+          "shoulder": {
+            "x": 60,
+            "y": 66
+          },
+          "hip": {
+            "x": 60,
+            "y": 35
+          },
+          "backKnee": {
+            "x": 52,
+            "y": 19
+          },
+          "frontKnee": {
+            "x": 68,
+            "y": 19
+          },
+          "backFoot": {
+            "x": 49,
+            "y": 2
+          },
+          "frontFoot": {
+            "x": 72,
+            "y": 2
+          },
+          "backElbow": {
+            "x": 48,
+            "y": 48
+          },
+          "frontElbow": {
+            "x": 72,
+            "y": 47
+          },
+          "backHand": {
+            "x": 46,
+            "y": 41
+          },
+          "frontHand": {
+            "x": 74,
+            "y": 41
+          }
+        },
+        "hitCount": 3,
+        "effects": [],
+        "targetKind": "monster",
+        "recoilCurve": null,
+        "comparisonScope": "Original standing reaction for monster/player comparison; DNF air/down/PK protection NOT COVERED"
+      },
+      "events": [
+        {
+          "time": 0,
+          "type": "motion-start",
+          "stage": 0,
+          "sourceFrame": 0
+        },
+        {
+          "time": 0.133333,
+          "type": "impact",
+          "wall": 0.133333,
+          "stage": 0,
+          "attackId": 1,
+          "point": {
+            "x": 45.00000000000001,
+            "y": 48.72153994237265
+          },
+          "damage": 8,
+          "targetHP": 112,
+          "stopSeconds": 0.041666666666666664,
+          "feedbackEnabled": true,
+          "targetKind": "monster"
+        },
+        {
+          "time": 0.133333,
+          "type": "victim-reaction-start",
+          "targetKind": "monster",
+          "stage": 0,
+          "fromPhase": "idle"
+        },
+        {
+          "time": 0.333333,
+          "type": "motion-end",
+          "stage": 0,
+          "sourceFrame": 10
+        },
+        {
+          "time": 0.333333,
+          "type": "motion-start",
+          "stage": 1,
+          "sourceFrame": 10
+        },
+        {
+          "time": 0.366667,
+          "type": "impact",
+          "wall": 0.408333,
+          "stage": 1,
+          "attackId": 2,
+          "point": {
+            "x": 44.080932784636495,
+            "y": 87.25102880658436
+          },
+          "damage": 10,
+          "targetHP": 102,
+          "stopSeconds": 0.041666666666666664,
+          "feedbackEnabled": true,
+          "targetKind": "monster"
+        },
+        {
+          "time": 0.366667,
+          "type": "victim-reaction-start",
+          "targetKind": "monster",
+          "stage": 1,
+          "fromPhase": "recover"
+        },
+        {
+          "time": 0.6,
+          "type": "motion-end",
+          "stage": 1,
+          "sourceFrame": 18
+        },
+        {
+          "time": 0.6,
+          "type": "motion-start",
+          "stage": 2,
+          "sourceFrame": 18
+        },
+        {
+          "time": 0.666667,
+          "type": "impact",
+          "wall": 0.75,
+          "stage": 2,
+          "attackId": 3,
+          "point": {
+            "x": 43.16222393969554,
+            "y": 57.69854892709968
+          },
+          "damage": 14,
+          "targetHP": 88,
+          "stopSeconds": 0.06666666666666667,
+          "feedbackEnabled": true,
+          "targetKind": "monster"
+        },
+        {
+          "time": 0.666667,
+          "type": "victim-reaction-start",
+          "targetKind": "monster",
+          "stage": 2,
+          "fromPhase": "recover"
+        },
+        {
+          "time": 1,
+          "type": "motion-end",
+          "stage": 2,
+          "sourceFrame": 30
+        },
+        {
+          "time": 1,
+          "type": "return-idle",
+          "interpolated": false
+        },
+        {
+          "time": 1,
+          "type": "reference-done"
+        }
+      ]
+    },
+    "player": {
+      "snapshot": {
+        "time": 1.0749999999999986,
+        "action": null,
+        "queued": false,
+        "held": false,
+        "replay": false,
+        "paused": false,
+        "facing": 1,
+        "x": 0,
+        "pose": {
+          "frame": 30,
+          "hip": [
+            0,
+            38
+          ],
+          "shoulder": [
+            0,
+            65
+          ],
+          "head": [
+            2,
+            78
+          ],
+          "hand": [
+            -10,
+            58
+          ],
+          "staffAngle": -4.903185307179586,
+          "backKnee": [
+            -9,
+            20
+          ],
+          "backFoot": [
+            -12,
+            1
+          ],
+          "frontKnee": [
+            7,
+            19
+          ],
+          "frontFoot": [
+            10,
+            1
+          ],
+          "freeHand": [
+            14,
+            49
+          ]
+        },
+        "staff": {
+          "grip": {
+            "x": -10,
+            "y": 58
+          },
+          "butt": {
+            "x": -15.499584107637194,
+            "y": 29.526247619201566
+          },
+          "tip": {
+            "x": -2.604007579384465,
+            "y": 96.29228768452202
+          }
+        },
+        "combatStatus": "ORIGINAL CANDIDATE: active frames, damage, stop, recoil and sound are not official DNF values; DNF parity NOT COVERED",
+        "poseModel": "S2 body calibration; elevated feet are animation landmarks, no air physics",
+        "feedbackTime": 1.224999999999998,
+        "attackerStop": 0,
+        "target": {
+          "x": 60,
+          "lane": 0,
+          "present": true,
+          "hp": 88,
+          "stop": 0,
+          "stun": 0,
+          "reaction": null,
+          "pushRemaining": 0,
+          "pushSpeed": 57.14285714285714
+        },
+        "targetPose": {
+          "x": 60,
+          "lean": 0,
+          "compress": 0,
+          "phase": "idle",
+          "head": {
+            "x": 60,
+            "y": 80
+          },
+          "shoulder": {
+            "x": 60,
+            "y": 66
+          },
+          "hip": {
+            "x": 60,
+            "y": 35
+          },
+          "backKnee": {
+            "x": 52,
+            "y": 19
+          },
+          "frontKnee": {
+            "x": 68,
+            "y": 19
+          },
+          "backFoot": {
+            "x": 49,
+            "y": 2
+          },
+          "frontFoot": {
+            "x": 72,
+            "y": 2
+          },
+          "backElbow": {
+            "x": 48,
+            "y": 48
+          },
+          "frontElbow": {
+            "x": 72,
+            "y": 47
+          },
+          "backHand": {
+            "x": 46,
+            "y": 41
+          },
+          "frontHand": {
+            "x": 74,
+            "y": 41
+          }
+        },
+        "hitCount": 3,
+        "effects": [],
+        "targetKind": "player",
+        "recoilCurve": null,
+        "comparisonScope": "Original standing reaction for monster/player comparison; DNF air/down/PK protection NOT COVERED"
+      },
+      "events": [
+        {
+          "time": 0,
+          "type": "motion-start",
+          "stage": 0,
+          "sourceFrame": 0
+        },
+        {
+          "time": 0.133333,
+          "type": "impact",
+          "wall": 0.133333,
+          "stage": 0,
+          "attackId": 1,
+          "point": {
+            "x": 45.00000000000001,
+            "y": 48.72153994237265
+          },
+          "damage": 8,
+          "targetHP": 112,
+          "stopSeconds": 0.041666666666666664,
+          "feedbackEnabled": true,
+          "targetKind": "player"
+        },
+        {
+          "time": 0.133333,
+          "type": "victim-reaction-start",
+          "targetKind": "player",
+          "stage": 0,
+          "fromPhase": "idle"
+        },
+        {
+          "time": 0.333333,
+          "type": "motion-end",
+          "stage": 0,
+          "sourceFrame": 10
+        },
+        {
+          "time": 0.333333,
+          "type": "motion-start",
+          "stage": 1,
+          "sourceFrame": 10
+        },
+        {
+          "time": 0.366667,
+          "type": "impact",
+          "wall": 0.408333,
+          "stage": 1,
+          "attackId": 2,
+          "point": {
+            "x": 44.080932784636495,
+            "y": 87.25102880658436
+          },
+          "damage": 10,
+          "targetHP": 102,
+          "stopSeconds": 0.041666666666666664,
+          "feedbackEnabled": true,
+          "targetKind": "player"
+        },
+        {
+          "time": 0.366667,
+          "type": "victim-reaction-start",
+          "targetKind": "player",
+          "stage": 1,
+          "fromPhase": "recover"
+        },
+        {
+          "time": 0.6,
+          "type": "motion-end",
+          "stage": 1,
+          "sourceFrame": 18
+        },
+        {
+          "time": 0.6,
+          "type": "motion-start",
+          "stage": 2,
+          "sourceFrame": 18
+        },
+        {
+          "time": 0.666667,
+          "type": "impact",
+          "wall": 0.75,
+          "stage": 2,
+          "attackId": 3,
+          "point": {
+            "x": 43.16222393969554,
+            "y": 57.69854892709968
+          },
+          "damage": 14,
+          "targetHP": 88,
+          "stopSeconds": 0.06666666666666667,
+          "feedbackEnabled": true,
+          "targetKind": "player"
+        },
+        {
+          "time": 0.666667,
+          "type": "victim-reaction-start",
+          "targetKind": "player",
+          "stage": 2,
+          "fromPhase": "recover"
+        },
+        {
+          "time": 1,
+          "type": "motion-end",
+          "stage": 2,
+          "sourceFrame": 30
+        },
+        {
+          "time": 1,
+          "type": "return-idle",
+          "interpolated": false
+        },
+        {
+          "time": 1,
+          "type": "reference-done"
+        }
+      ]
+    },
+    "feedbackSideMatches": true,
+    "victimSideMatches": true
+  },
+  "initialBaseline": {
+    "v10": 5,
+    "v11": 13,
+    "scope": "Passed before initial S4 page failure; unchanged old sources, not claimed as rerun in final S4-only"
+  },
+  "failures": [
+    {
+      "kind": "firstNode",
+      "detail": {
+        "tests": 10,
+        "pass": 9,
+        "fail": 1,
+        "test": "impact/hold/recovery are distinct and recover after hitstun expires",
+        "expectedStun": 0,
+        "actualStun": 0.005000000000000029,
+        "cause": "Test checked before all 120Hz hitstun ticks elapsed; observed age .175 versus .180 candidate",
+        "correction": "Advance .150 rather than .140 seconds in test; no product timing relaxed"
+      }
+    },
+    {
+      "kind": "firstBrowser",
+      "exitCode": 1,
+      "pageErrors": [
+        "Identifier 'blend' has already been declared"
+      ],
+      "S4ChecksBeforeFailure": [
+        {
+          "name": "S4 loopback HTML bytes and title",
+          "status": "PASS"
+        }
+      ],
+      "correction": "Namespace S4 helpers to avoid global blend collision when modules are bundled"
+    },
+    {
+      "kind": "secondBrowser",
+      "exitCode": 1,
+      "pageErrors": [
+        "SummonerFeedbackS4 is not defined"
+      ],
+      "correction": "Use actual S4 model/renderer names in copied template; syntax-only check had not detected undefined names"
+    },
+    {
+      "kind": "thirdBrowserArtifact",
+      "browserExitCode": 0,
+      "sideStatus": "running",
+      "mainStatus": "passed-feedback-browser",
+      "correction": "Publish final feedback sidecar by temp file and atomic rename; final retest sidecar equals main"
+    }
+  ],
+  "uncovered": [
+    "Exact DNF PVE/PK victim poses and numeric hit recovery",
+    "Summoner ordinary attack launch/down interactions",
+    "PK gravity adjustment, down chase and protection thresholds",
+    "Original artwork/audio and Android device",
+    "PK selection was tested with desktop pointer; mobile-size shared controls default to monster"
+  ]
+}

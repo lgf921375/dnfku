@@ -21,6 +21,7 @@ async function runSummonerFeedbackAcceptance({page,dir,result}){
  await check('single pointer click: one hit and settle',async()=>{await mode();await page.getByRole('button',{name:'普通攻击 · X',exact:true}).click();await wait(()=>!summonerLab.motion.action&&summonerLab.motion.hitCount===1);f.cases.single=await state();return f.cases.single.snapshot.target.hp===112&&impacts(f.cases.single).length===1&&!f.cases.single.snapshot.held;});
  await check('reset after a hit clears HP/recoil/effect/input and stops the loop',async()=>{await mode();await page.locator('body').click({position:{x:3,y:3}});await page.keyboard.down('x');try{await wait(()=>summonerLab.motion.hitCount===1);await page.getByRole('button',{name:'重来',exact:true}).click();}finally{await page.keyboard.up('x');}await page.waitForTimeout(180);f.cases.reset=await state();const s=f.cases.reset.snapshot;return s.target.hp===120&&s.hitCount===0&&s.target.reaction===null&&s.effects.length===0&&!s.held&&!s.action;});
  await check('no page/console/network errors',async()=>result.errors.length===0&&result.consoleErrors.length===0&&result.requestFailures.length===0);
- f.status=f.checks.every(c=>c.status==='PASS')?'passed-feedback-browser':'failed-feedback-browser';fs.writeFileSync(path.join(dir,'feedback-results.json'),JSON.stringify(f,null,2)+'\n');return f;
+ f.status=f.checks.every(c=>c.status==='PASS')?'passed-feedback-browser':'failed-feedback-browser';
+ const finalPath=path.join(dir,'feedback-results.final.json');fs.writeFileSync(finalPath,JSON.stringify(f,null,2)+'\n');fs.renameSync(finalPath,path.join(dir,'feedback-results.json'));return f;
 }
 module.exports={runSummonerFeedbackAcceptance};

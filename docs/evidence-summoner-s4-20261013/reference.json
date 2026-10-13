@@ -1,0 +1,76 @@
+{
+  "userChoice": "两者对照",
+  "primarySources": [
+    {
+      "repo": "v-star0719/U3D_MiniDNF",
+      "commit": "543839751adbe09eecc896da949945080782b45e",
+      "path": "Project/Assets/Scripts/ActorBase.cs",
+      "blobSHA": "6fd8451524edb5bc0d75890dcff60763c061f6dd",
+      "readScope": "Full1073 lines and focused330-432,666-790,840-850,905-931",
+      "facts": [
+        "Parry and isGod can return before damage; ordinary hurt interrupts skill",
+        "Ground/air hurt animations selected by target height and damage config",
+        "Frozen/HitMove can end to Idle on ground or FallOff in air",
+        "FallOff/LieOnGround/FallDown are separate states; no complete DNF PK protection proven"
+      ]
+    },
+    {
+      "repo": "Oceanisher/Unity-DNF",
+      "commit": "4436c7212a6e3ed2cb389b2c0c4fa5b6211f79e6",
+      "path": "Assets/Resources/Config/Object/Other/SandBag/Action/HurtActionSo.asset",
+      "blobSHA": "45f1c16c8eb7ba904bce9fa44ae47df3bd46ebc3",
+      "facts": [
+        "SandBag hurt has ten animation entries:18,22..30",
+        "Raw first-frame switch time200 and subsequent50; freeze list empty/time0",
+        "Sandbag config is neither Summoner target universal timing nor official player data"
+      ]
+    },
+    {
+      "repo": "ikemen-engine/Ikemen-GO",
+      "commit": "b464672651c87c42aeca10bb5c33003f26d42071",
+      "path": "src/char.go",
+      "blobSHA": "ffece5ebfedb1090b1671ae36b4b6ffd110cde38",
+      "readLines": [
+        12591,
+        12655
+      ],
+      "facts": [
+        "hitPause protects hurt/recovery timers; hitshake and hittime are separate counters"
+      ]
+    },
+    {
+      "url": "https://www.dfoneople.com/news/updates/622/Arena-System/Arena-Season-2-Changes",
+      "scope": "Historical official Arena interface change",
+      "facts": [
+        "Combo Gravity Adjustment HUD and Quick Rebound availability/duration have separate descriptions",
+        "No current2026 exact protection thresholds inferred"
+      ]
+    },
+    {
+      "url": "https://www.dfoneople.com/news/updates/2081/Arena-Updates/Characters",
+      "scope": "Historical official Arena common adjustment",
+      "facts": [
+        "Standing Adjustment gauge excludes attacks received while casting Super Armor skills",
+        "Not evidence of universal PVE reaction or exact current thresholds"
+      ]
+    }
+  ],
+  "secondaryResults": "Historical third-party numerical protection claims found but not used as current official rules",
+  "newDNFVideoObservation": "NOT COVERED: no new actual owner/victim clip viewed this round",
+  "controlledS3Discontinuity": {
+    "setup": "Artificially interrupt stage2 victim reaction at age .1 with next stage0 impact",
+    "headJumpWorld": {
+      "x": 1.6000000000000014,
+      "y": 2.8142857142857025
+    },
+    "scope": "Original model controlled reproduction, not real DNF footage"
+  },
+  "S4Candidate": {
+    "impactTransitionTicks120Hz": 4,
+    "recoverySeconds": 0.12,
+    "recoilSeconds": 0.14,
+    "recoilCurve": "original cubic ease-out",
+    "poseAndTimeStatus": "Original candidate values",
+    "PVEvsPK": "Separate appearance selection on shared standing-reaction rig; full PK rules not implemented"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "archive": {
+    "path": "/workspace/scratch/fddb459d7ec2/dnfku_summoner_S4_evidence_20261013.zip",
+    "bytes": 412472,
+    "sha256": "312a02c090180340685cf9185fd2d4f8ab552846cd68b41a36fe3ebb7db3a561",
+    "entries": 18,
+    "CRC": "PASS",
+    "persistentReadbackSHA256Match": true
+  },
+  "video": {
+    "path": "/workspace/scratch/fddb459d7ec2/dnfku_summoner_S4_browser_test_20261013.webm",
+    "bytes": 4484612,
+    "sha256": "802f67f9a92329f11a7bfa064a3962884966a625e4e096241957dd663d4908b0",
+    "persistentReadbackSHA256Match": true
+  }
+}
