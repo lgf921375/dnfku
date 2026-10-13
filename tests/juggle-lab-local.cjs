@@ -2,7 +2,9 @@
 const fs=require('node:fs'),path=require('node:path'),http=require('node:http');
 const crypto=require('node:crypto'),{spawn,execFileSync}=require('node:child_process');
 const {runJuggleAcceptance}=require('./juggle-lab-acceptance.cjs');
+const {runSummonerAcceptance}=require('./summoner-lab-acceptance.cjs');
 const root=path.resolve(__dirname,'..');
+const summonerOnly=process.env.DNFKU_LOCAL_SUITE==='summoner';
 const defaultGrant=path.join(root,'docs/local-testing-authorization.json');
 const authorizationPath=process.env.DNFKU_LOCAL_AUTHORIZATION_RECORD??(fs.existsSync(defaultGrant)?defaultGrant:undefined);
 const authorizedLocal=!!authorizationPath;
@@ -72,7 +74,7 @@ async function worker(){
       if(claim.nonce!==authorizationNonce)throw Error('Authorization is not assigned to this worker');
       result.authorization=env.authorization;
     }
-    const pages=new Map(['/juggle-lab-v11.html','/feedback-lab-v10.html'].map(url=>[url,fs.readFileSync(path.join(root,'prototype',url.slice(1)))]));
+    const pages=new Map(['/juggle-lab-v11.html','/feedback-lab-v10.html','/summoner-lab-s1.html'].map(url=>[url,fs.readFileSync(path.join(root,'prototype',url.slice(1)))]));
     server=http.createServer((req,res)=>{const bytes=pages.get(req.url);if(!bytes){res.writeHead(404);res.end();return;}res.writeHead(200,{'Content-Type':'text/html; charset=utf-8','Content-Length':bytes.length,'Cache-Control':'no-store'});res.end(bytes);});
     await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(0,'127.0.0.1',resolve);});
     result.binding=server.address();const origin=`http://127.0.0.1:${result.binding.port}`;
@@ -85,7 +87,9 @@ async function worker(){
     await context.route('**/*',route=>new URL(route.request().url()).origin===origin?route.continue():route.abort('blockedbyclient'));
     page=await context.newPage();page.setDefaultTimeout(12000);page.setDefaultNavigationTimeout(15000);
     page.on('pageerror',e=>result.errors.push(e.message));page.on('console',m=>{if(m.type()==='error')result.consoleErrors.push(m.text());});page.on('requestfailed',r=>result.requestFailures.push({url:r.url().split('?')[0],error:r.failure()?.errorText}));
-    // Local baseline preserves the exact five V10 checks; its CI file stays untouched.
+    // Default suite preserves both historical baselines. A declared S1-only run
+    // supports diagnostics without pretending that skipped baselines ran again.
+    if(!summonerOnly){
     result.v10={assertions:0,status:'running'};
     await page.goto(origin+'/feedback-lab-v10.html',{waitUntil:'load'});
     await startRecording('v10');
@@ -105,8 +109,16 @@ async function worker(){
     await page.screenshot({path:path.join(dir,'v10-protection.png')});
     await stopRecording();
     await runJuggleAcceptance({page,dir,url:origin+'/juggle-lab-v11.html',exactHtml:path.join(root,'prototype/juggle-lab-v11.html'),transport:'loopback HTTP',result,onPageLoaded:()=>startRecording('v11'),onProgress:name=>{write('status.json',{phase:'browser-case',case:name,utc:new Date().toISOString()});write('results.json',result);}});
+    await stopRecording();
+    }else result.baselines='NOT RUN: explicit DNFKU_LOCAL_SUITE=summoner';
+    await runSummonerAcceptance({page,dir,url:origin+'/summoner-lab-s1.html',exactHtml:path.join(root,'prototype/summoner-lab-s1.html'),result,onPageLoaded:async()=>{
+      await page.getByRole('button',{name:'录制动作',exact:true}).click();
+      await page.getByRole('button',{name:'停止并下载',exact:true}).waitFor({state:'visible',timeout:5000});recording='summoner-s1';
+    }});
     result.status='passed-browser';
-  }catch(e){result.error=e.stack;process.exitCode=1;if(page)try{await page.mouse.up();await page.screenshot({path:path.join(dir,'failure.png')});}catch(capture){result.captureError=capture.stack;}}
+  }catch(e){result.error=e.stack;process.exitCode=1;if(page)try{await page.mouse.up();
+    if(result.summoner)result.summoner.failureState=await page.evaluate(()=>({snapshot:summonerLab.motion.snapshot(),events:summonerLab.motion.events,samples:summonerLab.samples.slice(-120),fonts:[...document.fonts].map(f=>({family:f.family,status:f.status})),focused:document.activeElement?.outerHTML}));
+    await page.screenshot({fullPage:true,path:path.join(dir,'failure.png')});}catch(capture){result.captureError=capture.stack;}}
   finally{if(page&&recording)try{await stopRecording();}catch(e){result.recordingError=e.stack;process.exitCode=1;}
     for(const [name,resource] of [['context',context],['browser',browser]])if(resource)try{await resource.close();}catch(e){result[name+'CleanupError']=e.stack;process.exitCode=1;}
     if(server)await new Promise(resolve=>{server.close(resolve);server.closeAllConnections();});

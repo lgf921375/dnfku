@@ -1,0 +1,425 @@
+{
+  "utc": "2026-10-13T03:17:31.668250+00:00",
+  "gitParent": "7c2a2e5f8f002cfac188502437329a1a5d118610",
+  "testedWorkingTree": true,
+  "source": {
+    "prototype/summoner-renderer.mjs": {
+      "bytes": 4858,
+      "sha256": "4f02ecf71b42c6298f41890924b23e627f22126048404ca09cb2bbab99257c74",
+      "gitBlob": "8a553c20e5b889ea6dc3b561f132af7d79a39486"
+    },
+    "prototype/summoner-lab.template.html": {
+      "bytes": 5842,
+      "sha256": "91a5821c4e8643b1d7325350a07a6190a4090ccb32736faa04668d6d8204ab95",
+      "gitBlob": "9c748f655663ec584f5740ad4cfcd10a197957b7"
+    },
+    "prototype/summoner-lab-s1.html": {
+      "bytes": 77011,
+      "sha256": "2f92866713841f904ec78bea8303395a7a764cb5428e23ea47ac8043d30fdaf0",
+      "gitBlob": "79de8a629d29d6d446d5a96dacbe1faee6f641ab"
+    },
+    "prototype/summoner-motion.mjs": {
+      "bytes": 6922,
+      "sha256": "59d9fd5d5e62414268c6b01c66f1948aaa3de6bb7e8bdfb793d3c438e16df7ac",
+      "gitBlob": "9ea4f0d943543e7de8b01373702b8a8a20e308d3"
+    },
+    "prototype/build-summoner-lab.mjs": {
+      "bytes": 970,
+      "sha256": "f52a28455dc337fed0f6c969d449ff5a86d31a216603dda81526c4652d03a29d",
+      "gitBlob": "749787dea88880685d8ff9a9a5e2cb4fc15b203d"
+    },
+    "prototype/fonts/README.md": {
+      "bytes": 589,
+      "sha256": "af129ec1910f29e3e1c618acadf784ca81b7052cb2d56f55e263a11fa0b3f6ca",
+      "gitBlob": "8a55ee4b7c3ef19a8ec9cba26eb4653689344567"
+    },
+    "prototype/fonts/OFL.txt": {
+      "bytes": 4301,
+      "sha256": "6a73f9541c2de74158c0e7cf6b0a58ef774f5a780bf191f2d7ec9cc53efe2bf2",
+      "gitBlob": "d952d62c065f3f35fb83a173496e90b21525aef3"
+    },
+    "prototype/fonts/summoner-ui.woff": {
+      "bytes": 41216,
+      "sha256": "c16c5fb093d13c7282567bc936805f893bac759ce6c1c2232d2ff4b28e0a9eb1",
+      "gitBlob": "fbfd37996eec82afeb5a13b473c77684aaa2ddf1"
+    },
+    "tests/summoner-motion.test.mjs": {
+      "bytes": 4007,
+      "sha256": "52dfdf2f4cdae0843649288fafe33bf162caea124bc81a10c86edf99a6d1d000",
+      "gitBlob": "297a9439bb6c031cdd380f36f0e5f5edd4130c1a"
+    },
+    "tests/summoner-lab-acceptance.cjs": {
+      "bytes": 4779,
+      "sha256": "99975b183e4b674b5bd351deb6b0d052e3669b0d4a0f1230f3f17154299fc3be",
+      "gitBlob": "b039f85290f97aee09299eaf6b0226db519ca892"
+    },
+    "tests/juggle-lab-local.cjs": {
+      "bytes": 16221,
+      "sha256": "16d6d28b6b63c608e7c77dd284ceee0fb05de55222da8acb2b21fad66d51271d",
+      "gitBlob": "224bca04de4839449534eb21549559748ed708f1"
+    }
+  },
+  "node": {
+    "pass": 184,
+    "fail": 0,
+    "exitCode": 0,
+    "raw": "summoner-node-final.tap"
+  },
+  "browser": {
+    "fullRun": "summoner-s1-browser-fixed",
+    "status": "passed-browser",
+    "exitCode": 0,
+    "V10": 5,
+    "V11": 13,
+    "S1": 12,
+    "errors": [],
+    "sandbox": "Chromium沙箱已关闭；用户长期授权隔离Work本地测试",
+    "transport": "loopback127.0.0.1",
+    "lastHTMLRun": "summoner-s1-final-license",
+    "lastS1Checks": [
+      {
+        "name": "S1 loopback HTML bytes and title",
+        "status": "PASS"
+      },
+      {
+        "name": "offline Chinese UI font actually loaded",
+        "status": "PASS"
+      },
+      {
+        "name": "real pointer click runs exactly the first motion",
+        "status": "PASS"
+      },
+      {
+        "name": "full replay starts three observed segments, completes at 1.000s",
+        "status": "PASS"
+      },
+      {
+        "name": "real held pointer chains; release settles without another first stage",
+        "status": "PASS"
+      },
+      {
+        "name": "public frame slider changes raised pose to the low finish",
+        "status": "PASS"
+      },
+      {
+        "name": "frame preview freezes motion clock",
+        "status": "PASS"
+      },
+      {
+        "name": "real turn button mirrors staff geometry",
+        "status": "PASS"
+      },
+      {
+        "name": "real keyboard moves idle owner left",
+        "status": "PASS"
+      },
+      {
+        "name": "real X keyboard press starts a staff motion",
+        "status": "PASS"
+      },
+      {
+        "name": "owner-only candidate does not assert damage or lift",
+        "status": "PASS"
+      },
+      {
+        "name": "no browser errors",
+        "status": "PASS"
+      }
+    ],
+    "lastS1Exit": 0,
+    "lastBaselineScope": "NOT RUN: explicit DNFKU_LOCAL_SUITE=summoner"
+  },
+  "historicalFailure": {
+    "run": "summoner-s1-browser-final",
+    "exitCode": 1,
+    "pageErrors": [
+      "tick 0..5"
+    ],
+    "s1ChecksExecuted": [
+      {
+        "name": "S1 loopback HTML bytes and title",
+        "status": "PASS"
+      },
+      {
+        "name": "offline Chinese UI font actually loaded",
+        "status": "PASS"
+      }
+    ],
+    "error": "page.waitForFunction: Timeout 4000ms exceeded.\n    at wait (/workspace/scratch/fddb459d7ec2/dnfku/tests/summoner-lab-acceptance.cjs:11:21)\n    at runSummonerAcceptance (/workspace/scratch/fddb459d7ec2/dnfku/tests/summoner-lab-acceptance.cjs:14:8)\n    at async worker (/workspace/scratch/fddb459d7ec2/dnfku/tests/juggle-lab-local.cjs:110:5)",
+    "fix": "summonerFrameDelta handles first/regressing RAF timestamps; regression in184suite",
+    "mediaScope": "RAF crashed before new Canvas frames, S1 capture0bytes/invalid; failure bytes preserved"
+  },
+  "media": [
+    {
+      "run": "summoner-s1-browser-run1",
+      "file": "summoner-s1-browser-canvas.webm",
+      "bytes": 625221,
+      "sha256": "8a36b3e4768ca17beefcd8141deb3dc7e7ed7bc88b23556b4a010723ecd830b0",
+      "probeExit": 0,
+      "probeError": "",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "vp8",
+            "width": 960,
+            "height": 540,
+            "avg_frame_rate": "30/1",
+            "nb_read_frames": "108"
+          }
+        ],
+        "format": {},
+        "packetSpanSeconds": 3.5989999999999998,
+        "durationScope": "Container duration absent; packet span, not fps-derived duration"
+      },
+      "decodeExit": 0,
+      "decodeStderr": ""
+    },
+    {
+      "run": "summoner-s1-browser-run1",
+      "file": "v10-browser-canvas.webm",
+      "bytes": 1488899,
+      "sha256": "d92ea96393ddb1080e8a1e2c78c30770bb81faf53465e73ef123f593a33b3799",
+      "probeExit": 0,
+      "probeError": "",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "vp8",
+            "width": 960,
+            "height": 540,
+            "avg_frame_rate": "0/0",
+            "nb_read_frames": "193"
+          }
+        ],
+        "format": {
+          "duration": "6.399542"
+        }
+      },
+      "decodeExit": 0,
+      "decodeStderr": ""
+    },
+    {
+      "run": "summoner-s1-browser-run1",
+      "file": "v11-browser-canvas.webm",
+      "bytes": 3526657,
+      "sha256": "288518f721baa90168b86777f08f7d6afa02e1913c38ec1c2896376e1aad612c",
+      "probeExit": 0,
+      "probeError": "",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "vp8",
+            "width": 960,
+            "height": 540,
+            "avg_frame_rate": "0/0",
+            "nb_read_frames": "508"
+          }
+        ],
+        "format": {
+          "duration": "16.932074"
+        }
+      },
+      "decodeExit": 0,
+      "decodeStderr": ""
+    },
+    {
+      "run": "summoner-s1-browser-final",
+      "file": "summoner-s1-browser-canvas.webm",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "probeExit": 1,
+      "probeError": "[matroska,webm @ 0x5634df1fa6c0] EBML header parsing failed\n/workspace/scratch/fddb459d7ec2/summoner-s1-browser-final/summoner-s1-browser-canvas.webm: Invalid data found when processing input\n",
+      "probe": {},
+      "decodeExit": 183,
+      "decodeStderr": "[matroska,webm @ 0x556960eeab80] EBML header parsing failed\n[in#0 @ 0x556960eeaa80] Error opening input: Invalid data found when processing input\nError opening input file /workspace/scratch/fddb459d7ec2/summoner-s1-browser-final/summoner-s1-browser-canvas.webm.\nError opening input files: Invalid data found when processing input\n"
+    },
+    {
+      "run": "summoner-s1-browser-final",
+      "file": "v10-browser-canvas.webm",
+      "bytes": 1502869,
+      "sha256": "466cacc8e4c42b14c4bc27e7536f7c95134def3ad64a53a39789cf92f39477b2",
+      "probeExit": 0,
+      "probeError": "",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "vp8",
+            "width": 960,
+            "height": 540,
+            "avg_frame_rate": "0/0",
+            "nb_read_frames": "195"
+          }
+        ],
+        "format": {
+          "duration": "6.467465"
+        }
+      },
+      "decodeExit": 0,
+      "decodeStderr": ""
+    },
+    {
+      "run": "summoner-s1-browser-final",
+      "file": "v11-browser-canvas.webm",
+      "bytes": 3545644,
+      "sha256": "a495276e072268f14664c70a324a4e9fba1b04806b0a251fbbc2d9496a1a61eb",
+      "probeExit": 0,
+      "probeError": "",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "vp8",
+            "width": 960,
+            "height": 540,
+            "avg_frame_rate": "0/0",
+            "nb_read_frames": "507"
+          }
+        ],
+        "format": {
+          "duration": "16.899044"
+        }
+      },
+      "decodeExit": 0,
+      "decodeStderr": ""
+    },
+    {
+      "run": "summoner-s1-diagnostic",
+      "file": "summoner-s1-browser-canvas.webm",
+      "bytes": 615950,
+      "sha256": "5b5d70e234525318446169dbff61d495d17a2a683ac0315bd7af7a9ffb6b4b28",
+      "probeExit": 0,
+      "probeError": "",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "vp8",
+            "width": 960,
+            "height": 540,
+            "avg_frame_rate": "30/1",
+            "nb_read_frames": "109"
+          }
+        ],
+        "format": {},
+        "packetSpanSeconds": 3.666,
+        "durationScope": "Container duration absent; packet span, not fps-derived duration"
+      },
+      "decodeExit": 0,
+      "decodeStderr": ""
+    },
+    {
+      "run": "summoner-s1-browser-fixed",
+      "file": "summoner-s1-browser-canvas.webm",
+      "bytes": 606050,
+      "sha256": "0187c077bd1cec677fe077fb8b50dd66ce84847d2a6e54cf43b4b830aca45ba5",
+      "probeExit": 0,
+      "probeError": "",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "vp8",
+            "width": 960,
+            "height": 540,
+            "avg_frame_rate": "30/1",
+            "nb_read_frames": "109"
+          }
+        ],
+        "format": {},
+        "packetSpanSeconds": 3.632,
+        "durationScope": "Container duration absent; packet span, not fps-derived duration"
+      },
+      "decodeExit": 0,
+      "decodeStderr": "[null @ 0x55eafcd23980] Application provided invalid, non monotonically increasing dts to muxer in stream 0: 77 >= 77\n"
+    },
+    {
+      "run": "summoner-s1-browser-fixed",
+      "file": "v10-browser-canvas.webm",
+      "bytes": 1491560,
+      "sha256": "48a192cbce6bb723571b9ddb06c51cef57cc145a435965842f87bdbe25945de2",
+      "probeExit": 0,
+      "probeError": "",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "vp8",
+            "width": 960,
+            "height": 540,
+            "avg_frame_rate": "0/0",
+            "nb_read_frames": "194"
+          }
+        ],
+        "format": {
+          "duration": "6.433250"
+        }
+      },
+      "decodeExit": 0,
+      "decodeStderr": "[null @ 0x559454c89940] Application provided invalid, non monotonically increasing dts to muxer in stream 0: 318 >= 318\n"
+    },
+    {
+      "run": "summoner-s1-browser-fixed",
+      "file": "v11-browser-canvas.webm",
+      "bytes": 3553418,
+      "sha256": "e816e7b9c02263ee3420a31eda6e40cae757247fb37856d219bb8b91d982136f",
+      "probeExit": 0,
+      "probeError": "",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "vp8",
+            "width": 960,
+            "height": 540,
+            "avg_frame_rate": "0/0",
+            "nb_read_frames": "510"
+          }
+        ],
+        "format": {
+          "duration": "17.032187"
+        }
+      },
+      "decodeExit": 0,
+      "decodeStderr": ""
+    },
+    {
+      "run": "summoner-s1-final-license",
+      "file": "summoner-s1-browser-canvas.webm",
+      "bytes": 606708,
+      "sha256": "6bcc38156c962bf2662c649bd00027147b81b33d0c2e53cf657da72869124743",
+      "probeExit": 0,
+      "probeError": "",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "vp8",
+            "width": 960,
+            "height": 540,
+            "avg_frame_rate": "30/1",
+            "nb_read_frames": "109"
+          }
+        ],
+        "format": {},
+        "packetSpanSeconds": 3.633,
+        "durationScope": "Container duration absent; packet span, not fps-derived duration"
+      },
+      "decodeExit": 0,
+      "decodeStderr": "[null @ 0x55cfed1e1980] Application provided invalid, non monotonically increasing dts to muxer in stream 0: 78 >= 78\n[null @ 0x55cfed1e1980] Application provided invalid, non monotonically increasing dts to muxer in stream 0: 89 >= 89\n"
+    }
+  ],
+  "notCovered": [
+    "same visual identity",
+    "same input/attack-active frames",
+    "same target hit/float/ground/hitstop/damage",
+    "audio",
+    "Android/APK",
+    "human hand feel",
+    "upstream execution"
+  ],
+  "thirdPartyVideoOrFramesIncluded": false
+}

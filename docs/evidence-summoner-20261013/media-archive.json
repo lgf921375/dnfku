@@ -1,0 +1,18 @@
+{
+  "file": "dnfku_summoner_S1_local_evidence_20261013.zip",
+  "bytes": 29342983,
+  "sha256": "7426c239b446e058c64cb9a624eb0ff8ec342c8bf6a97eab9217276ad1843dc0",
+  "crc": "PASS",
+  "entries": 100,
+  "mediaFiles": 11,
+  "fixedAndFinalDecodeExit0": true,
+  "historicalInvalidMedia": [
+    {
+      "run": "summoner-s1-browser-final",
+      "file": "summoner-s1-browser-canvas.webm",
+      "bytes": 0,
+      "decodeExit": 183
+    }
+  ],
+  "permanentBaselineRawIncluded": true
+}

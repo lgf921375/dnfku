@@ -1,0 +1,138 @@
+{
+  "primaryOfficial": [
+    {
+      "url": "https://www.dfoneople.com/news/updates/622/Arena-Character-Balancing",
+      "fact": "historical Mage(F) first basic attack post-delay increased",
+      "exactTiming": "NOT PUBLISHED in source"
+    },
+    {
+      "url": "https://www.dfoneople.com/news/updates/221/PVP-Balance-Update/Female-Mage",
+      "fact": "historical Summoner basic cancel into Lasher / Mark the Target / Spirit Sacrifice",
+      "currentVersionParity": "NOT VERIFIED"
+    }
+  ],
+  "videos": [
+    {
+      "url": "https://www.bilibili.com/video/BV1qFxHeCEA7/",
+      "title": "DNF·地下城与勇士【全技能】—召唤师",
+      "media": {
+        "http": 206,
+        "contentType": "video/mp4",
+        "contentRange": "bytes 0-4203749/4203750",
+        "contentLength": "4203750",
+        "savedBytes": 4203750,
+        "completeStream": true,
+        "prefixHex": "000000206674797069736f6d00000200",
+        "sha256": "cbf43a18b7d450a8710e0754f860da0446c63604b8d076ded9883d7e684ae965",
+        "selectedStream": {
+          "id": 16,
+          "width": 640,
+          "height": 360,
+          "codecs": "hev1.1.6.L120.90",
+          "bandwidth": 166971
+        },
+        "scope": "Video-only public low-resolution stream; no audio; viewing scope recorded separately"
+      },
+      "ffprobe": {
+        "codec": "hevc",
+        "width": 640,
+        "height": 360,
+        "fps": "30/1",
+        "duration": 201.333
+      },
+      "observed": {
+        "0to24": "0-8 at2fps;8-24 at2fps, observed summoning Hodor and Lasher, minion attacks",
+        "24to201": "24/56/88/120/152/184 starts at0.5fps coarse samples to end, not continuous full playback"
+      },
+      "basicAttackIsolation": "Not identified in observed samples; coarse sampling can miss brief attacks; no claim of absence in entire video"
+    },
+    {
+      "url": "https://www.bilibili.com/video/BV1vDx1zKEKg/",
+      "title": "【DNF】地下城与勇士《知源·召唤师》技能展示（30）",
+      "media": {
+        "http": 206,
+        "contentRange": "bytes 0-8388607/11699505",
+        "bytes": 8388608,
+        "sha256": "6896ceeb0d5e0e945073cb021eb6aba9e26a33b7666dcc0e33603b6f51ad24f8",
+        "stream": {
+          "height": 360,
+          "width": 640,
+          "codecs": "hev1.1.6.L120.90",
+          "bandwidth": 223427
+        },
+        "scope": "prefix <=8MiB; no audio; not claim whole video watched"
+      },
+      "ffprobe": {
+        "codec": "hevc",
+        "width": 640,
+        "height": 360,
+        "fps": "30/1",
+        "durationDeclared": 418.833
+      },
+      "observed": {
+        "0to32": "1fps, opening artwork/passive summoned-creature strengthening/Hodor; not proof of owner basic",
+        "19to23": "5fps cropped owner pose, detailed inspection pending final classification",
+        "32to96": "0.5fps coarse: ice/fire/light/dark minions, Lasher, Follow/Wait",
+        "18.5to20.5": "60 consecutive decoded video frames inspected at 30fps; corrected contact sheets include all 60 (original sheets clipped every fifth row)."
+      },
+      "scope": "Only first8MiB of11699505 video stream obtained; not full video downloaded/watched; audio not obtained",
+      "basicAttackIsolation": "Owner standing empty-swing sequence visually identified at approx19.167–20.167; no victim or contact measurement. Three visual groups inferred, exact inputs/active frames/attack speed unknown.",
+      "ownerEmptySwing": {
+        "startApprox": 19.166666666666668,
+        "endApprox": 20.166666666666668,
+        "durationApprox": 1,
+        "samplingResolutionSeconds": 0.03333333333333333,
+        "groups": [
+          {
+            "sourceFrames": [
+              0,
+              10
+            ],
+            "description": "raise/preparation, forward staff, recoil",
+            "boundaryApprox": 19.5
+          },
+          {
+            "sourceFrames": [
+              10,
+              18
+            ],
+            "description": "wide stride, diagonal forward-up staff, recovery",
+            "boundaryApprox": 19.766666666666666
+          },
+          {
+            "sourceFrames": [
+              18,
+              30
+            ],
+            "description": "turn/preparation, staff down/back, low body hold, return idle",
+            "boundaryApprox": 20.166666666666668
+          }
+        ],
+        "classification": "visual observation + group-boundary inference; not official frame data",
+        "notMeasured": [
+          "input times",
+          "true attack-active frames",
+          "character attack speed",
+          "target hit reaction",
+          "damage",
+          "hitstop",
+          "launch/ground rules",
+          "weapon differences"
+        ]
+      },
+      "correction": "Earlier coarse1fps/5fps inspection did not isolate owner action; subsequent full30fps inspection did. Earlier not-found wording was sampling-limited, not absence claim."
+    }
+  ],
+  "sourceScope": {
+    "MiniDNF": "Pinned543839751adbe09eecc896da949945080782b45e Actor.xlsx read; no mage/summoner named role in workbook",
+    "UnityDNF": "Pinned4436c7212a6e3ed2cb389b2c0c4fa5b6211f79e6 actual Config/Object/Character directory onlyGhostKnight"
+  },
+  "publicFetchNotes": {
+    "bilibiliViewAPI": "412",
+    "bilibiliAnonymousPlayURL": "200 code0; no authentication bypass",
+    "HTML": "200 gzip decoded",
+    "temporaryMediaOnly": true,
+    "originalVideosOrFramesCommitted": false
+  },
+  "status": "OWNER EMPTY MOTION OBSERVED; IDENTICAL COMBAT EFFECT NOT VERIFIED"
+}

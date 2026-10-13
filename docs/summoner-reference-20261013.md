@@ -1,27 +1,64 @@
-# 召唤师本人普通攻击参考研究（2026-10-13，进行中）
+# 召唤师本人普通攻击参考研究（2026-10-13）
 
-## 当前检查点
+## 结论与范围
 
-用户目标改为DNF召唤师普攻参考，并明确永久授权隔离Work本地测试。起点工作分支3239a9caa0405813d277e770be123e1f26c4680f、main仍d4e6acfa；新分支work/summoner-reference-20261013。已重新通过连接GitHub读AGENTS/README/active-handoff及相关报告，工作区/可见进程/Actions in_progress与queued均无旧任务。
+**通过（真实取证/本地运行）**：公开召唤师视频中逐帧识别到本人空挥；新增独立S1动作候选，按观察片段估计前伸、斜向上挥、压低收杖的姿势和节奏。永久本地测试授权已落实。**未达到效果一样**：当前仍为原创骨架插画，服装/像素美术/特效不同，输入响应、攻击有效帧、受击/浮空/命中停顿和音效均未完成DNF对齐。
 
-尚无版本/攻击对象选择回复；当前取证假设为端游召唤师本人站立普攻，不把召唤兽攻击或战斗法师专属普攻当作目标。效果完全一致尚未证实，不能靠改职业名宣称复刻完成。
+用户没有回复版本/攻击对象选择；本轮采用端游女魔法师→召唤师本人站立普攻的假设，不把召唤兽、鞭挞或战斗法师专属动作当作目标。若用户指定其它版本，需要重新量测对应版本。
 
-## 已核实事实
+起点工作分支3239a9caa0405813d277e770be123e1f26c4680f；授权/研究远程检查点7c2a2e5f8f002cfac188502437329a1a5d118610，新分支work/summoner-reference-20261013。main仍d4e6acfaeddfcb9e953b473f2fcebc5fecc6dec5。先通过连接GitHub读AGENTS/README/active-handoff及相关报告，核实可见进程与Actions旧任务；仅本项目隔离研究，无部署。
 
-- [Neople官方女魔法师历史竞技场更新](https://www.dfoneople.com/news/updates/622/Arena-Character-Balancing)：Common Basic Attack的首击后摇有增加记录；没有公布精确毫秒。这是历史版本机制，不代表当前手游时序。
-- [Neople官方召唤师历史PVP更新](https://www.dfoneople.com/news/updates/221/PVP-Balance-Update/Female-Mage)：Lasher、Mark the Target、Spirit Sacrifice列有取消普攻后使用的规则；没有提供本次普攻刀轨迹/参数。
-- [Neople女魔法师角色页](https://www.dfoneople.com/gameinfo/character/Mage(F))实际HTML读到Summoner武器Staff/Rod及官方视频ID Uyc8tspz4Xo、DLNcM_tomKI；尚未观看这两个视频，不能称掌握普攻动作。
-- MiniDNF固定543839751adbe09eecc896da949945080782b45e，真实读取Actor.xlsx(blob3185a8bdc716c1d9ba7dc01ad94cc9f04d44604f)，角色文本是狂战士/剑魂/鬼泣/阿修罗及怪物，未检出召唤师/魔法师配置。其鬼剑士数据不得冒充召唤师参数。
-- Unity-DNF固定4436c7212a6e3ed2cb389b2c0c4fa5b6211f79e6，真实Config/Object/Character目录仅GhostKnight；未找到召唤师动作配置。两个仓库未有明确可移植许可，仍只做事实研究。
-- B站公开[DNF全技能—召唤师](https://www.bilibili.com/video/BV1qFxHeCEA7/)HTML实际HTTP200；gzip解码后标题/视频元数据读取成功：202秒、cid26022052839、1920×1080原页面声明。只读元数据，不等于已看见普攻。匿名view API实际412；媒体取得/观看仍进行中，不绕过认证或安全限制。
+## 一手材料与实际观察
 
-## 授权实现及本轮运行
+- [Neople女魔法师历史竞技场更新](https://www.dfoneople.com/news/updates/622/Arena-Character-Balancing)：Common Basic Attack首击后摇增加，**没有毫秒值**；历史PVP记录不等于当前手游参数。
+- [Neople召唤师历史PVP更新](https://www.dfoneople.com/news/updates/221/PVP-Balance-Update/Female-Mage)：Lasher、Mark the Target、Spirit Sacrifice可取消普攻后施放，未提供本次普攻轨迹和时序。
+- [Neople女魔法师角色页](https://www.dfoneople.com/gameinfo/character/Mage(F))实际HTML包含Summoner武器Staff/Rod和官方视频ID Uyc8tspz4Xo、DLNcM_tomKI；没有观看这两个视频，不称掌握其内容。
+- MiniDNF固定543839751adbe09eecc896da949945080782b45e，实际Actor.xlsx(blob3185a8bdc716c1d9ba7dc01ad94cc9f04d44604f)角色文本为四种鬼剑士及怪物，未检出召唤师/魔法师。Unity-DNF固定4436c7212a6e3ed2cb389b2c0c4fa5b6211f79e6，实际Config/Object/Character仅GhostKnight。**不能拿鬼剑士参数改名**。
+- [2024全技能—召唤师](https://www.bilibili.com/video/BV1qFxHeCEA7/)：实际获取完整低清视频流4,203,750字节，HEVC640×360/30fps/201.333秒，无音轨。0–24秒2fps取样，余下0.5fps粗采样，主要看到召唤、鞭挞、召唤兽技能；没在这些样本中隔离到本人普攻和目标受击，不是宣称完整视频没有。
+- [2025知源·召唤师技能展示](https://www.bilibili.com/video/BV1vDx1zKEKg/)：实际获取前8,388,608/11,699,505字节，HEVC640×360/30fps，容器声明418.833秒；**只分析已解码前缀，不称完整下载/观看**。页面标注4K60帧不等于本轮分析流帧率。0–32秒1fps、32–96秒0.5fps粗采样；19–23秒5fps后，进一步检查18.5–20.5秒的60张连续30fps帧，识别本人空挥。
+- 公开HTML200/gzip解码；匿名view API412为实际失败，随后公开playurl200/code0取得低清流，无认证绕过。取证JSON保存稳定链接、哈希、范围和原创观察；第三方视频/截图、临时签名URL均不进仓库或下载包。
 
-- `docs/local-testing-authorization.json`保存用户原话“永久授权本地测试”、时间及限制。AGENTS追加项目级持续规则，后续不用逐次确认同一项本地测试。
-- 本地执行器支持持续记录，每次使用独立证据目录和运行锁；明确显示Chromium沙箱关闭。旧一次授权消费锁仍兼容，不删除历史。
-- 本轮Node171/171实际PASS；持续授权路径实际执行V10 5/5、V11 13/13、exit0、errors=[]，新录像在临时独立证据目录（尚待归档）。这验证测试入口，不是召唤师候选通过。
-- 未改产品源码、未部署/重启、未改其它项目，main未动。
+### 空挥逐帧观察与推断
 
-## 下一步
+时间来自解码30fps采样，单帧分辨率约33.3ms。动作开始19.167、结束20.167为视觉估计；没有输入画面/攻击速度面板，不能把时间分组当官方前摇、有效帧或后摇数值。
 
-先从可访问的视频取得明确普攻样本，记录实际观察区间、播放速度与帧率，不能把全技能标题当普攻证据。得到样本后再建立独立召唤师候选和动作/受击对照；高风险美术/参数改动前先远程检查点。若媒体阻断，保存失败并请求可观看参考片段，不猜精确效果。
+| 片段时间（约） | 实际看到的姿势 | S1处理与证据级别 |
+| --- | --- | --- |
+| 19.167–19.267 | 抬手、准备姿势 | 本人动作观察；原创骨架估计 |
+| 19.300–19.333 | 法杖前伸/横向姿势 | 原创手部/杖端坐标估计；不是碰撞有效帧 |
+| 19.367–19.467 | 身体压低后回收 | 保留首段回收姿势 |
+| 19.500–19.667 | 扩大步幅、斜向上伸杖 | 第二视觉动作组；不是移植鬼剑士上挑 |
+| 19.700–19.867 | 回收、转体准备 | 第二/第三组边界约19.767，是推断 |
+| 19.900–19.933 | 杖向低处划过 | 身体和法杖共用姿态变换 |
+| 19.967–20.133 | 深压低身，杖留在后侧低处 | 保留低姿势停留；不推断扫地伤害 |
+| 20.167及之后 | 恢复站立 | 整套参考演示1.000秒完成 |
+
+**纠错**：最初粗采样没有识别到本人动作，不能写成视频没有普攻。第一次30fps接触表高度不足，裁掉每组第五行；已重新生成并查看全部60帧，包括19.700–19.800秒过渡。分成10/8/12帧三组是本轮视觉标记，不是官方三段输入间隔。
+
+## 独立候选的实际改动
+
+- `summoner-motion.mjs`独立原创女法师骨架与刚性法杖、观察姿势关键帧和30fps显示采样，不继承V9剑击CUTS或V11续浮空公式。
+- `summoner-renderer.mjs`从同一姿态/杖端几何绘制，转身沿人物原点镜像；没有扩大旧AABB来刷碰撞通过。
+- `summoner-lab-s1.html`离线单文件：普通攻击X/长按、整套参考演示、A/D移动、转身、0.25×慢放、骨架、逐帧预览和真实Canvas录像。候选只做本人动作；没有目标伤害、浮空、扫地、保护、命中停顿或音效的虚构实现。
+- 单按后的120ms回站立插值、220ms连贯输入窗口、移动速度和演示控制属于原创UX；此空挥样本没有提供单击中止/输入窗口证据。**不得称DNF官方值**。
+- S1离线嵌入Noto Sans CJK SC子集，保留SIL OFL1.1，修复新页面中文方框。源字体SHA256 2c76254f6fc379fddfce0a7e84fb5385bb135d3e399294f6eeb6680d0365b74b。WOFF2编码因缺Brotli扩展实际失败，改用现有WOFF压缩；未安装宿主字体或其它依赖。V10/V11历史页字体不变。
+- 原战斗core/rhythm/feedback/juggle、V10/V11 HTML和workflow未改。测试包装默认加S1；显式DNFKU_LOCAL_SUITE=summoner可只诊断候选，并标明旧基线NOT RUN。
+
+## 永久本地授权与失败记录
+
+`docs/local-testing-authorization.json`、AGENTS第8条保存用户永久授权。每次独立目录/运行锁，HTTP127.0.0.1，root浏览器沙箱如实关闭；不扩展到宿主策略、代理、部署、其它项目或自动Actions。永久路径基线实际Node171/171、V10 5/5+V11 13/13通过。
+
+第一次S1 Node183/183、浏览器V10 5/V11 13/S1 12通过。复跑出现真实失败：S1前两检查通过后超时，pageerror=`tick 0..5`；首rAF时间戳可能早于setup的performance.now，负dt使动作循环退出。失败录像/日志保留，不能称初始始终稳定。该失败S1录制0字节、无法解码，原始空文件也保留；修复后和最终录像已完整解码成功。新增生产函数summonerFrameDelta：首帧0、回退时间戳钳制0、长间隔最多50ms；Node回归验证首帧/时间回退不崩溃。随后按修复后的文件复测，结果见轻量证据索引。
+
+## 最终运行与证据
+
+- Node184/184、fail0、exit0，新增13项动作/输入/镜像/采样/时钟回归；原171项不变。
+- 修复后默认完整本地套件：V10原5/5、V11原13/13、S1 12/12、exit0；pageerror/console.error/requestfailed均0。完整页截图已人工查看抬杖/低姿势/镜像，中文可读；不等于DNF相似度通过。
+- 最终HTML补嵌字体OFL许可后再跑S1-only：12/12、exit0；最后这次旧V10/V11明确NOT RUN，旧回归由前一完整运行提供。S1-only用于诊断/验证本次单文件，不替代完整回归。
+- 浏览器Chromium沙箱已关闭；Shell151.0.7922.34、PW1.62.1，真实Canvas.captureStream/MediaRecorder。Canvas录像没有DOM按钮和音轨，编码30fps不代表手机稳定30fps；容器缺duration时另量包时间范围，不用帧数硬推时长。全片解码和ZIP CRC结果见媒体索引。
+- tests是在parent7c2a2e5之上的工作树实际执行，候选文件哈希/Blob由test-results.json固定；最终远程提交另核对同一树/文件，不能把旧parent当作候选版本。
+- `docs/evidence-summoner-20261013/test-results.json`保存轻量结果/源文件哈希/失败历史；原始媒体和JSON另存证据包`dnfku_summoner_S1_local_evidence_20261013.zip`，摘要见media-archive.json。没有第三方DNF原片/帧或签名URL。
+
+## 后续对齐条件
+
+下一步需要所指定版本、明确武器和攻速的召唤师本人普攻命中片段：最好60fps，站立目标、空中目标、倒地目标分别一套，不混召唤兽/鞭挞/天击伤害。这样才能量测接触时点、受击位移、浮空和双边停顿。画风/角色资源、音效也尚未对齐。取得对应证据前，S1只能称动作候选，不能标“复刻效果一样”。Android/APK、真实手指/手机帧率、联网和上游游戏运行仍未覆盖。
