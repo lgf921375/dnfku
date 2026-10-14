@@ -1,0 +1,20 @@
+✔ base41 plus action19 original files pass Git blob and SHA256 verification (0.827494ms)
+✔ source first action waits until tick3/frame4 before any HP damage (112.122337ms)
+✔ one unbuffered input finishes only first source stage and does not restart (168.318874ms)
+✔ real source buffer selects1→2→3 and actual contacts retain one target and HP (125.133221ms)
+✔ source hitstop freezes owner animation while target remains paused longer (38.039637ms)
+✔ off-depth combo uses real frame colliders and source movement without a forced hit (86.32063ms)
+✔ far opponent remains unharmed through source three-stage action (72.073045ms)
+✔ armor source flags reject stun/flight while each stage still deals one damage event (71.435021ms)
+✔ source down/sit timing advances during combo; original high boxes do not hit down (75.218399ms)
+✔ original target flight returns through down/sit/stay after completed action (166.828738ms)
+✔ source animation rate affects frame timing without changing contact geometry (35.813752ms)
+✔ reset removes buffered actions, clocks, moved positions and prior target HP (115.517045ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1191.649966

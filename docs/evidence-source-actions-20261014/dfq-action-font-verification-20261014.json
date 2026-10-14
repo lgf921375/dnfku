@@ -1,0 +1,14 @@
+{
+  "initialMissing": [
+    "U+00B7",
+    "U+2212",
+    "U+3001",
+    "U+3002",
+    "U+FF0C",
+    "U+FF1A",
+    "U+FF1B"
+  ],
+  "allPrintableTemplateCharacters": 286,
+  "Chinese": 184,
+  "finalMissing": []
+}

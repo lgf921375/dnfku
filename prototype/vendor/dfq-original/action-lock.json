@@ -1,0 +1,140 @@
+{
+  "repository": "2DScrollGames/DFQ-Original",
+  "commit": "d4b9088d9e6efeede3e504d3b6e64e3a459aa012",
+  "license": "Apache-2.0",
+  "files": [
+    {
+      "path": "source/actor/state/duelist/swordman/normalAttack.lua",
+      "blobSHA": "e4a516d300e857ceb27fb31ab8b00276135b907d",
+      "module": "actor.state.duelist.swordman.normalAttack",
+      "sha256": "397864006098e094414b6367267e4549f0f69fc026d9528dba9a13fbc887b11d",
+      "bytes": 6059
+    },
+    {
+      "path": "source/graphics/drawable/frameani.lua",
+      "blobSHA": "41e353317ca846e75f3d27a6f11418f9a49ae428",
+      "module": "graphics.drawable.frameani",
+      "sha256": "b76ed405cd912b7e5d1cba7ecb1fbf122967471cac49e0a4a49164c5401c5250",
+      "bytes": 2890
+    },
+    {
+      "path": "source/actor/drawable/frameani.lua",
+      "blobSHA": "2d9a0f386176eb49e0c032645a2ca639c0eceb11",
+      "module": "actor.drawable.frameani",
+      "sha256": "8d3b36a94726833c3183cc7862840f2ad8722ffecd700515b26b8f619b2fc264",
+      "bytes": 3996
+    },
+    {
+      "path": "source/actor/drawable/base.lua",
+      "blobSHA": "a33bc47d743b633397679b0063cdc58ba0d68b56",
+      "module": "actor.drawable.base",
+      "sha256": "2ff47a51c7d3c61907186747929beeed8ad35af5ba35e5209dee670ccd9a3a6f",
+      "bytes": 2829
+    },
+    {
+      "path": "source/graphics/drawunit/point.lua",
+      "blobSHA": "aaa0fb483c65f383c98dcdae89a011bdad985de5",
+      "module": "graphics.drawunit.point",
+      "sha256": "55ddd0f2d78f15e01146e7326530af1e3d024ba5bb14706234177a5f0c62d0b2",
+      "bytes": 2052
+    },
+    {
+      "path": "source/actor/collider.lua",
+      "blobSHA": "03307ef0022465d6233e7a6fbd0699fb3ade04de",
+      "module": "actor.collider",
+      "sha256": "8bd81641fbf8ac8a65fe97b25f39cb806883f9788d1cba9be54a9953c291640c",
+      "bytes": 2641
+    },
+    {
+      "path": "source/actor/ai/battleJudge.lua",
+      "blobSHA": "81814cf84e976a048d55e86fa3ed720fc39bbf39",
+      "module": "actor.ai.battleJudge",
+      "sha256": "18592d122d8300a98b899efaaad21eaaa5482169e45fc2534fc70f5ee38c7bac",
+      "bytes": 1819
+    },
+    {
+      "path": "source/actor/ai/judge.lua",
+      "blobSHA": "9ba2db4208e237448a2cfd88428900d0583d8653",
+      "module": "actor.ai.judge",
+      "sha256": "d2e033e6e3bf6d801196e7b43533ee50b78f4861704182a510019cc3148af939",
+      "bytes": 1391
+    },
+    {
+      "path": "source/actor/ai/base.lua",
+      "blobSHA": "83d438f9d6383f2b62b8802eaaf185bfbbd5be17",
+      "module": "actor.ai.base",
+      "sha256": "f04270640e7600372d793659335a92ffc56efa2de986fc542f27a1e59dd2c791",
+      "bytes": 517
+    },
+    {
+      "path": "config/asset/frameani/actor/duelist/swordman/attack1.cfg",
+      "blobSHA": "7375a8e509d930f92dc3cdc228e38d80a447a9b0",
+      "module": "fixture.frames1",
+      "sha256": "f222f65083a987e6b836675028639c44c0939090cf5b764424a9aef3cd3bc2fb",
+      "bytes": 540
+    },
+    {
+      "path": "config/asset/frameani/actor/duelist/swordman/attack2.cfg",
+      "blobSHA": "a041992b48c6db43993ea7008a340651b9b766c7",
+      "module": "fixture.frames2",
+      "sha256": "3cf91df3e780dcbd8f4be5523d436bd7be33551e63b4ba5998739ae3fae4575f",
+      "bytes": 604
+    },
+    {
+      "path": "config/asset/frameani/actor/duelist/swordman/attack3.cfg",
+      "blobSHA": "d228f7e3fa656e8de8419af6cf7bd3864ee72f1e",
+      "module": "fixture.frames3",
+      "sha256": "a27a328507eca8733fcf51acd14af76c2a3867870553e29062c8581ade020b9d",
+      "bytes": 496
+    },
+    {
+      "path": "config/actor/collider/duelist/swordman/katana/3.cfg",
+      "blobSHA": "abe483dbdd02636b7f18832b034df9aa225db7af",
+      "module": "fixture.collider3",
+      "sha256": "75a5b76ee1417ae2df2b17b10a66e0ed7418c7e88c45b350f1b7b851ccfc3462",
+      "bytes": 173
+    },
+    {
+      "path": "config/actor/collider/duelist/swordman/katana/4.cfg",
+      "blobSHA": "a86ba2c4623bd17da9f619421d644fa6e6c18018",
+      "module": "fixture.collider4",
+      "sha256": "37cac1a11392678b87a7d1312d8eb855c5ce88e6fc79f3d13c64ca3091ef4672",
+      "bytes": 175
+    },
+    {
+      "path": "config/actor/collider/duelist/swordman/katana/12.cfg",
+      "blobSHA": "d418c911966c7b150b7653f633f29b498109ea31",
+      "module": "fixture.collider12",
+      "sha256": "d1fa3052e0caa8cb5dbd5a4506a3a2b1ea17e884e1af2f40952fc7c93f30b134",
+      "bytes": 173
+    },
+    {
+      "path": "config/actor/collider/duelist/swordman/katana/13.cfg",
+      "blobSHA": "ec6cd31f3ca567c159ad148f355d28fdf8d5a94a",
+      "module": "fixture.collider13",
+      "sha256": "06ca6bb59a232aa450650fc2eeb38dbce0473712ff2a329d57ea3df0ab9347c7",
+      "bytes": 174
+    },
+    {
+      "path": "config/actor/collider/duelist/swordman/katana/35.cfg",
+      "blobSHA": "f09e43fcf147eeae2306426330caa0831f17430f",
+      "module": "fixture.collider35",
+      "sha256": "eae81cb28d42eadb1884b37e0a4ddf4081a9072c10372285d36ee614e0df2333",
+      "bytes": 174
+    },
+    {
+      "path": "config/actor/collider/duelist/swordman/katana/36.cfg",
+      "blobSHA": "7d7f249bef9c9f10266362a0dc22232d110c8afe",
+      "module": "fixture.collider36",
+      "sha256": "5393fa4fc94291d08e416e9d93d8f3bc6c01ed563d75ad9dfd29d5df8bdd09ac",
+      "bytes": 174
+    },
+    {
+      "path": "config/asset/frameani/actor/duelist/swordman/stay.cfg",
+      "blobSHA": "7f65ef54888ed18a59f30964ea56bf9765368e4b",
+      "module": "fixture.idleFrames",
+      "sha256": "ec35b0d469d64eb946412dffa20234d7847ebc881ebab73ed2fd815f1489ab2b",
+      "bytes": 339
+    }
+  ]
+}

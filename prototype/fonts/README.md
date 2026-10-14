@@ -17,3 +17,5 @@ S8 offline UI subset: summoner-s8-ui.woff, 230 Chinese UI characters covered; sa
 S9 offline UI subset: summoner-s9-ui.woff, 217 Chinese UI characters covered; same Noto Sans CJK SC source and OFL-1.1 license.
 
 DFQ source runtime UI subset: dfq-source-ui.woff, 174 Chinese UI characters covered; same Noto Sans CJK SC source and OFL-1.1 license.
+
+DFQ source action UI subset: dfq-action-ui.woff, 184 Chinese characters and all 286 printable template characters including punctuation; same Noto Sans CJK SC source and OFL-1.1 license. Initial punctuation gaps were found by cmap inspection and corrected before final browser acceptance.

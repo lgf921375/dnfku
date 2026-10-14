@@ -1,0 +1,63 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DNF 源码连段 · 原动作控制</title><style>
+/* FONT */
+*{box-sizing:border-box}body{margin:0;background:#121521;color:#e4e8f1;font-family:SourceFont,system-ui,sans-serif}main{max-width:960px;margin:auto;padding:16px}h1{font-size:21px;margin:0 0 7px}p{font-size:13px;color:#a5b3c9;line-height:1.6;margin:6px 0 12px}.config{display:flex;flex-wrap:wrap;gap:9px;padding:12px;background:#1d2538;border-radius:12px;margin:12px 0}label{display:flex;gap:6px;align-items:center;font-size:13px}select,button{font:inherit;color:#eef2f7;background:#293750;border:1px solid #547092;border-radius:9px;min-height:44px;padding:7px 10px}button{cursor:pointer;touch-action:none}.primary{background:#91c8dc;color:#0e2332;font-weight:700}button:focus-visible,select:focus-visible{outline:2px solid #a7d9ec}nav{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}canvas{display:block;width:100%;aspect-ratio:16/9;background:#172338;border:1px solid #547092;border-radius:12px}#status{font-size:13px;line-height:1.5;margin:10px 0}#events{display:flex;flex-wrap:wrap;gap:6px;min-height:30px}#events span{background:#283a50;border-radius:14px;padding:5px 9px;font-size:12px}small{font-size:12px;color:#b2becf}details{margin-top:14px;font-size:12px;line-height:1.7}a{color:#9ad3e5}@media(max-width:600px){main{padding:12px}h1{font-size:18px}.config select{max-width:210px}p{font-size:12px}}@media(orientation:landscape) and (max-height:500px){main{padding:8px}h1{font-size:16px}.intro{display:none}.config{margin:6px 0;padding:6px}canvas{width:min(100%,calc((100svh - 260px)*16/9));margin-inline:auto}#status{margin:5px 0}nav{margin:6px 0}}
+</style></head><body><main><h1>DNF 源码连段 · 原动作控制</h1><p class="intro">原普通攻击状态、动画帧推进和碰撞框共同驱动连段。当前测试职业为鬼剑士；召唤师专属动作与原版画面尚未接入。</p>
+<div class="config"><label>目标起始 <select id="scene"><option value="stay">站立</option><option value="flight">预置浮空</option><option value="down">倒地</option></select></label><label><input id="armor" type="checkbox">霸体测试</label><label><input id="lane" type="checkbox">景深错位</label><label>距离 <select id="distance"><option value="45">近身</option><option value="240">远距空挥</option></select></label><label><input id="slow" type="checkbox">慢放</label></div>
+<canvas id="stage" width="960" height="540"></canvas><div id="status" aria-live="polite">正在初始化源码</div><div id="events" aria-label="实际源码事件"></div>
+<nav><button id="combo" class="primary">播放一套连段</button><button id="attack">普通攻击 · X / 长按</button><button id="reset">重来</button></nav>
+<p>输入配置来自源项目鬼剑士，不能当作召唤师参数。方块和人物轮廓是测试占位；此页使用原普通攻击状态与原帧时间，只验证源码行为，不代表原版 DNF 完整效果。</p>
+<details><summary>来源与边界</summary><p><a href="https://github.com/2DScrollGames/DFQ-Original/tree/d4b9088d9e6efeede3e504d3b6e64e3a459aa012" target="_blank" rel="noopener">DFQ-Original · 固定源码</a>，Apache-2.0。导入文件保持原字节。浏览器运行环境为 Fengari，MIT。适配层只提供测试实体、无障碍地面、结构体和显示接口；未加载原版图片、音效、完整地图与职业动画。</p><p>完整客户端、PK累计保护、召唤师专属动作、真实Android手感未覆盖。技能冷却、AI输入、完整客户端调度及原图像仍未接入。</p></details>
+</main><script>/* RUNTIME */</script><script>
+/* ADAPTER */
+const DFQ_PACK=/* PACK */;
+const core=createDFQCore(fengari,DFQ_PACK.sources,DFQ_PACK.platform,DFQ_PACK.fixture);
+const $=id=>document.getElementById(id),canvas=$('stage'),ctx=canvas.getContext('2d');
+let snapshot=core.call('snapshot'),last=null,acc=0,held=false,playing=false;
+window.dfqAction={core,snapshot,samples:[],errors:[],lock:DFQ_PACK.lock,get held(){return held;},get playing(){return playing;}};
+const events=()=>Array.isArray(snapshot.events)?snapshot.events:[];
+const names={stay:'站立',stun:'普通受击',flight:'浮空',down:'倒地',sit:'起身',normalAttack:'普攻'};
+function sync(){snapshot=core.call('snapshot');dfqAction.snapshot=snapshot;draw();}
+function stopInput(){held=false;playing=false;}
+function reset(){stopInput();core.call('reset',$('scene').value,$('lane').checked?100:0,$('armor').checked,false,Number($('distance').value));acc=0;sync();}
+function press(){core.call('strike');sync();}
+for(const id of ['scene','armor','lane','distance'])$(id).onchange=reset;
+$('reset').onclick=reset;
+$('combo').onclick=()=>{held=false;playing=true;press();};
+const button=$('attack');
+button.onpointerdown=e=>{if(e.button!==0)return;e.preventDefault();button.setPointerCapture(e.pointerId);held=true;press();};
+button.onpointerup=()=>{held=false;};button.onpointercancel=()=>{held=false;};button.onlostpointercapture=()=>{held=false;};
+button.onclick=e=>{if(e.detail===0)press();};
+window.addEventListener('keydown',e=>{if(e.code!=='KeyX'||/^(SELECT|INPUT|TEXTAREA)$/.test(document.activeElement.tagName))return;e.preventDefault();held=true;if(!e.repeat)press();});
+window.addEventListener('keyup',e=>{if(e.code==='KeyX')held=false;});
+window.addEventListener('blur',stopInput);document.addEventListener('visibilitychange',()=>{if(document.hidden)stopInput();});
+function person(x,y,angle,color){ctx.save();ctx.translate(x,y);ctx.rotate(angle);ctx.strokeStyle=color;ctx.lineWidth=11;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(0,-99);ctx.lineTo(0,-39);ctx.moveTo(0,-78);ctx.lineTo(-24,-50);ctx.moveTo(0,-78);ctx.lineTo(28,-49);ctx.moveTo(0,-39);ctx.lineTo(-18,0);ctx.moveTo(0,-39);ctx.lineTo(22,0);ctx.stroke();ctx.fillStyle=color;ctx.beginPath();ctx.arc(0,-120,14,0,Math.PI*2);ctx.fill();ctx.restore();}
+function draw(){
+ ctx.fillStyle='#172338';ctx.fillRect(0,0,960,540);ctx.strokeStyle='#334864';ctx.lineWidth=1;
+ for(let y=355;y<520;y+=32){ctx.beginPath();ctx.moveTo(20,y);ctx.lineTo(940,y);ctx.stroke();}
+ const floor=405,scale=2.1,origin=255;
+ ctx.fillStyle='#cad9e8';ctx.font='17px monospace';ctx.fillText('DFQ SOURCE ACTION / SWORDMAN FIXTURE',25,35);ctx.font='13px monospace';ctx.fillText('NormalAttack > Frameani > Collider > Attack > HP',25,60);
+ const active=snapshot.ownerState==='normalAttack';
+ const ownerX=origin+snapshot.ownerX*scale;
+ person(ownerX,floor,0,snapshot.ownerPaused?'#fff0c2':'#8ba9c9');
+ const targetX=origin+snapshot.x*scale,targetY=floor+snapshot.y*.35-snapshot.height*scale;
+ const angle=['down','sit'].includes(snapshot.state)?Math.PI*.42:snapshot.state==='flight'?(snapshot.flightProcess<=3?-.35:.35):snapshot.state==='stun'?.15:0;
+ person(targetX,targetY,angle,snapshot.paused?'#fff0c2':'#99c9d4');
+ ctx.strokeStyle='#b3e5ec';ctx.lineWidth=2;ctx.setLineDash([7,5]);
+ for(const b of Array.isArray(snapshot.attackBoxes)?snapshot.attackBoxes:[])ctx.strokeRect(origin+b.x*scale,floor+b.y*scale,b.w*scale,b.h*scale);
+ ctx.setLineDash([]);ctx.fillStyle='#bdccd9';ctx.font='17px monospace';
+ ctx.fillText(`HP ${snapshot.hp}/120   SOURCE FRAME ${snapshot.frame}/${snapshot.length}   STAGE ${active?snapshot.stage:0}`,25,478);
+ ctx.font='14px monospace';ctx.fillText(`Owner ${snapshot.ownerStop.toFixed(0)}ms / target ${snapshot.targetStop.toFixed(0)}ms / active collider ${snapshot.attackColliderCount}`,25,506);
+ $('status').textContent=`${active?'第'+snapshot.stage+'段 · 帧'+snapshot.frame+'/'+snapshot.length:'等待输入'} · ${names[snapshot.state]} · HP ${snapshot.hp}/120 · ${snapshot.attackColliderCount?'命中框有效':'命中框关闭'}`;
+ $('combo').textContent=playing?'正在播放连段':'播放一套连段';
+ const list=events().filter(e=>e.type==='source-process'||e.type==='hit'||(e.type==='state'&&e.entity==='target')).slice(-10);
+ $('events').replaceChildren(...list.map(e=>{const span=document.createElement('span');span.textContent=e.type==='source-process'?'第'+e.stage+'段':e.type==='hit'?'命中 −'+e.damage:names[e.state];return span;}));
+}
+function frame(now){try{
+ const dt=last===null?0:Math.min(100,Math.max(0,now-last));last=now;acc+=dt*($('slow').checked?.25:1);
+ while(acc>=17){acc-=17;if(held||playing)core.call('strike');snapshot=core.call('tick',17);if(playing&&snapshot.ownerState==='stay')playing=false;if(snapshot.hp===0)stopInput();}
+ sync();if(dfqAction.samples.length>=4000)dfqAction.samples.shift();dfqAction.samples.push({wall:now,time:snapshot.time,hp:snapshot.hp,state:snapshot.state,ownerState:snapshot.ownerState,stage:snapshot.stage,frame:snapshot.frame,colliders:snapshot.attackColliderCount,paused:snapshot.ownerPaused});
+ }catch(e){dfqAction.errors.push(e.message);stopInput();$('status').textContent='运行失败：'+e.message;return;}
+ requestAnimationFrame(frame);
+}
+reset();requestAnimationFrame(frame);
+</script></body></html>

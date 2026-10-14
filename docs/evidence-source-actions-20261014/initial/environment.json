@@ -1,0 +1,51 @@
+{
+  "utc": "2026-10-14T07:52:11.204Z",
+  "localShanghai": "2026-10-14 15:52:11",
+  "cwd": "/workspace/scratch/fddb459d7ec2/dnfku",
+  "uid": 0,
+  "gid": 0,
+  "node": "v24.19.0",
+  "platform": "linux",
+  "arch": "x64",
+  "sandboxRequested": false,
+  "browserLaunch": "NOT RUN",
+  "actualSandbox": "NOT COVERED",
+  "authorization": {
+    "userResponse": "永久授权本地测试",
+    "userMessageShanghai": "2026-10-13T10:29:09+08:00",
+    "project": "lgf921375/dnfku",
+    "scope": "isolated-Work-local-loopback-only",
+    "browserSandbox": false,
+    "policy": "persistent-local-only",
+    "runs": "ongoing",
+    "limits": [
+      "Only isolated Work local tests; bind HTTP to 127.0.0.1",
+      "Report Chromium sandbox disabled honestly",
+      "Do not change host sandbox, proxy or system permissions",
+      "No production deployment/restart or other project changes",
+      "No automatic GitHub Actions triggers from this local authorization"
+    ],
+    "reaffirmations": [
+      {
+        "userResponse": "永久授权帮我测",
+        "userMessageShanghai": "2026-10-13T11:47:40+08:00",
+        "scope": "same isolated Work local project testing"
+      }
+    ]
+  },
+  "commit": "135628ff2583ca45afa6b7116bb1f2e08583d8fb",
+  "branch": "work/summoner-reference-20261013",
+  "playwrightVersion": "1.62.1",
+  "expectedShell": {
+    "name": "chromium-headless-shell",
+    "revision": "1234",
+    "installByDefault": true,
+    "browserVersion": "151.0.7922.34",
+    "title": "Chrome Headless Shell"
+  },
+  "executable": "/workspace/scratch/fddb459d7ec2/browser-restored-20261013-s3/chrome-headless-shell-linux64/chrome-headless-shell",
+  "htmlSHA256": "c60a6266e62dd086db9934d93652a52310d0b6c8c615da7809646f17195b9975",
+  "executableSHA256": "e11fc9ce65c96313476f7ee9844b6fb6a9220fb048693cfe9eee00acf4170a9f",
+  "shellVersion": "Google Chrome for Testing 151.0.7922.34",
+  "versionMatched": true
+}

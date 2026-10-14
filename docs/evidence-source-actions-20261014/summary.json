@@ -1,0 +1,90 @@
+{
+  "startingCommit": "135628ff2583ca45afa6b7116bb1f2e08583d8fb",
+  "startingTree": "b545bdf54f501472a28591df85dd13dc8b966856",
+  "source": "2DScrollGames/DFQ-Original@d4b9088d9e6efeede3e504d3b6e64e3a459aa012",
+  "filesUnmodified": 60,
+  "nodeActionFirst": {
+    "executed": 12,
+    "pass": 11,
+    "fail": 1
+  },
+  "nodeActionReproduced": {
+    "executed": 12,
+    "pass": 11,
+    "fail": 1,
+    "exitCode": 1
+  },
+  "nodeActionFinal": {
+    "executed": 12,
+    "pass": 12,
+    "fail": 0,
+    "exitCode": 0
+  },
+  "baseNodeRegression": {
+    "executed": 10,
+    "pass": 10,
+    "fail": 0,
+    "exitCode": 0
+  },
+  "browserRuns": {
+    "initial": {
+      "count": 15,
+      "pass": 15,
+      "fail": 0,
+      "exitCode": 0,
+      "sidecarMatch": true,
+      "pageErrors": [],
+      "consoleErrors": [],
+      "requestFailures": []
+    },
+    "final": {
+      "count": 15,
+      "pass": 15,
+      "fail": 0,
+      "exitCode": 0,
+      "sidecarMatch": true,
+      "pageErrors": [],
+      "consoleErrors": [],
+      "requestFailures": []
+    }
+  },
+  "testedSHA256": {
+    "prototype/dfq-action-pack.mjs": "25baa5de3c74afb7dd0d14dda66d0ace7bc22c7e1e0005f13a34182a48928681",
+    "prototype/dfq-action-platform.lua": "5fa3b88e4313499779faf092c6ce2dbc980963bf7f1baef6d5de0e5873994fdb",
+    "prototype/dfq-action-fixture.lua": "5678b6b909b3ce2831f020f89f4deb85f4a7113bb8e7587beb858a73767b32f4",
+    "prototype/build-dfq-action-lab.mjs": "94dd3a119fd7c8eb5b6dc3f3cab3c29b6b54f9341deac8ee4e115caebabb5804",
+    "prototype/dfq-action-lab.template.html": "d3e670c108bedef2071caba1341bf0bddded852c62c19c13c6c32a5928ab29a6",
+    "prototype/dfq-action-lab.html": "d13f17cc460839c663a6dce675560ee6fcd9744b435d46d8971f395fe1d90b61",
+    "prototype/fonts/dfq-action-ui.woff": "d5f637468608bbabfafec6d6ab814d7c076c6df53bf1154d00130d6f21281fb2",
+    "tests/dfq-action-runtime.spec.mjs": "4222cb4497047e8fcb439ee941ee48c1b049dba582f2cfc683fc8e50a6619559",
+    "tests/dfq-action-browser-acceptance.cjs": "cdc0d76d75ade887384b8d1723c818baca4252d57b1e10e1427c51d85ff3daf7",
+    "tests/juggle-lab-local.cjs": "d1be00eec21611f0c4ea042b40afcf2d02a5b22533cf0bb8010b052a910e5424",
+    "prototype/dfq-core-runtime.mjs": "2f720bd920b51eefabcf2ee091528e5eb9339745e1fa3f26809e1d850e5b330d",
+    "prototype/dfq-platform.lua": "c659e5288a7c3dcb0d2b00ac093353fec6fde1fc17ff48a5c17ccb2548ebde31",
+    "prototype/dfq-fixture.lua": "c31f0cfbdf321b50d7c60e009ac4ecb8a28236997d788152f82ba6a09f4ff6fb",
+    "prototype/dfq-source-lab.html": "1ac88b2d1603a438d089e2af464152e03dc47bbd68ca53720a33fe9e5c78fb85"
+  },
+  "font": {
+    "initialMissing": [
+      "U+00B7",
+      "U+2212",
+      "U+3001",
+      "U+3002",
+      "U+FF0C",
+      "U+FF1A",
+      "U+FF1B"
+    ],
+    "allPrintableTemplateCharacters": 286,
+    "Chinese": 184,
+    "finalMissing": []
+  },
+  "notCovered": [
+    "Summoner/female Mage job implementation and frame animations",
+    "Official DNF code/client/combat/visual/audio parity",
+    "Real L\u00d6VE resources, skill cooldowns, AI inputs and full scheduler",
+    "Generic LuaJIT FFI",
+    "Full death cleanup and PK accumulated protection",
+    "Actual Android hardware/performance/human hand feel",
+    "Historical Node273 and S1-S9 browsers rerun"
+  ]
+}

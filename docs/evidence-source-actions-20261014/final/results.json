@@ -1,0 +1,1984 @@
+{
+  "status": "passed-browser",
+  "sandboxRequested": false,
+  "actualSandbox": "Chromium沙箱已关闭；用户长期授权隔离Work本地测试",
+  "checks": [],
+  "errors": [],
+  "consoleErrors": [],
+  "requestFailures": [],
+  "cases": {},
+  "videos": [],
+  "androidHandFeel": "NOT COVERED",
+  "visualSimilarity": "NOT COVERED",
+  "authorization": {
+    "userResponse": "永久授权本地测试",
+    "userMessageShanghai": "2026-10-13T10:29:09+08:00",
+    "project": "lgf921375/dnfku",
+    "scope": "isolated-Work-local-loopback-only",
+    "browserSandbox": false,
+    "policy": "persistent-local-only",
+    "runs": "ongoing",
+    "limits": [
+      "Only isolated Work local tests; bind HTTP to 127.0.0.1",
+      "Report Chromium sandbox disabled honestly",
+      "Do not change host sandbox, proxy or system permissions",
+      "No production deployment/restart or other project changes",
+      "No automatic GitHub Actions triggers from this local authorization"
+    ],
+    "reaffirmations": [
+      {
+        "userResponse": "永久授权帮我测",
+        "userMessageShanghai": "2026-10-13T11:47:40+08:00",
+        "scope": "same isolated Work local project testing"
+      }
+    ]
+  },
+  "binding": {
+    "address": "127.0.0.1",
+    "family": "IPv4",
+    "port": 45673
+  },
+  "browserVersion": "151.0.7922.34",
+  "baselines": "NOT RUN: explicit DNFKU_LOCAL_SUITE=dfq-action",
+  "dfqAction": {
+    "status": "passed-dfq-action-browser",
+    "checks": [
+      {
+        "name": "60 original files and source action/animation modules loaded in browser VM",
+        "status": "PASS"
+      },
+      {
+        "name": "manual public tap waits for real source frame4 then only finishes stage1",
+        "status": "PASS"
+      },
+      {
+        "name": "play one combo uses source1/2/3, three real contacts and frame-switched boxes",
+        "status": "PASS"
+      },
+      {
+        "name": "after original action ends target naturally lands, downs, sits and stands",
+        "status": "PASS"
+      },
+      {
+        "name": "off-depth source combo progresses without any injected hit",
+        "status": "PASS"
+      },
+      {
+        "name": "far-distance fixture retains source movement and misses all three contacts",
+        "status": "PASS"
+      },
+      {
+        "name": "down state shares same combo; high stages miss and source rise immunity runs",
+        "status": "PASS"
+      },
+      {
+        "name": "source armor suppresses hurt states and still permits per-stage HP loss",
+        "status": "PASS"
+      },
+      {
+        "name": "pointer hold buffers next stages; release prevents starting another combo",
+        "status": "PASS"
+      },
+      {
+        "name": "window blur clears held input; queued source action ends without restarting",
+        "status": "PASS"
+      },
+      {
+        "name": "reset during queued combo clears HP, source process and automatic inputs",
+        "status": "PASS"
+      },
+      {
+        "name": "portrait390x844 touch combo and configuration controls are usable",
+        "status": "PASS"
+      },
+      {
+        "name": "landscape844x390 Canvas and one-combo button visible together",
+        "status": "PASS"
+      },
+      {
+        "name": "offline Chinese source font is actually loaded",
+        "status": "PASS"
+      },
+      {
+        "name": "no browser, network or Lua runtime errors",
+        "status": "PASS"
+      }
+    ],
+    "cases": {
+      "first": {
+        "time": 204,
+        "state": "stun",
+        "hp": 107,
+        "x": 45,
+        "y": 0,
+        "z": 0,
+        "height": 0,
+        "paused": true,
+        "ownerPaused": true,
+        "ownerStop": 50,
+        "targetStop": 100,
+        "animation": "damage1",
+        "flightProcess": 0,
+        "banAttack": 0,
+        "dead": 0,
+        "stage": 1,
+        "ownerState": "normalAttack",
+        "ownerX": 0,
+        "frame": 4,
+        "tick": 3,
+        "length": 10,
+        "attackColliderCount": 1,
+        "attackBoxes": [
+          {
+            "x": 49,
+            "y": -100,
+            "w": 68,
+            "h": 53
+          }
+        ],
+        "buffered": false,
+        "sourceAttackRunning": true,
+        "events": [
+          {
+            "entity": "owner",
+            "animation": "source-idle-slots",
+            "type": "animation",
+            "time": 0
+          },
+          {
+            "stage": 1,
+            "type": "source-process",
+            "time": 51
+          },
+          {
+            "entity": "owner",
+            "animation": "source-katana-attack1",
+            "type": "animation",
+            "time": 51
+          },
+          {
+            "entity": "owner",
+            "state": "normalAttack",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 51
+          },
+          {
+            "entity": "target",
+            "animation": "damage1",
+            "type": "animation",
+            "time": 204
+          },
+          {
+            "entity": "target",
+            "state": "stun",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 204
+          },
+          {
+            "entity": "target",
+            "damage": 13,
+            "hp": 107,
+            "state": "stun",
+            "stage": 1,
+            "frame": 4,
+            "x": 54.5,
+            "y": 0,
+            "z": -63.5,
+            "type": "hit",
+            "time": 204
+          },
+          {
+            "damage": 13,
+            "x": 54.5,
+            "y": -63.5,
+            "critical": false,
+            "type": "damage-tip",
+            "time": 204
+          }
+        ]
+      },
+      "flight": {
+        "time": 884,
+        "state": "flight",
+        "hp": 83,
+        "x": 91,
+        "y": 0,
+        "z": -21.498,
+        "height": 21.498,
+        "paused": false,
+        "ownerPaused": false,
+        "ownerStop": 0,
+        "targetStop": 0,
+        "animation": "damage1",
+        "flightProcess": 1,
+        "banAttack": 0,
+        "dead": 0,
+        "stage": 3,
+        "ownerState": "normalAttack",
+        "ownerX": 39.994,
+        "frame": 5,
+        "tick": 4,
+        "length": 9,
+        "attackColliderCount": 0,
+        "attackBoxes": {},
+        "buffered": true,
+        "sourceAttackRunning": true,
+        "events": [
+          {
+            "entity": "owner",
+            "animation": "source-idle-slots",
+            "type": "animation",
+            "time": 0
+          },
+          {
+            "stage": 1,
+            "type": "source-process",
+            "time": 17
+          },
+          {
+            "entity": "owner",
+            "animation": "source-katana-attack1",
+            "type": "animation",
+            "time": 17
+          },
+          {
+            "entity": "owner",
+            "state": "normalAttack",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 17
+          },
+          {
+            "entity": "target",
+            "animation": "damage1",
+            "type": "animation",
+            "time": 170
+          },
+          {
+            "entity": "target",
+            "state": "stun",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 170
+          },
+          {
+            "entity": "target",
+            "damage": 13,
+            "hp": 107,
+            "state": "stun",
+            "stage": 1,
+            "frame": 4,
+            "x": 54.5,
+            "y": 0,
+            "z": -63.5,
+            "type": "hit",
+            "time": 170
+          },
+          {
+            "damage": 13,
+            "x": 54.5,
+            "y": -63.5,
+            "critical": false,
+            "type": "damage-tip",
+            "time": 170
+          },
+          {
+            "stage": 2,
+            "type": "source-process",
+            "time": 357
+          },
+          {
+            "entity": "owner",
+            "animation": "source-katana-attack2",
+            "type": "animation",
+            "time": 357
+          },
+          {
+            "entity": "target",
+            "animation": "damage1",
+            "type": "animation",
+            "time": 459
+          },
+          {
+            "entity": "target",
+            "damage": 12,
+            "hp": 95,
+            "state": "stun",
+            "stage": 2,
+            "frame": 3,
+            "x": 66.5,
+            "y": 0,
+            "z": -67,
+            "type": "hit",
+            "time": 459
+          },
+          {
+            "damage": 12,
+            "x": 66.5,
+            "y": -67,
+            "critical": false,
+            "type": "damage-tip",
+            "time": 459
+          },
+          {
+            "stage": 3,
+            "type": "source-process",
+            "time": 646
+          },
+          {
+            "entity": "owner",
+            "animation": "source-katana-attack3",
+            "type": "animation",
+            "time": 646
+          },
+          {
+            "entity": "target",
+            "animation": "damage2",
+            "type": "animation",
+            "time": 748
+          },
+          {
+            "entity": "target",
+            "state": "flight",
+            "hp": 95,
+            "z": 0,
+            "type": "state",
+            "time": 748
+          },
+          {
+            "entity": "target",
+            "damage": 12,
+            "hp": 83,
+            "state": "flight",
+            "stage": 3,
+            "frame": 3,
+            "x": 88,
+            "y": 0,
+            "z": -40,
+            "type": "hit",
+            "time": 748
+          },
+          {
+            "damage": 12,
+            "x": 88,
+            "y": -40,
+            "critical": false,
+            "type": "damage-tip",
+            "time": 748
+          },
+          {
+            "entity": "target",
+            "animation": "damage1",
+            "type": "animation",
+            "time": 850
+          }
+        ]
+      },
+      "combo": {
+        "time": 1241,
+        "state": "flight",
+        "hp": 83,
+        "x": 112,
+        "y": 0,
+        "z": -67.76000000000002,
+        "height": 67.76000000000002,
+        "paused": false,
+        "ownerPaused": false,
+        "ownerStop": 0,
+        "targetStop": 0,
+        "animation": "damage3",
+        "flightProcess": 4,
+        "banAttack": 0,
+        "dead": 0,
+        "stage": 3,
+        "ownerState": "stay",
+        "ownerX": 39.994,
+        "frame": 1,
+        "tick": 0,
+        "length": 6,
+        "attackColliderCount": 0,
+        "attackBoxes": {},
+        "buffered": true,
+        "sourceAttackRunning": true,
+        "events": [
+          {
+            "entity": "owner",
+            "animation": "source-idle-slots",
+            "type": "animation",
+            "time": 0
+          },
+          {
+            "stage": 1,
+            "type": "source-process",
+            "time": 17
+          },
+          {
+            "entity": "owner",
+            "animation": "source-katana-attack1",
+            "type": "animation",
+            "time": 17
+          },
+          {
+            "entity": "owner",
+            "state": "normalAttack",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 17
+          },
+          {
+            "entity": "target",
+            "animation": "damage1",
+            "type": "animation",
+            "time": 170
+          },
+          {
+            "entity": "target",
+            "state": "stun",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 170
+          },
+          {
+            "entity": "target",
+            "damage": 13,
+            "hp": 107,
+            "state": "stun",
+            "stage": 1,
+            "frame": 4,
+            "x": 54.5,
+            "y": 0,
+            "z": -63.5,
+            "type": "hit",
+            "time": 170
+          },
+          {
+            "damage": 13,
+            "x": 54.5,
+            "y": -63.5,
+            "critical": false,
+            "type": "damage-tip",
+            "time": 170
+          },
+          {
+            "stage": 2,
+            "type": "source-process",
+            "time": 357
+          },
+          {
+            "entity": "owner",
+            "animation": "source-katana-attack2",
+            "type": "animation",
+            "time": 357
+          },
+          {
+            "entity": "target",
+            "animation": "damage1",
+            "type": "animation",
+            "time": 459
+          },
+          {
+            "entity": "target",
+            "damage": 12,
+            "hp": 95,
+            "state": "stun",
+            "stage": 2,
+            "frame": 3,
+            "x": 66.5,
+            "y": 0,
+            "z": -67,
+            "type": "hit",
+            "time": 459
+          },
+          {
+            "damage": 12,
+            "x": 66.5,
+            "y": -67,
+            "critical": false,
+            "type": "damage-tip",
+            "time": 459
+          },
+          {
+            "stage": 3,
+            "type": "source-process",
+            "time": 646
+          },
+          {
+            "entity": "owner",
+            "animation": "source-katana-attack3",
+            "type": "animation",
+            "time": 646
+          },
+          {
+            "entity": "target",
+            "animation": "damage2",
+            "type": "animation",
+            "time": 748
+          },
+          {
+            "entity": "target",
+            "state": "flight",
+            "hp": 95,
+            "z": 0,
+            "type": "state",
+            "time": 748
+          },
+          {
+            "entity": "target",
+            "damage": 12,
+            "hp": 83,
+            "state": "flight",
+            "stage": 3,
+            "frame": 3,
+            "x": 88,
+            "y": 0,
+            "z": -40,
+            "type": "hit",
+            "time": 748
+          },
+          {
+            "damage": 12,
+            "x": 88,
+            "y": -40,
+            "critical": false,
+            "type": "damage-tip",
+            "time": 748
+          },
+          {
+            "entity": "target",
+            "animation": "damage1",
+            "type": "animation",
+            "time": 850
+          },
+          {
+            "entity": "target",
+            "animation": "damage2",
+            "type": "animation",
+            "time": 969
+          },
+          {
+            "entity": "target",
+            "animation": "damage3",
+            "type": "animation",
+            "time": 1071
+          },
+          {
+            "entity": "owner",
+            "animation": "source-idle-slots",
+            "type": "animation",
+            "time": 1241
+          },
+          {
+            "entity": "owner",
+            "state": "stay",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 1241
+          }
+        ]
+      },
+      "recovery": {
+        "time": 2431,
+        "state": "stay",
+        "hp": 83,
+        "x": 143,
+        "y": 0,
+        "z": 0,
+        "height": 0,
+        "paused": false,
+        "ownerPaused": false,
+        "ownerStop": 0,
+        "targetStop": 0,
+        "animation": "sit",
+        "flightProcess": 0,
+        "banAttack": 0,
+        "dead": 0,
+        "stage": 3,
+        "ownerState": "stay",
+        "ownerX": 39.994,
+        "frame": 3,
+        "tick": -1,
+        "length": 6,
+        "attackColliderCount": 0,
+        "attackBoxes": {},
+        "buffered": true,
+        "sourceAttackRunning": true,
+        "events": [
+          {
+            "entity": "owner",
+            "animation": "source-idle-slots",
+            "type": "animation",
+            "time": 0
+          },
+          {
+            "stage": 1,
+            "type": "source-process",
+            "time": 17
+          },
+          {
+            "entity": "owner",
+            "animation": "source-katana-attack1",
+            "type": "animation",
+            "time": 17
+          },
+          {
+            "entity": "owner",
+            "state": "normalAttack",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 17
+          },
+          {
+            "entity": "target",
+            "animation": "damage1",
+            "type": "animation",
+            "time": 170
+          },
+          {
+            "entity": "target",
+            "state": "stun",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 170
+          },
+          {
+            "entity": "target",
+            "damage": 13,
+            "hp": 107,
+            "state": "stun",
+            "stage": 1,
+            "frame": 4,
+            "x": 54.5,
+            "y": 0,
+            "z": -63.5,
+            "type": "hit",
+            "time": 170
+          },
+          {
+            "damage": 13,
+            "x": 54.5,
+            "y": -63.5,
+            "critical": false,
+            "type": "damage-tip",
+            "time": 170
+          },
+          {
+            "stage": 2,
+            "type": "source-process",
+            "time": 357
+          },
+          {
+            "entity": "owner",
+            "animation": "source-katana-attack2",
+            "type": "animation",
+            "time": 357
+          },
+          {
+            "entity": "target",
+            "animation": "damage1",
+            "type": "animation",
+            "time": 459
+          },
+          {
+            "entity": "target",
+            "damage": 12,
+            "hp": 95,
+            "state": "stun",
+            "stage": 2,
+            "frame": 3,
+            "x": 66.5,
+            "y": 0,
+            "z": -67,
+            "type": "hit",
+            "time": 459
+          },
+          {
+            "damage": 12,
+            "x": 66.5,
+            "y": -67,
+            "critical": false,
+            "type": "damage-tip",
+            "time": 459
+          },
+          {
+            "stage": 3,
+            "type": "source-process",
+            "time": 646
+          },
+          {
+            "entity": "owner",
+            "animation": "source-katana-attack3",
+            "type": "animation",
+            "time": 646
+          },
+          {
+            "entity": "target",
+            "animation": "damage2",
+            "type": "animation",
+            "time": 748
+          },
+          {
+            "entity": "target",
+            "state": "flight",
+            "hp": 95,
+            "z": 0,
+            "type": "state",
+            "time": 748
+          },
+          {
+            "entity": "target",
+            "damage": 12,
+            "hp": 83,
+            "state": "flight",
+            "stage": 3,
+            "frame": 3,
+            "x": 88,
+            "y": 0,
+            "z": -40,
+            "type": "hit",
+            "time": 748
+          },
+          {
+            "damage": 12,
+            "x": 88,
+            "y": -40,
+            "critical": false,
+            "type": "damage-tip",
+            "time": 748
+          },
+          {
+            "entity": "target",
+            "animation": "damage1",
+            "type": "animation",
+            "time": 850
+          },
+          {
+            "entity": "target",
+            "animation": "damage2",
+            "type": "animation",
+            "time": 969
+          },
+          {
+            "entity": "target",
+            "animation": "damage3",
+            "type": "animation",
+            "time": 1071
+          },
+          {
+            "entity": "owner",
+            "animation": "source-idle-slots",
+            "type": "animation",
+            "time": 1241
+          },
+          {
+            "entity": "owner",
+            "state": "stay",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 1241
+          },
+          {
+            "entity": "target",
+            "animation": "damage3",
+            "type": "animation",
+            "time": 1360
+          },
+          {
+            "entity": "target",
+            "animation": "damage3",
+            "type": "animation",
+            "time": 1462
+          },
+          {
+            "entity": "target",
+            "animation": "damage3",
+            "type": "animation",
+            "time": 1547
+          },
+          {
+            "entity": "target",
+            "animation": "damage4",
+            "type": "animation",
+            "time": 1581
+          },
+          {
+            "entity": "target",
+            "animation": "damage4",
+            "type": "animation",
+            "time": 1717
+          },
+          {
+            "entity": "target",
+            "animation": "down",
+            "type": "animation",
+            "time": 1768
+          },
+          {
+            "entity": "target",
+            "state": "down",
+            "hp": 83,
+            "z": 0,
+            "type": "state",
+            "time": 1768
+          },
+          {
+            "entity": "target",
+            "animation": "sit",
+            "type": "animation",
+            "time": 2278
+          },
+          {
+            "entity": "target",
+            "state": "sit",
+            "hp": 83,
+            "z": 0,
+            "type": "state",
+            "time": 2278
+          },
+          {
+            "entity": "target",
+            "state": "stay",
+            "hp": 83,
+            "z": 0,
+            "type": "state",
+            "time": 2431
+          }
+        ]
+      },
+      "depth": {
+        "time": 1139,
+        "state": "stay",
+        "hp": 120,
+        "x": 45,
+        "y": 100,
+        "z": 0,
+        "height": 0,
+        "paused": false,
+        "ownerPaused": false,
+        "ownerStop": 0,
+        "targetStop": 0,
+        "flightProcess": 0,
+        "banAttack": 0,
+        "dead": 0,
+        "stage": 3,
+        "ownerState": "stay",
+        "ownerX": 39.994,
+        "frame": 1,
+        "tick": 0,
+        "length": 6,
+        "attackColliderCount": 0,
+        "attackBoxes": {},
+        "buffered": true,
+        "sourceAttackRunning": true,
+        "events": [
+          {
+            "entity": "owner",
+            "animation": "source-idle-slots",
+            "type": "animation",
+            "time": 0
+          },
+          {
+            "stage": 1,
+            "type": "source-process",
+            "time": 17
+          },
+          {
+            "entity": "owner",
+            "animation": "source-katana-attack1",
+            "type": "animation",
+            "time": 17
+          },
+          {
+            "entity": "owner",
+            "state": "normalAttack",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 17
+          },
+          {
+            "stage": 2,
+            "type": "source-process",
+            "time": 323
+          },
+          {
+            "entity": "owner",
+            "animation": "source-katana-attack2",
+            "type": "animation",
+            "time": 323
+          },
+          {
+            "stage": 3,
+            "type": "source-process",
+            "time": 578
+          },
+          {
+            "entity": "owner",
+            "animation": "source-katana-attack3",
+            "type": "animation",
+            "time": 578
+          },
+          {
+            "entity": "owner",
+            "animation": "source-idle-slots",
+            "type": "animation",
+            "time": 1139
+          },
+          {
+            "entity": "owner",
+            "state": "stay",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 1139
+          }
+        ]
+      },
+      "far": {
+        "time": 1139,
+        "state": "stay",
+        "hp": 120,
+        "x": 240,
+        "y": 0,
+        "z": 0,
+        "height": 0,
+        "paused": false,
+        "ownerPaused": false,
+        "ownerStop": 0,
+        "targetStop": 0,
+        "flightProcess": 0,
+        "banAttack": 0,
+        "dead": 0,
+        "stage": 3,
+        "ownerState": "stay",
+        "ownerX": 39.994,
+        "frame": 1,
+        "tick": 0,
+        "length": 6,
+        "attackColliderCount": 0,
+        "attackBoxes": {},
+        "buffered": true,
+        "sourceAttackRunning": true,
+        "events": [
+          {
+            "entity": "owner",
+            "animation": "source-idle-slots",
+            "type": "animation",
+            "time": 0
+          },
+          {
+            "stage": 1,
+            "type": "source-process",
+            "time": 17
+          },
+          {
+            "entity": "owner",
+            "animation": "source-katana-attack1",
+            "type": "animation",
+            "time": 17
+          },
+          {
+            "entity": "owner",
+            "state": "normalAttack",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 17
+          },
+          {
+            "stage": 2,
+            "type": "source-process",
+            "time": 323
+          },
+          {
+            "entity": "owner",
+            "animation": "source-katana-attack2",
+            "type": "animation",
+            "time": 323
+          },
+          {
+            "stage": 3,
+            "type": "source-process",
+            "time": 578
+          },
+          {
+            "entity": "owner",
+            "animation": "source-katana-attack3",
+            "type": "animation",
+            "time": 578
+          },
+          {
+            "entity": "owner",
+            "animation": "source-idle-slots",
+            "type": "animation",
+            "time": 1139
+          },
+          {
+            "entity": "owner",
+            "state": "stay",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 1139
+          }
+        ]
+      },
+      "down": {
+        "time": 1173,
+        "state": "flight",
+        "hp": 108,
+        "x": 69,
+        "y": 0,
+        "z": -67.76000000000002,
+        "height": 67.76000000000002,
+        "paused": false,
+        "ownerPaused": false,
+        "ownerStop": 0,
+        "targetStop": 0,
+        "animation": "damage3",
+        "flightProcess": 4,
+        "banAttack": 0,
+        "dead": 0,
+        "stage": 3,
+        "ownerState": "stay",
+        "ownerX": 39.994,
+        "frame": 1,
+        "tick": 0,
+        "length": 6,
+        "attackColliderCount": 0,
+        "attackBoxes": {},
+        "buffered": true,
+        "sourceAttackRunning": true,
+        "events": [
+          {
+            "entity": "owner",
+            "animation": "source-idle-slots",
+            "type": "animation",
+            "time": 0
+          },
+          {
+            "entity": "target",
+            "animation": "down",
+            "type": "animation",
+            "time": 0
+          },
+          {
+            "entity": "target",
+            "state": "down",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 0
+          },
+          {
+            "stage": 1,
+            "type": "source-process",
+            "time": 17
+          },
+          {
+            "entity": "owner",
+            "animation": "source-katana-attack1",
+            "type": "animation",
+            "time": 17
+          },
+          {
+            "entity": "owner",
+            "state": "normalAttack",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 17
+          },
+          {
+            "stage": 2,
+            "type": "source-process",
+            "time": 323
+          },
+          {
+            "entity": "owner",
+            "animation": "source-katana-attack2",
+            "type": "animation",
+            "time": 323
+          },
+          {
+            "entity": "target",
+            "animation": "sit",
+            "type": "animation",
+            "time": 510
+          },
+          {
+            "entity": "target",
+            "state": "sit",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 510
+          },
+          {
+            "stage": 3,
+            "type": "source-process",
+            "time": 578
+          },
+          {
+            "entity": "owner",
+            "animation": "source-katana-attack3",
+            "type": "animation",
+            "time": 578
+          },
+          {
+            "entity": "target",
+            "state": "stay",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 663
+          },
+          {
+            "entity": "target",
+            "animation": "damage2",
+            "type": "animation",
+            "time": 680
+          },
+          {
+            "entity": "target",
+            "state": "flight",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 680
+          },
+          {
+            "entity": "target",
+            "damage": 12,
+            "hp": 108,
+            "state": "flight",
+            "stage": 3,
+            "frame": 3,
+            "x": 45,
+            "y": 0,
+            "z": -40,
+            "type": "hit",
+            "time": 680
+          },
+          {
+            "damage": 12,
+            "x": 45,
+            "y": -40,
+            "critical": false,
+            "type": "damage-tip",
+            "time": 680
+          },
+          {
+            "entity": "target",
+            "animation": "damage1",
+            "type": "animation",
+            "time": 782
+          },
+          {
+            "entity": "target",
+            "animation": "damage2",
+            "type": "animation",
+            "time": 901
+          },
+          {
+            "entity": "target",
+            "animation": "damage3",
+            "type": "animation",
+            "time": 1003
+          },
+          {
+            "entity": "owner",
+            "animation": "source-idle-slots",
+            "type": "animation",
+            "time": 1173
+          },
+          {
+            "entity": "owner",
+            "state": "stay",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 1173
+          }
+        ]
+      },
+      "armor": {
+        "time": 1241,
+        "state": "stay",
+        "hp": 82,
+        "x": 45,
+        "y": 0,
+        "z": 0,
+        "height": 0,
+        "paused": false,
+        "ownerPaused": false,
+        "ownerStop": 0,
+        "targetStop": 0,
+        "flightProcess": 0,
+        "banAttack": 0,
+        "dead": 0,
+        "stage": 3,
+        "ownerState": "stay",
+        "ownerX": 39.994,
+        "frame": 1,
+        "tick": 0,
+        "length": 6,
+        "attackColliderCount": 0,
+        "attackBoxes": {},
+        "buffered": true,
+        "sourceAttackRunning": true,
+        "events": [
+          {
+            "entity": "owner",
+            "animation": "source-idle-slots",
+            "type": "animation",
+            "time": 0
+          },
+          {
+            "stage": 1,
+            "type": "source-process",
+            "time": 17
+          },
+          {
+            "entity": "owner",
+            "animation": "source-katana-attack1",
+            "type": "animation",
+            "time": 17
+          },
+          {
+            "entity": "owner",
+            "state": "normalAttack",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 17
+          },
+          {
+            "entity": "target",
+            "damage": 13,
+            "hp": 107,
+            "state": "stay",
+            "stage": 1,
+            "frame": 4,
+            "x": 54.5,
+            "y": 0,
+            "z": -63.5,
+            "type": "hit",
+            "time": 170
+          },
+          {
+            "damage": 13,
+            "x": 54.5,
+            "y": -63.5,
+            "critical": false,
+            "type": "damage-tip",
+            "time": 170
+          },
+          {
+            "stage": 2,
+            "type": "source-process",
+            "time": 357
+          },
+          {
+            "entity": "owner",
+            "animation": "source-katana-attack2",
+            "type": "animation",
+            "time": 357
+          },
+          {
+            "entity": "target",
+            "damage": 12,
+            "hp": 95,
+            "state": "stay",
+            "stage": 2,
+            "frame": 3,
+            "x": 59,
+            "y": 0,
+            "z": -67,
+            "type": "hit",
+            "time": 459
+          },
+          {
+            "damage": 12,
+            "x": 59,
+            "y": -67,
+            "critical": false,
+            "type": "damage-tip",
+            "time": 459
+          },
+          {
+            "stage": 3,
+            "type": "source-process",
+            "time": 646
+          },
+          {
+            "entity": "owner",
+            "animation": "source-katana-attack3",
+            "type": "animation",
+            "time": 646
+          },
+          {
+            "entity": "target",
+            "damage": 13,
+            "hp": 82,
+            "state": "stay",
+            "stage": 3,
+            "frame": 3,
+            "x": 45,
+            "y": 0,
+            "z": -40,
+            "type": "hit",
+            "time": 748
+          },
+          {
+            "damage": 13,
+            "x": 45,
+            "y": -40,
+            "critical": false,
+            "type": "damage-tip",
+            "time": 748
+          },
+          {
+            "entity": "owner",
+            "animation": "source-idle-slots",
+            "type": "animation",
+            "time": 1241
+          },
+          {
+            "entity": "owner",
+            "state": "stay",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 1241
+          }
+        ]
+      },
+      "hold": {
+        "time": 1938,
+        "state": "down",
+        "hp": 83,
+        "x": 143,
+        "y": 0,
+        "z": 0,
+        "height": 0,
+        "paused": false,
+        "ownerPaused": false,
+        "ownerStop": 0,
+        "targetStop": 0,
+        "animation": "down",
+        "flightProcess": 0,
+        "banAttack": 0,
+        "dead": 0,
+        "stage": 3,
+        "ownerState": "stay",
+        "ownerX": 39.994,
+        "frame": 6,
+        "tick": -1,
+        "length": 6,
+        "attackColliderCount": 0,
+        "attackBoxes": {},
+        "buffered": false,
+        "sourceAttackRunning": true,
+        "events": [
+          {
+            "entity": "owner",
+            "animation": "source-idle-slots",
+            "type": "animation",
+            "time": 0
+          },
+          {
+            "stage": 1,
+            "type": "source-process",
+            "time": 0
+          },
+          {
+            "entity": "owner",
+            "animation": "source-katana-attack1",
+            "type": "animation",
+            "time": 0
+          },
+          {
+            "entity": "owner",
+            "state": "normalAttack",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 0
+          },
+          {
+            "entity": "target",
+            "animation": "damage1",
+            "type": "animation",
+            "time": 153
+          },
+          {
+            "entity": "target",
+            "state": "stun",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 153
+          },
+          {
+            "entity": "target",
+            "damage": 13,
+            "hp": 107,
+            "state": "stun",
+            "stage": 1,
+            "frame": 4,
+            "x": 54.5,
+            "y": 0,
+            "z": -63.5,
+            "type": "hit",
+            "time": 153
+          },
+          {
+            "damage": 13,
+            "x": 54.5,
+            "y": -63.5,
+            "critical": false,
+            "type": "damage-tip",
+            "time": 153
+          },
+          {
+            "stage": 2,
+            "type": "source-process",
+            "time": 340
+          },
+          {
+            "entity": "owner",
+            "animation": "source-katana-attack2",
+            "type": "animation",
+            "time": 340
+          },
+          {
+            "entity": "target",
+            "animation": "damage1",
+            "type": "animation",
+            "time": 442
+          },
+          {
+            "entity": "target",
+            "damage": 12,
+            "hp": 95,
+            "state": "stun",
+            "stage": 2,
+            "frame": 3,
+            "x": 66.5,
+            "y": 0,
+            "z": -67,
+            "type": "hit",
+            "time": 442
+          },
+          {
+            "damage": 12,
+            "x": 66.5,
+            "y": -67,
+            "critical": false,
+            "type": "damage-tip",
+            "time": 442
+          },
+          {
+            "stage": 3,
+            "type": "source-process",
+            "time": 629
+          },
+          {
+            "entity": "owner",
+            "animation": "source-katana-attack3",
+            "type": "animation",
+            "time": 629
+          },
+          {
+            "entity": "target",
+            "animation": "damage2",
+            "type": "animation",
+            "time": 731
+          },
+          {
+            "entity": "target",
+            "state": "flight",
+            "hp": 95,
+            "z": 0,
+            "type": "state",
+            "time": 731
+          },
+          {
+            "entity": "target",
+            "damage": 12,
+            "hp": 83,
+            "state": "flight",
+            "stage": 3,
+            "frame": 3,
+            "x": 88,
+            "y": 0,
+            "z": -40,
+            "type": "hit",
+            "time": 731
+          },
+          {
+            "damage": 12,
+            "x": 88,
+            "y": -40,
+            "critical": false,
+            "type": "damage-tip",
+            "time": 731
+          },
+          {
+            "entity": "target",
+            "animation": "damage1",
+            "type": "animation",
+            "time": 833
+          },
+          {
+            "entity": "target",
+            "animation": "damage2",
+            "type": "animation",
+            "time": 952
+          },
+          {
+            "entity": "target",
+            "animation": "damage3",
+            "type": "animation",
+            "time": 1054
+          },
+          {
+            "entity": "owner",
+            "animation": "source-idle-slots",
+            "type": "animation",
+            "time": 1224
+          },
+          {
+            "entity": "owner",
+            "state": "stay",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 1224
+          },
+          {
+            "entity": "target",
+            "animation": "damage3",
+            "type": "animation",
+            "time": 1343
+          },
+          {
+            "entity": "target",
+            "animation": "damage3",
+            "type": "animation",
+            "time": 1445
+          },
+          {
+            "entity": "target",
+            "animation": "damage3",
+            "type": "animation",
+            "time": 1530
+          },
+          {
+            "entity": "target",
+            "animation": "damage4",
+            "type": "animation",
+            "time": 1564
+          },
+          {
+            "entity": "target",
+            "animation": "damage4",
+            "type": "animation",
+            "time": 1700
+          },
+          {
+            "entity": "target",
+            "animation": "down",
+            "type": "animation",
+            "time": 1751
+          },
+          {
+            "entity": "target",
+            "state": "down",
+            "hp": 83,
+            "z": 0,
+            "type": "state",
+            "time": 1751
+          }
+        ]
+      },
+      "blur": {
+        "time": 1173,
+        "state": "stay",
+        "hp": 107,
+        "x": 60,
+        "y": 0,
+        "z": 0,
+        "height": 0,
+        "paused": false,
+        "ownerPaused": false,
+        "ownerStop": 0,
+        "targetStop": 0,
+        "animation": "damage1",
+        "flightProcess": 0,
+        "banAttack": 0,
+        "dead": 0,
+        "stage": 1,
+        "ownerState": "stay",
+        "ownerX": 0,
+        "frame": 4,
+        "tick": -1,
+        "length": 6,
+        "attackColliderCount": 0,
+        "attackBoxes": {},
+        "buffered": false,
+        "sourceAttackRunning": true,
+        "events": [
+          {
+            "entity": "owner",
+            "animation": "source-idle-slots",
+            "type": "animation",
+            "time": 0
+          },
+          {
+            "stage": 1,
+            "type": "source-process",
+            "time": 17
+          },
+          {
+            "entity": "owner",
+            "animation": "source-katana-attack1",
+            "type": "animation",
+            "time": 17
+          },
+          {
+            "entity": "owner",
+            "state": "normalAttack",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 17
+          },
+          {
+            "entity": "target",
+            "animation": "damage1",
+            "type": "animation",
+            "time": 170
+          },
+          {
+            "entity": "target",
+            "state": "stun",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 170
+          },
+          {
+            "entity": "target",
+            "damage": 13,
+            "hp": 107,
+            "state": "stun",
+            "stage": 1,
+            "frame": 4,
+            "x": 54.5,
+            "y": 0,
+            "z": -63.5,
+            "type": "hit",
+            "time": 170
+          },
+          {
+            "damage": 13,
+            "x": 54.5,
+            "y": -63.5,
+            "critical": false,
+            "type": "damage-tip",
+            "time": 170
+          },
+          {
+            "entity": "owner",
+            "animation": "source-idle-slots",
+            "type": "animation",
+            "time": 663
+          },
+          {
+            "entity": "owner",
+            "state": "stay",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 663
+          },
+          {
+            "entity": "target",
+            "state": "stay",
+            "hp": 107,
+            "z": 0,
+            "type": "state",
+            "time": 663
+          }
+        ]
+      },
+      "reset": {
+        "time": 510,
+        "state": "stay",
+        "hp": 120,
+        "x": 45,
+        "y": 0,
+        "z": 0,
+        "height": 0,
+        "paused": false,
+        "ownerPaused": false,
+        "ownerStop": 0,
+        "targetStop": 0,
+        "flightProcess": 0,
+        "banAttack": 0,
+        "dead": 0,
+        "stage": 0,
+        "ownerState": "stay",
+        "ownerX": 0,
+        "frame": 4,
+        "tick": -1,
+        "length": 6,
+        "attackColliderCount": 0,
+        "attackBoxes": {},
+        "buffered": false,
+        "sourceAttackRunning": false,
+        "events": [
+          {
+            "entity": "owner",
+            "animation": "source-idle-slots",
+            "type": "animation",
+            "time": 0
+          }
+        ]
+      },
+      "phone": {
+        "time": 1258,
+        "state": "flight",
+        "hp": 83,
+        "x": 112,
+        "y": 0,
+        "z": -67.76000000000002,
+        "height": 67.76000000000002,
+        "paused": false,
+        "ownerPaused": false,
+        "ownerStop": 0,
+        "targetStop": 0,
+        "animation": "damage3",
+        "flightProcess": 4,
+        "banAttack": 0,
+        "dead": 0,
+        "stage": 3,
+        "ownerState": "stay",
+        "ownerX": 39.994,
+        "frame": 1,
+        "tick": 0,
+        "length": 6,
+        "attackColliderCount": 0,
+        "attackBoxes": {},
+        "buffered": true,
+        "sourceAttackRunning": true,
+        "events": [
+          {
+            "entity": "owner",
+            "animation": "source-idle-slots",
+            "type": "animation",
+            "time": 0
+          },
+          {
+            "stage": 1,
+            "type": "source-process",
+            "time": 34
+          },
+          {
+            "entity": "owner",
+            "animation": "source-katana-attack1",
+            "type": "animation",
+            "time": 34
+          },
+          {
+            "entity": "owner",
+            "state": "normalAttack",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 34
+          },
+          {
+            "entity": "target",
+            "animation": "damage1",
+            "type": "animation",
+            "time": 187
+          },
+          {
+            "entity": "target",
+            "state": "stun",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 187
+          },
+          {
+            "entity": "target",
+            "damage": 13,
+            "hp": 107,
+            "state": "stun",
+            "stage": 1,
+            "frame": 4,
+            "x": 54.5,
+            "y": 0,
+            "z": -63.5,
+            "type": "hit",
+            "time": 187
+          },
+          {
+            "damage": 13,
+            "x": 54.5,
+            "y": -63.5,
+            "critical": false,
+            "type": "damage-tip",
+            "time": 187
+          },
+          {
+            "stage": 2,
+            "type": "source-process",
+            "time": 374
+          },
+          {
+            "entity": "owner",
+            "animation": "source-katana-attack2",
+            "type": "animation",
+            "time": 374
+          },
+          {
+            "entity": "target",
+            "animation": "damage1",
+            "type": "animation",
+            "time": 476
+          },
+          {
+            "entity": "target",
+            "damage": 12,
+            "hp": 95,
+            "state": "stun",
+            "stage": 2,
+            "frame": 3,
+            "x": 66.5,
+            "y": 0,
+            "z": -67,
+            "type": "hit",
+            "time": 476
+          },
+          {
+            "damage": 12,
+            "x": 66.5,
+            "y": -67,
+            "critical": false,
+            "type": "damage-tip",
+            "time": 476
+          },
+          {
+            "stage": 3,
+            "type": "source-process",
+            "time": 663
+          },
+          {
+            "entity": "owner",
+            "animation": "source-katana-attack3",
+            "type": "animation",
+            "time": 663
+          },
+          {
+            "entity": "target",
+            "animation": "damage2",
+            "type": "animation",
+            "time": 765
+          },
+          {
+            "entity": "target",
+            "state": "flight",
+            "hp": 95,
+            "z": 0,
+            "type": "state",
+            "time": 765
+          },
+          {
+            "entity": "target",
+            "damage": 12,
+            "hp": 83,
+            "state": "flight",
+            "stage": 3,
+            "frame": 3,
+            "x": 88,
+            "y": 0,
+            "z": -40,
+            "type": "hit",
+            "time": 765
+          },
+          {
+            "damage": 12,
+            "x": 88,
+            "y": -40,
+            "critical": false,
+            "type": "damage-tip",
+            "time": 765
+          },
+          {
+            "entity": "target",
+            "animation": "damage1",
+            "type": "animation",
+            "time": 867
+          },
+          {
+            "entity": "target",
+            "animation": "damage2",
+            "type": "animation",
+            "time": 986
+          },
+          {
+            "entity": "target",
+            "animation": "damage3",
+            "type": "animation",
+            "time": 1088
+          },
+          {
+            "entity": "owner",
+            "animation": "source-idle-slots",
+            "type": "animation",
+            "time": 1258
+          },
+          {
+            "entity": "owner",
+            "state": "stay",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 1258
+          }
+        ]
+      },
+      "landscape": {
+        "width": 844,
+        "scrollWidth": 844,
+        "height": 390,
+        "canvas": {
+          "top": 101,
+          "bottom": 230.984375
+        },
+        "combo": {
+          "top": 296.484375,
+          "bottom": 340.484375
+        }
+      }
+    },
+    "scope": "Original Swordman NormalAttack/Frameani/Collider with placeholder graphics; Summoner and official DNF parity not covered"
+  },
+  "exitCode": 0
+}

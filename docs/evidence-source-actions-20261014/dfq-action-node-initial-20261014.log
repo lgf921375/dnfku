@@ -1,0 +1,43 @@
+✔ base41 plus action19 original files pass Git blob and SHA256 verification (0.92613ms)
+✔ source first action waits until tick3/frame4 before any HP damage (115.661403ms)
+✔ one unbuffered input finishes only first source stage and does not restart (206.280042ms)
+✔ real source buffer selects1→2→3 and actual contacts retain one target and HP (124.586787ms)
+✔ source hitstop freezes owner animation while target remains paused longer (36.406685ms)
+✔ off-depth combo uses real frame colliders and source movement without a forced hit (78.961813ms)
+✔ far opponent remains unharmed through source three-stage action (78.855319ms)
+✖ armor source flags reject stun/flight while each stage still deals one damage event (76.208817ms)
+✔ source down/sit timing advances during combo; original high boxes do not hit down (69.138773ms)
+✔ original target flight returns through down/sit/stay after completed action (159.408227ms)
+✔ source animation rate affects frame timing without changing contact geometry (44.291611ms)
+✔ reset removes buffered actions, clocks, moved positions and prior target HP (109.482646ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 11
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1219.78667
+
+✖ failing tests:
+
+test at tests/dfq-action-runtime.spec.mjs:21:1
+✖ armor source flags reject stun/flight while each stage still deals one damage event (76.208817ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  82 !== 83
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-action-runtime.spec.mjs:21:295)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 82,
+    expected: 83,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
