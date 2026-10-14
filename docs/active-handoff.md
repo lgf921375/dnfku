@@ -2,6 +2,7 @@
 
 ## 当前优先交接：现成Lua战斗代码直接接入（2026-10-14）
 
+- 最新代码检查点（远端对象已实际回读）：`499375a816c0ef0d11e3881d51d9977d753c08f0` / tree `62eed4ccb19b3c0cc6631ccf81b31170483e152c`，与本地完整树一致；后续仅本报告/交接补检查点，最终工作分支ref以实际回读为准。
 - 用户“差距还是很大。可以直接复刻用的dnf代码。不要自己从零开发”。起点local/remote `de8985016cfc451628ac6f5abb841fb719ff169f` / tree `98296b46d577419ca3d75797ad51b2238c10681e`，工作区干净，真实AGENTS/README/本交接/S9报告已读。停止扩展原创召唤师战斗模型，改直接执行源码；仍保留召唤师目标，无并行代理，不触碰其它项目。
 - **选源与实际接入**：DFQ-Original固定 `d4b9088d9e6efeede3e504d3b6e64e3a459aa012`，Apache-2.0，41原字节文件（33Lua+6cfg+许可/README）全部Git Blob匹配，源码/作者头/许可保留。Fengari直接解析原Lua，不转写成自创JS算法、不继承S9受击。调用原Attack.Update/DefaultCollide/SolidRect/BATTLE/Flight/Stun/Down/Sit/Easemove/HP与停顿系统。新增独立源码运行页/适配/输入夹具/测试，S1–S9保留。
 - **职业/真实性**：MiniDNF README只鬼剑士基础/狂战士部分，HEAD54383975与Unity-DNF4436c721当前许可元数据null；ArcticFox MIT但男鬼剑士/GGE且原素材范围另说明；onlyGuo客户端是登录器。DFQ测试配置是鬼剑士，未找到召唤师本人普攻专属实现，不以summon宠物模块替代，也未称全网没有。不是官方Neople客户端或完整游戏。
