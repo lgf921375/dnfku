@@ -1,0 +1,39 @@
+✔ every imported source byte matches its upstream Git blob and SHA256 lock (2.927815ms)
+✔ actual Attack.Update confirms contact, upstream HP callback and independent 100/50ms stops (93.304002ms)
+✔ upstream target dedup prevents repeated HP loss across an open attack window (60.595013ms)
+✔ actual SolidRect.DefaultCollide rejects depth-separated and high versus down fixtures (40.031043ms)
+✔ a low third attack hits down and uses upstream low rebound path without standing hurt (107.889412ms)
+✔ actual flight/easemove produces rise, fall, rebound, down500ms and sit150ms (88.325574ms)
+✔ upstream stun and flight prohibitions preserve armor while damage remains enabled (24.808515ms)
+✖ upstream sit state rejects further attack until its time-end transition (39.712952ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 7
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 594.022542
+
+✖ failing tests:
+
+test at tests/dfq-source-runtime.test.mjs:38:1
+✖ upstream sit state rejects further attack until its time-end transition (39.712952ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'flight' !== 'stay'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-source-runtime.test.mjs:39:198)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'flight',
+    expected: 'stay',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

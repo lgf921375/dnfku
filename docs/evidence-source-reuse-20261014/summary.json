@@ -1,0 +1,71 @@
+{
+  "startingCommit": "de8985016cfc451628ac6f5abb841fb719ff169f",
+  "startingTree": "98296b46d577419ca3d75797ad51b2238c10681e",
+  "source": "2DScrollGames/DFQ-Original@d4b9088d9e6efeede3e504d3b6e64e3a459aa012",
+  "filesUnmodified": 41,
+  "nodeInitial": {
+    "executed": 8,
+    "pass": 7,
+    "fail": 1,
+    "exitCode": 1
+  },
+  "nodeCorrected": {
+    "executed": 9,
+    "pass": 9,
+    "fail": 0,
+    "exitCode": 0
+  },
+  "nodeFinal": {
+    "executed": 10,
+    "pass": 10,
+    "fail": 0,
+    "exitCode": 0
+  },
+  "browserRuns": {
+    "initial": {
+      "count": 11,
+      "pass": 1,
+      "fail": 10,
+      "exitCode": 1
+    },
+    "corrected": {
+      "count": 11,
+      "pass": 10,
+      "fail": 1,
+      "exitCode": 1
+    },
+    "final": {
+      "count": 11,
+      "pass": 11,
+      "fail": 0,
+      "exitCode": 0
+    }
+  },
+  "finalSidecarMatch": true,
+  "pageErrors": [],
+  "consoleErrors": [],
+  "requestFailures": [],
+  "testedSHA256": {
+    "prototype/dfq-core-runtime.mjs": "2f720bd920b51eefabcf2ee091528e5eb9339745e1fa3f26809e1d850e5b330d",
+    "prototype/dfq-platform.lua": "c659e5288a7c3dcb0d2b00ac093353fec6fde1fc17ff48a5c17ccb2548ebde31",
+    "prototype/dfq-fixture.lua": "c31f0cfbdf321b50d7c60e009ac4ecb8a28236997d788152f82ba6a09f4ff6fb",
+    "prototype/build-dfq-source-lab.mjs": "6484c84f0d8bcc5bb8b142ea0315894b36da9808df2cd8bb2832915727ef106b",
+    "prototype/dfq-source-lab.template.html": "6283a5561ec6525e33d02a828c24d32fb9846fd9c11a0180c6fb091910cd24f4",
+    "prototype/dfq-source-lab.html": "1ac88b2d1603a438d089e2af464152e03dc47bbd68ca53720a33fe9e5c78fb85",
+    "prototype/vendor/fengari-web/fengari-web.js": "fbea0ee4b2e38840f96b03eb7ee162ae391127df26fccd000a2b8756535c8186",
+    "prototype/fonts/dfq-source-ui.woff": "72ad49c3ef1a8e26f884ffb2af4dc0eb7fbcbb7de40f42f61204a8bb41a11e43",
+    "tests/dfq-source-runtime.spec.mjs": "9a87eebccff1b8e833b79bc405609658908f1d15fbdf3dc30d7f8ea1667ebba3",
+    "tests/dfq-browser-acceptance.cjs": "2233199cca00b7f05906f61f5d52bbedd9d2b92bf054994223a6b362e1a26720",
+    "tests/juggle-lab-local.cjs": "211a289ef5aa91063eb4df32bc9e2bf2b9dd7ca99bcabf2c78f262b6740eda67"
+  },
+  "notCovered": [
+    "Official DNF source/client parity",
+    "Summoner-specific attack/skill code and frame animations",
+    "Complete DFQ LÖVE client, assets, maps and scheduler",
+    "Generic FFI beyond Point3/Color subset",
+    "PK accumulated protection",
+    "Complete death cleanup and sprites",
+    "Actual Android hardware/hand feel",
+    "Historical S1-S9 and V10/V11 browsers or Node273 rerun"
+  ]
+}

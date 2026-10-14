@@ -1,0 +1,255 @@
+{
+  "repository": "2DScrollGames/DFQ-Original",
+  "commit": "d4b9088d9e6efeede3e504d3b6e64e3a459aa012",
+  "license": "Apache-2.0",
+  "modulesUnmodified": true,
+  "files": [
+    {
+      "path": "source/core/class.lua",
+      "blobSHA": "32d1973fc0c675cac48dace485108547432a1249",
+      "sha256": "c6093f7dcb8ea07c19f10396ba5d38c6211997137db6b6616813ccd0c45bccbb",
+      "bytes": 1175
+    },
+    {
+      "path": "source/core/gear.lua",
+      "blobSHA": "69632fad6c955cf96afc7c0add57ce6f22ac145f",
+      "sha256": "182a7a8190c7bddc94f9754e255856845297749da2a068bd06b48095d758f949",
+      "bytes": 442
+    },
+    {
+      "path": "source/core/caller.lua",
+      "blobSHA": "694aa3435f050ed0d789f9f809e91d9ed19c2b26",
+      "sha256": "c49befba847ac418652d704e23e5071c29401a6494eecfeecef19e4757ab0993",
+      "bytes": 1180
+    },
+    {
+      "path": "source/lib/math.lua",
+      "blobSHA": "16caee09cb40ef8727e6e3ea72612d56630babfd",
+      "sha256": "65cc8211337d55b508453f1541171c59736709ecfcdda174bf7b2df9403d7a6c",
+      "bytes": 5146
+    },
+    {
+      "path": "source/lib/table.lua",
+      "blobSHA": "d72bec3545b6cea65854dbef32ef1b26c9bd0220",
+      "sha256": "9247ed74e2ade6c0b80b77a2fd7ef3f6691744058341927b033991b63cd60ca1",
+      "bytes": 6892
+    },
+    {
+      "path": "source/lib/time.lua",
+      "blobSHA": "29bbbe5a6848412e595413d8c369a27e9c629975",
+      "sha256": "853b5b41975fc3308297ec35cc7e778fcda7e820e13af1659f4cc82341218de2",
+      "bytes": 1023
+    },
+    {
+      "path": "source/lib/string.lua",
+      "blobSHA": "fe9fb2a956653b566dfc9640760220822d20e91d",
+      "sha256": "f476c5d66a704ef4da2ab457ce2487c93078dba461ce169b8a4a3e22bdf61c39",
+      "bytes": 8997
+    },
+    {
+      "path": "source/actor/state/base.lua",
+      "blobSHA": "cda658cb643ddd9b8589e20afe7770af216e1544",
+      "sha256": "c51a182287f9b18da69557147a7ce56ec7166c075d384c9a0b7a3f70674e9c94",
+      "bytes": 4917
+    },
+    {
+      "path": "source/actor/state/itimeEnd.lua",
+      "blobSHA": "d8d33f9151d67585b3df148212b777c692f728c4",
+      "sha256": "d7969e608f45f08266223f5a957aaba12b4ca8f3ba2afb3bed053e51d5814503",
+      "bytes": 630
+    },
+    {
+      "path": "source/actor/state/duelist/ibeaten.lua",
+      "blobSHA": "d6f0d4c400252fbcecd31317ca7a86fc693d04af",
+      "sha256": "159e7bea467efb2be752d93b8468c011ecd6bc910f64253ff219cb16d84e20ae",
+      "bytes": 522
+    },
+    {
+      "path": "source/actor/state/duelist/stun.lua",
+      "blobSHA": "ab586f40f0590ffebf75f4eca258e9a73f86d7c4",
+      "sha256": "073ecb4f580563d84bd54192dcfd76130ad8da5721d42044153101c6603fab52",
+      "bytes": 3077
+    },
+    {
+      "path": "source/actor/state/duelist/flight.lua",
+      "blobSHA": "3f1ae71636ab303f810019742948bf3c8ab49844",
+      "sha256": "c8eed9a05098911ea280635cffc20f2387563947371a2d723cc9f61ae2e5d9f9",
+      "bytes": 7407
+    },
+    {
+      "path": "source/actor/state/duelist/down.lua",
+      "blobSHA": "bfd6c6a7229bb3d65983ee4925d43282a033a590",
+      "sha256": "90fefc5bc6f4a5af890f682afe62ca5df41d28cde6daf039e3e534fb037ac8c4",
+      "bytes": 1125
+    },
+    {
+      "path": "source/actor/state/duelist/sit.lua",
+      "blobSHA": "ede8f9ad96e314a3af9a34844011160eb1baee09",
+      "sha256": "f935dd2c15fbb2ced8563030c47423301fd9555ae421adfeda7d4fcfe91e8dd7",
+      "bytes": 996
+    },
+    {
+      "path": "source/actor/service/state.lua",
+      "blobSHA": "d50ba84420d9a1bc7b2e08066c7f0f0673fe9dd2",
+      "sha256": "ae432bd15d477399bb1f3bb593e183ff33dbd7bf0014be03eaf9c1a8db8f7dc2",
+      "bytes": 1688
+    },
+    {
+      "path": "source/actor/service/battle.lua",
+      "blobSHA": "ac082b0304b07e2f931d94e5928e5bc0ca7b4a60",
+      "sha256": "1439cdfb9d8f52c3393efa09de6e2a92c3aa87b9a632616fc2d37e8b489af3dc",
+      "bytes": 6118
+    },
+    {
+      "path": "source/actor/service/attribute.lua",
+      "blobSHA": "69128fa94eb339095397362e75d0b51159c424b2",
+      "sha256": "df9809e5c2a403a0cbf17333b2e59726b9f1cb669cf2b9543183a05d01084242",
+      "bytes": 2564
+    },
+    {
+      "path": "source/actor/service/motion.lua",
+      "blobSHA": "0a1ad16bbfc000a8ee072076ffab0db6142a1337",
+      "sha256": "c31e47c8f5f36a0054ffaba84b205e73d482b75704dd53f2399113c97e9b00df",
+      "bytes": 5059
+    },
+    {
+      "path": "source/actor/gear/attack.lua",
+      "blobSHA": "3a5a16a6f70624edc9c7278455b547ac7fa6a655",
+      "sha256": "d032718da454e5df1ab2641a6738be6b02795cc16a6129fbbce811d230ed3fa8",
+      "bytes": 19941
+    },
+    {
+      "path": "source/actor/gear/easemove.lua",
+      "blobSHA": "9cc461116156a01f9d88cb0d9dbd4d62e9ef4cb9",
+      "sha256": "cbb739f75e58d88f1747955ef52affcdec10e606f01ac6bf5d7117b4c6c14db6",
+      "bytes": 1695
+    },
+    {
+      "path": "source/actor/component/attacker.lua",
+      "blobSHA": "60142c3571570c739df3895790723d3f722532f2",
+      "sha256": "fd4a338b09bec672b60c91c5fcf1730a00ebc2477d16499b062779fc2cf57857",
+      "bytes": 534
+    },
+    {
+      "path": "source/actor/component/battle.lua",
+      "blobSHA": "9c092d32049f4c243549e0d9ac88d480941bfc06",
+      "sha256": "5cecbf854c32186da16055abc5afc93e6884fa1e054e99581d7478e535d54200",
+      "bytes": 2489
+    },
+    {
+      "path": "source/actor/system/base.lua",
+      "blobSHA": "2833eb0bd5c98e6e256bb11f0753a20ba1c68a6f",
+      "sha256": "91a96afc7f313f93ce7156536eaf1c2232e1a71260858ccfb17431524a011d34",
+      "bytes": 2159
+    },
+    {
+      "path": "source/actor/system/attacker.lua",
+      "blobSHA": "fbc91eb06e4cfd5eed281e37b75a81871dcc2472",
+      "sha256": "5782221f8ea4a2a9268da6ff438ef799d04421752579728c0b6190a301019d25",
+      "bytes": 827
+    },
+    {
+      "path": "source/actor/system/attributes.lua",
+      "blobSHA": "d1d137e7891be471da17017b9f586bcac4d33b89",
+      "sha256": "515a184dab69ba01db70fd3cfaaa3e830e0e329acc520cae72b6a1a170ea6fa9",
+      "bytes": 2344
+    },
+    {
+      "path": "source/graphics/drawunit/rect.lua",
+      "blobSHA": "215ee726cf1ff92d70ded743786701132a0aaaa8",
+      "sha256": "c3714dbf8880303677bee9af1218c0856a5e08f16e0771aeeef8b1b825a4c1ac",
+      "bytes": 4520
+    },
+    {
+      "path": "source/graphics/drawunit/solidRect.lua",
+      "blobSHA": "dc5e6211a870f86f8aa1cbdb29c0d4c15159bca5",
+      "sha256": "f5ad206733f928351028dc1b0956a70828d0a83175aba619f4b2e09148ea86aa",
+      "bytes": 4440
+    },
+    {
+      "path": "source/graphics/drawunit/color.lua",
+      "blobSHA": "c6e8fb9d16e0d14bc736c3ceabbf099a61df5b72",
+      "sha256": "629ac9634bffcd8e9486e9b07dbc8b7dd87f2f59ff57ab6e2cb6933d0cb98552",
+      "bytes": 2231
+    },
+    {
+      "path": "source/graphics/drawunit/point3.lua",
+      "blobSHA": "3c0da9cc50722a7f97c615f5fa60ae41bf3a10e7",
+      "sha256": "65a0abf03a36e3331c206000e957db30ad1183d7735dd322c5ad2efe5adb3ec1",
+      "bytes": 2582
+    },
+    {
+      "path": "source/util/gear/timer.lua",
+      "blobSHA": "6130487683434d53a81dba1af928229b24b7fb70",
+      "sha256": "3ef6c9c6d50ad3eeb7a2a950e4ddbb428b7d011db71a2e11fc12f94ab1704a6d",
+      "bytes": 957
+    },
+    {
+      "path": "source/util/gear/valueMotion.lua",
+      "blobSHA": "188e05e63350217ff6439be6332ccf38db652983",
+      "sha256": "d7529bae0492ba6f4e3c7844c35a1e736f26fd03f2c8210157c3a25e97dcb39f",
+      "bytes": 1522
+    },
+    {
+      "path": "source/util/gear/shaker.lua",
+      "blobSHA": "65fe2486bfb4be74c71da96ae4ba03abe7576ac3",
+      "sha256": "516065d1d57af48de3a9d70dcc9fe9772bbae4212c45426eb0b077aae88e3a2f",
+      "bytes": 1440
+    },
+    {
+      "path": "config/actor/state/duelist/flight.cfg",
+      "blobSHA": "aad8d1a544649b32e338d7a172dfcd7191e8ba0b",
+      "sha256": "9653529671c70a504ddec0621c608a30568f1d588840c92b47730e6968ff34cd",
+      "bytes": 287
+    },
+    {
+      "path": "config/actor/state/duelist/stun.cfg",
+      "blobSHA": "384dfd526a4e6e42b2e6f0cb110ac843c1a24962",
+      "sha256": "9f0a780ca86ac5978361030cc90de68e7005eb1221b2a130f094d7752824f604",
+      "bytes": 198
+    },
+    {
+      "path": "config/actor/state/duelist/down.cfg",
+      "blobSHA": "ac7643602c80f7ec95f31a3b5ecc05c3c6eed3b0",
+      "sha256": "a9299dcefc933099b7e0dbbe4de3eaeeddd9099fffe67674d87a0349265babc8",
+      "bytes": 231
+    },
+    {
+      "path": "config/actor/state/duelist/sit.cfg",
+      "blobSHA": "764fd71afd84f23c25d016b2ca667df0d90ebad2",
+      "sha256": "04a78fa543c2dc7f38a63fdbcadb233bd67e8144750dde43ce6d8e9a61f8c580",
+      "bytes": 195
+    },
+    {
+      "path": "config/actor/state/duelist/swordman/normalAttack.cfg",
+      "blobSHA": "c3c2ac7abd6e2c3c9c7fe12abdba80438fcdc143",
+      "sha256": "8fa63764bad414b1b69237f6266742c3268ae31339adca22c3f9f910c587ab11",
+      "bytes": 3110
+    },
+    {
+      "path": "config/actor/state/duelist/swordman/upperSlash.cfg",
+      "blobSHA": "4869a71396300fc151507878b508794905bbff55",
+      "sha256": "b19840c31c39073ead1e7f7806e809d207f734637106165f6fa9f90120c363fc",
+      "bytes": 1310
+    },
+    {
+      "path": "LICENSE",
+      "blobSHA": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "bytes": 11357
+    },
+    {
+      "path": "README.md",
+      "blobSHA": "eda2e510746ebc9bffd6aef1795c03cacaf312a3",
+      "sha256": "a37df2ad93f7aed8f5591a585a3e2c236dfbd6ba7105b4502e98d98957e88fa7",
+      "bytes": 777
+    },
+    {
+      "path": "source/actor/system/states.lua",
+      "blobSHA": "f2b03ebdd68d3e015a515b0f0e3a99ba484bacf9",
+      "sha256": "0de5a5a2f51efbcf663fbf2e3641b3377f32d61ef0e6d259dcb0b97ed96e247e",
+      "bytes": 951
+    }
+  ],
+  "excluded": "Original DNF images/audio, full game assets, other jobs not implemented by this source"
+}

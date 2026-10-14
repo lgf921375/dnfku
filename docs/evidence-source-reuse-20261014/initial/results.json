@@ -1,0 +1,122 @@
+{
+  "status": "failed-or-blocked",
+  "sandboxRequested": false,
+  "actualSandbox": "Chromium沙箱已关闭；用户长期授权隔离Work本地测试",
+  "checks": [],
+  "errors": [
+    "module is not defined",
+    "fengari is not defined",
+    "dfqLab is not defined"
+  ],
+  "consoleErrors": [],
+  "requestFailures": [],
+  "cases": {},
+  "videos": [],
+  "androidHandFeel": "NOT COVERED",
+  "visualSimilarity": "NOT COVERED",
+  "authorization": {
+    "userResponse": "永久授权本地测试",
+    "userMessageShanghai": "2026-10-13T10:29:09+08:00",
+    "project": "lgf921375/dnfku",
+    "scope": "isolated-Work-local-loopback-only",
+    "browserSandbox": false,
+    "policy": "persistent-local-only",
+    "runs": "ongoing",
+    "limits": [
+      "Only isolated Work local tests; bind HTTP to 127.0.0.1",
+      "Report Chromium sandbox disabled honestly",
+      "Do not change host sandbox, proxy or system permissions",
+      "No production deployment/restart or other project changes",
+      "No automatic GitHub Actions triggers from this local authorization"
+    ],
+    "reaffirmations": [
+      {
+        "userResponse": "永久授权帮我测",
+        "userMessageShanghai": "2026-10-13T11:47:40+08:00",
+        "scope": "same isolated Work local project testing"
+      }
+    ]
+  },
+  "binding": {
+    "address": "127.0.0.1",
+    "family": "IPv4",
+    "port": 38159
+  },
+  "browserVersion": "151.0.7922.34",
+  "baselines": "NOT RUN: explicit DNFKU_LOCAL_SUITE=dfq",
+  "dfq": {
+    "status": "failed-dfq-browser",
+    "checks": [
+      {
+        "name": "41 source files and fixed DFQ commit loaded with browser VM",
+        "status": "FAIL",
+        "error": "page.evaluate: ReferenceError: dfqLab is not defined\n    at eval (eval at evaluate (:311:30), <anonymous>:1:23)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at /workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:9:90\n    at check (/workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:4:68)\n    at Object.runDFQBrowserAcceptance (/workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:9:8)\n    at async worker (/workspace/scratch/fddb459d7ec2/dnfku/tests/juggle-lab-local.cjs:103:7)"
+      },
+      {
+        "name": "public first attack actually uses source stun, HP callback and 100/50ms stops",
+        "status": "FAIL",
+        "error": "page.waitForFunction: ReferenceError: dfqLab is not defined\n    at eval (eval at predicate (eval at evaluate (:311:30)), <anonymous>:1:23)\n    at predicate (eval at evaluate (:311:30), <anonymous>:7:27)\n    at next (eval at evaluate (:311:30), <anonymous>:29:33)\n    at eval (eval at evaluate (:311:30), <anonymous>:42:13)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at wait (/workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:6:22)\n    at /workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:10:197\n    at async check (/workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:4:62)\n    at async Object.runDFQBrowserAcceptance (/workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:10:2)\n    at async worker (/workspace/scratch/fddb459d7ec2/dnfku/tests/juggle-lab-local.cjs:103:7)"
+      },
+      {
+        "name": "source window does not repeatedly damage while held open over fixed ticks",
+        "status": "FAIL",
+        "error": "page.waitForFunction: ReferenceError: dfqLab is not defined\n    at eval (eval at predicate (eval at evaluate (:311:30)), <anonymous>:1:25)\n    at predicate (eval at evaluate (:311:30), <anonymous>:7:27)\n    at next (eval at evaluate (:311:30), <anonymous>:29:33)\n    at eval (eval at evaluate (:311:30), <anonymous>:42:13)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at wait (/workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:6:22)\n    at /workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:11:144\n    at async check (/workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:4:62)\n    at async Object.runDFQBrowserAcceptance (/workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:11:2)\n    at async worker (/workspace/scratch/fddb459d7ec2/dnfku/tests/juggle-lab-local.cjs:103:7)"
+      },
+      {
+        "name": "public source third attack goes through flight, rebound, down and sit back to stay",
+        "status": "FAIL",
+        "error": "page.waitForFunction: ReferenceError: dfqLab is not defined\n    at eval (eval at predicate (eval at evaluate (:311:30)), <anonymous>:1:27)\n    at predicate (eval at evaluate (:311:30), <anonymous>:7:27)\n    at next (eval at evaluate (:311:30), <anonymous>:29:33)\n    at eval (eval at evaluate (:311:30), <anonymous>:42:13)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at wait (/workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:6:22)\n    at /workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:12:167\n    at async check (/workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:4:62)\n    at async Object.runDFQBrowserAcceptance (/workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:12:2)\n    at async worker (/workspace/scratch/fddb459d7ec2/dnfku/tests/juggle-lab-local.cjs:103:7)"
+      },
+      {
+        "name": "depth axis is rejected by actual upstream SolidRect",
+        "status": "FAIL",
+        "error": "page.waitForFunction: ReferenceError: dfqLab is not defined\n    at eval (eval at predicate (eval at evaluate (:311:30)), <anonymous>:1:25)\n    at predicate (eval at evaluate (:311:30), <anonymous>:7:27)\n    at next (eval at evaluate (:311:30), <anonymous>:29:33)\n    at eval (eval at evaluate (:311:30), <anonymous>:42:13)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at wait (/workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:6:22)\n    at /workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:13:172\n    at async check (/workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:4:62)\n    at async Object.runDFQBrowserAcceptance (/workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:13:2)\n    at async worker (/workspace/scratch/fddb459d7ec2/dnfku/tests/juggle-lab-local.cjs:103:7)"
+      },
+      {
+        "name": "high attack misses downed body and source low third can contact it",
+        "status": "FAIL",
+        "error": "page.evaluate: ReferenceError: dfqLab is not defined\n    at eval (eval at evaluate (:311:30), <anonymous>:1:12)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at state (/workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:5:23)\n    at /workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:14:204\n    at async check (/workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:4:62)\n    at async Object.runDFQBrowserAcceptance (/workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:14:2)\n    at async worker (/workspace/scratch/fddb459d7ec2/dnfku/tests/juggle-lab-local.cjs:103:7)"
+      },
+      {
+        "name": "source armor ban flags suppress flight while HP still decreases",
+        "status": "FAIL",
+        "error": "page.waitForFunction: ReferenceError: dfqLab is not defined\n    at eval (eval at predicate (eval at evaluate (:311:30)), <anonymous>:1:23)\n    at predicate (eval at evaluate (:311:30), <anonymous>:7:27)\n    at next (eval at evaluate (:311:30), <anonymous>:29:33)\n    at eval (eval at evaluate (:311:30), <anonymous>:42:13)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at wait (/workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:6:22)\n    at /workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:15:185\n    at async check (/workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:4:62)\n    at async Object.runDFQBrowserAcceptance (/workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:15:2)\n    at async worker (/workspace/scratch/fddb459d7ec2/dnfku/tests/juggle-lab-local.cjs:103:7)"
+      },
+      {
+        "name": "Chinese offline font is loaded without a network dependency",
+        "status": "PASS"
+      },
+      {
+        "name": "portrait390x844 actual touch input triggers source third-stage behavior",
+        "status": "FAIL",
+        "error": "page.waitForFunction: ReferenceError: dfqLab is not defined\n    at eval (eval at predicate (eval at evaluate (:311:30)), <anonymous>:1:27)\n    at predicate (eval at evaluate (:311:30), <anonymous>:7:27)\n    at next (eval at evaluate (:311:30), <anonymous>:29:33)\n    at eval (eval at evaluate (:311:30), <anonymous>:42:13)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at wait (/workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:6:22)\n    at /workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:17:205\n    at async check (/workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:4:62)\n    at async Object.runDFQBrowserAcceptance (/workspace/scratch/fddb459d7ec2/dnfku/tests/dfq-browser-acceptance.cjs:17:2)\n    at async worker (/workspace/scratch/fddb459d7ec2/dnfku/tests/juggle-lab-local.cjs:103:7)"
+      },
+      {
+        "name": "landscape844x390 source Canvas and launch control visible together",
+        "status": "FAIL"
+      },
+      {
+        "name": "no page, console, request or Lua runtime errors",
+        "status": "FAIL"
+      }
+    ],
+    "cases": {
+      "landscape": {
+        "height": 390,
+        "width": 844,
+        "scrollWidth": 844,
+        "canvas": {
+          "top": 101,
+          "bottom": 295.984375
+        },
+        "launch": {
+          "top": 361.484375,
+          "bottom": 405.484375
+        }
+      }
+    },
+    "scope": "Original DFQ modules through Fengari and an explicit blank-stage adapter; no official DNF/Summoner animation parity"
+  },
+  "error": "Error: Original Lua source browser acceptance failed; see dfq-results.json\n    at worker (/workspace/scratch/fddb459d7ec2/dnfku/tests/juggle-lab-local.cjs:104:57)",
+  "exitCode": 1
+}

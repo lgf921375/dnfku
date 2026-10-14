@@ -10,6 +10,7 @@ const {runSummonerVictimS5Acceptance}=require('./summoner-victim-s5-acceptance.c
 const {runSummonerVictimS6Acceptance}=require('./summoner-victim-s6-acceptance.cjs');
 const {runSummonerContactS7Acceptance}=require('./summoner-contact-s7-acceptance.cjs');
 const root=path.resolve(__dirname,'..');
+const dfqOnly=process.env.DNFKU_LOCAL_SUITE==='dfq';
 const summonerOnly=process.env.DNFKU_LOCAL_SUITE==='summoner';
 const summonerVersion=process.env.DNFKU_SUMMONER_CANDIDATE==='s9'?'S9':process.env.DNFKU_SUMMONER_CANDIDATE==='s8'?'S8':process.env.DNFKU_SUMMONER_CANDIDATE==='s7'?'S7':process.env.DNFKU_SUMMONER_CANDIDATE==='s6'?'S6':process.env.DNFKU_SUMMONER_CANDIDATE==='s5'?'S5':process.env.DNFKU_SUMMONER_CANDIDATE==='s4'?'S4':process.env.DNFKU_SUMMONER_CANDIDATE==='s3'?'S3':process.env.DNFKU_SUMMONER_CANDIDATE==='s2'?'S2':'S1';
 const summonerPage='/summoner-lab-'+summonerVersion.toLowerCase()+'.html';
@@ -82,7 +83,7 @@ async function worker(){
       if(claim.nonce!==authorizationNonce)throw Error('Authorization is not assigned to this worker');
       result.authorization=env.authorization;
     }
-    const pages=new Map(['/juggle-lab-v11.html','/feedback-lab-v10.html','/summoner-lab-s1.html','/summoner-lab-s2.html','/summoner-lab-s3.html','/summoner-lab-s4.html','/summoner-lab-s5.html','/summoner-lab-s6.html','/summoner-lab-s7.html','/summoner-lab-s8.html','/summoner-lab-s9.html'].map(url=>[url,fs.readFileSync(path.join(root,'prototype',url.slice(1)))]));
+    const pages=new Map(['/dfq-source-lab.html','/juggle-lab-v11.html','/feedback-lab-v10.html','/summoner-lab-s1.html','/summoner-lab-s2.html','/summoner-lab-s3.html','/summoner-lab-s4.html','/summoner-lab-s5.html','/summoner-lab-s6.html','/summoner-lab-s7.html','/summoner-lab-s8.html','/summoner-lab-s9.html'].map(url=>[url,fs.readFileSync(path.join(root,'prototype',url.slice(1)))]));
     server=http.createServer((req,res)=>{const bytes=pages.get(req.url);if(!bytes){res.writeHead(404);res.end();return;}res.writeHead(200,{'Content-Type':'text/html; charset=utf-8','Content-Length':bytes.length,'Cache-Control':'no-store'});res.end(bytes);});
     await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(0,'127.0.0.1',resolve);});
     result.binding=server.address();const origin=`http://127.0.0.1:${result.binding.port}`;
@@ -97,6 +98,11 @@ async function worker(){
     page.on('pageerror',e=>result.errors.push(e.message));page.on('console',m=>{if(m.type()==='error')result.consoleErrors.push(m.text());});page.on('requestfailed',r=>result.requestFailures.push({url:r.url().split('?')[0],error:r.failure()?.errorText}));
     // Default suite preserves both historical baselines. A declared S1-only run
     // supports diagnostics without pretending that skipped baselines ran again.
+    if(dfqOnly){
+      result.baselines='NOT RUN: explicit DNFKU_LOCAL_SUITE=dfq';
+      await require('./dfq-browser-acceptance.cjs').runDFQBrowserAcceptance({page,dir,url:origin+'/dfq-source-lab.html',result});
+      if(result.dfq.status!=='passed-dfq-browser')throw Error('Original Lua source browser acceptance failed; see dfq-results.json');
+    }else{
     if(!summonerOnly){
     result.v10={assertions:0,status:'running'};
     await page.goto(origin+'/feedback-lab-v10.html',{waitUntil:'load'});
@@ -160,6 +166,7 @@ async function worker(){
       // internal visual inspection; the tested desktop Canvas video is retained.
       await runSummonerMobileAcceptance({page,dir,url:origin+summonerPage,result});
       if(result.mobile.status!=='passed-mobile-viewport')throw Error('Mobile-size touch/layout acceptance failed; see mobile-results.json');
+    }
     }
     result.status='passed-browser';
   }catch(e){result.error=e.stack;process.exitCode=1;if(page)try{await page.mouse.up();

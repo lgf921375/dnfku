@@ -1,0 +1,666 @@
+{
+  "status": "passed-browser",
+  "sandboxRequested": false,
+  "actualSandbox": "Chromium沙箱已关闭；用户长期授权隔离Work本地测试",
+  "checks": [],
+  "errors": [],
+  "consoleErrors": [],
+  "requestFailures": [],
+  "cases": {},
+  "videos": [],
+  "androidHandFeel": "NOT COVERED",
+  "visualSimilarity": "NOT COVERED",
+  "authorization": {
+    "userResponse": "永久授权本地测试",
+    "userMessageShanghai": "2026-10-13T10:29:09+08:00",
+    "project": "lgf921375/dnfku",
+    "scope": "isolated-Work-local-loopback-only",
+    "browserSandbox": false,
+    "policy": "persistent-local-only",
+    "runs": "ongoing",
+    "limits": [
+      "Only isolated Work local tests; bind HTTP to 127.0.0.1",
+      "Report Chromium sandbox disabled honestly",
+      "Do not change host sandbox, proxy or system permissions",
+      "No production deployment/restart or other project changes",
+      "No automatic GitHub Actions triggers from this local authorization"
+    ],
+    "reaffirmations": [
+      {
+        "userResponse": "永久授权帮我测",
+        "userMessageShanghai": "2026-10-13T11:47:40+08:00",
+        "scope": "same isolated Work local project testing"
+      }
+    ]
+  },
+  "binding": {
+    "address": "127.0.0.1",
+    "family": "IPv4",
+    "port": 37343
+  },
+  "browserVersion": "151.0.7922.34",
+  "baselines": "NOT RUN: explicit DNFKU_LOCAL_SUITE=dfq",
+  "dfq": {
+    "status": "passed-dfq-browser",
+    "checks": [
+      {
+        "name": "41 source files and fixed DFQ commit loaded with browser VM",
+        "status": "PASS"
+      },
+      {
+        "name": "public first attack actually uses source stun, HP callback and 100/50ms stops",
+        "status": "PASS"
+      },
+      {
+        "name": "source window does not repeatedly damage while held open over fixed ticks",
+        "status": "PASS"
+      },
+      {
+        "name": "public source third attack goes through flight, rebound, down and sit back to stay",
+        "status": "PASS"
+      },
+      {
+        "name": "depth axis is rejected by actual upstream SolidRect",
+        "status": "PASS"
+      },
+      {
+        "name": "high attack misses downed body and source low third can contact it",
+        "status": "PASS"
+      },
+      {
+        "name": "source armor ban flags suppress flight while HP still decreases",
+        "status": "PASS"
+      },
+      {
+        "name": "Chinese offline font is loaded without a network dependency",
+        "status": "PASS"
+      },
+      {
+        "name": "portrait390x844 actual touch input triggers source third-stage behavior",
+        "status": "PASS"
+      },
+      {
+        "name": "landscape844x390 source Canvas and launch control visible together",
+        "status": "PASS"
+      },
+      {
+        "name": "no page, console, request or Lua runtime errors",
+        "status": "PASS"
+      }
+    ],
+    "cases": {
+      "first": {
+        "time": 51,
+        "state": "stun",
+        "hp": 108,
+        "x": 45,
+        "y": 0,
+        "z": 0,
+        "height": 0,
+        "paused": true,
+        "ownerPaused": true,
+        "ownerStop": 50,
+        "targetStop": 100,
+        "animation": "damage2",
+        "flightProcess": 0,
+        "banAttack": 0,
+        "dead": 0,
+        "stage": 1,
+        "events": [
+          {
+            "stage": 1,
+            "hitstop": 100,
+            "selfstop": 50,
+            "fixture": true,
+            "type": "attack-start",
+            "time": 51
+          },
+          {
+            "entity": "target",
+            "animation": "damage2",
+            "type": "animation",
+            "time": 51
+          },
+          {
+            "entity": "target",
+            "state": "stun",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 51
+          },
+          {
+            "entity": "target",
+            "damage": 12,
+            "hp": 108,
+            "state": "stun",
+            "x": 45,
+            "y": 0,
+            "z": -52.5,
+            "type": "hit",
+            "time": 51
+          },
+          {
+            "damage": 12,
+            "x": 45,
+            "y": -52.5,
+            "critical": false,
+            "type": "damage-tip",
+            "time": 51
+          }
+        ]
+      },
+      "dedup": {
+        "time": 357,
+        "state": "stun",
+        "hp": 108,
+        "x": 60,
+        "y": 0,
+        "z": 0,
+        "height": 0,
+        "paused": false,
+        "ownerPaused": false,
+        "ownerStop": 0,
+        "targetStop": 0,
+        "animation": "damage2",
+        "flightProcess": 0,
+        "banAttack": 0,
+        "dead": 0,
+        "stage": 1,
+        "events": [
+          {
+            "stage": 1,
+            "hitstop": 100,
+            "selfstop": 50,
+            "fixture": true,
+            "type": "attack-start",
+            "time": 51
+          },
+          {
+            "entity": "target",
+            "animation": "damage2",
+            "type": "animation",
+            "time": 51
+          },
+          {
+            "entity": "target",
+            "state": "stun",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 51
+          },
+          {
+            "entity": "target",
+            "damage": 12,
+            "hp": 108,
+            "state": "stun",
+            "x": 45,
+            "y": 0,
+            "z": -52.5,
+            "type": "hit",
+            "time": 51
+          },
+          {
+            "damage": 12,
+            "x": 45,
+            "y": -52.5,
+            "critical": false,
+            "type": "damage-tip",
+            "time": 51
+          }
+        ]
+      },
+      "up": {
+        "time": 170,
+        "state": "flight",
+        "hp": 108,
+        "x": 48,
+        "y": 0,
+        "z": -21.498,
+        "height": 21.498,
+        "paused": false,
+        "ownerPaused": false,
+        "ownerStop": 0,
+        "targetStop": 0,
+        "animation": "damage1",
+        "flightProcess": 1,
+        "banAttack": 0,
+        "dead": 0,
+        "stage": 3,
+        "events": [
+          {
+            "stage": 3,
+            "hitstop": 100,
+            "selfstop": 50,
+            "fixture": true,
+            "type": "attack-start",
+            "time": 34
+          },
+          {
+            "entity": "target",
+            "animation": "damage2",
+            "type": "animation",
+            "time": 34
+          },
+          {
+            "entity": "target",
+            "state": "flight",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 34
+          },
+          {
+            "entity": "target",
+            "damage": 12,
+            "hp": 108,
+            "state": "flight",
+            "x": 45,
+            "y": 0,
+            "z": -10,
+            "type": "hit",
+            "time": 34
+          },
+          {
+            "damage": 12,
+            "x": 45,
+            "y": -10,
+            "critical": false,
+            "type": "damage-tip",
+            "time": 34
+          },
+          {
+            "entity": "target",
+            "animation": "damage1",
+            "type": "animation",
+            "time": 136
+          }
+        ]
+      },
+      "chain": {
+        "time": 1717,
+        "state": "stay",
+        "hp": 108,
+        "x": 100,
+        "y": 0,
+        "z": 0,
+        "height": 0,
+        "paused": false,
+        "ownerPaused": false,
+        "ownerStop": 0,
+        "targetStop": 0,
+        "animation": "sit",
+        "flightProcess": 0,
+        "banAttack": 0,
+        "dead": 0,
+        "stage": 3,
+        "events": [
+          {
+            "stage": 3,
+            "hitstop": 100,
+            "selfstop": 50,
+            "fixture": true,
+            "type": "attack-start",
+            "time": 34
+          },
+          {
+            "entity": "target",
+            "animation": "damage2",
+            "type": "animation",
+            "time": 34
+          },
+          {
+            "entity": "target",
+            "state": "flight",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 34
+          },
+          {
+            "entity": "target",
+            "damage": 12,
+            "hp": 108,
+            "state": "flight",
+            "x": 45,
+            "y": 0,
+            "z": -10,
+            "type": "hit",
+            "time": 34
+          },
+          {
+            "damage": 12,
+            "x": 45,
+            "y": -10,
+            "critical": false,
+            "type": "damage-tip",
+            "time": 34
+          },
+          {
+            "entity": "target",
+            "animation": "damage1",
+            "type": "animation",
+            "time": 136
+          },
+          {
+            "entity": "target",
+            "animation": "damage2",
+            "type": "animation",
+            "time": 255
+          },
+          {
+            "entity": "target",
+            "animation": "damage3",
+            "type": "animation",
+            "time": 357
+          },
+          {
+            "entity": "target",
+            "animation": "damage3",
+            "type": "animation",
+            "time": 646
+          },
+          {
+            "entity": "target",
+            "animation": "damage3",
+            "type": "animation",
+            "time": 748
+          },
+          {
+            "entity": "target",
+            "animation": "damage3",
+            "type": "animation",
+            "time": 833
+          },
+          {
+            "entity": "target",
+            "animation": "damage4",
+            "type": "animation",
+            "time": 867
+          },
+          {
+            "entity": "target",
+            "animation": "damage4",
+            "type": "animation",
+            "time": 1003
+          },
+          {
+            "entity": "target",
+            "animation": "down",
+            "type": "animation",
+            "time": 1054
+          },
+          {
+            "entity": "target",
+            "state": "down",
+            "hp": 108,
+            "z": 0,
+            "type": "state",
+            "time": 1054
+          },
+          {
+            "entity": "target",
+            "animation": "sit",
+            "type": "animation",
+            "time": 1564
+          },
+          {
+            "entity": "target",
+            "state": "sit",
+            "hp": 108,
+            "z": 0,
+            "type": "state",
+            "time": 1564
+          },
+          {
+            "entity": "target",
+            "state": "stay",
+            "hp": 108,
+            "z": 0,
+            "type": "state",
+            "time": 1717
+          }
+        ]
+      },
+      "depth": {
+        "time": 204,
+        "state": "stay",
+        "hp": 120,
+        "x": 45,
+        "y": 100,
+        "z": 0,
+        "height": 0,
+        "paused": false,
+        "ownerPaused": false,
+        "ownerStop": 0,
+        "targetStop": 0,
+        "flightProcess": 0,
+        "banAttack": 0,
+        "dead": 0,
+        "stage": 3,
+        "events": [
+          {
+            "stage": 3,
+            "hitstop": 100,
+            "selfstop": 50,
+            "fixture": true,
+            "type": "attack-start",
+            "time": 17
+          }
+        ]
+      },
+      "down": {
+        "time": 34,
+        "state": "flight",
+        "hp": 107,
+        "x": 45,
+        "y": 0,
+        "z": 0,
+        "height": 0,
+        "paused": true,
+        "ownerPaused": true,
+        "ownerStop": 50,
+        "targetStop": 100,
+        "animation": "damage4",
+        "flightProcess": 1,
+        "banAttack": 0,
+        "dead": 0,
+        "stage": 3,
+        "events": [
+          {
+            "entity": "target",
+            "animation": "down",
+            "type": "animation",
+            "time": 0
+          },
+          {
+            "entity": "target",
+            "state": "down",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 0
+          },
+          {
+            "stage": 1,
+            "hitstop": 100,
+            "selfstop": 50,
+            "fixture": true,
+            "type": "attack-start",
+            "time": 34
+          },
+          {
+            "stage": 3,
+            "hitstop": 100,
+            "selfstop": 50,
+            "fixture": true,
+            "type": "attack-start",
+            "time": 34
+          },
+          {
+            "entity": "target",
+            "animation": "damage4",
+            "type": "animation",
+            "time": 34
+          },
+          {
+            "entity": "target",
+            "state": "flight",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 34
+          },
+          {
+            "entity": "target",
+            "damage": 13,
+            "hp": 107,
+            "state": "flight",
+            "x": 45,
+            "y": 0,
+            "z": -9,
+            "type": "hit",
+            "time": 34
+          },
+          {
+            "damage": 13,
+            "x": 45,
+            "y": -9,
+            "critical": false,
+            "type": "damage-tip",
+            "time": 34
+          }
+        ]
+      },
+      "armor": {
+        "time": 17,
+        "state": "stay",
+        "hp": 108,
+        "x": 45,
+        "y": 0,
+        "z": 0,
+        "height": 0,
+        "paused": true,
+        "ownerPaused": true,
+        "ownerStop": 50,
+        "targetStop": 100,
+        "flightProcess": 0,
+        "banAttack": 0,
+        "dead": 0,
+        "stage": 3,
+        "events": [
+          {
+            "stage": 3,
+            "hitstop": 100,
+            "selfstop": 50,
+            "fixture": true,
+            "type": "attack-start",
+            "time": 17
+          },
+          {
+            "entity": "target",
+            "damage": 12,
+            "hp": 108,
+            "state": "stay",
+            "x": 45,
+            "y": 0,
+            "z": -10,
+            "type": "hit",
+            "time": 17
+          },
+          {
+            "damage": 12,
+            "x": 45,
+            "y": -10,
+            "critical": false,
+            "type": "damage-tip",
+            "time": 17
+          }
+        ]
+      },
+      "phone": {
+        "time": 170,
+        "state": "flight",
+        "hp": 108,
+        "x": 48,
+        "y": 0,
+        "z": -21.498,
+        "height": 21.498,
+        "paused": false,
+        "ownerPaused": false,
+        "ownerStop": 0,
+        "targetStop": 0,
+        "animation": "damage1",
+        "flightProcess": 1,
+        "banAttack": 0,
+        "dead": 0,
+        "stage": 3,
+        "events": [
+          {
+            "stage": 3,
+            "hitstop": 100,
+            "selfstop": 50,
+            "fixture": true,
+            "type": "attack-start",
+            "time": 34
+          },
+          {
+            "entity": "target",
+            "animation": "damage2",
+            "type": "animation",
+            "time": 34
+          },
+          {
+            "entity": "target",
+            "state": "flight",
+            "hp": 120,
+            "z": 0,
+            "type": "state",
+            "time": 34
+          },
+          {
+            "entity": "target",
+            "damage": 12,
+            "hp": 108,
+            "state": "flight",
+            "x": 45,
+            "y": 0,
+            "z": -10,
+            "type": "hit",
+            "time": 34
+          },
+          {
+            "damage": 12,
+            "x": 45,
+            "y": -10,
+            "critical": false,
+            "type": "damage-tip",
+            "time": 34
+          },
+          {
+            "entity": "target",
+            "animation": "damage1",
+            "type": "animation",
+            "time": 136
+          }
+        ]
+      },
+      "landscape": {
+        "height": 390,
+        "width": 844,
+        "scrollWidth": 844,
+        "canvas": {
+          "top": 101,
+          "bottom": 235.984375
+        },
+        "launch": {
+          "top": 301.484375,
+          "bottom": 345.484375
+        }
+      }
+    },
+    "scope": "Original DFQ modules through Fengari and an explicit blank-stage adapter; no official DNF/Summoner animation parity"
+  },
+  "exitCode": 0
+}

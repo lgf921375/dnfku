@@ -1,0 +1,18 @@
+✔ every imported source byte matches its upstream Git blob and SHA256 lock (2.206106ms)
+✔ actual Attack.Update confirms contact, upstream HP callback and independent 100/50ms stops (82.444112ms)
+✔ upstream target dedup prevents repeated HP loss across an open attack window (60.751023ms)
+✔ actual SolidRect.DefaultCollide rejects depth-separated and high versus down fixtures (44.702528ms)
+✔ a low third attack hits down and uses upstream low rebound path without standing hurt (90.507824ms)
+✔ actual flight/easemove produces rise, fall, rebound, down500ms and sit150ms (84.874286ms)
+✔ upstream stun and flight prohibitions preserve armor while damage remains enabled (30.123145ms)
+✔ upstream sit state rejects further attack until its time-end transition (48.375982ms)
+✔ an explicitly held-open source hit window can hit once after sit immunity ends (37.963079ms)
+✔ a prior miss still consumes upstream damage randomization without creating a hit (22.806061ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 625.337993

@@ -1,0 +1,10 @@
+{
+  "htmlSHA256": "1ac88b2d1603a438d089e2af464152e03dc47bbd68ca53720a33fe9e5c78fb85",
+  "buildDeterministic": true,
+  "sourcePin": "d4b9088d9e6efeede3e504d3b6e64e3a459aa012",
+  "importedFiles": 41,
+  "fontChineseCount": 174,
+  "fontMissing": [],
+  "vmBrowserVersion": "0.1.4",
+  "vmNodeVersion": "0.1.5"
+}
