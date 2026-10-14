@@ -1,0 +1,1487 @@
+{
+  "scope": "continue unfinished Summoner/female-Mage source research; no rerun of prior implementation or tests",
+  "restoration": {
+    "localBefore": "135628ff2583ca45afa6b7116bb1f2e08583d8fb",
+    "savedRemote": "68756ba1e68152e4c118314c276a8efcb64b9691",
+    "restoredTree": "714adaf8479e6c6d608558ac18fe940256308e62",
+    "method": "clean fast-forward, no lost changes",
+    "observedRunningTestProcesses": []
+  },
+  "testsThisTurn": "NOT RUN",
+  "productChangesThisTurn": false,
+  "candidates": [
+    {
+      "repository": "cloud8352/Dfqo",
+      "commit": "ada151f0eabdcaec386087d736a5b295863fcfad",
+      "branch": "diy",
+      "licenseMetadata": "Apache-2.0"
+    },
+    {
+      "repository": "Highnesslin/Dfqo",
+      "commit": "72dbbc08de45346da431bee666717ae99fa0d56e",
+      "branch": "diy",
+      "licenseMetadata": "Apache-2.0"
+    },
+    {
+      "repository": "baidwwy/dnf-godot",
+      "commit": "e8d13dc8a3c3018476da61fcae4af9a30da8438b",
+      "branch": "master",
+      "licenseMetadata": "MIT"
+    },
+    {
+      "repository": "PatrickZhu0/DF_GO",
+      "commit": "a85f9fbdbd2aa86e9e1b83b726c36bb240905d21",
+      "branch": "main",
+      "licenseMetadata": null
+    },
+    {
+      "repository": "prs-0x9/DNF-Godot",
+      "commit": "5b876247b16f2d9957395ecac4d8ff6623065700",
+      "branch": "main",
+      "licenseMetadata": "MIT"
+    },
+    {
+      "repository": "trianglestrip/template-beat-em-up-dnf",
+      "commit": "ba9542d79b013b6446af1501f74dea3fcde0dcfc",
+      "branch": "main",
+      "licenseMetadata": "MIT"
+    },
+    {
+      "repository": "Lucky-Koishi/AS2_Shoot-the-mages",
+      "commit": "14cf2ca8255be964104770c042346d20438fa434",
+      "branch": "master",
+      "licenseMetadata": null
+    }
+  ],
+  "sourceTrees": {
+    "cloudDfqo": {
+      "sha": "5e9c3feba655e61da9485ff359830886171371c2",
+      "entries": 439,
+      "truncated": false
+    },
+    "highnessDfqo": {
+      "sha": "95b0f90d8738f2415118d703e6c321a26ae87e61",
+      "entries": 439,
+      "truncated": false,
+      "difference": [
+        "actor/ai/MobaHeroMove.lua"
+      ]
+    },
+    "dfqoConfig": {
+      "sha": "180ed67fac6d1ef59598154488cf1cc46358bfd7",
+      "entries": 4174,
+      "truncated": false
+    },
+    "godotSrc": {
+      "sha": "f2ea57e85107919935d5aecae4068cdc6ad71b81",
+      "entries": 376,
+      "truncated": false
+    },
+    "godotCharacterImages": {
+      "sha": "acfb68faca060b829f91f83d57efc08588b926e2",
+      "children": [
+        "fighter",
+        "gunner",
+        "swordman"
+      ],
+      "truncated": false
+    }
+  },
+  "checkedFiles": [
+    {
+      "repository": "baidwwy/dnf-godot",
+      "commit": "e8d13dc8a3c3018476da61fcae4af9a30da8438b",
+      "path": "README.md",
+      "blobSHA": "41f4f541af5559ec0abec9d95b14ba71148f60e2"
+    },
+    {
+      "repository": "baidwwy/dnf-godot",
+      "commit": "e8d13dc8a3c3018476da61fcae4af9a30da8438b",
+      "path": "LICENSE",
+      "blobSHA": "0b321f6245b842c497250f78cf84dddbede5a352"
+    },
+    {
+      "repository": "baidwwy/dnf-godot",
+      "commit": "e8d13dc8a3c3018476da61fcae4af9a30da8438b",
+      "path": "Main.gd",
+      "blobSHA": "f8d9525686e35ceb94a57ecf16d47001396dd96e"
+    },
+    {
+      "repository": "baidwwy/dnf-godot",
+      "commit": "e8d13dc8a3c3018476da61fcae4af9a30da8438b",
+      "path": "src/scripts/UI/characterCreate/CharacterCreate.gd",
+      "blobSHA": "e3b3ed0c1033b60497c3563a8b30e46738abfa16"
+    },
+    {
+      "repository": "baidwwy/dnf-godot",
+      "commit": "e8d13dc8a3c3018476da61fcae4af9a30da8438b",
+      "path": "src/scripts/character/state/combat/Attack.gd",
+      "blobSHA": "cff238aeff8592b1146d0dfbacc22308437e0d06"
+    },
+    {
+      "repository": "baidwwy/dnf-godot",
+      "commit": "e8d13dc8a3c3018476da61fcae4af9a30da8438b",
+      "path": "src/scripts/character/Character.gd",
+      "blobSHA": "0b960ff3875723538d4aa16aff9f52ca822c3c42"
+    },
+    {
+      "repository": "baidwwy/dnf-godot",
+      "commit": "e8d13dc8a3c3018476da61fcae4af9a30da8438b",
+      "path": "src/scripts/manager/ArchiveManager.gd",
+      "blobSHA": "86ce6388be9e0f69d2d6231af018127d6c0fd76a"
+    },
+    {
+      "repository": "PatrickZhu0/DF_GO",
+      "commit": "a85f9fbdbd2aa86e9e1b83b726c36bb240905d21",
+      "path": "scripts/characters/character_animation_config.gd",
+      "blobSHA": "a734d0208f47c9049d39501edb510f2fe5cf8c77"
+    },
+    {
+      "repository": "PatrickZhu0/DF_GO",
+      "commit": "a85f9fbdbd2aa86e9e1b83b726c36bb240905d21",
+      "path": "scripts/characters/skills/warrior_skill_config.gd",
+      "blobSHA": "a0a4dd84ec2ef6b34796941b090cdc10e85d50d0"
+    },
+    {
+      "repository": "prs-0x9/DNF-Godot",
+      "commit": "5b876247b16f2d9957395ecac4d8ff6623065700",
+      "path": "README.md",
+      "blobSHA": "9ba3fbf53b7d66e96ce07fb0d36917ffb425a5ad"
+    },
+    {
+      "repository": "trianglestrip/template-beat-em-up-dnf",
+      "commit": "ba9542d79b013b6446af1501f74dea3fcde0dcfc",
+      "path": "README.md",
+      "blobSHA": "05ae382297b2228e3896c1fc8407ff981ef0935d"
+    },
+    {
+      "repository": "Lucky-Koishi/AS2_Shoot-the-mages",
+      "commit": "14cf2ca8255be964104770c042346d20438fa434",
+      "path": "README.md",
+      "blobSHA": "33d0dfea3d47d06bb16b68d7cdd07c46f61884f3"
+    },
+    {
+      "repository": "Lucky-Koishi/AS2_Shoot-the-mages",
+      "commit": "14cf2ca8255be964104770c042346d20438fa434",
+      "path": "Player.as",
+      "blobSHA": "b93b2d38921260e330a37dc348857bffb357438a"
+    },
+    {
+      "repository": "cloud8352/Dfqo",
+      "commit": "ada151f0eabdcaec386087d736a5b295863fcfad",
+      "path": "LICENSE",
+      "blobSHA": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+    },
+    {
+      "repository": "cloud8352/Dfqo",
+      "commit": "ada151f0eabdcaec386087d736a5b295863fcfad",
+      "path": "README.md",
+      "blobSHA": "99b4da8d6ae8db0279c8c0c4a77229bbc1065b3b"
+    }
+  ],
+  "notCovered": [
+    "Summoner-specific playable normal attack source and frame-data set",
+    "Runtime execution of new candidate Godot/Flash clients",
+    "DNF parity and Android hardware"
+  ],
+  "failures": [
+    {
+      "action": "read newer report before restore",
+      "reason": "local snapshot was older; source-actions report absent",
+      "resolved": "fast-forward restored the saved commit"
+    },
+    {
+      "action": "Gitee diy tree via web open",
+      "reason": "page inaccessible",
+      "resolved": "checked pinned public GitHub mirror instead"
+    },
+    {
+      "action": "large recursive baidwwy tree call",
+      "reason": "transport closed",
+      "resolved": "bounded src/addons/assets trees succeeded"
+    }
+  ],
+  "originalSiteRefs": {
+    "godot": {
+      "url": "https://gitee.com/danielbrain/dnfsingle.git",
+      "HEAD": "e8d13dc8a3c3018476da61fcae4af9a30da8438b",
+      "matchesGitHubMirror": true,
+      "exitCode": 0
+    },
+    "dfqo": {
+      "url": "https://gitee.com/ct243768648/DFQ-Original.git",
+      "HEAD": "ada151f0eabdcaec386087d736a5b295863fcfad",
+      "matchesGitHubMirrorDefault": true,
+      "exitCode": 0,
+      "branchRefs": [
+        {
+          "sha": "ada151f0eabdcaec386087d736a5b295863fcfad",
+          "ref": "HEAD"
+        },
+        {
+          "sha": "d650e6e37e86fb1d8a5f656690e16945f55fc217",
+          "ref": "refs/heads/dev/0.2"
+        },
+        {
+          "sha": "7cc977cf7d0b622679f16174a6b18adff52e6752",
+          "ref": "refs/heads/dev/0.2Jump"
+        },
+        {
+          "sha": "4959ec2d7b7236914071e05fe64213c85d88bcbf",
+          "ref": "refs/heads/dev/0.2_Bogus"
+        },
+        {
+          "sha": "9598e2ce32fb668136211c08318ce6d7630b8360",
+          "ref": "refs/heads/dev/0.2_DirPad"
+        },
+        {
+          "sha": "c90cc5cf83ddef660b93b50b2d4e5a9075deec20",
+          "ref": "refs/heads/dev/0.2_Illusion"
+        },
+        {
+          "sha": "74c92bfe28c5f4f37d1aa6d81b637a2fa5fa4438",
+          "ref": "refs/heads/dev/0.3"
+        },
+        {
+          "sha": "f53e2deab4b60722397a065665c184bd17637233",
+          "ref": "refs/heads/dev/0.3_Love2d11.5"
+        },
+        {
+          "sha": "65d93c71b719a2fe01c30510dd52d221730cc0a1",
+          "ref": "refs/heads/dev/0.3_MiniMap"
+        },
+        {
+          "sha": "fbc0f2bcecc2a050f48f47b8ef38b6595a8a5b95",
+          "ref": "refs/heads/dev/0.3_Ui"
+        },
+        {
+          "sha": "b8625da2f17672baf5863d6793ec321e59ae449f",
+          "ref": "refs/heads/dev/0.3_UltraWideScreen"
+        },
+        {
+          "sha": "ada151f0eabdcaec386087d736a5b295863fcfad",
+          "ref": "refs/heads/dev/0.4"
+        },
+        {
+          "sha": "f32b6d3c03448d5cc1125cef5d2e6841c9214495",
+          "ref": "refs/heads/dev/0.4MoveAiToThread"
+        },
+        {
+          "sha": "239fac886c90a6ccd87b31172e039f87a2f27f51",
+          "ref": "refs/heads/dev/0.4SaveLoadMethod"
+        },
+        {
+          "sha": "4c74359c3bafb5596e32497f93d96e9904cde485",
+          "ref": "refs/heads/dev/0.4_File"
+        },
+        {
+          "sha": "1b22731cd833fba62a81d8bad93e4d974f010091",
+          "ref": "refs/heads/dev/0.4_Npc"
+        },
+        {
+          "sha": "ada151f0eabdcaec386087d736a5b295863fcfad",
+          "ref": "refs/heads/diy"
+        },
+        {
+          "sha": "58ed061333954452b7e7bde2f8bd3e44276b3935",
+          "ref": "refs/heads/diy_dev/0.1"
+        },
+        {
+          "sha": "d0cf463950b22e2fd12515f24553977ccec3b231",
+          "ref": "refs/heads/diy_dev/0.1_windowPos"
+        },
+        {
+          "sha": "b37c47d5282cde2b93b88fb6175a8c1679f6f929",
+          "ref": "refs/heads/master"
+        },
+        {
+          "sha": "9e9d831c110151430a283341d0d9111634796cb0",
+          "ref": "refs/heads/pr_252"
+        }
+      ]
+    }
+  },
+  "dfqoBranchInspection": {
+    "branches": [
+      {
+        "branch": "dev/0.2_Bogus",
+        "commit": "4959ec2d7b7236914071e05fe64213c85d88bcbf"
+      },
+      {
+        "branch": "dev/0.2_DirPad",
+        "commit": "9598e2ce32fb668136211c08318ce6d7630b8360"
+      },
+      {
+        "branch": "dev/0.2_Illusion",
+        "commit": "c90cc5cf83ddef660b93b50b2d4e5a9075deec20"
+      },
+      {
+        "branch": "dev/0.2Jump",
+        "commit": "7cc977cf7d0b622679f16174a6b18adff52e6752"
+      },
+      {
+        "branch": "dev/0.2",
+        "commit": "d650e6e37e86fb1d8a5f656690e16945f55fc217"
+      },
+      {
+        "branch": "dev/0.3_Love2d11.5",
+        "commit": "f53e2deab4b60722397a065665c184bd17637233"
+      },
+      {
+        "branch": "dev/0.3_MiniMap",
+        "commit": "65d93c71b719a2fe01c30510dd52d221730cc0a1"
+      },
+      {
+        "branch": "dev/0.3_Ui",
+        "commit": "fbc0f2bcecc2a050f48f47b8ef38b6595a8a5b95"
+      },
+      {
+        "branch": "dev/0.3_UltraWideScreen",
+        "commit": "b8625da2f17672baf5863d6793ec321e59ae449f"
+      },
+      {
+        "branch": "dev/0.3",
+        "commit": "74c92bfe28c5f4f37d1aa6d81b637a2fa5fa4438"
+      },
+      {
+        "branch": "dev/0.4_File",
+        "commit": "4c74359c3bafb5596e32497f93d96e9904cde485"
+      },
+      {
+        "branch": "dev/0.4MoveAiToThread",
+        "commit": "f32b6d3c03448d5cc1125cef5d2e6841c9214495"
+      },
+      {
+        "branch": "dev/0.4_Npc",
+        "commit": "1b22731cd833fba62a81d8bad93e4d974f010091"
+      },
+      {
+        "branch": "dev/0.4SaveLoadMethod",
+        "commit": "239fac886c90a6ccd87b31172e039f87a2f27f51"
+      },
+      {
+        "branch": "dev/0.4",
+        "commit": "ada151f0eabdcaec386087d736a5b295863fcfad"
+      },
+      {
+        "branch": "diy_dev/0.1_windowPos",
+        "commit": "d0cf463950b22e2fd12515f24553977ccec3b231"
+      },
+      {
+        "branch": "diy_dev/0.1",
+        "commit": "58ed061333954452b7e7bde2f8bd3e44276b3935"
+      },
+      {
+        "branch": "diy",
+        "commit": "ada151f0eabdcaec386087d736a5b295863fcfad"
+      },
+      {
+        "branch": "master",
+        "commit": "b37c47d5282cde2b93b88fb6175a8c1679f6f929"
+      },
+      {
+        "branch": "pr_252",
+        "commit": "9e9d831c110151430a283341d0d9111634796cb0"
+      },
+      {
+        "branch": "revert-eee164a",
+        "commit": "e00998b4a2100df5b2029dc3695669308ce867f9"
+      },
+      {
+        "branch": "revert-merge-300-diy",
+        "commit": "308b258ea17dde6fc8ad15fdef711c42fd2c3cd8"
+      }
+    ],
+    "roots": [
+      {
+        "commit": "ada151f0eabdcaec386087d736a5b295863fcfad",
+        "tree": "b5a11d5d1ce50be8932af1aecee14da0e2173c90",
+        "source": "5e9c3feba655e61da9485ff359830886171371c2",
+        "config": "180ed67fac6d1ef59598154488cf1cc46358bfd7",
+        "error": false
+      },
+      {
+        "commit": "4959ec2d7b7236914071e05fe64213c85d88bcbf",
+        "tree": "4959ec2d7b7236914071e05fe64213c85d88bcbf",
+        "source": "72745ecc663420d7583663479e7209f3f08b6253",
+        "config": "936a9cad3c7b5bc6e6e0db5b3e300d4fe3526cbe",
+        "error": false
+      },
+      {
+        "commit": "9598e2ce32fb668136211c08318ce6d7630b8360",
+        "tree": "9598e2ce32fb668136211c08318ce6d7630b8360",
+        "source": "778bdd0b9846d8d14e836b8f589b4c7bf2de80d5",
+        "config": "0de7caec396d6066474f46798ec8ef427a36d2d8",
+        "error": false
+      },
+      {
+        "commit": "c90cc5cf83ddef660b93b50b2d4e5a9075deec20",
+        "tree": "c90cc5cf83ddef660b93b50b2d4e5a9075deec20",
+        "source": "02500175f0d2aae5d001fb465a4c88e7d9bde440",
+        "config": "101e1e1bd069ef6035c310e52baeddca6fdb4a33",
+        "error": false
+      },
+      {
+        "commit": "7cc977cf7d0b622679f16174a6b18adff52e6752",
+        "tree": "7cc977cf7d0b622679f16174a6b18adff52e6752",
+        "source": "0e335563e51e9027c6c1ab826392304b277d42de",
+        "config": "118e15702c002868a4727d79caacb13637673f97",
+        "error": false
+      },
+      {
+        "commit": "d650e6e37e86fb1d8a5f656690e16945f55fc217",
+        "tree": "d650e6e37e86fb1d8a5f656690e16945f55fc217",
+        "source": "c6e128684ac44d5c7af256a9574acd0f8a2af861",
+        "config": "35c434d6411e18bf842c107eb1573dc4fc871050",
+        "error": false
+      },
+      {
+        "commit": "f53e2deab4b60722397a065665c184bd17637233",
+        "tree": "f53e2deab4b60722397a065665c184bd17637233",
+        "source": "ad02f13ae6dd7cee4972ec799be3bffc8603ea0f",
+        "config": "22927d958780040a7b8331afac83614a85c1b70b",
+        "error": false
+      },
+      {
+        "commit": "65d93c71b719a2fe01c30510dd52d221730cc0a1",
+        "tree": "65d93c71b719a2fe01c30510dd52d221730cc0a1",
+        "source": "98500ffd1a02ebcbfbbc5b9b6991af7ddd62f08c",
+        "config": "774826f9099ced7b0fd0e7d62b03327e388ccbca",
+        "error": false
+      },
+      {
+        "commit": "fbc0f2bcecc2a050f48f47b8ef38b6595a8a5b95",
+        "tree": "fbc0f2bcecc2a050f48f47b8ef38b6595a8a5b95",
+        "source": "04cd8d1f34356a2cca394af7ed93d23cf95fc06b",
+        "config": "4382df373b8e3cff455402ad003b81a8d30d3385",
+        "error": false
+      },
+      {
+        "commit": "b8625da2f17672baf5863d6793ec321e59ae449f",
+        "tree": "b8625da2f17672baf5863d6793ec321e59ae449f",
+        "source": "350bc5d7d48c7013c8695089e82aa5fe518f20ff",
+        "config": "22927d958780040a7b8331afac83614a85c1b70b",
+        "error": false
+      },
+      {
+        "commit": "74c92bfe28c5f4f37d1aa6d81b637a2fa5fa4438",
+        "tree": "74c92bfe28c5f4f37d1aa6d81b637a2fa5fa4438",
+        "source": "9590e025b961df875dbbb123f02e1894607d8519",
+        "config": "af79c8d9e3ef7bf89c0729eb5210dc9912f71c6d",
+        "error": false
+      },
+      {
+        "commit": "4c74359c3bafb5596e32497f93d96e9904cde485",
+        "tree": "4c74359c3bafb5596e32497f93d96e9904cde485",
+        "source": "5d941b6fde5043d3e3940f416b402a8c2ae0319e",
+        "config": "2750d5fc6ca3c365d1b3d9151d6b62051082aec3",
+        "error": false
+      },
+      {
+        "commit": "f32b6d3c03448d5cc1125cef5d2e6841c9214495",
+        "tree": "f32b6d3c03448d5cc1125cef5d2e6841c9214495",
+        "source": "8cbb1ea306db3942dbfb6730cee41e3d7724b06d",
+        "config": "2678cc286d2680cc48afced1ed836c52fc378511",
+        "error": false
+      },
+      {
+        "commit": "1b22731cd833fba62a81d8bad93e4d974f010091",
+        "tree": "1b22731cd833fba62a81d8bad93e4d974f010091",
+        "source": "98f4e65d9f0478fe3c5dde3b77070cf805df55fb",
+        "config": "bc084fe148c3a7f1be4d2faf18296df10aef4801",
+        "error": false
+      },
+      {
+        "commit": "239fac886c90a6ccd87b31172e039f87a2f27f51",
+        "tree": "239fac886c90a6ccd87b31172e039f87a2f27f51",
+        "source": "f860c2f3ed29c91c4be2fdf410da0e8a52b6a64a",
+        "config": "5dd45b117682c2eccb3caaa5e57cb303428e098b",
+        "error": false
+      },
+      {
+        "commit": "d0cf463950b22e2fd12515f24553977ccec3b231",
+        "tree": "d0cf463950b22e2fd12515f24553977ccec3b231",
+        "source": "043aa9f787e7df5de566e98f9a5f2af99a894665",
+        "config": "de673b2de98e9c6f0dc76ea58a9293a5745decf4",
+        "error": false
+      },
+      {
+        "commit": "58ed061333954452b7e7bde2f8bd3e44276b3935",
+        "tree": "58ed061333954452b7e7bde2f8bd3e44276b3935",
+        "source": "3dd7071f996dea2c03433cb1aaee7c8a9d21d69a",
+        "config": "92798915c5a2682c11727b622de9868ebafe960e",
+        "error": false
+      },
+      {
+        "commit": "b37c47d5282cde2b93b88fb6175a8c1679f6f929",
+        "tree": "b37c47d5282cde2b93b88fb6175a8c1679f6f929",
+        "source": "8abde4b3319351bb172d11837b05b5cb34239919",
+        "config": "2d123078532edd60ba76a07966833f15696cc525",
+        "error": false
+      },
+      {
+        "commit": "9e9d831c110151430a283341d0d9111634796cb0",
+        "tree": "9e9d831c110151430a283341d0d9111634796cb0",
+        "source": "4a639b31a2e1517b56f6ade2a3b14b1316ddd06f",
+        "config": "4068eb6515c259f5268cb5eee596b697ddd353c8",
+        "error": false
+      },
+      {
+        "commit": "e00998b4a2100df5b2029dc3695669308ce867f9",
+        "tree": "e00998b4a2100df5b2029dc3695669308ce867f9",
+        "source": "bc7c886f599cb7b1d78707b86e35f10d9511a227",
+        "config": "7bb0a2d145800ace9bafa432d525981b00ad8be9",
+        "error": false
+      },
+      {
+        "commit": "308b258ea17dde6fc8ad15fdef711c42fd2c3cd8",
+        "tree": "308b258ea17dde6fc8ad15fdef711c42fd2c3cd8",
+        "source": "b9c01b339f859a61928ceca8f58a2cabbcba6f83",
+        "config": "ecd9144397ca436e72e680c1cce3ad827bf20edf",
+        "error": false
+      }
+    ],
+    "sections": [
+      {
+        "section": "source",
+        "sha": "72745ecc663420d7583663479e7209f3f08b6253",
+        "entries": 369,
+        "truncated": false,
+        "namedMagePaths": [],
+        "playerStateGroups": [
+          "actor/state/duelist/Bellow.lua",
+          "actor/state/duelist/Fighter",
+          "actor/state/duelist/Kyo",
+          "actor/state/duelist/bogus",
+          "actor/state/duelist/counterattack.lua",
+          "actor/state/duelist/direzie",
+          "actor/state/duelist/down.lua",
+          "actor/state/duelist/elfZombie",
+          "actor/state/duelist/figure.lua",
+          "actor/state/duelist/flashStep.lua",
+          "actor/state/duelist/flight.lua",
+          "actor/state/duelist/ghost",
+          "actor/state/duelist/goblin",
+          "actor/state/duelist/ibeaten.lua",
+          "actor/state/duelist/illusion.lua",
+          "actor/state/duelist/jump.lua",
+          "actor/state/duelist/lugaru",
+          "actor/state/duelist/move.lua",
+          "actor/state/duelist/mummy",
+          "actor/state/duelist/overturn.lua",
+          "actor/state/duelist/run.lua",
+          "actor/state/duelist/sit.lua",
+          "actor/state/duelist/stay.lua",
+          "actor/state/duelist/stun.lua",
+          "actor/state/duelist/swordman",
+          "actor/state/duelist/tau"
+        ]
+      },
+      {
+        "section": "config",
+        "sha": "936a9cad3c7b5bc6e6e0db5b3e300d4fe3526cbe",
+        "entries": 4,
+        "truncated": false,
+        "actorTree": "be5dfe4344767c4623cd6ae1581167dcf473a527"
+      },
+      {
+        "section": "source",
+        "sha": "778bdd0b9846d8d14e836b8f589b4c7bf2de80d5",
+        "entries": 367,
+        "truncated": false,
+        "namedMagePaths": [],
+        "playerStateGroups": [
+          "actor/state/duelist/Bellow.lua",
+          "actor/state/duelist/Fighter",
+          "actor/state/duelist/Kyo",
+          "actor/state/duelist/counterattack.lua",
+          "actor/state/duelist/direzie",
+          "actor/state/duelist/down.lua",
+          "actor/state/duelist/elfZombie",
+          "actor/state/duelist/figure.lua",
+          "actor/state/duelist/flashStep.lua",
+          "actor/state/duelist/flight.lua",
+          "actor/state/duelist/ghost",
+          "actor/state/duelist/goblin",
+          "actor/state/duelist/ibeaten.lua",
+          "actor/state/duelist/illusion.lua",
+          "actor/state/duelist/jump.lua",
+          "actor/state/duelist/lugaru",
+          "actor/state/duelist/move.lua",
+          "actor/state/duelist/mummy",
+          "actor/state/duelist/overturn.lua",
+          "actor/state/duelist/run.lua",
+          "actor/state/duelist/sit.lua",
+          "actor/state/duelist/stay.lua",
+          "actor/state/duelist/stun.lua",
+          "actor/state/duelist/swordman",
+          "actor/state/duelist/tau"
+        ]
+      },
+      {
+        "section": "config",
+        "sha": "0de7caec396d6066474f46798ec8ef427a36d2d8",
+        "entries": 4,
+        "truncated": false,
+        "actorTree": "2157f79d287cf30f9a3a0aee5525c9553568b965"
+      },
+      {
+        "section": "source",
+        "sha": "02500175f0d2aae5d001fb465a4c88e7d9bde440",
+        "entries": 366,
+        "truncated": false,
+        "namedMagePaths": [],
+        "playerStateGroups": [
+          "actor/state/duelist/Bellow.lua",
+          "actor/state/duelist/Fighter",
+          "actor/state/duelist/Kyo",
+          "actor/state/duelist/counterattack.lua",
+          "actor/state/duelist/direzie",
+          "actor/state/duelist/down.lua",
+          "actor/state/duelist/elfZombie",
+          "actor/state/duelist/figure.lua",
+          "actor/state/duelist/flashStep.lua",
+          "actor/state/duelist/flight.lua",
+          "actor/state/duelist/ghost",
+          "actor/state/duelist/goblin",
+          "actor/state/duelist/ibeaten.lua",
+          "actor/state/duelist/illusion.lua",
+          "actor/state/duelist/jump.lua",
+          "actor/state/duelist/lugaru",
+          "actor/state/duelist/move.lua",
+          "actor/state/duelist/mummy",
+          "actor/state/duelist/overturn.lua",
+          "actor/state/duelist/run.lua",
+          "actor/state/duelist/sit.lua",
+          "actor/state/duelist/stay.lua",
+          "actor/state/duelist/stun.lua",
+          "actor/state/duelist/swordman",
+          "actor/state/duelist/tau"
+        ]
+      },
+      {
+        "section": "config",
+        "sha": "101e1e1bd069ef6035c310e52baeddca6fdb4a33",
+        "entries": 4,
+        "truncated": false,
+        "actorTree": "2157f79d287cf30f9a3a0aee5525c9553568b965"
+      },
+      {
+        "section": "source",
+        "sha": "0e335563e51e9027c6c1ab826392304b277d42de",
+        "entries": 379,
+        "truncated": false,
+        "namedMagePaths": [],
+        "playerStateGroups": [
+          "actor/state/duelist/Bellow.lua",
+          "actor/state/duelist/Fighter",
+          "actor/state/duelist/Kyo",
+          "actor/state/duelist/bogus",
+          "actor/state/duelist/counterattack.lua",
+          "actor/state/duelist/direzie",
+          "actor/state/duelist/down.lua",
+          "actor/state/duelist/elfZombie",
+          "actor/state/duelist/figure.lua",
+          "actor/state/duelist/flashStep.lua",
+          "actor/state/duelist/flight.lua",
+          "actor/state/duelist/ghost",
+          "actor/state/duelist/goblin",
+          "actor/state/duelist/ibeaten.lua",
+          "actor/state/duelist/illusion.lua",
+          "actor/state/duelist/jump.lua",
+          "actor/state/duelist/lugaru",
+          "actor/state/duelist/move.lua",
+          "actor/state/duelist/mummy",
+          "actor/state/duelist/overturn.lua",
+          "actor/state/duelist/run.lua",
+          "actor/state/duelist/sit.lua",
+          "actor/state/duelist/stay.lua",
+          "actor/state/duelist/stun.lua",
+          "actor/state/duelist/swordman",
+          "actor/state/duelist/tau"
+        ]
+      },
+      {
+        "section": "config",
+        "sha": "118e15702c002868a4727d79caacb13637673f97",
+        "entries": 4,
+        "truncated": false,
+        "actorTree": "0fc3bc4e18637e2401113182d848dddb5cdaa250"
+      },
+      {
+        "section": "source",
+        "sha": "c6e128684ac44d5c7af256a9574acd0f8a2af861",
+        "entries": 379,
+        "truncated": false,
+        "namedMagePaths": [],
+        "playerStateGroups": [
+          "actor/state/duelist/Bellow.lua",
+          "actor/state/duelist/Fighter",
+          "actor/state/duelist/Kyo",
+          "actor/state/duelist/bogus",
+          "actor/state/duelist/counterattack.lua",
+          "actor/state/duelist/direzie",
+          "actor/state/duelist/down.lua",
+          "actor/state/duelist/elfZombie",
+          "actor/state/duelist/figure.lua",
+          "actor/state/duelist/flashStep.lua",
+          "actor/state/duelist/flight.lua",
+          "actor/state/duelist/ghost",
+          "actor/state/duelist/goblin",
+          "actor/state/duelist/ibeaten.lua",
+          "actor/state/duelist/illusion.lua",
+          "actor/state/duelist/jump.lua",
+          "actor/state/duelist/lugaru",
+          "actor/state/duelist/move.lua",
+          "actor/state/duelist/mummy",
+          "actor/state/duelist/overturn.lua",
+          "actor/state/duelist/run.lua",
+          "actor/state/duelist/sit.lua",
+          "actor/state/duelist/stay.lua",
+          "actor/state/duelist/stun.lua",
+          "actor/state/duelist/swordman",
+          "actor/state/duelist/tau"
+        ]
+      },
+      {
+        "section": "config",
+        "sha": "35c434d6411e18bf842c107eb1573dc4fc871050",
+        "entries": 4,
+        "truncated": false,
+        "actorTree": "e20958c8f0d69038b303f53a3bb647b49cec827f"
+      },
+      {
+        "section": "source",
+        "sha": "ad02f13ae6dd7cee4972ec799be3bffc8603ea0f",
+        "entries": 385,
+        "truncated": false,
+        "namedMagePaths": [],
+        "playerStateGroups": [
+          "actor/state/duelist/Bellow.lua",
+          "actor/state/duelist/Fighter",
+          "actor/state/duelist/Kyo",
+          "actor/state/duelist/bogus",
+          "actor/state/duelist/counterattack.lua",
+          "actor/state/duelist/direzie",
+          "actor/state/duelist/down.lua",
+          "actor/state/duelist/elfZombie",
+          "actor/state/duelist/figure.lua",
+          "actor/state/duelist/flashStep.lua",
+          "actor/state/duelist/flight.lua",
+          "actor/state/duelist/ghost",
+          "actor/state/duelist/goblin",
+          "actor/state/duelist/ibeaten.lua",
+          "actor/state/duelist/illusion.lua",
+          "actor/state/duelist/jump.lua",
+          "actor/state/duelist/lugaru",
+          "actor/state/duelist/move.lua",
+          "actor/state/duelist/mummy",
+          "actor/state/duelist/overturn.lua",
+          "actor/state/duelist/run.lua",
+          "actor/state/duelist/sit.lua",
+          "actor/state/duelist/stay.lua",
+          "actor/state/duelist/stun.lua",
+          "actor/state/duelist/swordman",
+          "actor/state/duelist/tau"
+        ]
+      },
+      {
+        "section": "config",
+        "sha": "22927d958780040a7b8331afac83614a85c1b70b",
+        "entries": 4,
+        "truncated": false,
+        "actorTree": "8cbbddf39e1b1f83840cbf494407689d52082611"
+      },
+      {
+        "section": "source",
+        "sha": "98500ffd1a02ebcbfbbc5b9b6991af7ddd62f08c",
+        "entries": 380,
+        "truncated": false,
+        "namedMagePaths": [],
+        "playerStateGroups": [
+          "actor/state/duelist/Bellow.lua",
+          "actor/state/duelist/Fighter",
+          "actor/state/duelist/Kyo",
+          "actor/state/duelist/bogus",
+          "actor/state/duelist/counterattack.lua",
+          "actor/state/duelist/direzie",
+          "actor/state/duelist/down.lua",
+          "actor/state/duelist/elfZombie",
+          "actor/state/duelist/figure.lua",
+          "actor/state/duelist/flashStep.lua",
+          "actor/state/duelist/flight.lua",
+          "actor/state/duelist/ghost",
+          "actor/state/duelist/goblin",
+          "actor/state/duelist/ibeaten.lua",
+          "actor/state/duelist/illusion.lua",
+          "actor/state/duelist/jump.lua",
+          "actor/state/duelist/lugaru",
+          "actor/state/duelist/move.lua",
+          "actor/state/duelist/mummy",
+          "actor/state/duelist/overturn.lua",
+          "actor/state/duelist/run.lua",
+          "actor/state/duelist/sit.lua",
+          "actor/state/duelist/stay.lua",
+          "actor/state/duelist/stun.lua",
+          "actor/state/duelist/swordman",
+          "actor/state/duelist/tau"
+        ]
+      },
+      {
+        "section": "config",
+        "sha": "774826f9099ced7b0fd0e7d62b03327e388ccbca",
+        "entries": 4,
+        "truncated": false,
+        "actorTree": "e20958c8f0d69038b303f53a3bb647b49cec827f"
+      },
+      {
+        "section": "source",
+        "sha": "04cd8d1f34356a2cca394af7ed93d23cf95fc06b",
+        "entries": 385,
+        "truncated": false,
+        "namedMagePaths": [],
+        "playerStateGroups": [
+          "actor/state/duelist/Bellow.lua",
+          "actor/state/duelist/Fighter",
+          "actor/state/duelist/Kyo",
+          "actor/state/duelist/bogus",
+          "actor/state/duelist/counterattack.lua",
+          "actor/state/duelist/direzie",
+          "actor/state/duelist/down.lua",
+          "actor/state/duelist/elfZombie",
+          "actor/state/duelist/figure.lua",
+          "actor/state/duelist/flashStep.lua",
+          "actor/state/duelist/flight.lua",
+          "actor/state/duelist/ghost",
+          "actor/state/duelist/goblin",
+          "actor/state/duelist/ibeaten.lua",
+          "actor/state/duelist/illusion.lua",
+          "actor/state/duelist/jump.lua",
+          "actor/state/duelist/lugaru",
+          "actor/state/duelist/move.lua",
+          "actor/state/duelist/mummy",
+          "actor/state/duelist/overturn.lua",
+          "actor/state/duelist/run.lua",
+          "actor/state/duelist/sit.lua",
+          "actor/state/duelist/stay.lua",
+          "actor/state/duelist/stun.lua",
+          "actor/state/duelist/swordman",
+          "actor/state/duelist/tau"
+        ]
+      },
+      {
+        "section": "config",
+        "sha": "4382df373b8e3cff455402ad003b81a8d30d3385",
+        "entries": 4,
+        "truncated": false,
+        "actorTree": "a13d40afb38f50e948e347ac5292af82506a30e7"
+      },
+      {
+        "section": "source",
+        "sha": "350bc5d7d48c7013c8695089e82aa5fe518f20ff",
+        "entries": 385,
+        "truncated": false,
+        "namedMagePaths": [],
+        "playerStateGroups": [
+          "actor/state/duelist/Bellow.lua",
+          "actor/state/duelist/Fighter",
+          "actor/state/duelist/Kyo",
+          "actor/state/duelist/bogus",
+          "actor/state/duelist/counterattack.lua",
+          "actor/state/duelist/direzie",
+          "actor/state/duelist/down.lua",
+          "actor/state/duelist/elfZombie",
+          "actor/state/duelist/figure.lua",
+          "actor/state/duelist/flashStep.lua",
+          "actor/state/duelist/flight.lua",
+          "actor/state/duelist/ghost",
+          "actor/state/duelist/goblin",
+          "actor/state/duelist/ibeaten.lua",
+          "actor/state/duelist/illusion.lua",
+          "actor/state/duelist/jump.lua",
+          "actor/state/duelist/lugaru",
+          "actor/state/duelist/move.lua",
+          "actor/state/duelist/mummy",
+          "actor/state/duelist/overturn.lua",
+          "actor/state/duelist/run.lua",
+          "actor/state/duelist/sit.lua",
+          "actor/state/duelist/stay.lua",
+          "actor/state/duelist/stun.lua",
+          "actor/state/duelist/swordman",
+          "actor/state/duelist/tau"
+        ]
+      },
+      {
+        "section": "source",
+        "sha": "9590e025b961df875dbbb123f02e1894607d8519",
+        "entries": 396,
+        "truncated": false,
+        "namedMagePaths": [],
+        "playerStateGroups": [
+          "actor/state/duelist/Bellow.lua",
+          "actor/state/duelist/Fighter",
+          "actor/state/duelist/Guard.lua",
+          "actor/state/duelist/Kyo",
+          "actor/state/duelist/bogus",
+          "actor/state/duelist/counterattack.lua",
+          "actor/state/duelist/direzie",
+          "actor/state/duelist/down.lua",
+          "actor/state/duelist/elfZombie",
+          "actor/state/duelist/figure.lua",
+          "actor/state/duelist/flashStep.lua",
+          "actor/state/duelist/flight.lua",
+          "actor/state/duelist/ghost",
+          "actor/state/duelist/goblin",
+          "actor/state/duelist/ibeaten.lua",
+          "actor/state/duelist/illusion.lua",
+          "actor/state/duelist/jump.lua",
+          "actor/state/duelist/lugaru",
+          "actor/state/duelist/move.lua",
+          "actor/state/duelist/mummy",
+          "actor/state/duelist/overturn.lua",
+          "actor/state/duelist/run.lua",
+          "actor/state/duelist/sit.lua",
+          "actor/state/duelist/stay.lua",
+          "actor/state/duelist/stun.lua",
+          "actor/state/duelist/swordman",
+          "actor/state/duelist/tau"
+        ]
+      },
+      {
+        "section": "config",
+        "sha": "af79c8d9e3ef7bf89c0729eb5210dc9912f71c6d",
+        "entries": 4,
+        "truncated": false,
+        "actorTree": "4135a229cb4735ba37a7cca59cafd32b049ed05c"
+      },
+      {
+        "section": "source",
+        "sha": "5d941b6fde5043d3e3940f416b402a8c2ae0319e",
+        "entries": 390,
+        "truncated": false,
+        "namedMagePaths": [],
+        "playerStateGroups": [
+          "actor/state/duelist/Bellow.lua",
+          "actor/state/duelist/Fighter",
+          "actor/state/duelist/Guard.lua",
+          "actor/state/duelist/Kyo",
+          "actor/state/duelist/bogus",
+          "actor/state/duelist/counterattack.lua",
+          "actor/state/duelist/direzie",
+          "actor/state/duelist/down.lua",
+          "actor/state/duelist/elfZombie",
+          "actor/state/duelist/figure.lua",
+          "actor/state/duelist/flashStep.lua",
+          "actor/state/duelist/flight.lua",
+          "actor/state/duelist/ghost",
+          "actor/state/duelist/goblin",
+          "actor/state/duelist/ibeaten.lua",
+          "actor/state/duelist/illusion.lua",
+          "actor/state/duelist/jump.lua",
+          "actor/state/duelist/lugaru",
+          "actor/state/duelist/move.lua",
+          "actor/state/duelist/mummy",
+          "actor/state/duelist/overturn.lua",
+          "actor/state/duelist/run.lua",
+          "actor/state/duelist/sit.lua",
+          "actor/state/duelist/stay.lua",
+          "actor/state/duelist/stun.lua",
+          "actor/state/duelist/swordman",
+          "actor/state/duelist/tau"
+        ]
+      },
+      {
+        "section": "config",
+        "sha": "2750d5fc6ca3c365d1b3d9151d6b62051082aec3",
+        "entries": 4,
+        "truncated": false,
+        "actorTree": "c629e025cdfd206577f2922a2606af9b1088b2d1"
+      },
+      {
+        "section": "source",
+        "sha": "8cbb1ea306db3942dbfb6730cee41e3d7724b06d",
+        "entries": 418,
+        "truncated": false,
+        "namedMagePaths": [],
+        "playerStateGroups": [
+          "actor/state/duelist/Bellow.lua",
+          "actor/state/duelist/Fighter",
+          "actor/state/duelist/Guard.lua",
+          "actor/state/duelist/Iori",
+          "actor/state/duelist/Kyo",
+          "actor/state/duelist/Tsunade",
+          "actor/state/duelist/Turret",
+          "actor/state/duelist/bogus",
+          "actor/state/duelist/counterattack.lua",
+          "actor/state/duelist/direzie",
+          "actor/state/duelist/down.lua",
+          "actor/state/duelist/elfZombie",
+          "actor/state/duelist/figure.lua",
+          "actor/state/duelist/flashStep.lua",
+          "actor/state/duelist/flight.lua",
+          "actor/state/duelist/ghost",
+          "actor/state/duelist/goblin",
+          "actor/state/duelist/ibeaten.lua",
+          "actor/state/duelist/illusion.lua",
+          "actor/state/duelist/jump.lua",
+          "actor/state/duelist/lugaru",
+          "actor/state/duelist/move.lua",
+          "actor/state/duelist/mummy",
+          "actor/state/duelist/overturn.lua",
+          "actor/state/duelist/run.lua",
+          "actor/state/duelist/sit.lua",
+          "actor/state/duelist/stay.lua",
+          "actor/state/duelist/stun.lua",
+          "actor/state/duelist/swordman",
+          "actor/state/duelist/tau"
+        ]
+      },
+      {
+        "section": "config",
+        "sha": "2678cc286d2680cc48afced1ed836c52fc378511",
+        "entries": 4,
+        "truncated": false,
+        "actorTree": "be75cdabcd544fbd67c5838604fa1f225ff01b3e"
+      },
+      {
+        "section": "source",
+        "sha": "98f4e65d9f0478fe3c5dde3b77070cf805df55fb",
+        "entries": 401,
+        "truncated": false,
+        "namedMagePaths": [],
+        "playerStateGroups": [
+          "actor/state/duelist/Bellow.lua",
+          "actor/state/duelist/Fighter",
+          "actor/state/duelist/Guard.lua",
+          "actor/state/duelist/Kyo",
+          "actor/state/duelist/bogus",
+          "actor/state/duelist/counterattack.lua",
+          "actor/state/duelist/direzie",
+          "actor/state/duelist/down.lua",
+          "actor/state/duelist/elfZombie",
+          "actor/state/duelist/figure.lua",
+          "actor/state/duelist/flashStep.lua",
+          "actor/state/duelist/flight.lua",
+          "actor/state/duelist/ghost",
+          "actor/state/duelist/goblin",
+          "actor/state/duelist/ibeaten.lua",
+          "actor/state/duelist/illusion.lua",
+          "actor/state/duelist/jump.lua",
+          "actor/state/duelist/lugaru",
+          "actor/state/duelist/move.lua",
+          "actor/state/duelist/mummy",
+          "actor/state/duelist/overturn.lua",
+          "actor/state/duelist/run.lua",
+          "actor/state/duelist/sit.lua",
+          "actor/state/duelist/stay.lua",
+          "actor/state/duelist/stun.lua",
+          "actor/state/duelist/swordman",
+          "actor/state/duelist/tau"
+        ]
+      },
+      {
+        "section": "config",
+        "sha": "bc084fe148c3a7f1be4d2faf18296df10aef4801",
+        "entries": 4,
+        "truncated": false,
+        "actorTree": "60fea9ce60ba8a1e20b05273e85a54bb0e75f6db"
+      },
+      {
+        "section": "source",
+        "sha": "f860c2f3ed29c91c4be2fdf410da0e8a52b6a64a",
+        "entries": 411,
+        "truncated": false,
+        "namedMagePaths": [],
+        "playerStateGroups": [
+          "actor/state/duelist/Bellow.lua",
+          "actor/state/duelist/Fighter",
+          "actor/state/duelist/Guard.lua",
+          "actor/state/duelist/Iori",
+          "actor/state/duelist/Kyo",
+          "actor/state/duelist/Tsunade",
+          "actor/state/duelist/bogus",
+          "actor/state/duelist/counterattack.lua",
+          "actor/state/duelist/direzie",
+          "actor/state/duelist/down.lua",
+          "actor/state/duelist/elfZombie",
+          "actor/state/duelist/figure.lua",
+          "actor/state/duelist/flashStep.lua",
+          "actor/state/duelist/flight.lua",
+          "actor/state/duelist/ghost",
+          "actor/state/duelist/goblin",
+          "actor/state/duelist/ibeaten.lua",
+          "actor/state/duelist/illusion.lua",
+          "actor/state/duelist/jump.lua",
+          "actor/state/duelist/lugaru",
+          "actor/state/duelist/move.lua",
+          "actor/state/duelist/mummy",
+          "actor/state/duelist/overturn.lua",
+          "actor/state/duelist/run.lua",
+          "actor/state/duelist/sit.lua",
+          "actor/state/duelist/stay.lua",
+          "actor/state/duelist/stun.lua",
+          "actor/state/duelist/swordman",
+          "actor/state/duelist/tau"
+        ]
+      },
+      {
+        "section": "config",
+        "sha": "5dd45b117682c2eccb3caaa5e57cb303428e098b",
+        "entries": 4,
+        "truncated": false,
+        "actorTree": "14de40e82d13a86436a4b521da1a6322ce61e5b0"
+      },
+      {
+        "section": "source",
+        "sha": "043aa9f787e7df5de566e98f9a5f2af99a894665",
+        "entries": 364,
+        "truncated": false,
+        "namedMagePaths": [],
+        "playerStateGroups": [
+          "actor/state/duelist/Bellow.lua",
+          "actor/state/duelist/Fighter",
+          "actor/state/duelist/Kyo",
+          "actor/state/duelist/counterattack.lua",
+          "actor/state/duelist/direzie",
+          "actor/state/duelist/down.lua",
+          "actor/state/duelist/elfZombie",
+          "actor/state/duelist/figure.lua",
+          "actor/state/duelist/flashStep.lua",
+          "actor/state/duelist/flight.lua",
+          "actor/state/duelist/ghost",
+          "actor/state/duelist/goblin",
+          "actor/state/duelist/ibeaten.lua",
+          "actor/state/duelist/illusion.lua",
+          "actor/state/duelist/jump.lua",
+          "actor/state/duelist/lugaru",
+          "actor/state/duelist/move.lua",
+          "actor/state/duelist/mummy",
+          "actor/state/duelist/overturn.lua",
+          "actor/state/duelist/run.lua",
+          "actor/state/duelist/sit.lua",
+          "actor/state/duelist/stay.lua",
+          "actor/state/duelist/stun.lua",
+          "actor/state/duelist/swordman",
+          "actor/state/duelist/tau"
+        ]
+      },
+      {
+        "section": "config",
+        "sha": "de673b2de98e9c6f0dc76ea58a9293a5745decf4",
+        "entries": 4,
+        "truncated": false,
+        "actorTree": "33380635f457488371aa7817f84acc04c265f654"
+      },
+      {
+        "section": "source",
+        "sha": "3dd7071f996dea2c03433cb1aaee7c8a9d21d69a",
+        "entries": 365,
+        "truncated": false,
+        "namedMagePaths": [],
+        "playerStateGroups": [
+          "actor/state/duelist/Bellow.lua",
+          "actor/state/duelist/Fighter",
+          "actor/state/duelist/Kyo",
+          "actor/state/duelist/counterattack.lua",
+          "actor/state/duelist/direzie",
+          "actor/state/duelist/down.lua",
+          "actor/state/duelist/elfZombie",
+          "actor/state/duelist/figure.lua",
+          "actor/state/duelist/flashStep.lua",
+          "actor/state/duelist/flight.lua",
+          "actor/state/duelist/ghost",
+          "actor/state/duelist/goblin",
+          "actor/state/duelist/ibeaten.lua",
+          "actor/state/duelist/illusion.lua",
+          "actor/state/duelist/jump.lua",
+          "actor/state/duelist/lugaru",
+          "actor/state/duelist/move.lua",
+          "actor/state/duelist/mummy",
+          "actor/state/duelist/overturn.lua",
+          "actor/state/duelist/run.lua",
+          "actor/state/duelist/sit.lua",
+          "actor/state/duelist/stay.lua",
+          "actor/state/duelist/stun.lua",
+          "actor/state/duelist/swordman",
+          "actor/state/duelist/tau"
+        ]
+      },
+      {
+        "section": "config",
+        "sha": "92798915c5a2682c11727b622de9868ebafe960e",
+        "entries": 4,
+        "truncated": false,
+        "actorTree": "4166d68d827c1f4dc8d0991ea6208ae1a55508fa"
+      },
+      {
+        "section": "source",
+        "sha": "8abde4b3319351bb172d11837b05b5cb34239919",
+        "entries": 267,
+        "truncated": false,
+        "namedMagePaths": [],
+        "playerStateGroups": [
+          "actor/state/duelist/counterattack.lua",
+          "actor/state/duelist/down.lua",
+          "actor/state/duelist/figure.lua",
+          "actor/state/duelist/flashStep.lua",
+          "actor/state/duelist/flight.lua",
+          "actor/state/duelist/goblin",
+          "actor/state/duelist/ibeaten.lua",
+          "actor/state/duelist/illusion.lua",
+          "actor/state/duelist/lugaru",
+          "actor/state/duelist/move.lua",
+          "actor/state/duelist/overturn.lua",
+          "actor/state/duelist/sit.lua",
+          "actor/state/duelist/stay.lua",
+          "actor/state/duelist/stun.lua",
+          "actor/state/duelist/swordman",
+          "actor/state/duelist/tau"
+        ]
+      },
+      {
+        "section": "config",
+        "sha": "2d123078532edd60ba76a07966833f15696cc525",
+        "entries": 3,
+        "truncated": false,
+        "actorTree": "d7efcab76289cbcd49e882a7d3dabdcd5ec3ffad"
+      },
+      {
+        "section": "source",
+        "sha": "4a639b31a2e1517b56f6ade2a3b14b1316ddd06f",
+        "entries": 385,
+        "truncated": false,
+        "namedMagePaths": [],
+        "playerStateGroups": [
+          "actor/state/duelist/Bellow.lua",
+          "actor/state/duelist/Fighter",
+          "actor/state/duelist/Kyo",
+          "actor/state/duelist/bogus",
+          "actor/state/duelist/counterattack.lua",
+          "actor/state/duelist/direzie",
+          "actor/state/duelist/down.lua",
+          "actor/state/duelist/elfZombie",
+          "actor/state/duelist/figure.lua",
+          "actor/state/duelist/flashStep.lua",
+          "actor/state/duelist/flight.lua",
+          "actor/state/duelist/ghost",
+          "actor/state/duelist/goblin",
+          "actor/state/duelist/ibeaten.lua",
+          "actor/state/duelist/illusion.lua",
+          "actor/state/duelist/jump.lua",
+          "actor/state/duelist/lugaru",
+          "actor/state/duelist/move.lua",
+          "actor/state/duelist/mummy",
+          "actor/state/duelist/overturn.lua",
+          "actor/state/duelist/run.lua",
+          "actor/state/duelist/sit.lua",
+          "actor/state/duelist/stay.lua",
+          "actor/state/duelist/stun.lua",
+          "actor/state/duelist/swordman",
+          "actor/state/duelist/tau"
+        ]
+      },
+      {
+        "section": "config",
+        "sha": "4068eb6515c259f5268cb5eee596b697ddd353c8",
+        "entries": 4,
+        "truncated": false,
+        "actorTree": "e75837120cbd0e3c41fed127026ca9392c61c74b"
+      },
+      {
+        "section": "source",
+        "sha": "bc7c886f599cb7b1d78707b86e35f10d9511a227",
+        "entries": 411,
+        "truncated": false,
+        "namedMagePaths": [],
+        "playerStateGroups": [
+          "actor/state/duelist/Bellow.lua",
+          "actor/state/duelist/Fighter",
+          "actor/state/duelist/Guard.lua",
+          "actor/state/duelist/Iori",
+          "actor/state/duelist/Kyo",
+          "actor/state/duelist/Tsunade",
+          "actor/state/duelist/bogus",
+          "actor/state/duelist/counterattack.lua",
+          "actor/state/duelist/direzie",
+          "actor/state/duelist/down.lua",
+          "actor/state/duelist/elfZombie",
+          "actor/state/duelist/figure.lua",
+          "actor/state/duelist/flashStep.lua",
+          "actor/state/duelist/flight.lua",
+          "actor/state/duelist/ghost",
+          "actor/state/duelist/goblin",
+          "actor/state/duelist/ibeaten.lua",
+          "actor/state/duelist/illusion.lua",
+          "actor/state/duelist/jump.lua",
+          "actor/state/duelist/lugaru",
+          "actor/state/duelist/move.lua",
+          "actor/state/duelist/mummy",
+          "actor/state/duelist/overturn.lua",
+          "actor/state/duelist/run.lua",
+          "actor/state/duelist/sit.lua",
+          "actor/state/duelist/stay.lua",
+          "actor/state/duelist/stun.lua",
+          "actor/state/duelist/swordman",
+          "actor/state/duelist/tau"
+        ]
+      },
+      {
+        "section": "config",
+        "sha": "7bb0a2d145800ace9bafa432d525981b00ad8be9",
+        "entries": 4,
+        "truncated": false,
+        "actorTree": "a3cfd07c99a055af6d328120ad03d617022bf9e1"
+      },
+      {
+        "section": "source",
+        "sha": "b9c01b339f859a61928ceca8f58a2cabbcba6f83",
+        "entries": 414,
+        "truncated": false,
+        "namedMagePaths": [],
+        "playerStateGroups": [
+          "actor/state/duelist/Bellow.lua",
+          "actor/state/duelist/Fighter",
+          "actor/state/duelist/Guard.lua",
+          "actor/state/duelist/Iori",
+          "actor/state/duelist/Kyo",
+          "actor/state/duelist/Tsunade",
+          "actor/state/duelist/bogus",
+          "actor/state/duelist/counterattack.lua",
+          "actor/state/duelist/direzie",
+          "actor/state/duelist/down.lua",
+          "actor/state/duelist/elfZombie",
+          "actor/state/duelist/figure.lua",
+          "actor/state/duelist/flashStep.lua",
+          "actor/state/duelist/flight.lua",
+          "actor/state/duelist/ghost",
+          "actor/state/duelist/goblin",
+          "actor/state/duelist/ibeaten.lua",
+          "actor/state/duelist/illusion.lua",
+          "actor/state/duelist/jump.lua",
+          "actor/state/duelist/lugaru",
+          "actor/state/duelist/move.lua",
+          "actor/state/duelist/mummy",
+          "actor/state/duelist/overturn.lua",
+          "actor/state/duelist/run.lua",
+          "actor/state/duelist/sit.lua",
+          "actor/state/duelist/stay.lua",
+          "actor/state/duelist/stun.lua",
+          "actor/state/duelist/swordman",
+          "actor/state/duelist/tau"
+        ]
+      },
+      {
+        "section": "config",
+        "sha": "ecd9144397ca436e72e680c1cce3ad827bf20edf",
+        "entries": 4,
+        "truncated": false,
+        "actorTree": "196e6fe4c4157bb4f807429e9e87983165895c8f"
+      }
+    ],
+    "actorConfigTrees": [
+      {
+        "sha": "be5dfe4344767c4623cd6ae1581167dcf473a527",
+        "entries": 1313,
+        "truncated": false,
+        "namedMagePaths": []
+      },
+      {
+        "sha": "2157f79d287cf30f9a3a0aee5525c9553568b965",
+        "entries": 1308,
+        "truncated": false,
+        "namedMagePaths": []
+      },
+      {
+        "sha": "0fc3bc4e18637e2401113182d848dddb5cdaa250",
+        "entries": 1358,
+        "truncated": false,
+        "namedMagePaths": []
+      },
+      {
+        "sha": "e20958c8f0d69038b303f53a3bb647b49cec827f",
+        "entries": 1358,
+        "truncated": false,
+        "namedMagePaths": []
+      },
+      {
+        "sha": "8cbbddf39e1b1f83840cbf494407689d52082611",
+        "entries": 1373,
+        "truncated": false,
+        "namedMagePaths": []
+      },
+      {
+        "sha": "a13d40afb38f50e948e347ac5292af82506a30e7",
+        "entries": 1374,
+        "truncated": false,
+        "namedMagePaths": []
+      },
+      {
+        "sha": "4135a229cb4735ba37a7cca59cafd32b049ed05c",
+        "entries": 2453,
+        "truncated": false,
+        "namedMagePaths": []
+      },
+      {
+        "sha": "c629e025cdfd206577f2922a2606af9b1088b2d1",
+        "entries": 1383,
+        "truncated": false,
+        "namedMagePaths": []
+      },
+      {
+        "sha": "be75cdabcd544fbd67c5838604fa1f225ff01b3e",
+        "entries": 4146,
+        "truncated": false,
+        "namedMagePaths": []
+      },
+      {
+        "sha": "60fea9ce60ba8a1e20b05273e85a54bb0e75f6db",
+        "entries": 2468,
+        "truncated": false,
+        "namedMagePaths": []
+      },
+      {
+        "sha": "14de40e82d13a86436a4b521da1a6322ce61e5b0",
+        "entries": 4118,
+        "truncated": false,
+        "namedMagePaths": []
+      },
+      {
+        "sha": "33380635f457488371aa7817f84acc04c265f654",
+        "entries": 1292,
+        "truncated": false,
+        "namedMagePaths": []
+      },
+      {
+        "sha": "4166d68d827c1f4dc8d0991ea6208ae1a55508fa",
+        "entries": 1302,
+        "truncated": false,
+        "namedMagePaths": []
+      },
+      {
+        "sha": "d7efcab76289cbcd49e882a7d3dabdcd5ec3ffad",
+        "entries": 587,
+        "truncated": false,
+        "namedMagePaths": []
+      },
+      {
+        "sha": "e75837120cbd0e3c41fed127026ca9392c61c74b",
+        "entries": 1374,
+        "truncated": false,
+        "namedMagePaths": []
+      },
+      {
+        "sha": "a3cfd07c99a055af6d328120ad03d617022bf9e1",
+        "entries": 4118,
+        "truncated": false,
+        "namedMagePaths": []
+      },
+      {
+        "sha": "196e6fe4c4157bb4f807429e9e87983165895c8f",
+        "entries": 4139,
+        "truncated": false,
+        "namedMagePaths": []
+      }
+    ],
+    "scope": "pathname and player-state directory inspection; does not prove absence of all dynamically configured classes"
+  }
+}

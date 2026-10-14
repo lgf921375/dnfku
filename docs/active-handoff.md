@@ -1,6 +1,15 @@
 # dnfku 当前研究交接
 
-## 当前优先交接：原普通攻击状态与帧控制（2026-10-14续）
+## 当前优先交接：恢复保存点并继续职业源码核查（2026-10-14 22:20）
+
+- 用户要求运行中任务不打断、中断后从断处续接、不重复已完成工作。本地启动旧HEAD135628f且干净，最新报告读取exit2；远端实际68756ba/tree714adaf。仅fetch+fast-forward恢复保存的54文件变更，没有重写、重建或重跑测试。实际项目Node验收/Headless Shell进程0，未终止其它进程。已读真实约定/最新版交接和报告；规则追加AGENTS第9条。
+- 复刻产品已恢复保存点`68756ba1e68152e4c118314c276a8efcb64b9691` / tree `714adaf8479e6c6d608558ac18fe940256308e62`；60原文件与原连段页保留。本轮仅新增研究文档/约定，历史Node12+10、浏览器15仍是前轮实测；**本轮测试NOT RUN**，不重新计PASS，无并行代理、安装、部署、Actions、其它项目或服务器操作。
+- **新来源静态核查**：Dfqo cloud版ada151f0/Highness版72dbbc08（Apache），Godot baidwwy e8d13dc8（MIT原许可已读），DF_GO a85f9fbd（许可null），赛车DNF-Godot5b876247（MIT）、通用模板ba9542d7（MIT）、Flash STG14cf2ca8（许可null）。均真实固定commit/树/文件，不凭搜索标题选择职业代码。
+- DFQ默认source439/config4174未截断；两镜像源码只MobaHeroMove.lua不同。进一步22分支/21commit按SHA去重，追加39 source/config树及17 actor配置树，无失败/截断，无目标职业命名路径；仅目录范围，不声称排除所有动态配置或全网。Gitee真实refs确认两原站默认HEAD与镜像同，不下载图片音效客户端。
+- Godot有法师按钮，但Main.gd init_player只SWORDMAN/FIGHTER，character图片根仅fighter/gunner/swordman；Attack.gd固定剑士声音。DF_GO动画/技能配置明确Swordman；其它分别赛车/街机通用模板/STG。教程mage.chr例名未取得实际职业文件，不采用自估攻击框。本轮尚未得到可接入的召唤师普攻/ANI/ATK集合，现有鬼剑士源码验证不变。
+- **失败/下一步**：旧快照新报告缺失已恢复；Gitee网页不可读改GitHub固定镜像+原站refs，整树transport closed改有界子树成功。新候选未启动/运行/验收，Android、原版一致、完整职业/PK/死亡仍未覆盖。后续找女法师明确角色加载器+普攻状态+帧/命中框及许可；已经排除的候选与已完成22/15不重复做。[续接报告](source-resume-20261014.md)/[SHA实证](evidence-source-resume-20261014/summary.json)。本轮文档最终ref以实际回读为准。
+
+## 历史交接：原普通攻击状态与帧控制（2026-10-14续）
 
 - 最新代码检查点（远端对象已回读）：`91ba45a2db3e9ac81c5d1bdeb017ecf809e9aa2a` / tree `77b3a75668797182b0278811d0cc88e9de336025`，与本地完整树一致；后续仅本报告/交接补检查点，最终工作ref以实际回读为准。
 - 用户“回答什么请继续运行”，图示前轮可选提问等待。前轮已按核心继续，本轮不再要求回答/重复授权。起点local/remote `135628ff2583ca45afa6b7116bb1f2e08583d8fb` / tree `b545bdf54f501472a28591df85dd13dc8b966856`，干净；真实约定、README、本交接、前轮报告及上游commit/工作ref已读。无并行代理。
