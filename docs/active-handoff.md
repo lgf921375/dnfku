@@ -2,6 +2,7 @@
 
 ## 当前优先交接：原普通攻击状态与帧控制（2026-10-14续）
 
+- 最新代码检查点（远端对象已回读）：`91ba45a2db3e9ac81c5d1bdeb017ecf809e9aa2a` / tree `77b3a75668797182b0278811d0cc88e9de336025`，与本地完整树一致；后续仅本报告/交接补检查点，最终工作ref以实际回读为准。
 - 用户“回答什么请继续运行”，图示前轮可选提问等待。前轮已按核心继续，本轮不再要求回答/重复授权。起点local/remote `135628ff2583ca45afa6b7116bb1f2e08583d8fb` / tree `b545bdf54f501472a28591df85dd13dc8b966856`，干净；真实约定、README、本交接、前轮报告及上游commit/工作ref已读。无并行代理。
 - **接入**：DFQ同一Apache-2.0固定d4b9088d，追加9Lua+10cfg共19原字节文件；双锁合计60，Git Blob/SHA256均匹配。原NormalAttack.Enter/SetProcess/HasTick/NormalUpdate、Graphics/Actor.Frameani、Actor.Drawable.Base/Collider直接执行，原帧门槛/接段/位移/逐帧框驱动连段；新页无68ms自有命中窗口，原核心页保留原SHA。
 - **可操作结果**：播放一套、X/长按，站立/浮空/倒地与霸体/景深/距离共同生效。近身固定夹具正常三击13/12/12，HP120→83；原阶段340/629、结束1224ms，原位移39.994。首击等源frame4/tick3，153ms后真实接触；没有手动保证命中或重置受击者。
